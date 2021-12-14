@@ -1,8 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is the Educacion Diversa website development project.  It is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+## Prerequisites
+
+Assumes familiarity with React.js and Next.js frameworks.  (Both have good tutorials if you need a refresher).  
+
+Assumes you have installed Node Package Manager npm or equivalent (eg yarn)
+
+Assumes you have installed Git Bash or equivalent.
+
 
 ## Getting Started
 
-First, run the development server:
+Clone this repository to your local machine.
+
+Inside the pwa folder:
+ - install next.js: ```npm i next```
+ - install [chakra-ui](https://chakra-ui.com/docs/getting-started) ```npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^4```
+
+Now check that you can run the development server:
 
 ```bash
 npm run dev
