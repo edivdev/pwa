@@ -4,24 +4,23 @@ import { Box } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/react'
 
 const CMSpages =[
-  {name:'home'},
-  {name:'about-us'},
-  {name:'resources'},
-  {name:'donate'},
-  {name:'contact'},
+  {name:'home', slug:'/'},
+  {name:'about-us', slug:'/about-us'},
+  {name:'resources', slug:'/resources'},
+  {name:'donate', slug:'/donate'},
+  {name:'contact', slug:'/contact'},
 ]
 
 
 const Header = () => {
   
-  console.log(CMSpages.length)
   return (
   <nav>
-  <Flex justifyContent="space-around">
+  <Flex h="104px" justifyContent="space-around">
   <Box minWidth='200px' />
-    {CMSpages.map((element) => {
+    {CMSpages.map((element, index) => {
       return(
-        <Link href={`/${element.name}`}>
+        <Link key={index} href={`${element.slug}`}>
         <Box>
           {element.name}
         </Box>

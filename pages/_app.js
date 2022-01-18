@@ -1,13 +1,15 @@
-import '../styles/override.css'
 import { ChakraProvider } from '@chakra-ui/react'
-import Header from '/components/Header'
-
+import theme from '../components/theme'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import '@fontsource/quicksand'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
-    <Header />
+    <ChakraProvider theme={theme}>
+      <Header />
       <Component {...pageProps} />
+      <Footer />
     </ChakraProvider>
   )
 }
