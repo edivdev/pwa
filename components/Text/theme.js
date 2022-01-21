@@ -2,7 +2,7 @@ export default {
   variants: {
     mainTitle:{
       fontWeight:'700',
-      fontSize:'140px',
+      fontSize:'120px',
       lineHeight:'175px',
       textTransform:'capitalize'
     },

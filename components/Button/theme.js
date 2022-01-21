@@ -4,12 +4,24 @@ export default {
   variants:{
     red: ({ theme }) => ({
       bg:theme.colors.main.red,
-      color:'white',
-      border:'1px solid black',
+      color: theme.colors.main.white,
+      border:`2px solid ${theme.colors.main.red}`,
       '&:hover': {
-        border: '1px dotted blue'
+        border:`2px solid ${theme.colors.main.red}`,
+        opacity:'0.5'
       }
+    }),
+    transparent: ({ theme }) => ({
+      bg:'transparent',
+      color: theme.colors.main.white,
+      border:`2px solid ${theme.colors.main.white}`
     })
+  },
+  sizes:{
+    banner: {
+      height:'80px',
+      width:'226px'
+    }
   }
 }
 
