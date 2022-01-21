@@ -1,14 +1,18 @@
 import theme from '../theme'
 
 export default {
+  baseStyle:{
+    '&:hover': {
+      opacity:'0.5'
+    }
+  },
   variants:{
     red: ({ theme }) => ({
       bg:theme.colors.main.red,
       color: theme.colors.main.white,
       border:`2px solid ${theme.colors.main.red}`,
       '&:hover': {
-        border:`2px solid ${theme.colors.main.red}`,
-        opacity:'0.5'
+        border:`2px solid ${theme.colors.main.red}`
       }
     }),
     transparent: ({ theme }) => ({
