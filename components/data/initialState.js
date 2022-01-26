@@ -4,7 +4,9 @@ export const projects = [
     slug:'/project1',
     img:'https://via.placeholder.com/355x420',
     exceprt:'Quis autem vel eum iure reprehenderit',
-    content:'<p><b>strong title from markup</b> esto es el contenido de mi proyecto lorem lorem lorem</p>'    
+    content:'<p><b>strong title from markup</b> esto es el contenido de mi proyecto lorem lorem lorem</p>',
+    category:'EDUCATION',
+    featured:true,  
   },
   {
     title:'project 2 title',
