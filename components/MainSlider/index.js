@@ -12,8 +12,8 @@ const MainSlider = () => {
   const theme = useTheme()
   
   return (
-    <Flex>
-        <Box w="50%" backgroundColor={theme.colors.main.blue}>
+    <Flex backgroundColor={theme.colors.main.blue}>
+        <Box w="50%">
           <Flex flexDirection="column" justifyContent="center" px="10%" h="100%">
             <Box>
               <Text color="white" variant="mainSubTitle">education resources for</Text>
@@ -21,10 +21,10 @@ const MainSlider = () => {
                 children
               </Text>
             </Box>
-            <Box maxWidth="724px" pt="10px" pb="100px" pl="10px" pr="10px">
+            <Box pt="10px" pb="100px" px="5px">
               <Text color="white" variant="normal">Lorem ipsum dolor sit amet, duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
             </Box>
-            <Flex justifyContent="space-evenly">
+            <Flex>
               <Button
                 size="banner"
                 variant="red"
@@ -39,8 +39,10 @@ const MainSlider = () => {
             </Flex>
           </Flex>
         </Box>
-        <Box w="50%" textAlign="center">
-          <Image style={{ margin: 'auto' }} src="https://via.placeholder.com/904x860" alt="asd" />
+        <Box w="50%">
+          <Box>
+            <Image style={{ margin: 'auto' }} src="https://via.placeholder.com/904x860" alt="asd" />
+          </Box>
         </Box>
       </Flex>
   )

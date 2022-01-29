@@ -2,6 +2,7 @@ import theme from '../theme'
 
 export default {
   baseStyle:{
+    mr:'50px',
     '&:hover': {
       opacity:'0.5'
     }

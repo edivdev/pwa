@@ -6,6 +6,9 @@ import Button from '../components/Button'
 import Image from '../components/Image'
 import Input from '../components/Input'
 
+import { Grid, GridItem } from '@chakra-ui/react'
+
+
 import MainSlider from '../components/MainSlider'
 
 
@@ -22,7 +25,7 @@ function Index() {
       <MainSlider />
       
       <Flex>
-        <Box textAlign="center">
+        <Box textAlign="center" >
           <Text as="h1" variant="h1">
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           </Text>
@@ -35,8 +38,8 @@ function Index() {
 
       <Box textAlign="center">FILTER BY CATEGORY</Box>
 
-      <Box>
-        <Flex justifyContent="space-evenly" w="65%" mx="auto">
+      <Box px="10%">
+        <Flex justifyContent="space-evenly">
           <Button>EDUCATION</Button>
           <Button>ACTIVISM</Button>
           <Button>EMPOWERMENT</Button>
@@ -44,22 +47,22 @@ function Index() {
         </Flex>
       </Box>
 
-      <Box>
-        <Flex justifyContent="space-evenly" w="65%" mx="auto">
-          <Input type="text" placeholder="search" w="65%" />
+      <Box px="10%">
+        <Flex justifyContent="space-evenly">
+          <Input type="text" placeholder="search" />
           <Button>SEARCH</Button>
         </Flex>
       </Box>
 
-      <Box>
-        <Flex justifyContent="space-evenly" w="85%" mx="auto" flexWrap="wrap">
+      <Box px="10%">
+      <Grid templateColumns='repeat(4, 1fr)' gap={6}>
           {projects.map((project, index) =>
             <Box key={index} textAlign="center">
               <Box m="auto"><Image src={project.img} alt={project.title} /></Box>
               <p>{project.exceprt}</p>
             </Box>
           )}
-        </Flex>
+        </Grid>
 
         <Box w="85%" mx="auto" textAlign="center">
           <Button>SEE MORE</Button>
