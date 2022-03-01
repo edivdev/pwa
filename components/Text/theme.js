@@ -15,12 +15,28 @@ export default {
     normal:{
       fontWeight:'400',
       fontSize:'20px',
-      lineHeight:'38px'
+      lineHeight:'38px',
     },
     h1:{
       fontWeight:'700',
       fontSize:'44px',
       lineHeight:'60.72px'
+    },
+    sectionTitle:{
+      fontSize:'36px',
+      lineHeight:'49.68px',
+      fontWeight:'700',
+      marginTop:'31px'
+    },
+    sectionSubtitle:{
+      fontSize:'20px',
+      lineHeight:'22.8px',
+      fontWeight:'700',
+      textTransform: 'uppercase',
+    },
+    callsTitle:{
+      fontSize:'44px',
+      lineHeight:'50px'
     }
   }
 }

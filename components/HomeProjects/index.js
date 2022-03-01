@@ -3,7 +3,7 @@ import { Grid, GridItem } from '@chakra-ui/react'
 
 import Text from '../../components/Text'
 import Button from '../../components/Button'
-import Image from '../../components/Image'
+import Image from 'next/image'
 import Input from '../../components/Input'
 
 import EdLink from '../Link'
@@ -11,13 +11,13 @@ import EdLink from '../Link'
 const HomeProjects = ({ projects }) => {
   return (
     <>
-      <Flex>
+      <Flex px="10%">
         <Box textAlign="center" >
           <Text as="h1" variant="h1">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            What do we do?
           </Text>
           <Text variant="normal">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sin Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur dent, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Educacion Diversa is an international not-for-profit run by a collective of volunteers from around the world, coming together to provide free art-based education in the areas of Human Rights, Elimination of Violence and Bullying (including GBV) and Sexual and Reproductive Health
           </Text>
         </Box>
       </Flex>
@@ -51,7 +51,7 @@ const HomeProjects = ({ projects }) => {
         <Grid templateColumns='repeat(4, 1fr)' gap={6}>
           {projects.map((project, index) =>
             <GridItem>
-              <Box m="auto"><Image src={project.img} alt={project.title} /></Box>
+              <Box m="auto"><Image src={project.img} alt={project.title} width={355} height={420} /></Box>
               <p>{project.exceprt}</p>
             </GridItem>
           )}

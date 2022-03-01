@@ -21,7 +21,7 @@ export const colors = {
 const theme = extendTheme({
   colors,
   fonts:{
-    heading: 'Quicksand',
+    heading: 'Just Another Hand',
     body: 'Quicksand'
    },
    components: {

@@ -3,7 +3,7 @@ import { Box, Flex } from '@chakra-ui/react';
 
 import Text from '../Text'
 import Button from '../Button'
-import Image from '../Image'
+import Image from 'next/image'
 
 import useTheme from '../../hooks/useTheme'
 
@@ -12,36 +12,36 @@ const MainSlider = () => {
   const theme = useTheme()
   
   return (
-    <Flex backgroundColor={theme.colors.main.blue}>
+    <Flex backgroundImage="/images/static/backgrounds/BLUE_BACKGROUND.jpg" backgroundSize="contain">
         <Box w="50%">
           <Flex flexDirection="column" justifyContent="center" px="10%" h="100%">
             <Box>
-              <Text color="white" variant="mainSubTitle">education resources for</Text>
+              <Text color="white" variant="mainSubTitle">Become part of the </Text>
               <Text color="white" variant="mainTitle">
-                children
+                Collective!
               </Text>
             </Box>
             <Box pt="10px" pb="100px" px="5px">
-              <Text color="white" variant="normal">Lorem ipsum dolor sit amet, duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
+              <Text color="white" variant="normal">Connect with a team of like-minded individuals from around the world, working together to create accessible educational materials in the areas of Human Rights, Eliminating Violence and Bullying and Sexual and Reproductive Health.</Text>
             </Box>
             <Flex>
               <Button
                 size="banner"
                 variant="red"
               >
-                Join Us</Button>
+                PROJECTS</Button>
               <Button
                 variant="transparent"
                 size="banner"
               >
-                Donate
+                DONATE
               </Button>
             </Flex>
           </Flex>
         </Box>
         <Box w="50%">
           <Box>
-            <Image style={{ margin: 'auto' }} src="https://via.placeholder.com/904x860" alt="asd" />
+            <Image style={{ margin: 'auto' }} src="https://via.placeholder.com/904x860" alt="asd" width={904} height={860} />
           </Box>
         </Box>
       </Flex>

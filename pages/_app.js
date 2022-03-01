@@ -1,8 +1,9 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import theme from '../components/theme'
-import Header from '../components/Header'
+import Header from '../components/data/header/Header'
 import Footer from '../components/Footer'
 import '@fontsource/quicksand'
+import '@fontsource/just-another-hand'
 
 function MyApp({ Component, pageProps }) {
   return (
