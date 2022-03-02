@@ -1,7 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react";
 import Image from 'next/image'
-import Text from "../../Text";
-import Button from '../../Button'
+import Text from "../../ui/Text";
+import Button from '../../ui/Button'
 
 export default function BeVolunteer() {
   return (

@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { Box } from '@chakra-ui/react'
 
-import MainSlider from '../components/MainSlider'
-import HomeProjects from '../components/HomeProjects'
+import MainSlider from '../components/homepage/MainSlider'
+import HomeProjects from '../components/homepage/HomeProjects'
 
 import { projects } from '../components/data/initialState'
 import EducationPortalSection from '../components/homepage/EducationPortal'
@@ -18,6 +18,7 @@ export default function homePage() {
       <HomeProjects projects={projects} />
       <EducationPortalSection />
       <CallsToActions />
+      {/* <HomeBlog /> */}
     </>
   )
 }

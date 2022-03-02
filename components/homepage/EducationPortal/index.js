@@ -2,13 +2,13 @@ import { Box, Flex } from '@chakra-ui/react'
 import React from 'react'
 import useTheme from '../../../hooks/useTheme'
 import Image from 'next/image'
-import Text from '../../Text'
+import Text from '../../ui/Text'
 import {
   ListItem,
   ListIcon,
   List
 } from '@chakra-ui/react'
-import Button from '../../Button/'
+import Button from '../../ui/Button'
 
 export default function EducationPortalSection() {
   const theme = useTheme()
@@ -19,8 +19,8 @@ export default function EducationPortalSection() {
         <Flex>
           <Box w="60%" py="120px" px="5%">
             <Text color="white" variant="sectionSubtitle">Learning Portal</Text>
-            <Text color="white" variant="sectionTitle">We believe in free education in these areas for everyone, regardless of your literacy level so we’re building a learning portal to ensure you all have FREE access.  It will include art-based activities aligned to objectives in the areas of Human Rights, Eliminating Gender-based violence and Bullying and Sexual and Reproductive Health Education.</Text>
-            <Text color="white" variant="sectionTitle">It plans to feature:</Text>
+            <Text color="white" variant="introSection">We believe in free education in these areas for everyone, regardless of your literacy level so we’re building a learning portal to ensure you all have FREE access.  It will include art-based activities aligned to objectives in the areas of Human Rights, Eliminating Gender-based violence and Bullying and Sexual and Reproductive Health Education.</Text>
+            <Text color="white" variant="introSection">It plans to feature:</Text>
             <List py="20px">
               <ListItem color="white" fontSize="20px" mb="8px"><span style={{marginRight:'6px'}}>✅ </span>A safe space for children to explore and learn about these topics without having to encounter traumatic content</ListItem>
               <ListItem color="white" fontSize="20px" mb="8px"><span style={{marginRight:'6px'}}>✅ </span>Age appropriate activities aligned to topics that will engage and teach children about our areas of focus</ListItem>

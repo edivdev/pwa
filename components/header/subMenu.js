@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Link } from '@chakra-ui/react'
-import useTheme from '../../../hooks/useTheme'
-import Text from '../../Text'
+import useTheme from '../../hooks/useTheme'
+import Text from '../ui/Text'
 
 export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
 
@@ -19,7 +19,7 @@ export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
     <Box
       h="72px"
       w="100%"
-      pt="20px"
+      pt="25px"
       bg={theme.colors.main.lightblue}
       position="absolute"
       top="60px"
@@ -30,11 +30,11 @@ export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
       <Box display="flex" justifyContent="space-evenly" w="60%" m="auto">
         {submenuElements.map((element) => {
           return (
-            <div>
-              <Link href={element.slug}>
-                <Text color="white" variant="normal">{element.name}</Text>
+            <Box>
+              <Link href={element.slug} _hover={{ textDecoration: 'none' }}>
+                <Text color="white" variant="submenuItem" _hover={{ color: theme.colors.main.red }} >{element.name}</Text>
               </Link>
-            </div>
+            </Box>
           )
         })}
       </Box>

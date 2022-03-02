@@ -36,7 +36,19 @@ export default {
     },
     callsTitle:{
       fontSize:'44px',
-      lineHeight:'50px'
+      lineHeight:'50px',
+      fontWeight:'900'
+    },
+    introSection:{
+      fontSize:'25px',
+      marginTop:'10px',
+      marginBottom:'10px',
+      fontWeight:'900'
+    },
+    submenuItem:{
+      fontSize:'20px',
+      textDecoration:'none',
+      textTransform:'capitalize'
     }
   }
 }

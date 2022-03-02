@@ -1,4 +1,4 @@
-import theme from '../theme'
+import theme from '../../theme'
 
 export default {
   baseStyle:{
@@ -30,11 +30,15 @@ export default {
   sizes:{
     banner: {
       height:'80px',
-      width:'226px'
+      width:'226px',
     },
     normal: {
       height:'50px',
       width:'200px'
+    },
+    filter:{
+      height:'70px',
+      width:'383px'
     }
   }
 }

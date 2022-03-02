@@ -1,12 +1,11 @@
 import { Box, Flex } from '@chakra-ui/react'
 import { Grid, GridItem } from '@chakra-ui/react'
 
-import Text from '../../components/Text'
-import Button from '../../components/Button'
+import Text from '../../ui/Text'
+import Button from '../../ui/Button'
 import Image from 'next/image'
-import Input from '../../components/Input'
 
-import EdLink from '../Link'
+import Link from 'next/link'
 
 const HomeProjects = ({ projects }) => {
   return (
@@ -26,24 +25,19 @@ const HomeProjects = ({ projects }) => {
 
       <Box px="10%">
         <Flex justifyContent="space-evenly">
-        <EdLink href="/projects" variant="sm"> 
-        { 
-          // an example of how to use the link component a mix of Link from next + Link from chakra 
-        }
-        <Button variant="red">
-          EDUCATION
-        </Button>
-        </EdLink>
-          <Button>ACTIVISM</Button>
-          <Button>EMPOWERMENT</Button>
-          <Button>RESOURCES</Button>
-        </Flex>
-      </Box>
 
-      <Box px="10%">
-        <Flex justifyContent="space-evenly">
-          <Input type="text" placeholder="search" />
-          <Button>SEARCH</Button>
+
+          <Button size="filter">
+            EDUCATION
+          </Button>
+
+
+          <Button size="filter">
+            ACTIVISM
+          </Button>
+          <Button size="filter">
+            EMPOWERMENT
+          </Button>
         </Flex>
       </Box>
 

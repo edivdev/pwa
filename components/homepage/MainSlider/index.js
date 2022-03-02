@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 
-import Text from '../Text'
-import Button from '../Button'
+import Text from '../../ui/Text'
+import Button from '../../ui/Button'
 import Image from 'next/image'
 
-import useTheme from '../../hooks/useTheme'
+import useTheme from '../../../hooks/useTheme'
 
 const MainSlider = () => {
 
   const theme = useTheme()
   
   return (
-    <Flex backgroundImage="/images/static/backgrounds/BLUE_BACKGROUND.jpg" backgroundSize="contain">
+    <Flex backgroundImage="/images/static/backgrounds/BLUE_BACKGROUND.jpg" backgroundSize="cover">
         <Box w="50%">
           <Flex flexDirection="column" justifyContent="center" px="10%" h="100%">
             <Box>
@@ -41,7 +41,7 @@ const MainSlider = () => {
         </Box>
         <Box w="50%">
           <Box>
-            <Image style={{ margin: 'auto' }} src="https://via.placeholder.com/904x860" alt="asd" width={904} height={860} />
+            <Image style={{ margin: 'auto' }} src="/images/static/home/home-main.png" alt="connect-with-us" width={904} height={860} />
           </Box>
         </Box>
       </Flex>
