@@ -2,7 +2,6 @@ import { Box, Flex } from '@chakra-ui/react'
 import React from 'react'
 import Button from '../../ui/Button'
 import SectionsTitle from '../../ui/SectionsTitle'
-import Text from '../../ui/Text'
 
 export default function HomeBlog() {
   return (
@@ -12,11 +11,25 @@ export default function HomeBlog() {
 
         <Box display="inline-block">
           <Box className='home-blogs-wrapper'>
-            <Box className='blog-first'></Box>
-            <Box className='blog-second'></Box>
-            <Box className='blog-third'></Box>
-            <Box className='blog-fourth'></Box>
-            <Box className='blog-fifth'></Box>
+            <Box className='blog-first'>
+
+            </Box>
+            
+            <Box className='blog-second'>
+              
+            </Box>
+            
+            <Box className='blog-third'>
+
+            </Box>
+            
+            <Box className='blog-fourth'>
+
+            </Box>
+            
+            <Box className='blog-fifth'>
+              
+            </Box>
           </Box>
         </Box>
         <Box>
