@@ -1,14 +1,10 @@
-import axios from 'axios'
-import { Box } from '@chakra-ui/react'
-
 import MainSlider from '../components/homepage/MainSlider'
 import HomeProjects from '../components/homepage/HomeProjects'
 
 import { projects } from '../components/data/initialState'
 import EducationPortalSection from '../components/homepage/EducationPortal'
 import CallsToActions from '../components/homepage/CallsToActions'
-// to be replaced in a future with callings to custom api. for now we will be building the shell of front end
-// so any data we will be using can be mocked inside the 'initial state file'
+import HomeBlog from '../components/homepage/HomeBlog'
 
 export default function homePage() {
 
@@ -18,7 +14,7 @@ export default function homePage() {
       <HomeProjects projects={projects} />
       <EducationPortalSection />
       <CallsToActions />
-      {/* <HomeBlog /> */}
+      <HomeBlog />
     </>
   )
 }

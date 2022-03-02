@@ -5,11 +5,7 @@ import Text from '../../ui/Text'
 import Button from '../../ui/Button'
 import Image from 'next/image'
 
-import useTheme from '../../../hooks/useTheme'
-
 const MainSlider = () => {
-
-  const theme = useTheme()
   
   return (
     <Flex backgroundImage="/images/static/backgrounds/BLUE_BACKGROUND.jpg" backgroundSize="cover">

@@ -3,6 +3,7 @@ import theme from '../components/theme'
 import '@fontsource/quicksand'
 import '@fontsource/just-another-hand'
 import Layout from '../components/ui/Layout'
+import '../styles/styles.css'
 
 function MyApp({ Component, pageProps }) {
   return (
