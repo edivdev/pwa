@@ -12,3 +12,5 @@ export default function Text({ children, variant, ...props }){
       </ChakraUIText>
   )
 }
+
+// 2C292F

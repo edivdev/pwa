@@ -28,3 +28,47 @@
   grid-area: fifth;
   border: 1px solid red;
 }
+.contact-form-wrapper {
+  padding: 40px 0;
+  display:grid;
+  grid-template-columns: repeat(2, 400px);
+  grid-template-rows: repeat(7, 66px);
+  grid-template-areas: 
+    "name email"
+    "organization phone"
+    "school school"
+    "help help"
+    "message message"
+    ". ."
+    "send .";
+  column-gap: 5px;
+  row-gap: 10px;
+}
+.form-name{
+  grid-area: name;
+}
+.form-email{
+  grid-area: email;
+}
+.form-organization{
+  grid-area: organization;
+}
+.phone{
+  grid-area: phone;
+}        
+.form-school{
+  grid-area: school;
+}
+.form-help{
+  grid-area: help;
+}
+.form-message{
+  grid-area: message;
+}
+.form-send{
+  grid-area: send;
+}
+.contact-form-wrapper input, .contact-form-wrapper select, .contact-form-wrapper textarea {
+  border: 2px solid black;
+  border-radius: 8px;
+}

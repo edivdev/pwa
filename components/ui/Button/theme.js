@@ -25,6 +25,11 @@ export default {
       bg:'transparennt',
       color: theme.colors.main.blue,
       border:`2px solid ${theme.colors.main.blue}`
+    }),
+    fillBlue: ({ theme }) => ({
+      bg: theme.colors.main.blue,
+      color: 'white',
+      border: `2px solid ${theme.colors.main.blue}`
     })
   },
   sizes:{
@@ -39,6 +44,12 @@ export default {
     filter:{
       height:'70px',
       width:'383px'
+    },
+    longbutton: {
+      width: 'auto',
+      height: 'auto',
+      fontSize:'24px',
+      padding: '12px 20px'
     }
   }
 }
