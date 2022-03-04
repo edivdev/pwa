@@ -18,7 +18,7 @@ export default function HowToDonate() {
         </Button>
       </Box>
       <Box w="60%" pl="5%"> 
-        <Image src="https://via.placeholder.com/960x742" width="960" height="742" />
+        <Image src="https://via.placeholder.com/960x742" width="960" height="742" alt="donate" />
       </Box>
     </Flex>
   )

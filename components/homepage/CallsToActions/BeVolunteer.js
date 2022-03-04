@@ -8,7 +8,7 @@ export default function BeVolunteer() {
   return (
     <Flex py="5%">
       <Box w="60%">
-        <Image src="https://via.placeholder.com/960x742" width="960" height="742" />
+        <Image src="https://via.placeholder.com/960x742" width="960" height="742" alt="volunteer"/>
       </Box>
       <Box w="40%" pr="5%">
         <SectionsTitle title="Be a volunteer" />

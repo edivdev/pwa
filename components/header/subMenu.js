@@ -30,7 +30,7 @@ export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
       <Box display="flex" justifyContent="space-evenly" w="60%" m="auto">
         {submenuElements.map((element) => {
           return (
-            <Box>
+            <Box key={element.id}>
               <Link href={element.slug} _hover={{ textDecoration: 'none' }}>
                 <Text color="white" variant="submenuItem" _hover={{ color: theme.colors.main.red }} >{element.name}</Text>
               </Link>

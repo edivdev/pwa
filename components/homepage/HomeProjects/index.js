@@ -44,7 +44,7 @@ const HomeProjects = ({ projects }) => {
       <Box px="10%">
         <Grid templateColumns='repeat(4, 1fr)' gap={6}>
           {projects.map((project, index) =>
-            <GridItem>
+            <GridItem key={project.slug}>
               <Box m="auto"><Image src={project.img} alt={project.title} width={355} height={420} /></Box>
               <p>{project.exceprt}</p>
             </GridItem>

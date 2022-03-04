@@ -7,16 +7,16 @@ import SubMenu from './subMenu'
 
 const menu = [
   {
-    name: 'about us', slug: 'about-us', children: [
-      { name: 'about us', slug: '/about-us' },
-      { name: 'what we do', slug: '/about-us/what-we-do' },
-      { name: 'recognitions', slug: '/about-us/recognitions' },
-      { name: 'colaborations', slug: '/about-us/colaborations' }
+    id: 1, name: 'about us', slug: 'about-us', children: [
+      { id: 1.1, name: 'about us', slug: '/about-us' },
+      { id: 1.2, name: 'what we do', slug: '/about-us/what-we-do' },
+      { id: 1.3, name: 'recognitions', slug: '/about-us/recognitions' },
+      { id: 1.4, name: 'colaborations', slug: '/about-us/colaborations' }
     ]
   },
-  { name: 'projects', slug: 'projects' },
-  { name: 'donate', slug: 'donate' },
-  { name: 'contact', slug: 'contact' },
+  { id:2, name: 'projects', slug: 'projects' },
+  { id:3, name: 'donate', slug: 'donate' },
+  { id:4, name: 'contact', slug: 'contact' },
 ]
 
 const Header = () => {
@@ -38,7 +38,7 @@ const Header = () => {
           </Link>
         </Box>
         <Box display="flex" w="70%" justifyContent="space-evenly">
-          {menu.map((element) => <MenuItem element={element} setIsSubMenuOpen={setIsSubMenuOpen} setSubMenuElements={setSubMenuElements} />)}
+          {menu.map((element) => <MenuItem key={element.id} element={element} setIsSubMenuOpen={setIsSubMenuOpen} setSubMenuElements={setSubMenuElements} />)}
         </Box>
         <Box w="10%">
           {/* Learning Portal */}
