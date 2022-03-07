@@ -1,21 +1,19 @@
 export default {
   variants: {
     mainTitle:{
-      fontWeight:'700',
-      fontSize:'120px',
-      lineHeight:'175px',
+      fontWeight:'900',
+      fontSize:'90px',
       textTransform:'capitalize'
     },
     mainSubTitle:{
-      fontWeight:'700',
-      fontSize:'28px',
-      lineHeight:'35px',
+      fontWeight:'900',
+      fontSize:'18px',
       textTransform:'uppercase'
     },
     normal:{
       fontWeight:'400',
-      fontSize:'20px',
-      lineHeight:'38px',
+      fontSize:'14px',
+      lineHeight:'24px',
     },
     h1:{
       fontWeight:'700',
@@ -40,15 +38,20 @@ export default {
       fontWeight:'900'
     },
     introSection:{
-      fontSize:'25px',
+      fontSize:'18px',
       marginTop:'10px',
       marginBottom:'10px',
       fontWeight:'900'
     },
     submenuItem:{
-      fontSize:'20px',
+      fontSize:'13px',
       textDecoration:'none',
       textTransform:'capitalize'
+    },
+    menuItem:{
+      fontSize:'15px',
+      textDecoration:'none',
+      textTransform:'uppercase'
     }
   }
 }

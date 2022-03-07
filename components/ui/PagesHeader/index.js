@@ -7,11 +7,11 @@ export default function PagesHeader({ background, ...props }) {
   const { text1, text2, cta, ctaTarget } = props
   return (
     <Box
-      minHeight="620px"
+      minHeight="450px"
       backgroundImage={background}
       backgroundSize="100%"
       backgroundRepeat="no-repeat"
-      backgroundPosition="bottom center"
+      backgroundSize="cover"
       display="flex"
       flexDirection="column"
       justifyContent="center"

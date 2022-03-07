@@ -18,7 +18,7 @@ export default function MenuItem({ element, setIsSubMenuOpen, setSubMenuElements
   if (element.children) {
     return (
       <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseOut}>
-        <Text variant="normal" color="black" fontWeight="bold" textTransform="uppercase">
+        <Text variant="menuItem" color="black" fontWeight="bold">
           {element.name}
         </Text>
       </Box>
@@ -27,7 +27,7 @@ export default function MenuItem({ element, setIsSubMenuOpen, setSubMenuElements
 
   return (
     <Link href={`/${element.slug}`}>
-      <Text variant="normal" color="black" fontWeight="bold" textTransform="uppercase">
+      <Text variant="menuItem" color="black" fontWeight="bold">
         {element.name}
       </Text>
     </Link>

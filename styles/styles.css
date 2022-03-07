@@ -1,6 +1,6 @@
 .home-blogs-wrapper {
   display:grid;
-  grid-template-columns: repeat(4,320px);
+  grid-template-columns: repeat(4,calc(100vw/5));
   grid-template-rows: repeat(2, 570px);
   grid-template-areas: 
     "first first second third"

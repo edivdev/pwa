@@ -34,8 +34,8 @@ export default {
   },
   sizes:{
     banner: {
-      height:'80px',
-      width:'226px',
+      height:'53px',
+      width:'152px',
     },
     normal: {
       height:'50px',

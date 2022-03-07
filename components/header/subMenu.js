@@ -27,7 +27,7 @@ export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
       onMouseEnter={handleMouseIn}
       onMouseLeave={handleMouseOut}
     >
-      <Box display="flex" justifyContent="space-evenly" w="60%" m="auto">
+      <Box display="flex" justifyContent="space-evenly" w="60%" pt="10px" m="auto">
         {submenuElements.map((element) => {
           return (
             <Box key={element.id}>
@@ -36,7 +36,7 @@ export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
               </Link>
             </Box>
           )
-        })}
+        })} 
       </Box>
     </Box>
   )

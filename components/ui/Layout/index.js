@@ -8,7 +8,7 @@ export default function Layout(props) {
     <Box>
       <Header />
       <main>
-        <Box>
+        <Box pt="72px"> 
           {props.children}
         </Box>
       </main>
