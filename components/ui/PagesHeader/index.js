@@ -9,7 +9,6 @@ export default function PagesHeader({ background, ...props }) {
     <Box
       minHeight="450px"
       backgroundImage={background}
-      backgroundSize="100%"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
       display="flex"
