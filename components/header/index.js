@@ -11,7 +11,8 @@ const menu = [
       { id: 1.1, name: 'about us', slug: '/about-us' },
       { id: 1.2, name: 'what we do', slug: '/about-us/what-we-do' },
       { id: 1.3, name: 'recognitions', slug: '/about-us/recognitions' },
-      { id: 1.4, name: 'colaborations', slug: '/about-us/colaborations' }
+      { id: 1.4, name: 'colaborations', slug: '/about-us/colaborations' },
+      { id: 1.5, name: 'volunteers', slug: '/about-us/volunteers'}
     ]
   },
   { id: 2, name: 'projects', slug: 'projects' },
@@ -40,7 +41,7 @@ const Header = () => {
               <a>Logo</a>
             </Link>
           </Box>
-          <Box display="flex" w="70%" justifyContent="space-evenly">
+          <Box display="flex" w="70%" justifyContent="space-evenly" className="primary-menu-elements">
             { menu.map((element) =>
               <MenuItem
                 key={element.id}

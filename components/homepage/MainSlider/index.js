@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react'
+import Link from 'next/link'
 
 import Text from '../../ui/Text'
 import Button from '../../ui/Button'
@@ -33,17 +33,26 @@ const MainSlider = () => {
               </Text>
             </Box>
             <Flex>
-              <Button
-                size="banner"
-                variant="red"
-              >
-                PROJECTS</Button>
-              <Button
-                variant="transparent"
-                size="banner"
-              >
-                DONATE
-              </Button>
+              <Link href="/projects">
+                <a>
+                  <Button
+                    size="banner"
+                    variant="red"
+                  >
+                    PROJECTS
+                  </Button>
+                </a>
+              </Link>
+              <Link href="/donate">
+                <a>
+                  <Button
+                    variant="transparent"
+                    size="banner"
+                  >
+                    DONATE
+                  </Button>
+                </a>
+              </Link>
             </Flex>
           </Flex>
         </Box>

@@ -1,3 +1,9 @@
+a:hover{
+  text-decoration: none!important;
+}
+.primary-menu-elements a p:hover{
+  color:#658AC8;
+}
 .home-blogs-wrapper {
   display:grid;
   grid-template-columns: repeat(4,calc(100vw/5));

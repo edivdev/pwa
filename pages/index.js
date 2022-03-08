@@ -26,7 +26,7 @@ export default function homePage() {
         imageWidth="761"
         imageHeight="692"
         cta="See More"
-        ctaTarget="#"
+        ctaTarget="/about-us/volunteers"
       />
       <TwoSideCallToAction 
         content='Educacion Diversa is a run by a collective of volunteers from around the world who kindly give their time and skills to contribute to creating educational resources that are used to incentivise donations from people with the money raised going to projects in underdeveloped countries around the world that focus on educating people in our areas of focus.  We hope to raise enough money in the future to build small schools in rural areas too!.'
