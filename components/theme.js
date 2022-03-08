@@ -1,4 +1,5 @@
 import { extendTheme } from '@chakra-ui/react'
+import { createBreakpoints } from '@chakra-ui/theme-tools'
 
 import Text from './ui/Text/theme'
 import Button from './ui/Button/theme'
@@ -18,8 +19,14 @@ export const colors = {
    }
  }
 
+ const breakpoints = createBreakpoints({
+   xs: '0px',
+   md:'769px'
+ })
+
 const theme = extendTheme({
   colors,
+  breakpoints,
   fonts:{
     heading: 'Just Another Hand',
     body: 'Quicksand'

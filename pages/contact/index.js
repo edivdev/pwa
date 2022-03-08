@@ -17,7 +17,7 @@ export default function contactPage() {
         ctaTarget="mailto:educaciondiversa@gmail.com"
       />
       <Box px="5%">
-        <SectionsTitle title="Send us a Message" />
+        <SectionsTitle title="Send us a Message" center/>
 
         <Box w="60%" display="block" m="auto">
 

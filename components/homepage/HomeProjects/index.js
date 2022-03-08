@@ -7,9 +7,13 @@ import Image from 'next/image'
 
 import Link from 'next/link'
 
+import useViewport from '../../../hooks/useViewport'
+
 const HomeProjects = ({ projects }) => {
+  const { isDesktop } = useViewport()
   return (
-    <>
+    isDesktop && 
+    <section>
       <Flex px="10%">
         <Box textAlign="center" >
           <Text as="h1" variant="h1">
@@ -55,7 +59,7 @@ const HomeProjects = ({ projects }) => {
           <Button>SEE MORE</Button>
         </Box>
       </Box>
-    </>
+    </section>
   )
 };
 

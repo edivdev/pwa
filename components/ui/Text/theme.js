@@ -33,9 +33,9 @@ export default {
       textTransform: 'uppercase',
     },
     callsTitle:{
-      fontSize:'44px',
-      lineHeight:'50px',
-      fontWeight:'900'
+      fontSize:'24px',
+      fontWeight:'bold'
+
     },
     introSection:{
       fontSize:'18px',
@@ -52,6 +52,11 @@ export default {
       fontSize:'15px',
       textDecoration:'none',
       textTransform:'uppercase'
+    },
+    readArticle:{
+      fontSize:'12px',
+      textTransform:'uppercase',
+      fontWeight:'900'
     }
   }
 }

@@ -5,9 +5,14 @@ import Text from '../../ui/Text'
 import Button from '../../ui/Button'
 import Image from 'next/image'
 
+import useViewport from '../../../hooks/useViewport'
+
 const MainSlider = () => {
 
+  const { isDesktop } = useViewport()
+
   return (
+    isDesktop &&
     <section>
       <Flex backgroundImage="/images/static/backgrounds/BLUE_BACKGROUND.jpg" backgroundSize="cover">
         <Box w="50%" px="6%">
