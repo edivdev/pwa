@@ -6,16 +6,16 @@ import Text from "../../ui/Text"
 import Button from "../../ui/Button"
 import useViewport from "../../../hooks/useViewport"
 
-export default function TwoSideCallToAction({ content, image, title, reverse, cta, ctaTarget }) {
+export default function TwoSideCallToAction({ content, image, title, reverse, cta, ctaTarget, imageWidth, imageHeight }) {
   const { isDesktop } = useViewport()
   return (
     isDesktop &&
     <section>
       <Flex flexDirection={reverse ? 'row-reverse' : 'row'}>
         <Box w="50%" p="2%" h="100%">
-          <Image src={image} width="960" height="742" alt={title} />
+          <Image src={image} width={imageWidth} height={imageHeight} alt={title} />
         </Box>
-        <Box w="50%" p="2%" h="100%">
+        <Flex w="50%" p="2%" minHeight="100%" justifyContent="center" flexDirection="column">
           <SectionsTitle title={title} />
           <Text py="20px" color="black" variant="normal">{content}</Text>
           <Link href={ctaTarget}>
@@ -28,7 +28,7 @@ export default function TwoSideCallToAction({ content, image, title, reverse, ct
               </Button>
             </a>
           </Link>
-        </Box>
+        </Flex>
       </Flex>
 
     </section>
