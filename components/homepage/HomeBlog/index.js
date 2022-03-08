@@ -5,8 +5,9 @@ import Button from '../../ui/Button'
 import SectionsTitle from '../../ui/SectionsTitle'
 import FirstFeaturedBlog from './FirstFeaturedBlog'
 import SecondaryFeaturedBlog from './SecondaryFeaturedBlog'
+import Link from 'next/link'
 
-export default function HomeBlog({ featuredBlogs }) { 
+export default function HomeBlog({ featuredBlogs }) {
   const { isDesktop } = useViewport()
 
   const firstFBlog = featuredBlogs[0]
@@ -33,7 +34,11 @@ export default function HomeBlog({ featuredBlogs }) {
         </Box>
 
         <Box py="20px">
-          <Button>See More</Button>
+          <Link href="/blogs">
+            <a>
+              <Button variant="blue" size="banner">See More</Button>
+            </a>
+          </Link>
         </Box>
 
       </Box>

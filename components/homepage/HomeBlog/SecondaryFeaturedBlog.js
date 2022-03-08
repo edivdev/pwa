@@ -11,20 +11,20 @@ export default function SecondaryFeaturedBlog({ classname, blogEntry }) {
 
   return (
     <article className={classname}>
-      <Flex flexDirection="column" justifyContent="space-between" h="100%">
+      <Flex flexDirection="column" h="100%" justifyContent="space-between">
         <Box>
           <Image src={blogEntry.image} width={355} height={184} alt={blogEntry.title} />
         </Box>
 
-        <Box px="5%" my="4%">
-          <Text fontSize="21px" fontWeight="600">{blogEntry.title}</Text>
+        <Box px="5%">
+          <Text variant="featuredSecondaryBlog">{blogEntry.title}</Text>
         </Box>
 
-        <Box px="5%" my="4%">
+        <Box px="5%">
           <Text variant="normal">{blogEntry.excerpt}</Text>
         </Box>
 
-        <Box px="5%" my="4%">
+        <Box px="5%">
           <Link href={`/blog/${blogEntry.slug}`}>
             <a>
               <Flex>

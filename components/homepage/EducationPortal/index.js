@@ -32,12 +32,12 @@ export default function EducationPortalSection() {
               <ListItem color="white" mb="8px"><Text variant="normal" color="white"><span style={{ marginRight: '6px' }}>✅ </span>An academic library for people to access or donate articles specific to topics related to our areas of focus</Text></ListItem>
               <ListItem color="white" mb="8px"><Text variant="normal" color="white"><span style={{ marginRight: '6px' }}>✅ </span>A resource library for teachers and parents to access good quality project methodologies and campaign materials to support teaching about these topics in an age-appropriate way.</Text></ListItem>
             </List>
-            <Button
+            {/* <Button
               variant="transparent"
               size="banner"
             >
               SEE MORE
-            </Button>
+            </Button> */}
           </Box>
           <Box w="50%">
             <Box display="flex" justifyContent="center" alignItems="center" h="100%">

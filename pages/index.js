@@ -24,7 +24,7 @@ export default function homePage() {
         image="https://via.placeholder.com/960x742"
         title="Be a Volunteer"
         cta="See More"
-        ctaTarget="https://google.com"
+        ctaTarget="#"
       />
       <TwoSideCallToAction 
         content='Educacion Diversa is a run by a collective of volunteers from around the world who kindly give their time and skills to contribute to creating educational resources that are used to incentivise donations from people with the money raised going to projects in underdeveloped countries around the world that focus on educating people in our areas of focus.  We hope to raise enough money in the future to build small schools in rural areas too!.'
@@ -32,7 +32,7 @@ export default function homePage() {
         title="How to donate"
         reverse
         cta="See More"
-        ctaTarget="https://google.com"
+        ctaTarget="/donate"
       />
       <HomeBlog featuredBlogs={featuredBlogs} />
     </>

@@ -14,6 +14,7 @@ export default {
       fontWeight:'400',
       fontSize:'14px',
       lineHeight:'24px',
+      textAlign:'left'
     },
     h1:{
       fontWeight:'700',
@@ -44,12 +45,12 @@ export default {
       fontWeight:'900'
     },
     submenuItem:{
-      fontSize:'13px',
+      fontSize:'14px',
       textDecoration:'none',
       textTransform:'capitalize'
     },
     menuItem:{
-      fontSize:'15px',
+      fontSize:'16px',
       textDecoration:'none',
       textTransform:'uppercase'
     },
@@ -57,6 +58,16 @@ export default {
       fontSize:'12px',
       textTransform:'uppercase',
       fontWeight:'900'
+    },
+    featuredFirstBlog:{
+      fontSize:'42px',
+      fontWeight:'900',
+      lineHeight:'45px'
+    },
+    featuredSecondaryBlog: {
+      fontSize:'21px',
+      fontWeight:'900',
+      lineHeight:'25px'
     }
   }
 }

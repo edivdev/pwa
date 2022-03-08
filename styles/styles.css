@@ -1,12 +1,12 @@
 .home-blogs-wrapper {
   display:grid;
   grid-template-columns: repeat(4,calc(100vw/5));
-  grid-template-rows: repeat(2, 450px);
+  grid-template-rows: repeat(2, 360px);
   grid-template-areas: 
     "first first second third"
     "first first fourth fifth";
-  column-gap: 30px;
-  row-gap: 30px;
+  column-gap: 10px;
+  row-gap: 10px;
 }
 .blog-first {
   grid-area: first;
