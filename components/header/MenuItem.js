@@ -1,4 +1,4 @@
-import { Link } from '@chakra-ui/react'
+import Link from 'next/link'
 import SubMenu from './subMenu'
 import { Box } from '@chakra-ui/react'
 import { useState } from 'react'
@@ -27,9 +27,11 @@ export default function MenuItem({ element, setIsSubMenuOpen, setSubMenuElements
 
   return (
     <Link href={`/${element.slug}`}>
-      <Text variant="menuItem" color="black" fontWeight="bold">
-        {element.name}
-      </Text>
+      <a>
+        <Text variant="menuItem" color="black" fontWeight="bold">
+          {element.name}
+        </Text>
+      </a>
     </Link>
 
   )

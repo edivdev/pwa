@@ -20,7 +20,7 @@ export default function SecondaryFeaturedBlog({ classname, blogEntry }) {
           <Text variant="featuredSecondaryBlog">{blogEntry.title}</Text>
         </Box>
 
-        <Box px="5%">
+        <Box px="5%" h="100px" overflow="hidden" textOverflow="ellipsis">
           <Text variant="normal">{blogEntry.excerpt}</Text>
         </Box>
 

@@ -21,7 +21,7 @@ export default function FirstFeaturedBlog({ blogEntry }) {
         </Box>
 
         <Box px="5%" my="4%" h="240px" overflow="hidden" textOverflow="ellipsis">
-          <Text variant="normal">{blogEntry.content} </Text>
+          <Text variant="normal">{blogEntry.excerpt} </Text>
         </Box>
 
         <Box px="5%">

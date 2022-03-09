@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Flex } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
-import { Link } from '@chakra-ui/react'
+import Link from 'next/link'
 import MenuItem from './MenuItem'
 import SubMenu from './subMenu'
 
@@ -12,7 +12,7 @@ const menu = [
       { id: 1.2, name: 'what we do', slug: '/about-us/what-we-do' },
       { id: 1.3, name: 'recognitions', slug: '/about-us/recognitions' },
       { id: 1.4, name: 'colaborations', slug: '/about-us/colaborations' },
-      { id: 1.5, name: 'volunteers', slug: '/about-us/volunteers'}
+      { id: 1.5, name: 'volunteers', slug: '/about-us/volunteers' }
     ]
   },
   { id: 2, name: 'projects', slug: 'projects' },
@@ -32,23 +32,25 @@ const Header = () => {
           position="absolute"
           top="0"
           justifyContent="space-around"
-          pt="25px" 
+          pt="25px"
           w="100%"
           background="white"
         >
           <Box w="10%">
             <Link href="/">
-              <a>Logo</a>
+              <a>
+                Logo
+              </a>
             </Link>
           </Box>
           <Box display="flex" w="70%" justifyContent="space-evenly" className="primary-menu-elements">
-            { menu.map((element) =>
+            {menu.map((element) =>
               <MenuItem
                 key={element.id}
                 element={element}
                 setIsSubMenuOpen={setIsSubMenuOpen}
                 setSubMenuElements={setSubMenuElements}
-              />) } 
+              />)}
           </Box>
           <Box w="10%">
             {/* Learning Portal */}
