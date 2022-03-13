@@ -1,35 +1,34 @@
-import { useRouter } from 'next/router'
 import { blogs } from '../../components/data/initialState'
 
 export default function index(props) {
   const { blog } = props
-  const { title, content, excerpt, image } = blog 
+  const { title, content, excerpt, image } = blog
 
   return (
     <>
-    <div>{title}</div>
-    <div>{content}</div>
-    <div>{excerpt}</div>
-    <div>{image}</div>
+      <div>{title}</div>
+      <div>{content}</div>
+      <div>{excerpt}</div>
+      <div>{image}</div>
     </>
   )
 }
 
-export async function getStaticProps(context){
+export async function getStaticProps(context) {
   const { params } = context
   const { slug } = params
-  
+
   const blogEntry = blogs.filter((blog) => blog.slug === slug)
 
   return {
-    props:{
+    props: {
       blog: blogEntry[0]
     }
   }
 }
 
-export async function getStaticPaths(){
-  
+export async function getStaticPaths() {
+
   let slugs = []
   blogs.map((blog) => slugs.push(blog.slug))
 

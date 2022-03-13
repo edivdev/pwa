@@ -34,7 +34,7 @@ export default function HomeBlog({ featuredBlogs }) {
         </Box>
 
         <Box py="20px">
-          <Link href="/blogs">
+          <Link href="/blog">
             <a>
               <Button variant="blue" size="banner">See More</Button>
             </a>

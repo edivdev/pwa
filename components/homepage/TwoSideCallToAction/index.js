@@ -12,7 +12,7 @@ export default function TwoSideCallToAction({ content, image, title, reverse, ct
     isDesktop &&
     <section>
       <Flex flexDirection={reverse ? 'row-reverse' : 'row'}>
-        <Box w="50%" p="2%" h="100%">
+        <Box w="50%" p="6%" h="100%">
           <Image src={image} width={imageWidth} height={imageHeight} alt={title} />
         </Box>
         <Flex w="50%" p="2%" minHeight="100%" justifyContent="center" flexDirection="column">

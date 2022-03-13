@@ -4,7 +4,7 @@ import Button from '../Button'
 import Link from 'next/link'
 
 export default function PagesHeader({ background, ...props }) {
-  const { text1, text2, cta, ctaTarget } = props
+  const { text0, text1, text2, cta, ctaTarget } = props
   return (
     <Box
       minHeight="450px"
@@ -16,6 +16,9 @@ export default function PagesHeader({ background, ...props }) {
       justifyContent="center"
       alignItems="center"
     >
+      <Text color="white" textTransform="uppercase">
+        {text0}
+      </Text>
 
       <Text variant="h1" color="white" textTransform="capitalize">
         {text1}
@@ -25,13 +28,13 @@ export default function PagesHeader({ background, ...props }) {
         {text2}
       </Text>
 
-      { ctaTarget && cta && <Link href={ctaTarget}>
+      {ctaTarget && cta && <Link href={ctaTarget}>
         <a>
           <Button variant="fillBlue" size="longbutton">
             {cta}
           </Button>
         </a>
-      </Link> }
+      </Link>}
 
     </Box>
   )
