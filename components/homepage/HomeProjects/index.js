@@ -12,7 +12,7 @@ import useViewport from '../../../hooks/useViewport'
 const HomeProjects = ({ projects }) => {
   const { isDesktop } = useViewport()
   return (
-    isDesktop && 
+    isDesktop &&
     <section>
       <Flex px="10%">
         <Box textAlign="center" >
@@ -50,7 +50,7 @@ const HomeProjects = ({ projects }) => {
           {projects.map((project, index) =>
             <GridItem key={project.slug}>
               <Box m="auto"><Image src={project.img} alt={project.title} width={355} height={420} /></Box>
-              <p>{project.exceprt}</p>
+              <p>{project.excerpt}</p>
             </GridItem>
           )}
         </Grid>

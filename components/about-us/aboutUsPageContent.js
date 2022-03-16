@@ -3,6 +3,8 @@ import useTheme from '../../hooks/useTheme'
 import Image from 'next/image'
 import Text from "../ui/Text"
 import VolunteersContactForm from "./VolunteersContactForm"
+import BoardMembers from './BoardMembers'
+import { members } from '../data/initialState'
 
 export default function AboutUsPageContent() {
 
@@ -32,6 +34,7 @@ export default function AboutUsPageContent() {
           </Box>
         </Flex>
       </Box>
+      <BoardMembers members={members} />
     </>
   )
 }

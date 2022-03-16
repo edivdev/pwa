@@ -1,5 +1,4 @@
 import { Box, Flex } from '@chakra-ui/react'
-import React from 'react'
 import useViewport from '../../../hooks/useViewport'
 import Button from '../../ui/Button'
 import SectionsTitle from '../../ui/SectionsTitle'

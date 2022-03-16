@@ -16,7 +16,8 @@ export const colors = {
     white: '#FFFFFF',
     black: '#2C292F',
     footer: '#00184E',
-    darkblue: '#102851'
+    darkblue: '#102851',
+    babyblue: '#DFE9FB'
   }
 }
 

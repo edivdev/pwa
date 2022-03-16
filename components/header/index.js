@@ -15,8 +15,9 @@ const menu = [
     ]
   },
   { id: 2, name: 'projects', slug: 'projects' },
-  { id: 3, name: 'donate', slug: 'donate' },
-  { id: 4, name: 'contact', slug: 'contact' },
+  { id: 3, name: 'blog', slug: 'blog' },
+  { id: 4, name: 'donate', slug: 'donate' },
+  { id: 5, name: 'contact', slug: 'contact' },
 ]
 
 const Header = () => {
