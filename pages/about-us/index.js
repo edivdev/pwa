@@ -1,3 +1,4 @@
+import AboutUsPageContent from "../../components/about-us/aboutUsPageContent";
 import PageChanger from "../../components/about-us/pageChanger";
 import PagesHeader from "../../components/ui/PagesHeader";
 
@@ -10,7 +11,7 @@ export default function AboutUsPage() {
         text1="ABOUT US"
       />
       <PageChanger />
-      <div>AboutUsPage</div>
+      <AboutUsPageContent />
     </>
   )
 }

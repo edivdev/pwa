@@ -18,7 +18,7 @@ export default function EducationPortalSection() {
   return (
     isDesktop &&
     <section>
-      <Box bg={theme.colors.main.footer}>
+      <Box bg={theme.colors.main.darkblue}>
         <Flex>
           <Box w="50%" p="5%">
             <Text color="white" variant="mainSubTitle">Learning Portal</Text>

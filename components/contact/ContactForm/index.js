@@ -14,7 +14,7 @@ export default function ContactForm() {
       <Box>
         <Box className="contact-form-wrapper">
           <Box className="form-name">
-            <Input placeholder="First Name" type="text" />
+            <Input placeholder="Full Name" type="text" />
           </Box>
 
           <Box className="form-email">
