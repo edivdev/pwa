@@ -12,7 +12,7 @@ export default function BoardMembers({ members }) {
         <SectionsTitle title="Board" />
         <Flex flexWrap="wrap" justifyContent="center">
           {members.map((member) =>
-            <MemberCard member={member} />
+            <MemberCard member={member} key={member.id} />
           )}
         </Flex>
       </Box>
