@@ -11,7 +11,7 @@ const menu = [
       { id: 1.1, name: 'about us', slug: '/about-us' },
       { id: 1.2, name: 'what we do', slug: '/about-us/what-we-do' },
       { id: 1.3, name: 'recognitions', slug: '/about-us/recognitions' },
-      { id: 1.4, name: 'colaborations', slug: '/about-us/colaborations' }
+      { id: 1.4, name: 'collaborations', slug: '/about-us/collaborations' }
     ]
   },
   { id: 2, name: 'projects', slug: 'projects' },
