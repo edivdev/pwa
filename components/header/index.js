@@ -4,6 +4,7 @@ import { Box } from '@chakra-ui/react'
 import Link from 'next/link'
 import MenuItem from './MenuItem'
 import SubMenu from './subMenu'
+import Image from 'next/image'
 
 const menu = [
   {
@@ -36,13 +37,15 @@ const Header = () => {
           w="100%"
           background="white"
         >
-          <Box w="10%">
+          <Flex w="10%" justifyContent="center">
             <Link href="/">
               <a>
-                Logo
+                <Box position="relative" width="100px" height="100px" mt="-35px">
+                  <Image src="/images/static/assets/logo.png" layout="fill" objectFit="cover" />
+                </Box>
               </a>
             </Link>
-          </Box>
+          </Flex>
           <Box display="flex" w="70%" justifyContent="space-evenly" className="primary-menu-elements">
             {menu.map((element) =>
               <MenuItem
