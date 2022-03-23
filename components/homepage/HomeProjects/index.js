@@ -50,8 +50,10 @@ const HomeProjects = ({ projects }) => {
   function filterByEducation() {
     if (activeEducation) {
       setActiveEducation(false)
+    } else {
+      setActiveEducation(true)
+      setShowingProjects(educationProjects)
     }
-    setShowingProjects(educationProjects)
   }
 
   function filterByEmpowerment() {
@@ -81,7 +83,7 @@ const HomeProjects = ({ projects }) => {
       <Box px="10%">
         <Flex justifyContent="center">
 
-          <Button variant="projectsButton" onClick={filterByEducation}>
+          <Button variant={activeEducation ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEducation}>
             <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
               <Image src="/images/static/assets/icon_education_blue.png" alt="education" width="40" height="40" />
               <Text mt="10px" variant="projectsButton" color={theme.colors.main.blue}>EDUCATION</Text>
