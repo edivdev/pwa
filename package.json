@@ -19,9 +19,12 @@
     "framer-motion": "^5.5.5",
     "next": "11.0.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@types/react-slick": "^0.23.8",
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.0"
   }

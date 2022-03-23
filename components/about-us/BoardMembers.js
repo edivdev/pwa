@@ -5,7 +5,6 @@ import MemberCard from './MemberCard'
 
 export default function BoardMembers({ members }) {
   const theme = useTheme()
-  console.log(members)
   return (
     <section>
       <Box bg={theme.colors.main.babyblue} textAlign="center" py="30px">

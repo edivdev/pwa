@@ -1,5 +1,6 @@
 import PageChanger from "../../components/about-us/pageChanger";
 import PagesHeader from "../../components/ui/PagesHeader";
+import WhatWeDoPageContent from "../../components/about-us/WhatWeDoPageContent";
 
 export default function WhatWeDoPage() {
   return (
@@ -10,7 +11,7 @@ export default function WhatWeDoPage() {
         text1="WHAT WE DO"
       />
       <PageChanger />
-      <div>whatWeDoPage</div>
+      <WhatWeDoPageContent />
     </>
   )
 }
