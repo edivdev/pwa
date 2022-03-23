@@ -319,7 +319,7 @@ export const volunteers = [
   {
     name: 'Liliana Gómez',
     country: 'Colombia',
-    pic: 'Liliana Gómez - Colombia.jpg'
+    pic: 'Liliana Gomez - Colombia.jpg'
   },
   {
     name: 'Lisa',
