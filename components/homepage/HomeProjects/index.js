@@ -13,47 +13,20 @@ import useViewport from '../../../hooks/useViewport'
 
 import theme from '../../theme'
 
-const HomeProjects = ({ projects }) => {
-  const { isDesktop } = useViewport()
-  const [showingProjects, setShowingProjects] = useState([])
-  const [educationProjects, setEducationProjects] = useState([])
-  const [activismProjects, setActivismProjects] = useState([])
-  const [empowermentProjects, setEmpowermentProjects] = useState([])
+const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects, activismProjects }) => {
+
+  const [showingProjects, setShowingProjects] = useState(featuredProjects)
   const [activeEducation, setActiveEducation] = useState(false)
-  const [activeEmpowerment, setActiveEmpowerment] = useState(false)
-  const [activeActivism, setActiveActivism] = useState(false)
 
-  useEffect(() => {
-    let featuredProjects = []
-    let edPRojects = projects.filter((project) => project.category === 'EDUCATION')
-    let emProjects = projects.filter((project) => project.category === 'EMPOWERMENT')
-    let acProjects = projects.filter((project) => project.category === 'ACTIVISM')
-
-    projects.map((project) => {
-      if (project.featured) {
-        featuredProjects.push(project)
-      }
-    })
-
-    featuredProjects = featuredProjects.sort((a, b) => parseFloat(a.order) - parseFloat(b.order))
-
-    if (featuredProjects.length > 8) {
-      featuredProjects = featuredProjects.slice(0, 8)
-    }
-
-    setShowingProjects(featuredProjects)
-    setEducationProjects(edPRojects)
-    setEmpowermentProjects(emProjects)
-    setActivismProjects(acProjects)
-  }, [])
+  const { isDesktop } = useViewport()
 
   function filterByEducation() {
-    if (activeEducation) {
+    if (setActiveEducation) {
       setActiveEducation(false)
-    } else {
-      setActiveEducation(true)
-      setShowingProjects(educationProjects)
+      setShowingProjects(featuredProjects)
     }
+    setShowingProjects(educationProjects)
+    setActiveEducation(true)
   }
 
   function filterByEmpowerment() {

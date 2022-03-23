@@ -6,20 +6,22 @@ import EducationPortalSection from '../components/homepage/EducationPortal'
 import TwoSideCallToAction from '../components/homepage/TwoSideCallToAction'
 import HomeBlog from '../components/homepage/HomeBlog'
 
-export default function homePage() {
+export default function homePage(props) {
+
+  const { educationProjects, empowermentProjects, activismProjects, featuredProjects } = props
 
   const featuredBlogs = blogs.filter((blog) => {
     return blog.featured <= 5 && blog.isFeatured === true
   })
 
-  featuredBlogs.sort((a,b) => parseFloat(a.featured) - parseFloat(b.featured))
-  
+  featuredBlogs.sort((a, b) => parseFloat(a.featured) - parseFloat(b.featured))
+
   return (
     <>
       <MainSlider />
-      <HomeProjects projects={projects} />
+      <HomeProjects featuredProjects={featuredProjects} educationProjects={educationProjects} empowermentProjects={empowermentProjects} activismProjects={activismProjects} />
       <EducationPortalSection />
-      <TwoSideCallToAction 
+      <TwoSideCallToAction
         content='We wouldn’t exist without the amazing volunteers who give us their skills and time to ensure we continue to grow and produce educational materials and resources for people in underdeveloped countries. If you have some time and skills that you think could help us, join us today!  Volunteering with us means you WILL make a difference to people’s lives around the world when it comes to accessing good quality education.'
         image="/images/static/home/volunteer.png"
         title="Be a Volunteer"
@@ -28,7 +30,7 @@ export default function homePage() {
         cta="See More"
         ctaTarget="/about-us/volunteers"
       />
-      <TwoSideCallToAction 
+      <TwoSideCallToAction
         content='Educacion Diversa is a run by a collective of volunteers from around the world who kindly give their time and skills to contribute to creating educational resources that are used to incentivise donations from people with the money raised going to projects in underdeveloped countries around the world that focus on educating people in our areas of focus.  We hope to raise enough money in the future to build small schools in rural areas too!.'
         image="/images/static/home/donate.png"
         title="How to donate"
@@ -41,4 +43,20 @@ export default function homePage() {
       <HomeBlog featuredBlogs={featuredBlogs} />
     </>
   )
+}
+
+
+export async function getStaticProps() {
+
+  const featuredProjects = projects.filter((project) => project.featured === true).sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
+  const educationProjects = projects.filter((project) => project.category === 'EDUCATION').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
+
+  return {
+    props: {
+      featuredProjects: featuredProjects,
+      educationProjects: educationProjects,
+      empowermentProjects: ['asd', 'asd2'],
+      activismProjects: ['asd', 'asd2']
+    }
+  }
 }
