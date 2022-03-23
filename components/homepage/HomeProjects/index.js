@@ -24,9 +24,11 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
     if (setActiveEducation) {
       setActiveEducation(false)
       setShowingProjects(featuredProjects)
+    } else {
+      setShowingProjects(educationProjects)
+      setActiveEducation(true)
     }
-    setShowingProjects(educationProjects)
-    setActiveEducation(true)
+
   }
 
   function filterByEmpowerment() {
