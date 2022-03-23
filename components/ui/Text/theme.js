@@ -1,73 +1,79 @@
+import theme from '../../theme'
+
 export default {
   variants: {
-    mainTitle:{
-      fontWeight:'900',
-      fontSize:'90px',
-      textTransform:'capitalize'
+    mainTitle: {
+      fontWeight: '900',
+      fontSize: '90px',
+      textTransform: 'capitalize'
     },
-    mainSubTitle:{
-      fontWeight:'900',
-      fontSize:'18px',
-      textTransform:'uppercase'
+    mainSubTitle: {
+      fontWeight: '900',
+      fontSize: '18px',
+      textTransform: 'uppercase'
     },
-    normal:{
-      fontWeight:'400',
-      fontSize:'14px',
-      lineHeight:'24px',
-      textAlign:'left'
+    normal: {
+      fontWeight: '400',
+      fontSize: '14px',
+      lineHeight: '24px',
+      textAlign: 'left'
     },
-    h1:{
-      fontWeight:'700',
-      fontSize:'44px',
-      lineHeight:'60.72px'
+    h1: {
+      fontWeight: '700',
+      fontSize: '44px',
+      lineHeight: '60.72px'
     },
-    sectionTitle:{
-      fontSize:'36px',
-      lineHeight:'49.68px',
-      fontWeight:'700',
-      marginTop:'31px'
+    sectionTitle: {
+      fontSize: '36px',
+      lineHeight: '49.68px',
+      fontWeight: '700',
+      marginTop: '31px'
     },
-    sectionSubtitle:{
-      fontSize:'20px',
-      lineHeight:'22.8px',
-      fontWeight:'700',
+    sectionSubtitle: {
+      fontSize: '20px',
+      lineHeight: '22.8px',
+      fontWeight: '700',
       textTransform: 'uppercase',
     },
-    callsTitle:{
-      fontSize:'24px',
-      fontWeight:'bold'
-
+    callsTitle: {
+      fontSize: '24px',
+      fontWeight: 'bold'
     },
-    introSection:{
-      fontSize:'18px',
-      marginTop:'10px',
-      marginBottom:'10px',
-      fontWeight:'900'
+    introSection: {
+      fontSize: '18px',
+      marginTop: '10px',
+      marginBottom: '10px',
+      fontWeight: '900'
     },
-    submenuItem:{
-      fontSize:'14px',
-      textDecoration:'none',
-      textTransform:'capitalize'
+    submenuItem: {
+      fontSize: '14px',
+      textDecoration: 'none',
+      textTransform: 'capitalize'
     },
-    menuItem:{
-      fontSize:'16px',
-      textDecoration:'none',
-      textTransform:'uppercase'
+    menuItem: {
+      fontSize: '16px',
+      textDecoration: 'none',
+      textTransform: 'uppercase'
     },
-    readArticle:{
-      fontSize:'12px',
-      textTransform:'uppercase',
-      fontWeight:'900'
+    readArticle: {
+      fontSize: '12px',
+      textTransform: 'uppercase',
+      fontWeight: '900'
     },
-    featuredFirstBlog:{
-      fontSize:'42px',
-      fontWeight:'900',
-      lineHeight:'45px'
+    featuredFirstBlog: {
+      fontSize: '42px',
+      fontWeight: '900',
+      lineHeight: '45px'
     },
     featuredSecondaryBlog: {
-      fontSize:'21px',
-      fontWeight:'900',
-      lineHeight:'25px'
+      fontSize: '21px',
+      fontWeight: '900',
+      lineHeight: '25px'
+    },
+    projectsButton: {
+      fontFamily: 'Just Another Hand',
+      fontSize: "35px",
+      fontWeight: '500'
     }
   }
 }

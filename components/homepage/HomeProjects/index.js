@@ -9,6 +9,8 @@ import Link from 'next/link'
 
 import useViewport from '../../../hooks/useViewport'
 
+import theme from '../../theme'
+
 const HomeProjects = ({ projects }) => {
   const { isDesktop } = useViewport()
   return (
@@ -28,19 +30,28 @@ const HomeProjects = ({ projects }) => {
       <Box textAlign="center">FILTER BY CATEGORY</Box>
 
       <Box px="10%">
-        <Flex justifyContent="space-evenly">
+        <Flex justifyContent="center">
 
-
-          <Button size="filter">
-            EDUCATION
+          <Button variant="projectsButton">
+            <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
+              <Image src="/images/static/assets/icon_education_blue.png" alt="education" width="40" height="40" />
+              <Text mt="10px" variant="projectsButton" color={theme.colors.main.blue}>EDUCATION</Text>
+            </Flex>
           </Button>
 
 
-          <Button size="filter">
-            ACTIVISM
+          <Button variant="projectsButton">
+            <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
+              <Image src="/images/static/assets/icon_activism_blue.png" alt="education" width="40" height="40" />
+              <Text mt="10px" variant="projectsButton" color={theme.colors.main.blue}>ACTIVISM</Text>
+            </Flex>
           </Button>
-          <Button size="filter">
-            EMPOWERMENT
+
+          <Button variant="projectsButton">
+            <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
+              <Image src="/images/static/assets/icon_empowerment_blue.png" alt="education" width="40" height="40" />
+              <Text mt="10px" variant="projectsButton" color={theme.colors.main.blue}>EMPOWERMENT</Text>
+            </Flex>
           </Button>
         </Flex>
       </Box>

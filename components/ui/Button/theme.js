@@ -36,7 +36,14 @@ export default {
       border: 'none',
       width: 'auto',
       height: 'auto'
-    }
+    },
+    projectsButton: ({ theme }) => ({
+      width: '320px',
+      height: '70px',
+      borderRadius: '6px',
+      border: `2px solid ${theme.colors.main.blue}`,
+      margin: '0 auto'
+    })
   },
   sizes: {
     banner: {
@@ -56,7 +63,7 @@ export default {
       height: 'auto',
       fontSize: '24px',
       padding: '12px 20px'
-    }
+    },
   }
 }
 
