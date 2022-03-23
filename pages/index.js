@@ -50,13 +50,15 @@ export async function getStaticProps() {
 
   const featuredProjects = projects.filter((project) => project.featured === true).sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
   const educationProjects = projects.filter((project) => project.category === 'EDUCATION').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
+  const empowermentProjects = projects.filter((project) => project.category === 'EMPOWERMENT').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
+  const activismProjects = projects.filter((project) => project.category === 'ACTIVISM').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
 
   return {
     props: {
       featuredProjects: featuredProjects,
       educationProjects: educationProjects,
-      empowermentProjects: ['asd', 'asd2'],
-      activismProjects: ['asd', 'asd2']
+      empowermentProjects: empowermentProjects,
+      activismProjects: activismProjects
     }
   }
 }
