@@ -25,36 +25,37 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
   function filterByEducation() {
     if (activeEducation) {
       setActiveEducation(false)
-      setActiveEmpowerment(false)
-      setActiveActivism(false)
       setShowingProjects(featuredProjects)
     } else {
-      setShowingProjects(educationProjects)
       setActiveEducation(true)
+      setActiveEmpowerment(false)
+      setActiveActivism(false)
+      setShowingProjects(educationProjects)
     }
   }
 
   function filterByEmpowerment() {
     if (activeEmpowerment) {
-      setActiveEducation(false)
       setActiveEmpowerment(false)
-      setActiveActivism(false)
       setShowingProjects(featuredProjects)
     } else {
-      setShowingProjects(empowermentProjects)
+      setActiveEducation(false)
+      setActiveActivism(false)
       setActiveEmpowerment(true)
+      setShowingProjects(empowermentProjects)
     }
   }
 
   function filterByActivism() {
     if (activeActivism) {
-      setActiveEducation(false)
-      setActiveEmpowerment(false)
       setActiveActivism(false)
       setShowingProjects(featuredProjects)
     } else {
-      setShowingProjects(activismProjects)
+      setActiveEducation(false)
+      setActiveEmpowerment(false)
       setActiveActivism(true)
+      setShowingProjects(activismProjects)
+
     }
   }
 
