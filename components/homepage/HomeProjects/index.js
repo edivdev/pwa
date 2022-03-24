@@ -112,8 +112,8 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
           )}
         </Grid>
 
-        <Box w="85%" m="50px auto" textAlign="center">
-          <Button>SEE MORE</Button>
+        <Box w="65%" m="50px auto" textAlign="center">
+          <Text fontWeight="900" fontSize="26px">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip learning portal</Text>
         </Box>
       </Box>
     </section>
