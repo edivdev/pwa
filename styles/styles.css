@@ -93,3 +93,8 @@ a:hover {
 .slick-list {
   padding: 25px 0 15px 0 !important;
 }
+.bnwhite-card-image {
+  filter: grayscale(100%);
+}
+.f-icon > svg {
+}

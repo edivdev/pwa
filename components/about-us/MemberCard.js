@@ -7,7 +7,7 @@ export default function MemberCard({ member }) {
   return (
     <Flex w="322px" h="375px" m="10px" flexDirection="column">
       <Box h="50%" position="relative">
-        <Image src={member.pic} layout="fill" objectFit="cover" />
+        <Image src={member.pic} layout="fill" objectFit="contain" />
       </Box>
       <Flex h="50%" bg="white" flexDirection="column" justifyContent="space-evenly">
         <Box>

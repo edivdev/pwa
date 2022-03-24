@@ -1,4 +1,4 @@
-import React from 'react'
+import { FaLinkedin, FaInstagramSquare } from "react-icons/fa";
 import { Flex, Box } from '@chakra-ui/react'
 import useTheme from '../../hooks/useTheme'
 
@@ -17,10 +17,9 @@ function Footer() {
         <Flex flexDirection="column">
           CONNECT
           <Flex>
-            <Box w="36px" h="36px" borderRadius="100%" bg="white"></Box>
-            <Box w="36px" h="36px" borderRadius="100%" bg="white"></Box>
-            <Box w="36px" h="36px" borderRadius="100%" bg="white"></Box>
-            <Box w="36px" h="36px" borderRadius="100%" bg="white"></Box>
+            <Box className="f-icon" fontSize="30px"><FaLinkedin /></Box>
+            <Box fontSize="30px"><FaInstagramSquare /></Box>
+
           </Flex>
         </Flex>
         <Box>RESOURCES</Box>

@@ -14,26 +14,26 @@ export default function VolunteersContactForm() {
         <Grid
           templateRows='repeat(4, 1fr)'
           templateColumns='repeat(2, 1fr)'
-          gap="2"
+          gap="27px"
         >
           <GridItem>
-            <Input placeholder="First Name" type="text" />
+            <Input placeholder="First Name*" type="text" />
           </GridItem>
 
           <GridItem>
-            <Input placeholder="Last Name" type="text" />
+            <Input placeholder="Last Name*" type="text" />
           </GridItem>
 
           <GridItem>
-            <Input placeholder="phone" type="number" />
+            <Input placeholder="Phone*" type="number" />
           </GridItem>
 
           <GridItem>
-            <Input placeholder="Country" type="text" />
+            <Input placeholder="Country*" type="text" />
           </GridItem>
 
           <GridItem colSpan={2}>
-            <Input placeholder="Email" type="email" required />
+            <Input placeholder="Email*" type="email" required />
           </GridItem>
 
           <GridItem colSpan={2}>
