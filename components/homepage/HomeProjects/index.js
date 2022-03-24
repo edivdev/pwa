@@ -12,6 +12,7 @@ import Link from 'next/link'
 import useViewport from '../../../hooks/useViewport'
 
 import theme from '../../theme'
+import ProjectTile from './ProjectTile'
 
 const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects, activismProjects }) => {
 
@@ -62,7 +63,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
   return (
     isDesktop &&
     <section>
-      <Flex px="10%">
+      <Flex pt="50px" px="10%">
         <Box textAlign="center" >
           <Text as="h1" variant="h1">
             What do we do?
@@ -73,7 +74,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
         </Box>
       </Flex>
 
-      <Box textAlign="center">FILTER BY CATEGORY</Box>
+      <Box my="50px" textAlign="center" fontSize="12px">FILTER BY CATEGORY</Box>
 
       <Box px="10%">
         <Flex justifyContent="center">
@@ -102,17 +103,16 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
         </Flex>
       </Box>
 
-      <Box px="10%">
+      <Box m="50px 10%" minHeight="700px">
         <Grid templateColumns='repeat(4, 1fr)' gap={6}>
           {showingProjects.map((project) =>
             <GridItem key={project.id}>
-              <Box m="auto"><Image src={project.img} alt={project.title} width={355} height={420} /></Box>
-              <p>{project.excerpt}</p>
+              <ProjectTile project={project} />
             </GridItem>
           )}
         </Grid>
 
-        <Box w="85%" mx="auto" textAlign="center">
+        <Box w="85%" m="50px auto" textAlign="center">
           <Button>SEE MORE</Button>
         </Box>
       </Box>

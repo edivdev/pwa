@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: 1,
-    title: 'project 1 title',
+    title: 'Quis autem vel eum iure reprehenderit',
     slug: '/project1',
     img: 'https://via.placeholder.com/355x420',
     excerpt: '1Quis autem vel eum iure reprehenderit',
