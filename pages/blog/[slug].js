@@ -17,7 +17,6 @@ export default function index(props) {
         <Box my="5%">
           <Box textAlign="justify" dangerouslySetInnerHTML={{ __html: content }} />
         </Box>
-
       </Box>
     </section>
   )
