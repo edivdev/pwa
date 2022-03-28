@@ -90,9 +90,9 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
         </Flex>
       </Box>
 
-      <Box m="50px 10%" minHeight="700px">
+      <Box m="50px 10%">
 
-        <Grid templateColumns='repeat(4, 1fr)' gap={6}>
+        <Grid templateColumns='repeat(4, 1fr)' gap={6} minHeight="782px">
 
           {filteredProjects && filteredProjects.map((project) =>
             <GridItem key={project.id}>

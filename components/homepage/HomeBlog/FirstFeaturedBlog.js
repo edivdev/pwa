@@ -12,8 +12,8 @@ export default function FirstFeaturedBlog({ blogEntry }) {
   return (
     <article className='blog-first'>
       <Flex flexDirection="column" h="100%" justifyContent="space-between">
-        <Box>
-          <Image src={blogEntry.image} width={738} height={385} alt={blogEntry.title} />
+        <Box width="470px" height="252px" position="relative">
+          <Image src={blogEntry.image} alt={blogEntry.title} layout="fill" objectFit="cover" />
         </Box>
 
         <Box px="5%">
@@ -25,7 +25,7 @@ export default function FirstFeaturedBlog({ blogEntry }) {
         </Box>
 
         <Box px="5%">
-          <Link href={`/blog/${blogEntry.slug}`}>
+          <Link href={`/blog/${blogEntry.slug}`} scroll={true}>
             <a>
               <Flex>
                 <Box mr="5px">

@@ -1,16 +1,25 @@
+import { Box } from '@chakra-ui/react'
 import { blogs } from '../../components/data/initialState'
+import PagesHeader from '../../components/ui/PagesHeader'
+import Text from '../../components/ui/Text'
 
 export default function index(props) {
   const { blog } = props
   const { title, content, excerpt, image } = blog
 
   return (
-    <>
-      <div>{title}</div>
-      <div>{content}</div>
-      <div>{excerpt}</div>
-      <div>{image}</div>
-    </>
+    <section id="blog-entry">
+      <PagesHeader
+        background={image}
+      />
+      <Box px="25%">
+        <Box my="5%" textAlign="center"><h1><Text variant="h1">{title}</Text></h1></Box>
+        <Box my="5%">
+          <Box textAlign="justify" dangerouslySetInnerHTML={{ __html: content }} />
+        </Box>
+
+      </Box>
+    </section>
   )
 }
 

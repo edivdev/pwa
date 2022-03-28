@@ -8,13 +8,7 @@ import HomeBlog from '../components/homepage/HomeBlog'
 
 export default function homePage(props) {
 
-  const { featuredProjects, educationProjects, empowermentProjects, activismProjects } = props
-
-  const featuredBlogs = blogs.filter((blog) => {
-    return blog.featured <= 5 && blog.isFeatured === true
-  })
-
-  featuredBlogs.sort((a, b) => parseFloat(a.featured) - parseFloat(b.featured))
+  const { featuredProjects, educationProjects, empowermentProjects, activismProjects, featuredBlogs } = props
 
   return (
     <>
@@ -53,12 +47,15 @@ export async function getStaticProps() {
   const empowermentProjects = projects.filter((project) => project.category === 'EMPOWERMENT').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
   const activismProjects = projects.filter((project) => project.category === 'ACTIVISM').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
 
+  const featuredBlogs = blogs.filter((blog) => blog.featured <= 5 && blog.isFeatured === true).sort((a, b) => parseFloat(a.featured) - parseFloat(b.featured))
+
   return {
     props: {
       featuredProjects: featuredProjects,
       educationProjects: educationProjects,
       empowermentProjects: empowermentProjects,
-      activismProjects: activismProjects
+      activismProjects: activismProjects,
+      featuredBlogs: featuredBlogs
     }
   }
 }
