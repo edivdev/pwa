@@ -16,9 +16,6 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
   const [activeProjects, setActiveProjects] = useState('')
   const [filteredProjects, setFilteredProjects] = useState(null)
 
-  // const education = useMemo(() => homeProjects.filter((project) => project.category === 'EDUCATION'))
-  // const empowerment = useMemo(() => homeProjects.filter((project) => project.category === 'EMPOWERMENT'))
-  // const activism = useMemo(() => homeProjects.filter((project) => project.category === 'ACTIVISM'))
   const colorBlue = theme.colors.main.blue
 
   function filterByEducation() {
@@ -69,21 +66,21 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
       <Box px="10%">
         <Flex justifyContent="center">
 
-          <Button onClick={filterByEducation}>
+          <Button variant={activeProjects === 'education' ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEducation}>
             <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
               <Image src="/images/static/assets/icon_education_blue.png" alt="education" width="40" height="40" />
               <Text mt="10px" variant="projectsButton" color={colorBlue}>EDUCATION</Text>
             </Flex>
           </Button>
 
-          <Button onClick={filterByActivism}>
+          <Button variant={activeProjects === 'activism' ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByActivism}>
             <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
               <Image src="/images/static/assets/icon_activism_blue.png" alt="education" width="40" height="40" />
               <Text mt="10px" variant="projectsButton" color={colorBlue}>ACTIVISM</Text>
             </Flex>
           </Button>
 
-          <Button onClick={filterByEmpowerment}>
+          <Button variant={activeProjects === 'empowerment' ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEmpowerment}>
             <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
               <Image src="/images/static/assets/icon_empowerment_blue.png" alt="education" width="40" height="40" />
               <Text mt="10px" variant="projectsButton" color={colorBlue}>EMPOWERMENT</Text>
@@ -117,12 +114,3 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
 };
 
 export default HomeProjects;
-
-// variant={activeEmpowerment ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEmpowerment}
-// variant={activeActivism ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByActivism}
-// variant={activeEducation ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEducation}
-
-
-{/* <GridItem key={project.id}>
-                <ProjectTile project={project} />
-              </GridItem> */}
