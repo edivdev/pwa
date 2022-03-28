@@ -12,8 +12,8 @@ export default function SecondaryFeaturedBlog({ classname, blogEntry }) {
   return (
     <article className={classname}>
       <Flex flexDirection="column" h="100%" justifyContent="space-between">
-        <Box>
-          <Image src={blogEntry.image} width={355} height={184} alt={blogEntry.title} />
+        <Box w="229px" height="122px" position="relative">
+          <Image src={blogEntry.image} layout="fill" alt={blogEntry.title} objectFit="cover" />
         </Box>
 
         <Box px="5%">

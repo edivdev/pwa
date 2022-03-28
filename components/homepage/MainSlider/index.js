@@ -9,8 +9,8 @@ const MainSlider = () => {
 
   return (
     <section>
-      <Flex backgroundImage="/images/static/backgrounds/BLUE_BACKGROUND.jpg" backgroundSize="cover">
-        <Box w="50%" px="6%">
+      <Flex backgroundImage="/images/static/backgrounds/BLUE_BACKGROUND.jpg" backgroundSize="cover" w="100vw">
+        <Box w="50vw" px="6%">
           <Flex flexDirection="column" justifyContent="center" h="100%">
             <Box>
               <Text color="white" variant="mainSubTitle">Become part of the </Text>
@@ -51,7 +51,7 @@ const MainSlider = () => {
             </Flex>
           </Flex>
         </Box>
-        <Box w="50%">
+        <Box w="50vw">
           <Box>
             <Image src="/images/static/home/home-main.png" alt="connect-with-us" width={904} height={860} />
           </Box>

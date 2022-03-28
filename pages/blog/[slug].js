@@ -1,16 +1,20 @@
 import { blogs } from '../../components/data/initialState'
+import PagesHeader from '../../components/ui/PagesHeader'
 
 export default function index(props) {
   const { blog } = props
   const { title, content, excerpt, image } = blog
 
   return (
-    <>
+    <section>
+      <PagesHeader
+        background={image}
+      />
       <div>{title}</div>
       <div>{content}</div>
       <div>{excerpt}</div>
       <div>{image}</div>
-    </>
+    </section>
   )
 }
 
