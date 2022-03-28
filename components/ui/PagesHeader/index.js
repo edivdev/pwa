@@ -2,9 +2,13 @@ import { Box } from '@chakra-ui/react'
 import Text from '../Text'
 import Button from '../Button'
 import Link from 'next/link'
+import useTheme from '../../../hooks/useTheme'
 
 export default function PagesHeader({ background, ...props }) {
-  const { text0, text1, text2, cta, ctaTarget } = props
+
+  const theme = useTheme()
+
+  const { text0, text1, text2, text3, cta, ctaTarget } = props
   return (
     <Box
       minHeight="450px"
@@ -20,7 +24,7 @@ export default function PagesHeader({ background, ...props }) {
         {text0}
       </Text>
 
-      <Text variant="h1" color="white" textTransform="capitalize">
+      <Text variant="h1" color={background ? "white" : theme.colors.main.blue} textTransform="capitalize">
         {text1}
       </Text>
 
@@ -28,14 +32,20 @@ export default function PagesHeader({ background, ...props }) {
         {text2}
       </Text>
 
-      {ctaTarget && cta && <Link href={ctaTarget}>
-        <a>
-          <Button variant="fillBlue" size="longbutton">
-            {cta}
-          </Button>
-        </a>
-      </Link>}
+      <Text variant="normal" color={background ? "white" : theme.colors.main.blue} maxWidth="60%">
+        {text3}
+      </Text>
 
-    </Box>
+      {
+        ctaTarget && cta && <Link href={ctaTarget}>
+          <a>
+            <Button variant="fillBlue" size="longbutton">
+              {cta}
+            </Button>
+          </a>
+        </Link>
+      }
+
+    </Box >
   )
 }

@@ -25,7 +25,7 @@ export default function SecondaryFeaturedBlog({ classname, blogEntry }) {
         </Box>
 
         <Box px="5%">
-          <Link href={`/blog/${blogEntry.slug}`} scroll={true}>
+          <Link href={`/blog/${blogEntry.slug}`}>
             <a>
               <Flex>
                 <Box mr="5px">
