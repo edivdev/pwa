@@ -29,6 +29,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
   function filterByEducation() {
     if (activeProjects === 'education') {
       setFilteredProjects(null)
+      setActiveProjects('')
     } else {
       setActiveProjects('education')
       setFilteredProjects(educationProjects)
@@ -38,6 +39,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
   function filterByEmpowerment() {
     if (activeProjects === 'empowerment') {
       setFilteredProjects(null)
+      setActiveProjects('')
     } else {
       setActiveProjects('empowerment')
       setFilteredProjects(empowermentProjects)
@@ -47,6 +49,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
   function filterByActivism() {
     if (activeProjects === 'activism') {
       setFilteredProjects(null)
+      setActiveProjects('')
     } else {
       setActiveProjects('activism')
       setFilteredProjects(activismProjects)
