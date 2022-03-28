@@ -8,7 +8,13 @@ export default function BlogTile({ blog }) {
   const theme = useTheme()
 
   return (
-    <Flex flexDirection="column" justifyContent="space-between" w="229px" h="380px" bg="white">
+    <Flex
+      flexDirection="column"
+      justifyContent="space-between"
+      w="229px"
+      h="380px"
+      bg="white"
+    >
       <Box w="229px" height="122px" position="relative" border="4px solid white">
         <Image src={blog.image} layout="fill" alt={blog.title} objectFit="cover" />
       </Box>
