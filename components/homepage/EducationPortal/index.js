@@ -8,15 +8,13 @@ import {
   ListIcon,
   List
 } from '@chakra-ui/react'
+
 import Button from '../../ui/Button'
-import useViewport from '../../../hooks/useViewport'
 
 export default function EducationPortalSection() {
   const theme = useTheme()
-  const { isDesktop } = useViewport()
 
   return (
-    isDesktop &&
     <section>
       <Box bg={theme.colors.main.darkblue}>
         <Flex>

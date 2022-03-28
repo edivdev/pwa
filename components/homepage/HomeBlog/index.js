@@ -1,5 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react'
-import useViewport from '../../../hooks/useViewport'
+
 import Button from '../../ui/Button'
 import SectionsTitle from '../../ui/SectionsTitle'
 import FirstFeaturedBlog from './FirstFeaturedBlog'
@@ -7,7 +7,6 @@ import SecondaryFeaturedBlog from './SecondaryFeaturedBlog'
 import Link from 'next/link'
 
 export default function HomeBlog({ featuredBlogs }) {
-  const { isDesktop } = useViewport()
 
   const firstFBlog = featuredBlogs[0]
   const secondFBlog = featuredBlogs[1]
@@ -16,7 +15,7 @@ export default function HomeBlog({ featuredBlogs }) {
   const fifthFBlog = featuredBlogs[4]
 
   return (
-    isDesktop &&
+
     <section>
       <Box textAlign="center" backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" backgroundSize="cover" py="5%">
 

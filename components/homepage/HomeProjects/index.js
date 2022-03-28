@@ -7,10 +7,6 @@ import Text from '../../ui/Text'
 import Button from '../../ui/Button'
 import Image from 'next/image'
 
-import Link from 'next/link'
-
-import useViewport from '../../../hooks/useViewport'
-
 import theme from '../../theme'
 import ProjectTile from './ProjectTile'
 
@@ -23,8 +19,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
   // const education = useMemo(() => homeProjects.filter((project) => project.category === 'EDUCATION'))
   // const empowerment = useMemo(() => homeProjects.filter((project) => project.category === 'EMPOWERMENT'))
   // const activism = useMemo(() => homeProjects.filter((project) => project.category === 'ACTIVISM'))
-
-  const { isDesktop } = useViewport()
+  const colorBlue = theme.colors.main.blue
 
   function filterByEducation() {
     if (activeProjects === 'education') {
@@ -57,7 +52,6 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
   }
 
   return (
-    isDesktop &&
     <section>
       <Flex pt="50px" px="10%">
         <Box textAlign="center" >
@@ -78,21 +72,21 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
           <Button onClick={filterByEducation}>
             <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
               <Image src="/images/static/assets/icon_education_blue.png" alt="education" width="40" height="40" />
-              <Text mt="10px" variant="projectsButton" color={theme.colors.main.blue}>EDUCATION</Text>
+              <Text mt="10px" variant="projectsButton" color={colorBlue}>EDUCATION</Text>
             </Flex>
           </Button>
 
           <Button onClick={filterByActivism}>
             <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
               <Image src="/images/static/assets/icon_activism_blue.png" alt="education" width="40" height="40" />
-              <Text mt="10px" variant="projectsButton" color={theme.colors.main.blue}>ACTIVISM</Text>
+              <Text mt="10px" variant="projectsButton" color={colorBlue}>ACTIVISM</Text>
             </Flex>
           </Button>
 
           <Button onClick={filterByEmpowerment}>
             <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
               <Image src="/images/static/assets/icon_empowerment_blue.png" alt="education" width="40" height="40" />
-              <Text mt="10px" variant="projectsButton" color={theme.colors.main.blue}>EMPOWERMENT</Text>
+              <Text mt="10px" variant="projectsButton" color={colorBlue}>EMPOWERMENT</Text>
             </Flex>
           </Button>
 

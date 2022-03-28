@@ -4,12 +4,11 @@ import Link from 'next/link'
 import SectionsTitle from "../../ui/SectionsTitle"
 import Text from "../../ui/Text"
 import Button from "../../ui/Button"
-import useViewport from "../../../hooks/useViewport"
 
 export default function TwoSideCallToAction({ content, image, title, reverse, cta, ctaTarget, imageWidth, imageHeight }) {
-  const { isDesktop } = useViewport()
+
   return (
-    isDesktop &&
+
     <section>
       <Flex flexDirection={reverse ? 'row-reverse' : 'row'}>
         <Box w="50%" p="6%" h="100%">
