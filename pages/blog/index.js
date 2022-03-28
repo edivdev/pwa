@@ -17,7 +17,7 @@ export default function BlogIndexPage(props) {
       <Flex backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" flexDirection="column" alignItems="center" py="5%">
         {/* <Flex py="5%">Buttons</Flex> */}
         <Grid templateColumns='repeat(4, 1fr)' gap={6}>
-          {blogEntries.map((blog) => <GridItem><BlogTile blog={blog} /></GridItem>)}
+          {blogEntries.map((blog) => <GridItem key={blog.id}><BlogTile blog={blog} /></GridItem>)}
         </Grid>
       </Flex>
     </>
