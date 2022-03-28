@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 import { Box, Flex } from '@chakra-ui/react'
 import { Grid, GridItem } from '@chakra-ui/react'
@@ -16,47 +16,40 @@ import ProjectTile from './ProjectTile'
 
 const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects, activismProjects }) => {
 
-  const [showingProjects, setShowingProjects] = useState(featuredProjects)
-  const [activeEducation, setActiveEducation] = useState(false)
-  const [activeEmpowerment, setActiveEmpowerment] = useState(false)
-  const [activeActivism, setActiveActivism] = useState(false)
+  const [featProjects, setFeatProjects] = useState(featuredProjects)
+  const [activeProjects, setActiveProjects] = useState('')
+  const [filteredProjects, setFilteredProjects] = useState(null)
+
+  // const education = useMemo(() => homeProjects.filter((project) => project.category === 'EDUCATION'))
+  // const empowerment = useMemo(() => homeProjects.filter((project) => project.category === 'EMPOWERMENT'))
+  // const activism = useMemo(() => homeProjects.filter((project) => project.category === 'ACTIVISM'))
 
   const { isDesktop } = useViewport()
 
   function filterByEducation() {
-    if (activeEducation) {
-      setActiveEducation(false)
-      setShowingProjects(featuredProjects)
+    if (activeProjects === 'education') {
+      setFilteredProjects(null)
     } else {
-      setActiveEducation(true)
-      setActiveEmpowerment(false)
-      setActiveActivism(false)
-      setShowingProjects(educationProjects)
+      setActiveProjects('education')
+      setFilteredProjects(educationProjects)
     }
   }
 
   function filterByEmpowerment() {
-    if (activeEmpowerment) {
-      setActiveEmpowerment(false)
-      setShowingProjects(featuredProjects)
+    if (activeProjects === 'empowerment') {
+      setFilteredProjects(null)
     } else {
-      setActiveEducation(false)
-      setActiveActivism(false)
-      setActiveEmpowerment(true)
-      setShowingProjects(empowermentProjects)
+      setActiveProjects('empowerment')
+      setFilteredProjects(empowermentProjects)
     }
   }
 
   function filterByActivism() {
-    if (activeActivism) {
-      setActiveActivism(false)
-      setShowingProjects(featuredProjects)
+    if (activeProjects === 'activism') {
+      setFilteredProjects(null)
     } else {
-      setActiveEducation(false)
-      setActiveEmpowerment(false)
-      setActiveActivism(true)
-      setShowingProjects(activismProjects)
-
+      setActiveProjects('activism')
+      setFilteredProjects(activismProjects)
     }
   }
 
@@ -79,37 +72,43 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
       <Box px="10%">
         <Flex justifyContent="center">
 
-          <Button variant={activeEducation ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEducation}>
+          <Button onClick={filterByEducation}>
             <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
               <Image src="/images/static/assets/icon_education_blue.png" alt="education" width="40" height="40" />
               <Text mt="10px" variant="projectsButton" color={theme.colors.main.blue}>EDUCATION</Text>
             </Flex>
           </Button>
 
-
-          <Button variant={activeActivism ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByActivism}>
+          <Button onClick={filterByActivism}>
             <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
               <Image src="/images/static/assets/icon_activism_blue.png" alt="education" width="40" height="40" />
               <Text mt="10px" variant="projectsButton" color={theme.colors.main.blue}>ACTIVISM</Text>
             </Flex>
           </Button>
 
-          <Button variant={activeEmpowerment ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEmpowerment}>
+          <Button onClick={filterByEmpowerment}>
             <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
               <Image src="/images/static/assets/icon_empowerment_blue.png" alt="education" width="40" height="40" />
               <Text mt="10px" variant="projectsButton" color={theme.colors.main.blue}>EMPOWERMENT</Text>
             </Flex>
           </Button>
+
         </Flex>
       </Box>
 
       <Box m="50px 10%" minHeight="700px">
+
         <Grid templateColumns='repeat(4, 1fr)' gap={6}>
-          {showingProjects.map((project) =>
+
+          {filteredProjects && filteredProjects.map((project) =>
             <GridItem key={project.id}>
               <ProjectTile project={project} />
-            </GridItem>
-          )}
+            </GridItem>)}
+          {!filteredProjects && featProjects.map((project) =>
+            <GridItem key={project.id}>
+              <ProjectTile project={project} />
+            </GridItem>)}
+
         </Grid>
 
         <Box w="65%" m="50px auto" textAlign="center">
@@ -121,3 +120,12 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
 };
 
 export default HomeProjects;
+
+// variant={activeEmpowerment ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEmpowerment}
+// variant={activeActivism ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByActivism}
+// variant={activeEducation ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEducation}
+
+
+{/* <GridItem key={project.id}>
+                <ProjectTile project={project} />
+              </GridItem> */}

@@ -8,7 +8,7 @@ import HomeBlog from '../components/homepage/HomeBlog'
 
 export default function homePage(props) {
 
-  const { educationProjects, empowermentProjects, activismProjects, featuredProjects } = props
+  const { featuredProjects, educationProjects, empowermentProjects, activismProjects } = props
 
   const featuredBlogs = blogs.filter((blog) => {
     return blog.featured <= 5 && blog.isFeatured === true
