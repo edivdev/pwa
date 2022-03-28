@@ -1,10 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import { blogs } from '../../components/data/initialState'
 import PagesHeader from '../../components/ui/PagesHeader'
-<<<<<<< HEAD
 import Text from '../../components/ui/Text'
-=======
->>>>>>> c88e3308b97387b9946b6f2bc03bee8de5d6079c
 
 export default function index(props) {
   const { blog } = props
