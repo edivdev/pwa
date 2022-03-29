@@ -3,7 +3,7 @@ import SectionsTitle from '../ui/SectionsTitle'
 import useTheme from '../../hooks/useTheme'
 import MemberCard from './MemberCard'
 
-export default function BoardMembers({ members }) {
+export default function BoardMembers({ members, setPopupInfo, setIsPopupShowing }) {
   const theme = useTheme()
   return (
     <section>
@@ -11,7 +11,7 @@ export default function BoardMembers({ members }) {
         <SectionsTitle title="Board" />
         <Flex flexWrap="wrap" justifyContent="center">
           {members.map((member) =>
-            <MemberCard member={member} key={member.id} />
+            <MemberCard member={member} key={member.id} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
           )}
         </Flex>
       </Box>

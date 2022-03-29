@@ -3,9 +3,20 @@ import Image from "next/image"
 import Link from 'next/link'
 import Text from "../ui/Text";
 
-export default function MemberCard({ member }) {
+export default function MemberCard({ member, setPopupInfo, setIsPopupShowing }) {
+
+  function clickOnVolunteer() {
+    setPopupInfo({
+      picture: member.pic,
+      name: member.name,
+      country: member.country,
+      bio: member.bio
+    })
+    setIsPopupShowing(true)
+  }
+
   return (
-    <Flex w="322px" h="375px" m="10px" flexDirection="column">
+    <Flex w="322px" h="375px" m="10px" flexDirection="column" onClick={clickOnVolunteer} className="hoverable">
       <Box h="50%" position="relative">
         <Image src={member.pic} layout="fill" objectFit="contain" />
       </Box>
@@ -20,14 +31,6 @@ export default function MemberCard({ member }) {
             {member.position}
           </Text>
         </Box>
-        {/* <Link href={`/about-us/${member.slug}`}>
-          <a>
-            <Flex justifyContent="center">
-              <Image src="/images/static/assets/right-arrow.png" alt="next" width="29px" height="21px" />
-              <Box mx="5px">Lorem Ipsum</Box>
-            </Flex>
-          </a>
-        </Link> */}
       </Flex>
     </Flex>
 

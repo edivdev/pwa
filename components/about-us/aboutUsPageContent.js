@@ -13,7 +13,8 @@ export default function AboutUsPageContent() {
     picture: '',
     name: '',
     country: '',
-    bio: ''
+    bio: '',
+    position: ''
   })
 
   function closePopUp() {
@@ -31,7 +32,7 @@ export default function AboutUsPageContent() {
       </Box>
       <Volunteers setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
       <BeVolunteer />
-      <BoardMembers members={members} />
+      <BoardMembers members={members} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
       <Popup isPopupShowing={isPopupShowing} closePopUp={closePopUp} popupInfo={popupInfo} />
     </>
   )
