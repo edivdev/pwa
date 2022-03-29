@@ -1,4 +1,5 @@
 import MainSlider from '../components/homepage/MainSlider'
+
 import HomeProjects from '../components/homepage/HomeProjects'
 
 import { projects, blogs } from '../components/data/initialState'

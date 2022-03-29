@@ -17,7 +17,7 @@ export default function TwoSideCallToAction({ content, image, title, reverse, ct
         <Flex w="50%" p="2%" minHeight="100%" justifyContent="center" flexDirection="column">
           <SectionsTitle title={title} />
           <Text py="20px" color="black" variant="normal">{content}</Text>
-          <Link href={ctaTarget}>
+          {cta && <Link href={ctaTarget}>
             <a>
               <Button
                 variant="blue"
@@ -26,7 +26,7 @@ export default function TwoSideCallToAction({ content, image, title, reverse, ct
                 {cta}
               </Button>
             </a>
-          </Link>
+          </Link>}
         </Flex>
       </Flex>
 

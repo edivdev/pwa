@@ -10,7 +10,7 @@ export default function VolunteersContactForm() {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <Box>
+      <Box id="volunteers-contact-form">
         <Grid
           templateRows='repeat(4, 1fr)'
           templateColumns='repeat(2, 1fr)'

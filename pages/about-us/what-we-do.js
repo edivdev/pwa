@@ -1,6 +1,6 @@
-import PageChanger from "../../components/about-us/pageChanger";
+import PageChanger from "../../components/about-us/page-changer";
 import PagesHeader from "../../components/ui/PagesHeader";
-import WhatWeDoPageContent from "../../components/about-us/WhatWeDoPageContent";
+import WhatWeDoPageContent from "../../components/about-us/what-we-do-page-content";
 
 export default function WhatWeDoPage() {
   return (

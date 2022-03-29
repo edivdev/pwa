@@ -1,10 +1,10 @@
 import { Box, Flex } from '@chakra-ui/react'
 
-import VolunteerCard from './VolunteerCard'
+import VolunteerCard from './volunteer-card'
 import Text from '../ui/Text'
 import ImageCarousel from '../ui/Slider'
 
-export default function Volunteers({ volunteers, setPopupInfo, setIsPopupShowing }) {
+export default function VolunteersList({ volunteers, setPopupInfo, setIsPopupShowing }) {
   const settings = {
     infinite: true,
     dots: true,

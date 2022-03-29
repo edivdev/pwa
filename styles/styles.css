@@ -96,7 +96,6 @@ a:hover {
 .bnwhite-card-image {
   filter: grayscale(100%);
 }
-
 #blog-entry a {
   color: #365d9e;
   text-decoration: underline;
@@ -120,4 +119,8 @@ a:hover {
 }
 .hoverable {
   cursor: pointer;
+}
+#volunteers-contact-form input {
+  background-color: white;
+  border: 1px solid white;
 }

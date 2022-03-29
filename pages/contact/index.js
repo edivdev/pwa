@@ -1,12 +1,12 @@
 import { Box } from '@chakra-ui/react'
 import Text from '../../components/ui/Text'
 import SectionsTitle from '../../components/ui/SectionsTitle'
-import ContactForm from '../../components/contact/ContactForm'
+import ContactForm from '../../components/contact/contact-form'
 import PagesHeader from '../../components/ui/PagesHeader'
 import Button from '../../components/ui/Button'
 
 export default function contactPage() {
-  
+
   return (
     <section>
       <PagesHeader
@@ -17,7 +17,7 @@ export default function contactPage() {
         ctaTarget="mailto:educaciondiversa@gmail.com"
       />
       <Box px="5%">
-        <SectionsTitle title="Send us a Message" center/>
+        <SectionsTitle title="Send us a Message" center />
 
         <Box w="60%" display="block" m="auto">
 

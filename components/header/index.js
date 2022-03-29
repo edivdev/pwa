@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Flex } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
 import Link from 'next/link'
-import MenuItem from './MenuItem'
-import SubMenu from './subMenu'
+import MenuItem from './menu-item'
+import SubMenu from './sub-menu'
 import Image from 'next/image'
 
 const menu = [
@@ -12,7 +12,8 @@ const menu = [
       { id: 1.1, name: 'about us', slug: '/about-us' },
       { id: 1.2, name: 'what we do', slug: '/about-us/what-we-do' },
       { id: 1.3, name: 'recognitions', slug: '/about-us/recognitions' },
-      { id: 1.4, name: 'collaborations', slug: '/about-us/collaborations' }
+      { id: 1.4, name: 'collaborations', slug: '/about-us/collaborations' },
+      { id: 1.5, name: 'volunteers', slug: '/about-us/volunteers' },
     ]
   },
   { id: 2, name: 'projects', slug: 'projects' },

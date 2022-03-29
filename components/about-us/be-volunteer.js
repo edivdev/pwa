@@ -1,6 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react"
 import Text from "../ui/Text"
-import VolunteersContactForm from "./VolunteersContactForm"
+import VolunteersContactForm from "./volunteers-contact-form"
 import useTheme from '../../hooks/useTheme'
 import Image from "next/image"
 

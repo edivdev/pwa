@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { Box } from "@chakra-ui/react"
-import BoardMembers from './BoardMembers'
-import BeVolunteer from "./BeVolunteer"
-import Volunteers from "./Volunteers"
+import BoardMembers from './board-members'
+import BeVolunteer from "./be-volunteer"
+import Volunteers from "./volunteers-list"
 import Popup from '../ui/Popup'
+import Image from 'next/image'
 
-export default function AboutUsPageContent({ volunteers, members }) {
+export default function VolunteersPageContent({ volunteers, members }) {
 
   const [isPopupShowing, setIsPopupShowing] = useState(false)
   const [popupInfo, setPopupInfo] = useState({
@@ -28,6 +29,9 @@ export default function AboutUsPageContent({ volunteers, members }) {
       <Box maxWidth="60%" m="auto">
         <p>{title1}</p>
         <p><b>{title2}</b></p>
+      </Box>
+      <Box width="100%" height="600px" position="relative" my="5%">
+        <Image src="/images/static/volunteers/volunteersmap.jpg" layout="fill" objectFit="contain" />
       </Box>
       <Volunteers volunteers={volunteers} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
       <BeVolunteer />

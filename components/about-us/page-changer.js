@@ -1,8 +1,21 @@
-import { Box, Flex } from "@chakra-ui/react"
+import { useEffect, useState } from "react"
+import { Flex } from "@chakra-ui/react"
 import Link from 'next/link'
 import Button from "../ui/Button"
+import { useRouter } from 'next/router'
 
-export default function pageChanger() {
+export default function PageChanger() {
+
+  const router = useRouter()
+
+  function consoleThing(asd) {
+    console.log(asd.split('/'))
+  }
+
+  useEffect(() => {
+    consoleThing(router.pathname)
+  }, [])
+
   return (
     <Flex w="100%" justifyContent="center" m="50px 0">
       <Link href='/about-us'>
@@ -28,7 +41,16 @@ export default function pageChanger() {
       </Link>
       <Link href='/about-us/collaborations'>
         <a>
-          <Button variant="fillBlue" size="banner" textTransform="uppercase">collaborations</Button>
+          <Button variant="fillBlue" size="banner" textTransform="uppercase">
+            collaborations
+          </Button>
+        </a>
+      </Link>
+      <Link href='/about-us/volunteers'>
+        <a>
+          <Button variant="fillBlue" size="banner" textTransform="uppercase">
+            volunteers
+          </Button>
         </a>
       </Link>
     </Flex>
