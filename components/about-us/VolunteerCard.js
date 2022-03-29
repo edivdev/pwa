@@ -14,7 +14,7 @@ export default function VolunteerCard({ volunteer, setPopupInfo, setIsPopupShowi
     setIsPopupShowing(true)
   }
   return (
-    <Flex w="155px" h="312px" borderRadius="6px" boxShadow="0 0 24px rgba(44, 41, 47, 0.12)" flexDirection="column" justifyContent="space-between" onClick={clickOnVolunteer}>
+    <Flex w="155px" h="312px" borderRadius="6px" boxShadow="0 0 24px rgba(44, 41, 47, 0.12)" flexDirection="column" justifyContent="space-between" onClick={clickOnVolunteer} className="hoverable">
       <Box w="155px" h="156px" position="relative">
         <Image className="bnwhite-card-image" src={`/images/static/volunteers/${volunteer.pic}`} layout="fill" alt={volunteer.name} objectFit="contain" />
       </Box>

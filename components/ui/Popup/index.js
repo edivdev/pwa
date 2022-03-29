@@ -12,7 +12,7 @@ export default function index({ isPopupShowing, closePopUp, popupInfo }) {
       <Flex className="modal_content" display="flex" flexDirection="column" w="654px" h="452px">
         <Flex justifyContent="flex-end">
           <Flex w="25px" h="25px" justifyContent="center" alignItems="center">
-            <Text fontSize="35px" color="gray" className="close" onClick={closePopUp}>&times;</Text>
+            <Text fontSize="35px" color="gray" className="hoverable" onClick={closePopUp}>&times;</Text>
           </Flex>
         </Flex>
         <Flex justifyContent="space-around" alignItems="center" h="100%">
