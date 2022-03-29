@@ -8,7 +8,7 @@ export default function index({ isPopupShowing, closePopUp, popupInfo }) {
   const { name, picture, country, bio } = popupInfo
 
   return (
-    <Box className="modal" display={isPopupShowing ? 'flex' : 'none'}>
+    <Box className="modal" display={isPopupShowing ? 'flex' : 'none'} onClick={closePopUp}>
       <Flex className="modal_content" display="flex" flexDirection="column" w="654px" h="452px">
         <Flex justifyContent="flex-end">
           <Flex w="25px" h="25px" justifyContent="center" alignItems="center">
