@@ -4,7 +4,7 @@ import VolunteerCard from './VolunteerCard'
 import Text from '../ui/Text'
 import ImageCarousel from '../ui/Slider'
 
-export default function Volunteers() {
+export default function Volunteers({ setPopupInfo, setIsPopupShowing }) {
   const settings = {
     infinite: true,
     dots: true,
@@ -20,7 +20,7 @@ export default function Volunteers() {
         <Text fontWeight="900" fontSize="25px">Our Volunteers</Text>
         <ImageCarousel settings={settings}>
           {volunteers.map((volunteer) => (
-            <VolunteerCard volunteer={volunteer} key={volunteer.name} />
+            <VolunteerCard volunteer={volunteer} key={volunteer.name} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
           ))}
         </ImageCarousel>
       </Box>

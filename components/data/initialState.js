@@ -227,7 +227,8 @@ export const volunteers = [
   {
     name: 'Aida Azady',
     country: 'Italy',
-    pic: 'Aida Azady - Italy.jpg'
+    pic: 'Aida Azady - Italy.jpg',
+    bio: 'asd asd asd'
   },
   {
     name: 'Alejandra S',

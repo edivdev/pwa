@@ -1,6 +1,6 @@
-import AboutUsPageContent from "../../components/about-us/aboutUsPageContent";
-import PageChanger from "../../components/about-us/pageChanger";
-import PagesHeader from "../../components/ui/PagesHeader";
+import AboutUsPageContent from "../../components/about-us/aboutUsPageContent"
+import PageChanger from "../../components/about-us/pageChanger"
+import PagesHeader from "../../components/ui/PagesHeader"
 
 export default function AboutUsPage() {
   return (
