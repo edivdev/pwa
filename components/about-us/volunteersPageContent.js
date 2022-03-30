@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Box } from "@chakra-ui/react"
-import BoardMembers from './board-members'
-import BeVolunteer from "./be-volunteer"
-import Volunteers from "./volunteers-list"
+import BoardMembers from './boardMembers'
+import BeVolunteer from "./beVolunteer"
+import Volunteers from "./volunteersList"
 import Popup from '../ui/Popup'
 import Image from 'next/image'
 

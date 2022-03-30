@@ -1,7 +1,7 @@
 import PagesHeader from "../../components/ui/PagesHeader"
-import PageChanger from "../../components/about-us/page-changer"
+import PageChanger from "../../components/about-us/pageChanger"
 import { volunteers, members } from "../../components/data/initialState"
-import VolunteersPageContent from "../../components/about-us/volunteers-page-content"
+import VolunteersPageContent from "../../components/about-us/volunteersPageContent"
 
 export default function VolunteersPage(props) {
   const { volunteers, members } = props

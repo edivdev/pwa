@@ -1,7 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react'
 import SectionsTitle from '../ui/SectionsTitle'
 import useTheme from '../../hooks/useTheme'
-import MemberCard from './member-card'
+import MemberCard from './memberCard'
 
 export default function BoardMembers({ members, setPopupInfo, setIsPopupShowing }) {
   const theme = useTheme()

@@ -1,4 +1,4 @@
-import PageChanger from "../../components/about-us/page-changer"
+import PageChanger from "../../components/about-us/pageChanger"
 import PagesHeader from "../../components/ui/PagesHeader"
 
 export default function RecognitionsPage() {

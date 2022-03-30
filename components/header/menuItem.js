@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import SubMenu from './sub-menu'
+import SubMenu from './subMenu'
 import { Box } from '@chakra-ui/react'
 import { useState } from 'react'
 import Text from '../ui/Text'

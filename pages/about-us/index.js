@@ -1,5 +1,5 @@
 
-import PageChanger from "../../components/about-us/page-changer"
+import PageChanger from "../../components/about-us/pageChanger"
 import PagesHeader from "../../components/ui/PagesHeader"
 import { volunteers, members } from "../../components/data/initialState"
 import TwoSideCallToAction from "../../components/homepage/TwoSideCallToAction"

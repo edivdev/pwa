@@ -1,6 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react'
 
-import VolunteerCard from './volunteer-card'
+import VolunteerCard from './volunteerCard'
 import Text from '../ui/Text'
 import ImageCarousel from '../ui/Slider'
 

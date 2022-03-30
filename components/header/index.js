@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Flex } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
 import Link from 'next/link'
-import MenuItem from './menu-item'
-import SubMenu from './sub-menu'
+import MenuItem from './menuItem'
+import SubMenu from './subMenu'
 import Image from 'next/image'
 
 const menu = [
