@@ -265,7 +265,7 @@ export const volunteers = [
     pic: "/images/static/volunteers/Emily Falcon - USA.jpg"
   },
   {
-    name: "Felipe",
+    name: "Felipe Estrada",
     country: "Colombia",
     pic: "/images/static/volunteers/Felipe - Colombia.jpg"
   },
