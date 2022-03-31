@@ -51,12 +51,17 @@ export default {
       border: `2px solid ${theme.colors.main.blue}`,
       margin: '0 auto'
     }),
-    projectsButtonActive: ({ }) => ({
+    projectsButtonActive: ({ theme }) => ({
       background: theme.colors.main.lightblue,
       margin: '0 auto',
       width: '320px',
       height: '70px',
       borderRadius: '6px'
+    }),
+    SignUp: ({ theme }) => ({
+      color: theme.colors.main.footer,
+      width: '100%',
+      background: 'white'
     })
   },
   sizes: {

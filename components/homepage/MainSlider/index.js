@@ -28,13 +28,13 @@ const MainSlider = () => {
               </Text>
             </Box>
             <Flex>
-              <Link href="/projects">
+              <Link href="/about-us/volunteers">
                 <a>
                   <Button
                     size="banner"
                     variant="red"
                   >
-                    PROJECTS
+                    VOLUNTEERS
                   </Button>
                 </a>
               </Link>

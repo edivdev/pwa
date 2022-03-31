@@ -35,7 +35,7 @@ const theme = extendTheme({
   },
   components: {
     Text,
-    Button
+    Button,
   }
 })
 
