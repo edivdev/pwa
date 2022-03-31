@@ -3,7 +3,7 @@ import { Box, Flex } from "@chakra-ui/react"
 
 export default function Contact() {
   return (
-    <Flex flexDirection="column">
+    <Flex flexDirection="column" mb="15px">
       <Text fontWeight="900" color="white">CONTACT</Text>
 
       <Text color="white">Educación Diversa</Text>

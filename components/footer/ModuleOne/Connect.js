@@ -4,7 +4,7 @@ import Text from "../../ui/Text"
 
 export default function Connect() {
   return (
-    <Flex flexDirection="column">
+    <Flex flexDirection="column" mb="15px">
       <Text fontWeight="900" color="white">CONNECT</Text>
       <Flex>
         <Box fontSize="30px"><FaLinkedin /></Box>

@@ -61,9 +61,13 @@ export default {
     SignUp: ({ theme }) => ({
       color: theme.colors.main.footer,
       width: '100%',
+      fontSize: '14px',
+      height: '30px',
+      mt: '10px',
       background: 'white'
     }),
     buttonFooter: ({ theme }) => ({
+      width: '100%',
       fontSize: "12px",
       backgroundColor: theme.colors.main.lightblue,
       '&:hover': {
