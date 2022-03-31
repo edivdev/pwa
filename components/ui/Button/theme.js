@@ -29,7 +29,14 @@ export default {
     fillBlue: ({ theme }) => ({
       bg: theme.colors.main.blue,
       color: 'white',
-      border: `2px solid ${theme.colors.main.blue}`
+      border: `2px solid ${theme.colors.main.blue}`,
+      fontSize: '14px'
+    }),
+    fillWhite: ({ theme }) => ({
+      bg: theme.colors.main.white,
+      color: theme.colors.main.blue,
+      border: `2px solid ${theme.colors.main.white}`,
+      fontSize: '14px'
     }),
     noButton: {
       bg: 'transparent',

@@ -4,51 +4,57 @@ import Link from 'next/link'
 import Button from "../ui/Button"
 import { useRouter } from 'next/router'
 
+function splitPathname(pathname) {
+  return pathname.split('/')
+}
+
 export default function PageChanger() {
 
   const router = useRouter()
-
-  function consoleThing(asd) {
-    console.log(asd.split('/'))
-  }
+  const [page, setPage] = useState(null)
 
   useEffect(() => {
-    consoleThing(router.pathname)
-  }, [])
+    const pathname = splitPathname(router.pathname)
+    if (pathname.length >= 3) {
+      setPage(pathname[2])
+    } else {
+      setPage(pathname[1])
+    }
+  }, [page])
 
   return (
-    <Flex w="100%" justifyContent="center" m="50px 0">
-      <Link href='/about-us'>
+    <Flex w="100%" justifyContent="center" m="50px 0" id="page-changer" pt="5%">
+      <Link href='/about-us#page-changer'>
         <a>
-          <Button variant="fillBlue" size="banner" textTransform="uppercase">
+          <Button variant={page === "about-us" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
             about us
           </Button>
         </a>
       </Link>
-      <Link href='/about-us/what-we-do'>
+      <Link href='/about-us/what-we-do#page-changer'>
         <a>
-          <Button variant="fillBlue" size="banner" textTransform="uppercase">
+          <Button variant={page === "what-we-do" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
             what we do
           </Button>
         </a>
       </Link>
-      <Link href='/about-us/recognitions'>
+      <Link href='/about-us/recognitions#page-changer'>
         <a>
-          <Button variant="fillBlue" size="banner" textTransform="uppercase">
+          <Button variant={page === "recognitions" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
             recognitions
           </Button>
         </a>
       </Link>
-      <Link href='/about-us/collaborations'>
+      <Link href='/about-us/collaborations#page-changer'>
         <a>
-          <Button variant="fillBlue" size="banner" textTransform="uppercase">
+          <Button variant={page === "collaborations" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
             collaborations
           </Button>
         </a>
       </Link>
-      <Link href='/about-us/volunteers'>
+      <Link href='/about-us/volunteers#page-changer'>
         <a>
-          <Button variant="fillBlue" size="banner" textTransform="uppercase">
+          <Button variant={page === "volunteers" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
             volunteers
           </Button>
         </a>
