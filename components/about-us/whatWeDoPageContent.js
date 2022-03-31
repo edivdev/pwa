@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Text from "../ui/Text"
 import VideoPopup from '../ui/Popup/VideoPopup'
 
-export default function whatWeDoPageContent() {
+export default function WhatWeDoPageContent() {
 
   const [isPopupShowing, setIsPopupShowing] = useState(false)
   const [popupInfo, setPopupInfo] = useState('')
