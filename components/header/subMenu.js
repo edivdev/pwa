@@ -32,11 +32,20 @@ export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
           return (
             <Box key={element.id}>
               <Link href={element.slug} _hover={{ textDecoration: 'none' }}>
-                <Text color="white" variant="submenuItem" _hover={{ color: theme.colors.main.red }} >{element.name}</Text>
+                <Text
+                  color="white"
+                  variant="submenuItem"
+                  _hover={{
+                    color: theme.colors.main.red,
+                    fontWeight: '900',
+                  }}
+                >
+                  {element.name}
+                </Text>
               </Link>
             </Box>
           )
-        })} 
+        })}
       </Box>
     </Box>
   )

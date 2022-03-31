@@ -46,7 +46,7 @@ export default {
       fontWeight: '900'
     },
     submenuItem: {
-      fontSize: '14px',
+      fontSize: '15px',
       textDecoration: 'none',
       textTransform: 'capitalize'
     },
