@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react"
-import Text from "../ui/Text"
+import Text from "../../ui/Text"
 
 export default function LearningPortal() {
   return (

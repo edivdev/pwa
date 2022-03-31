@@ -62,6 +62,14 @@ export default {
       color: theme.colors.main.footer,
       width: '100%',
       background: 'white'
+    }),
+    buttonFooter: ({ theme }) => ({
+      fontSize: "12px",
+      backgroundColor: theme.colors.main.lightblue,
+      '&:hover': {
+        backgroundColor: 'white',
+        color: theme.colors.main.lightblue,
+      }
     })
   },
   sizes: {

@@ -1,8 +1,9 @@
 import { Flex } from '@chakra-ui/react'
 import useTheme from '../../hooks/useTheme'
-import Connect from './Connect'
-import BecomeMember from './BecomeMember'
 import ModuleOne from './ModuleOne'
+import ModuleTwo from './ModuleTwo.js'
+import BecomeMember from './ModuleFour/BecomeMember'
+import ModuleThree from './ModuleThree'
 
 function Footer() {
 
@@ -16,6 +17,8 @@ function Footer() {
       justifyContent="space-evenly"
     >
       <ModuleOne />
+      <ModuleTwo />
+      <ModuleThree />
       <BecomeMember />
     </Flex>
   )

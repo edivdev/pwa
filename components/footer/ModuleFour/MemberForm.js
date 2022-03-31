@@ -1,5 +1,5 @@
-import Input from '../ui/Input'
-import Button from '../ui/Button'
+import Input from '../../ui/Input'
+import Button from '../../ui/Button'
 
 export default function MemberForm() {
   function handleSubmit(e) {

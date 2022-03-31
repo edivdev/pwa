@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react"
 import Link from 'next/link'
-import Text from "../ui/Text"
+import Text from "../../ui/Text"
 
 export default function Blog() {
   return (

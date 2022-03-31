@@ -1,6 +1,6 @@
 import { Flex, Box } from "@chakra-ui/react"
 import { FaLinkedin, FaInstagramSquare } from "react-icons/fa"
-import Text from "../ui/Text"
+import Text from "../../ui/Text"
 
 export default function Connect() {
   return (
