@@ -2,7 +2,6 @@ import theme from '../../theme'
 
 export default {
   baseStyle: {
-    mr: '50px',
     '&:hover': {
       opacity: '0.5'
     }
@@ -45,17 +44,17 @@ export default {
       height: 'auto'
     },
     projectsButton: ({ theme }) => ({
-      width: '320px',
-      height: '70px',
+      padding: '1%',
+      height: 'auto',
       borderRadius: '6px',
       border: `2px solid ${theme.colors.main.blue}`,
-      margin: '0 auto'
+      margin: '0 5px',
     }),
     projectsButtonActive: ({ theme }) => ({
       background: theme.colors.main.lightblue,
-      margin: '0 auto',
-      width: '320px',
-      height: '70px',
+      padding: '1%',
+      margin: '0 5px',
+      height: 'auto',
       borderRadius: '6px'
     }),
     SignUp: ({ theme }) => ({

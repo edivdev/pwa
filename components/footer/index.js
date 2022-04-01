@@ -13,7 +13,7 @@ function Footer() {
     <Flex
       bg={theme.colors.main.footer}
       color={theme.colors.main.white}
-      p="4% 7%"
+      w="100vw"
       justifyContent="space-evenly"
     >
       <ModuleOne />

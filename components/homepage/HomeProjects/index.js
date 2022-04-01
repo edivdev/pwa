@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 
 import { Box, Flex } from '@chakra-ui/react'
 import { Grid, GridItem } from '@chakra-ui/react'
@@ -11,12 +11,21 @@ import theme from '../../theme'
 import ProjectTile from './ProjectTile'
 import ProjectsIntro from './ProjectsIntro'
 
+import useViewport from '../../../hooks/useViewport'
+
 const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects, activismProjects }) => {
 
   const [featProjects, setFeatProjects] = useState(featuredProjects)
   const [activeProjects, setActiveProjects] = useState('')
   const [filteredProjects, setFilteredProjects] = useState(null)
   const [branchText, setBranchText] = useState('')
+
+  const viewport = useViewport()
+  const [isMobile, setIsMobile] = useState(null)
+
+  useEffect(() => {
+    setIsMobile(viewport[0])
+  }, [isMobile])
 
   const EmpowermentText = `Our empowerment projects engage children, young people and adults with the aim of giving them the resources, ideas and creative space to really reflect on the topics we are teaching about, whilst at the same time, healing and finding a therapeutic space due to the nature of the activities being art-based.  
   <br/><br/>
@@ -99,23 +108,29 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
       <Box px="10%">
         <Flex justifyContent="center">
 
-          <Button variant={activeProjects === 'education' ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEducation}>
-            <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
-              <Image src="/images/static/assets/icon_education_blue.png" alt="education" width="40" height="40" />
+          <Button minWidth={isMobile ? '100px' : '200px'} variant={activeProjects === 'education' ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEducation}>
+            <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%" flexDirection={isMobile ? 'column' : 'row'}>
+              <Box position="relative" width={isMobile ? '25px' : '40px'} height={isMobile ? '25px' : '40px'}>
+                <Image src="/images/static/assets/icon_education_blue.png" alt="education" layout='fill' objectFit='contain' />
+              </Box>
               <Text mt="10px" variant="projectsButton" color={colorBlue}>EDUCATION</Text>
             </Flex>
           </Button>
 
-          <Button variant={activeProjects === 'activism' ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByActivism}>
-            <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
-              <Image src="/images/static/assets/icon_activism_blue.png" alt="education" width="40" height="40" />
+          <Button minWidth={isMobile ? '100px' : '200px'} variant={activeProjects === 'activism' ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByActivism}>
+            <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%" flexDirection={isMobile ? 'column' : 'row'}>
+              <Box position="relative" width={isMobile ? '25px' : '40px'} height={isMobile ? '25px' : '40px'}>
+                <Image src="/images/static/assets/icon_activism_blue.png" alt="education" layout='fill' objectFit='contain' />
+              </Box>
               <Text mt="10px" variant="projectsButton" color={colorBlue}>ACTIVISM</Text>
             </Flex>
           </Button>
 
-          <Button variant={activeProjects === 'empowerment' ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEmpowerment}>
-            <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%">
-              <Image src="/images/static/assets/icon_empowerment_blue.png" alt="education" width="40" height="40" />
+          <Button minWidth={isMobile ? '100px' : '200px'} variant={activeProjects === 'empowerment' ? 'projectsButtonActive' : 'projectsButton'} onClick={filterByEmpowerment}>
+            <Flex w="100%" justifyContent="space-evenly" alignItems="center" h="100%" flexDirection={isMobile ? 'column' : 'row'}>
+              <Box position="relative" width={isMobile ? '25px' : '40px'} height={isMobile ? '25px' : '40px'}>
+                <Image src="/images/static/assets/icon_empowerment_blue.png" alt="education" layout='fill' objectFit='contain' />
+              </Box>
               <Text mt="10px" variant="projectsButton" color={colorBlue}>EMPOWERMENT</Text>
             </Flex>
           </Button>
@@ -125,7 +140,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
 
       <Box m="50px 10%">
 
-        <Grid templateColumns='repeat(4, 1fr)' gap={6} minHeight="782px">
+        <Grid templateColumns={'repeat(4, 1fr)'} gap="4px" minHeight="782px" overflowX="scroll">
 
           {filteredProjects && filteredProjects.map((project) =>
             <GridItem key={project.id}>

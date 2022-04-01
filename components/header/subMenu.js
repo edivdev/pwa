@@ -37,7 +37,6 @@ export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
                   variant="submenuItem"
                   _hover={{
                     color: theme.colors.main.red,
-                    fontWeight: '900',
                   }}
                 >
                   {element.name}

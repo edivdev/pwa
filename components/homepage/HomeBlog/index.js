@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Box, Flex } from '@chakra-ui/react'
 
 import Button from '../../ui/Button'
@@ -5,6 +6,8 @@ import SectionsTitle from '../../ui/SectionsTitle'
 import FirstFeaturedBlog from './FirstFeaturedBlog'
 import SecondaryFeaturedBlog from './SecondaryFeaturedBlog'
 import Link from 'next/link'
+
+import useViewport from '../../../hooks/useViewport'
 
 export default function HomeBlog({ featuredBlogs }) {
 
@@ -14,10 +17,17 @@ export default function HomeBlog({ featuredBlogs }) {
   const fourthFBlog = featuredBlogs[3]
   const fifthFBlog = featuredBlogs[4]
 
+  const viewport = useViewport()
+  const [isMobile, setIsMobile] = useState(null)
+
+  useEffect(() => {
+    setIsMobile(viewport[0])
+  }, [isMobile])
+
   return (
 
-    <section>
-      <Box textAlign="center" backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" backgroundSize="cover" py="5%">
+    <section> {
+      !isMobile && <Box textAlign="center" backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" backgroundSize="cover" py="5%">
 
         <SectionsTitle title="Blog" />
 
@@ -39,7 +49,7 @@ export default function HomeBlog({ featuredBlogs }) {
           </Link>
         </Box>
 
-      </Box>
+      </Box>}
     </section>
   )
 }

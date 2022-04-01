@@ -7,6 +7,11 @@ export default {
       fontSize: '90px',
       textTransform: 'capitalize'
     },
+    mainTitleMobile: {
+      fontWeight: '900',
+      fontSize: '50px',
+      textTransform: 'capitalize'
+    },
     mainSubTitle: {
       fontWeight: '900',
       fontSize: '18px',
@@ -48,7 +53,8 @@ export default {
     submenuItem: {
       fontSize: '15px',
       textDecoration: 'none',
-      textTransform: 'capitalize'
+      textTransform: 'capitalize',
+      fontWeight: '900'
     },
     menuItem: {
       fontSize: '16px',
@@ -72,7 +78,7 @@ export default {
     },
     projectsButton: {
       fontFamily: 'Just Another Hand',
-      fontSize: "35px",
+      fontSize: "20px",
       fontWeight: '500'
     }
   }
