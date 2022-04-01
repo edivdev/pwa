@@ -32,9 +32,7 @@ export default function PagesHeader({ background, ...props }) {
         {text2}
       </Text>
 
-      <Text variant="normal" color={background ? "white" : theme.colors.main.blue} maxWidth="60%">
-        {text3}
-      </Text>
+      <Text variant="normal" color={background ? "white" : theme.colors.main.blue} maxWidth="60%" dangerouslySetInnerHTML={{ __html: text3 }} />
 
       {
         ctaTarget && cta && <Link href={ctaTarget}>

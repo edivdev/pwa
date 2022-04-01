@@ -9,12 +9,35 @@ import Image from 'next/image'
 
 import theme from '../../theme'
 import ProjectTile from './ProjectTile'
+import ProjectsIntro from './ProjectsIntro'
 
 const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects, activismProjects }) => {
 
   const [featProjects, setFeatProjects] = useState(featuredProjects)
   const [activeProjects, setActiveProjects] = useState('')
   const [filteredProjects, setFilteredProjects] = useState(null)
+  const [branchText, setBranchText] = useState('')
+
+  const EmpowermentText = `Our empowerment projects engage children, young people and adults with the aim of giving them the resources, ideas and creative space to really reflect on the topics we are teaching about, whilst at the same time, healing and finding a therapeutic space due to the nature of the activities being art-based.  
+  <br/><br/>
+  Many of our projects result in resources for people to support their learning.  These learning resources are sold through our website to raise money for educational projects in underdeveloped countries.  We do however, also understand that it can be extremely hard to empower people who live in a cycle of poverty, so we also believe that we can contribute to empowering people from underdeveloped communities by generating accessible educational resources which help people navigate important life decisions.
+  <br/><br/>
+  Do you want to create a resource with us or be part of one of our projects?  Sign up to volunteer!
+  `
+
+  const EducationText = `Our educational packages and matrixes of activities are designed to give guidance and ideas that are fun and engaging for children and young people and also to provide adults with a starting point and some resources to begin conversations with  children and young people in their communities and families.
+  <br/><br/>
+  These projects have been developed by volunteers experienced in these fields and all content has been quality checked by appropriate subject matter experts.  The opinions on this website are opinions but the education is based on facts and science.
+  <br/><br/>
+  If you're a teacher or professional who wants to work with us or donate educational content, articles or resources, sign up below and we'll schedule a meeting to get you onboard!
+  `
+
+  const ActivismText = `Our activism campaigns engage children, young people and adults with the aim to provide ideas, methodologies and campaigns that they can use to engage in learning about these topics in a fun and interesting way.
+  <br/><br/>
+  As part of learning in a circular way, activism is exercising and practising what you have learnt and, in most countries, having your voice heard respectfully.  We do know that it’s not always easy to be an activist, but we do believe that through activism, there’s always a way to deliver education that is impactful and meaningful to communities at local, national and international levels.
+  <br/><br/>
+  Do you want to join one of our campaigns?  Become an ED Ambassador by signing up below! 
+  `
 
   const colorBlue = theme.colors.main.blue
 
@@ -22,8 +45,10 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
     if (activeProjects === 'education') {
       setFilteredProjects(null)
       setActiveProjects('')
+      setBranchText('')
     } else {
       setActiveProjects('education')
+      setBranchText(EducationText)
       setFilteredProjects(educationProjects)
     }
   }
@@ -32,8 +57,10 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
     if (activeProjects === 'empowerment') {
       setFilteredProjects(null)
       setActiveProjects('')
+      setBranchText('')
     } else {
       setActiveProjects('empowerment')
+      setBranchText(EmpowermentText)
       setFilteredProjects(empowermentProjects)
     }
   }
@@ -42,22 +69,28 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
     if (activeProjects === 'activism') {
       setFilteredProjects(null)
       setActiveProjects('')
+      setBranchText('')
     } else {
       setActiveProjects('activism')
+      setBranchText(ActivismText)
       setFilteredProjects(activismProjects)
     }
   }
 
   return (
     <section>
-      <Flex pt="50px" px="10%">
-        <Box textAlign="center" >
-          <Text as="h1" variant="h1">
-            What do we do?
+      <Flex pt="50px" px="10%" justifyContent="center">
+        <Box textAlign="center">
+
+
+          <Text as="h1" variant="h1" pb="4%">
+            Our Projects
           </Text>
-          <Text variant="normal">
-            Educacion Diversa is an international not-for-profit run by a collective of volunteers from around the world, coming together to provide free art-based education in the areas of Human Rights, Elimination of Violence and Bullying (including GBV) and Sexual and Reproductive Health
-          </Text>
+
+          <Flex minHeight="290px" alignItems="center">
+            {!filteredProjects && <ProjectsIntro />}
+            {filteredProjects && <Text textAlign="justify" dangerouslySetInnerHTML={{ __html: branchText }} />}
+          </Flex>
         </Box>
       </Flex>
 
@@ -106,7 +139,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
         </Grid>
 
         <Box w="65%" m="50px auto" textAlign="center">
-          <Text fontWeight="900" fontSize="26px">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip learning portal</Text>
+          <Text fontWeight="900" fontSize="26px">We hope this showcase of projects and campaigns inspires you to support us or take part and join in the fun!  </Text>
         </Box>
       </Box>
     </section>

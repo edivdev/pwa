@@ -12,7 +12,7 @@ export default function BlogIndexPage(props) {
     <>
       <PagesHeader
         text1="BLOG"
-        text3="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        text3="This area of our website is a shared space for our volunteers to publish their voices and opinions so that they can be heard on our global platform. It also allows us to publicly recognise their contribution to our work. Members of our collective are encouraged to contribute content that focuses on, or supports the provision of education in the areas of <b>Human Rights</b>, <b>Eliminating Violence and Peaceful Conflict Management and Sexual</b> and <b>Reproductive Health</b>"
       />
       <Flex backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" flexDirection="column" alignItems="center" py="5%">
         {/* <Flex py="5%">Buttons</Flex> */}
