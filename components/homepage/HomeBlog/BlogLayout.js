@@ -27,7 +27,7 @@ export function MobileBlogLayout({ featuredBlogs }) {
   const theme = useTheme()
   return (
     <Flex overflowX="scroll" width="auto">
-      {featuredBlogs.map((blog) => <Flex minWidth="320px" h="400px" mr="20px" flexDirection="column" justifyContent="space-between">
+      {featuredBlogs.map((blog) => <Flex key={blog.id} minWidth="320px" h="400px" mr="20px" flexDirection="column" justifyContent="space-between">
         <Box w="auto" height="122px" position="relative">
           <Image src={blog.image} layout="fill" alt={blog.title} objectFit="cover" />
         </Box>

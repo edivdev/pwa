@@ -155,10 +155,10 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
         }
         {isMobile && <Flex overflowX="scroll">
           {filteredProjects && filteredProjects.map((project) =>
-            <ProjectTile mr="10px" project={project} />
+            <ProjectTile key={project.id} mr="10px" project={project} />
           )}
           {!filteredProjects && featProjects.map((project) =>
-            <ProjectTile mr="10px" project={project} />
+            <ProjectTile key={project.id} mr="10px" project={project} />
           )}
         </Flex>}
         <Box w={isMobile ? "100%" : "65%"} m="50px auto" textAlign="center">

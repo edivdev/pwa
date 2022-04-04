@@ -41,7 +41,7 @@ export default function MobileMenu() {
       {isMenuOpen && <Box className="menu-modal" onClick={closeMenu} overflow="hidden">
         <Flex className="menu-mobile-wrapper" bg="white" zIndex="999" position="absolute" w="100vw" h="100vh" flexDirection="column" justifyContent="center" px="5%">
           {menu.map((element) =>
-            <Flex justifyContent="center">
+            <Flex justifyContent="center" key={element.id}>
               <Box my="15px">
                 <Link href={element.slug}>
                   <Text fontWeight="900" fontSize="20px" textTransform="uppercase">{element.name}</Text>
