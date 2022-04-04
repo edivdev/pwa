@@ -3,6 +3,7 @@ import { Box } from '@chakra-ui/react'
 import Footer from '../../footer'
 import Header from '../../header'
 import useViewport from '../../../hooks/useViewport'
+import MobileMenu from '../../header/MobileMenu'
 
 export default function Layout(props) {
 
@@ -16,12 +17,13 @@ export default function Layout(props) {
   return (
     <Box>
       {!isMobile && <Header />}
+      {isMobile && <MobileMenu />}
       <main>
-        <Box>
+        <Box mt={isMobile ? '70px' : ''}>
           {props.children}
         </Box>
       </main>
-      {!isMobile && <Footer />}
+      <Footer />
     </Box>
   )
 }

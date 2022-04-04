@@ -1,21 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Box, Flex } from '@chakra-ui/react'
-
 import Button from '../../ui/Button'
 import SectionsTitle from '../../ui/SectionsTitle'
-import FirstFeaturedBlog from './FirstFeaturedBlog'
-import SecondaryFeaturedBlog from './SecondaryFeaturedBlog'
 import Link from 'next/link'
-
 import useViewport from '../../../hooks/useViewport'
+import DesktopBlogLayout, { MobileBlogLayout } from './BlogLayout'
 
 export default function HomeBlog({ featuredBlogs }) {
-
-  const firstFBlog = featuredBlogs[0]
-  const secondFBlog = featuredBlogs[1]
-  const thirdFBlog = featuredBlogs[2]
-  const fourthFBlog = featuredBlogs[3]
-  const fifthFBlog = featuredBlogs[4]
 
   const viewport = useViewport()
   const [isMobile, setIsMobile] = useState(null)
@@ -25,22 +16,11 @@ export default function HomeBlog({ featuredBlogs }) {
   }, [isMobile])
 
   return (
-
-    <section> {
-      !isMobile && <Box textAlign="center" backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" backgroundSize="cover" py="5%">
-
+    <section>
+      <Box textAlign="center" backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" backgroundSize="cover" py="5%" w="100%">
         <SectionsTitle title="Blog" />
-
-        <Box display="inline-block">
-          <Box className='home-blogs-wrapper'>
-            <FirstFeaturedBlog blogEntry={firstFBlog} />
-            <SecondaryFeaturedBlog classname='blog-second' blogEntry={secondFBlog} />
-            <SecondaryFeaturedBlog classname='blog-third' blogEntry={thirdFBlog} />
-            <SecondaryFeaturedBlog classname='blog-fourth' blogEntry={fourthFBlog} />
-            <SecondaryFeaturedBlog classname='blog-fifth' blogEntry={fifthFBlog} />
-          </Box>
-        </Box>
-
+        {!isMobile && <DesktopBlogLayout featuredBlogs={featuredBlogs} />}
+        {isMobile && <MobileBlogLayout featuredBlogs={featuredBlogs} />}
         <Box py="20px">
           <Link href="/blog">
             <a>
@@ -49,7 +29,7 @@ export default function HomeBlog({ featuredBlogs }) {
           </Link>
         </Box>
 
-      </Box>}
+      </Box>
     </section>
   )
 }

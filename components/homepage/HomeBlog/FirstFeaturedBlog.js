@@ -12,7 +12,7 @@ export default function FirstFeaturedBlog({ blogEntry }) {
   return (
     <article className='blog-first'>
       <Flex flexDirection="column" h="100%" justifyContent="space-between">
-        <Box width="470px" height="252px" position="relative">
+        <Box width="auto" height="252px" position="relative">
           <Image src={blogEntry.image} alt={blogEntry.title} layout="fill" objectFit="cover" />
         </Box>
 

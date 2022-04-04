@@ -41,7 +41,7 @@ const Header = () => {
           <Flex w="10%" justifyContent="center">
             <Link href="/">
               <a>
-                <Box position="relative" width="100px" height="100px" mt="-35px">
+                <Box position="relative" width="65px" height="65px" mt="-20px">
                   <Image src="/images/static/assets/logo.png" layout="fill" objectFit="cover" />
                 </Box>
               </a>

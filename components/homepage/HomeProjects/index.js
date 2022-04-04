@@ -139,22 +139,30 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
       </Box>
 
       <Box m="50px 10%">
+        {!isMobile &&
+          <Grid templateColumns={'repeat(4, 1fr)'} gap="4px" minHeight="782px" overflowX="scroll">
 
-        <Grid templateColumns={'repeat(4, 1fr)'} gap="4px" minHeight="782px" overflowX="scroll">
+            {filteredProjects && filteredProjects.map((project) =>
+              <GridItem key={project.id}>
+                <ProjectTile project={project} />
+              </GridItem>)}
+            {!filteredProjects && featProjects.map((project) =>
+              <GridItem key={project.id}>
+                <ProjectTile project={project} />
+              </GridItem>)}
 
+          </Grid>
+        }
+        {isMobile && <Flex overflowX="scroll">
           {filteredProjects && filteredProjects.map((project) =>
-            <GridItem key={project.id}>
-              <ProjectTile project={project} />
-            </GridItem>)}
+            <ProjectTile mr="10px" project={project} />
+          )}
           {!filteredProjects && featProjects.map((project) =>
-            <GridItem key={project.id}>
-              <ProjectTile project={project} />
-            </GridItem>)}
-
-        </Grid>
-
-        <Box w="65%" m="50px auto" textAlign="center">
-          <Text fontWeight="900" fontSize="26px">We hope this showcase of projects and campaigns inspires you to support us or take part and join in the fun!  </Text>
+            <ProjectTile mr="10px" project={project} />
+          )}
+        </Flex>}
+        <Box w={isMobile ? "100%" : "65%"} m="50px auto" textAlign="center">
+          <Text fontWeight="900" fontSize="23px">We hope this showcase of projects and campaigns inspires you to support us or take part and join in the fun!  </Text>
         </Box>
       </Box>
     </section>

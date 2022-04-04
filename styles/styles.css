@@ -3,7 +3,6 @@ body {
   padding:0;
   margin:0;
 }
-
 a:hover {
   text-decoration: none !important;
 }
@@ -17,6 +16,19 @@ a:hover {
   grid-template-areas:
     "first first second third"
     "first first fourth fifth";
+  column-gap: 10px;
+  row-gap: 10px;
+}
+.mobile-home-blogs-wrapper{
+  width:100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "first first"
+    "first first" 
+    "second third"
+    "fourth fifth";
   column-gap: 10px;
   row-gap: 10px;
 }
@@ -141,4 +153,15 @@ a:hover {
   text-decoration: underline;
   color: #658ac8;
   font-weight: 900;
+}
+.menu-modal{
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  background-color: rgba(2, 13, 32, 0.9);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: flex-start;
 }

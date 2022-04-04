@@ -43,6 +43,7 @@ const MainSlider = () => {
                 <Box maxWidth="200px" mt="10px">
                   <Button
                     variant="red"
+                    mr={isMobile ? '' : '20px'}
                   >
                     VOLUNTEERS
                   </Button>

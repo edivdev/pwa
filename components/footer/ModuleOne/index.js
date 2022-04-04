@@ -3,9 +3,9 @@ import Blog from "./Blog"
 import Connect from "./Connect"
 import { Flex } from "@chakra-ui/react"
 
-export default function ModuleOne() {
+export default function ModuleOne({ isMobile }) {
   return (
-    <Flex flexDirection="column" justifyContent="flex-start" w="20%">
+    <Flex flexDirection="column" justifyContent="flex-start" w={isMobile ? "100%" : "20%"} mb={isMobile ? '20px' : ''}>
       <Connect />
       <LearningPortal />
       <Blog />
