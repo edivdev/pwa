@@ -45,7 +45,7 @@ export default function MobileMenu() {
         </Flex>
       </Flex>
 
-      <Flex className="menu-mobile-wrapper" bg="white" zIndex="999" position="absolute" w={isMenuOpen ? "100vw" : '0px'} h="100vh" flexDirection="column" justifyContent="center">
+      <Flex className="menu-mobile-wrapper" bg="white" zIndex="999" position="absolute" w={isMenuOpen ? "100vw" : '0px'} h="100vh" flexDirection="column" py="50%">
         {isMenuOpen && menu.map((element) =>
           <Flex justifyContent="center" key={element.id}>
             <Box my="15px">
