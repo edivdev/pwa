@@ -1,14 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Box, Flex } from "@chakra-ui/react"
 import Image from 'next/image'
 import Text from "../ui/Text"
 import VideoPopup from '../ui/Popup/VideoPopup'
 import Goals from './Goals'
+import useViewport from '../../hooks/useViewport'
 
 export default function WhatWeDoPageContent() {
 
   const [isPopupShowing, setIsPopupShowing] = useState(false)
   const [popupInfo, setPopupInfo] = useState('')
+  const [isMobile, setIsMobile] = useState(null)
+
+  const viewport = useViewport()
 
   function openPopup() {
     setIsPopupShowing(true)
@@ -17,6 +21,10 @@ export default function WhatWeDoPageContent() {
   function closePopUp() {
     setIsPopupShowing(false)
   }
+
+  useEffect(() => {
+    setIsMobile(viewport[0])
+  }, [isMobile])
 
   const initialContent = `At Educación Diversa we are dedicated to creating a world in which everyone has the opportunity to reach their full potential. We provide free inclusive art-based education in the areas of human rights, sexual and reproductive health and the elimination of violence.
   <br/><br/>
@@ -34,16 +42,16 @@ export default function WhatWeDoPageContent() {
 
   return (
     <>
-      <Box maxWidth="60%" m="auto" py="5%">
+      <Box maxWidth={isMobile ? "90%" : "60%"} m="0 auto" py={isMobile ? "0" : "5%"}>
         <Text dangerouslySetInnerHTML={{ __html: initialContent }} />
       </Box>
-      <Flex backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" px="5%">
-        <Box w="50%" px="8%">
-          <Box w="auto" h="610px" position="relative">
+      <Flex backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" px="5%" flexDirection={isMobile ? "column" : "row"}>
+        <Box w={isMobile ? "100%" : "50%"} px="8%">
+          <Box w="auto" h={isMobile ? "350px" : "610px"} position="relative">
             <Image src="/images/static/about/LaurenVideo.jpg" objectFit="contain" layout="fill" className="hoverable" onClick={openPopup} />
           </Box>
         </Box>
-        <Box w="50%">
+        <Box w={isMobile ? "100%" : "50%"}>
           <Flex flexDirection="column" p="5%" h="100%" justifyContent="center">
             <Text fontWeight="900" fontSize="25px">Lauren Cannell</Text>
             <Text pt="2%" pb="5%" fontSize="15px">Founder and CEO</Text>
@@ -54,7 +62,7 @@ export default function WhatWeDoPageContent() {
           </Flex>
         </Box>
       </Flex>
-      <Goals />
+      <Goals isMobile={isMobile} />
       <VideoPopup isPopupShowing={isPopupShowing} closePopUp={closePopUp} popupInfo={popupInfo} />
     </>
   )

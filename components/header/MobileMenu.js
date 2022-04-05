@@ -13,11 +13,11 @@ export default function MobileMenu() {
 
   const menu = [
     { id: 0, name: 'home', slug: '/' },
-    { id: 1, name: 'about us', slug: 'about-us' },
-    { id: 2, name: 'projects', slug: 'projects' },
-    { id: 3, name: 'blog', slug: 'blog' },
-    { id: 4, name: 'donate', slug: 'donate' },
-    { id: 5, name: 'contact', slug: 'contact' },
+    { id: 1, name: 'about us', slug: '/about-us' },
+    { id: 2, name: 'projects', slug: '/projects' },
+    { id: 3, name: 'blog', slug: '/blog' },
+    { id: 4, name: 'donate', slug: '/donate' },
+    { id: 5, name: 'contact', slug: '/contact' },
   ]
 
   function closeMenu() {

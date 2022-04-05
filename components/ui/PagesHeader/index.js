@@ -44,6 +44,6 @@ export default function PagesHeader({ background, ...props }) {
         </Link>
       }
 
-    </Box >
+    </Box>
   )
 }

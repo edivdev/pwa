@@ -71,7 +71,7 @@ const MainSlider = () => {
           <Image src="/images/static/home/home-main.png" alt="connect-with-us" width={904} height={860} />
         </Box>
       </Box>
-    </Flex >
+    </Flex>
   )
 };
 

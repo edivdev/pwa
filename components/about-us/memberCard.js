@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from 'next/link'
 import Text from "../ui/Text";
 
-export default function MemberCard({ member, setPopupInfo, setIsPopupShowing }) {
+export default function MemberCard({ member, setPopupInfo, setIsPopupShowing, ...props }) {
 
   function clickOnVolunteer() {
     setPopupInfo({
@@ -16,7 +16,7 @@ export default function MemberCard({ member, setPopupInfo, setIsPopupShowing }) 
   }
 
   return (
-    <Flex w="322px" h="375px" m="10px" flexDirection="column" onClick={clickOnVolunteer} className="hoverable">
+    <Flex {...props} w="322px" h="375px" m="10px" flexDirection="column" onClick={clickOnVolunteer} className="hoverable">
       <Box h="50%" position="relative">
         <Image src={member.pic} layout="fill" objectFit="contain" />
       </Box>

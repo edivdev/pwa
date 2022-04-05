@@ -2,7 +2,7 @@ import { Box, Flex } from '@chakra-ui/react'
 import Image from 'next/image'
 import Text from '../ui/Text'
 
-export default function VolunteerCard({ volunteer, setPopupInfo, setIsPopupShowing }) {
+export default function VolunteerCard({ volunteer, setPopupInfo, setIsPopupShowing, ...props }) {
 
   function clickOnVolunteer() {
     setPopupInfo({
@@ -14,7 +14,7 @@ export default function VolunteerCard({ volunteer, setPopupInfo, setIsPopupShowi
     setIsPopupShowing(true)
   }
   return (
-    <Flex w="155px" h="312px" borderRadius="6px" boxShadow="0 0 24px rgba(44, 41, 47, 0.12)" flexDirection="column" justifyContent="space-between" onClick={clickOnVolunteer} className="hoverable">
+    <Flex {...props} w="155px" h="312px" borderRadius="6px" boxShadow="0 0 24px rgba(44, 41, 47, 0.12)" flexDirection="column" justifyContent="space-between" onClick={clickOnVolunteer} className="hoverable">
       <Box w="155px" h="156px" position="relative">
         <Image className="bnwhite-card-image" src={volunteer.pic} layout="fill" alt={volunteer.name} objectFit="contain" />
       </Box>

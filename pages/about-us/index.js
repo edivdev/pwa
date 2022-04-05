@@ -1,11 +1,9 @@
 
 import PageChanger from "../../components/about-us/pageChanger"
 import PagesHeader from "../../components/ui/PagesHeader"
-import { volunteers, members } from "../../components/data/initialState"
 import TwoSideCallToAction from "../../components/homepage/TwoSideCallToAction"
 
-export default function AboutUsPage(props) {
-  const { volunteers, members } = props
+export default function AboutUsPage() {
   return (
     <>
       <PagesHeader
@@ -31,14 +29,4 @@ export default function AboutUsPage(props) {
       />
     </>
   )
-}
-
-export async function getStaticProps() {
-
-  return {
-    props: {
-      volunteers: volunteers,
-      members: members
-    }
-  }
 }

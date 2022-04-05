@@ -4,7 +4,7 @@ import VolunteerCard from './volunteerCard'
 import Text from '../ui/Text'
 import ImageCarousel from '../ui/Slider'
 
-export default function VolunteersList({ volunteers, setPopupInfo, setIsPopupShowing }) {
+export default function VolunteersList({ isMobile, volunteers, setPopupInfo, setIsPopupShowing }) {
   const settings = {
     infinite: true,
     dots: true,
@@ -12,6 +12,30 @@ export default function VolunteersList({ volunteers, setPopupInfo, setIsPopupSho
     arrows: false,
     slidesToScroll: 7,
     lazyLoad: true
+  }
+
+  const mobileSettings = {
+    infinite: true,
+    dots: true,
+    slidesToShow: 4,
+    arrows: false,
+    slidesToScroll: 4,
+    lazyLoad: true
+  }
+
+  if (isMobile) {
+    return (
+      <section>
+        <Box my="50px" textAlign="center" px="20px">
+          <Text fontWeight="900" fontSize="25px">Our Volunteers</Text>
+          <Box display="flex" overflowX="scroll">
+            {volunteers.map((volunteer) => (
+              <VolunteerCard mr="10px" volunteer={volunteer} key={volunteer.name} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
+            ))}
+          </Box>
+        </Box>
+      </section>
+    )
   }
 
   return (

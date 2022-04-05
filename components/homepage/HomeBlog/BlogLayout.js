@@ -13,13 +13,15 @@ export default function DesktopBlogLayout({ featuredBlogs }) {
   const fourthFBlog = featuredBlogs[3]
   const fifthFBlog = featuredBlogs[4]
   return (
-    <Box className='home-blogs-wrapper'>
-      <FirstFeaturedBlog blogEntry={firstFBlog} />
-      <SecondaryFeaturedBlog classname='blog-second' blogEntry={secondFBlog} />
-      <SecondaryFeaturedBlog classname='blog-third' blogEntry={thirdFBlog} />
-      <SecondaryFeaturedBlog classname='blog-fourth' blogEntry={fourthFBlog} />
-      <SecondaryFeaturedBlog classname='blog-fifth' blogEntry={fifthFBlog} />
-    </Box>
+    <Flex justifyContent="center">
+      <Box className='home-blogs-wrapper'>
+        <FirstFeaturedBlog blogEntry={firstFBlog} />
+        <SecondaryFeaturedBlog classname='blog-second' blogEntry={secondFBlog} />
+        <SecondaryFeaturedBlog classname='blog-third' blogEntry={thirdFBlog} />
+        <SecondaryFeaturedBlog classname='blog-fourth' blogEntry={fourthFBlog} />
+        <SecondaryFeaturedBlog classname='blog-fifth' blogEntry={fifthFBlog} />
+      </Box>
+    </Flex>
   )
 }
 
