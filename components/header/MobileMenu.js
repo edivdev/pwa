@@ -32,7 +32,11 @@ export default function MobileMenu() {
     <>
       <Flex position="fixed" top="0" left="0" right="0" zIndex="999" bg="white" h="70px" justifyContent="space-between">
         <Box w="60px" h="60px" position="relative" m="5px">
-          <Image src="/images/static/assets/logo.png" layout="fill" objectFit="contain" />
+          <Link href="/">
+            <a>
+              <Image src="/images/static/assets/logo.png" layout="fill" objectFit="contain" />
+            </a>
+          </Link>
         </Box>
         <Flex w="60px" h="60px" position="relative" m="5px" justifyContent="center" alignItems="center">
           {!isMenuOpen ? <FaBars color={theme.colors.main.blue} fontSize="30px" onClick={openMenu} /> : <FaTimes color={theme.colors.main.blue} fontSize="30px" onClick={closeMenu} />}
@@ -44,7 +48,7 @@ export default function MobileMenu() {
             <Flex justifyContent="center" key={element.id}>
               <Box my="15px">
                 <Link href={element.slug}>
-                  <Text fontWeight="900" fontSize="20px" textTransform="uppercase">{element.name}</Text>
+                  <Text className="hoverable" fontWeight="900" fontSize="20px" textTransform="uppercase">{element.name}</Text>
                 </Link>
               </Box>
             </Flex>)}

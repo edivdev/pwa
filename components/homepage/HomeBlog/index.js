@@ -17,7 +17,7 @@ export default function HomeBlog({ featuredBlogs }) {
 
   return (
     <section>
-      <Box textAlign="center" backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" backgroundSize="cover" py="5%" w="100%">
+      <Flex alignItems="center" flexDirection="column" backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" backgroundSize="cover" py="5%" w="100%">
         <SectionsTitle title="Blog" />
         {!isMobile && <DesktopBlogLayout featuredBlogs={featuredBlogs} />}
         {isMobile && <MobileBlogLayout featuredBlogs={featuredBlogs} />}
@@ -29,7 +29,7 @@ export default function HomeBlog({ featuredBlogs }) {
           </Link>
         </Box>
 
-      </Box>
+      </Flex>
     </section>
   )
 }
