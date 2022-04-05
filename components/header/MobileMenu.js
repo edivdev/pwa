@@ -39,7 +39,7 @@ export default function MobileMenu() {
 
   return (
     <>
-      <Flex position="fixed" top="0" left="0" right="0" zIndex="999" bg="white" h="70px" justifyContent="space-between">
+      <Flex position="fixed" top="0" left="0" right="0" zIndex="9991" bg="white" h="70px" justifyContent="space-between">
         <Box w="60px" h="60px" position="relative" m="5px">
           <Link href="/">
             <a>
@@ -68,9 +68,10 @@ export default function MobileMenu() {
         className="menu-mobile-wrapper"
         bg="white"
         zIndex="999"
-        position="absolute"
+        position="fixed"
         w={isMenuOpen ? "100vw" : '0px'}
         h="100vh"
+        top="0"
         flexDirection="column"
         py="50%"
       >
