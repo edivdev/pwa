@@ -153,7 +153,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
 
           </Grid>
         }
-        {isMobile && <Flex overflowX="scroll">
+        {isMobile && <Flex overflowX="scroll" h="500px">
           {filteredProjects && filteredProjects.map((project) =>
             <ProjectTile key={project.id} mr="10px" project={project} />
           )}

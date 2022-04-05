@@ -5,7 +5,6 @@ import '@fontsource/quicksand'
 import '@fontsource/just-another-hand'
 import Layout from '../components/ui/Layout'
 import '../styles/styles.css'
-import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
 
@@ -21,7 +20,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp
-
-// <Head>
-//   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-//</Head>

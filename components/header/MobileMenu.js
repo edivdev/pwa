@@ -22,10 +22,12 @@ export default function MobileMenu() {
 
   function closeMenu() {
     setIsMenuOpen(false)
+    document.querySelector('body').classList.remove('block-scroll')
   }
 
   function openMenu() {
     setIsMenuOpen(true)
+    document.querySelector('body').classList.add('block-scroll')
   }
 
   return (
@@ -42,18 +44,20 @@ export default function MobileMenu() {
           {!isMenuOpen ? <FaBars color={theme.colors.main.blue} fontSize="30px" onClick={openMenu} /> : <FaTimes color={theme.colors.main.blue} fontSize="30px" onClick={closeMenu} />}
         </Flex>
       </Flex>
-      {isMenuOpen && <Box className="menu-modal" onClick={closeMenu} overflow="hidden">
-        <Flex className="menu-mobile-wrapper" bg="white" zIndex="999" position="absolute" w="100vw" h="100vh" flexDirection="column" justifyContent="center" px="5%">
-          {menu.map((element) =>
-            <Flex justifyContent="center" key={element.id}>
-              <Box my="15px">
-                <Link href={element.slug}>
+
+      <Flex className="menu-mobile-wrapper" bg="white" zIndex="999" position="absolute" w={isMenuOpen ? "100vw" : '0px'} h="100vh" flexDirection="column" justifyContent="center">
+        {isMenuOpen && menu.map((element) =>
+          <Flex justifyContent="center" key={element.id}>
+            <Box my="15px">
+              <Link href={element.slug}>
+                <a>
                   <Text className="hoverable" fontWeight="900" fontSize="20px" textTransform="uppercase">{element.name}</Text>
-                </Link>
-              </Box>
-            </Flex>)}
-        </Flex>
-      </Box>}
+                </a>
+              </Link>
+            </Box>
+          </Flex>)}
+      </Flex>
+
     </>
   )
 }

@@ -165,3 +165,10 @@ a:hover {
   bottom: 0;
   justify-content: flex-start;
 }
+.block-scroll{
+  overflow:hidden;
+}
+.menu-mobile-wrapper{
+  transition: 0.5s;
+}
+
