@@ -1,4 +1,5 @@
 import PageChanger from "../../components/about-us/pageChanger"
+import RecognitionsContent from "../../components/about-us/recognitionsContent"
 import PagesHeader from "../../components/ui/PagesHeader"
 
 export default function RecognitionsPage() {
@@ -10,7 +11,7 @@ export default function RecognitionsPage() {
         text1="RECOGNITIONS"
       />
       <PageChanger />
-      <div>Recognitions</div>
+      <RecognitionsContent />
     </>
   )
 }

@@ -160,7 +160,7 @@ const Projects = (props) => {
         </Grid>
       </Box>}
       {isMobile && <Box m="50px 5%">
-        <Flex overflowX="scroll" h="500px">
+        <Flex overflowX="scroll" h="420px">
           {filteredProjects && filteredProjects.map((project) =>
             <ProjectTile key={project.id} mr="10px" project={project} />
           )}

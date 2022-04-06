@@ -1,7 +1,25 @@
 import PageChanger from '../../components/about-us/pageChanger'
 import PagesHeader from '../../components/ui/PagesHeader'
+import { Flex, Box } from '@chakra-ui/react'
+import { collaborations } from '../../components/data/initialState'
+import ImageCarousel from '../../components/ui/Slider'
+import Image from 'next/image'
+import Colaboration from '../../components/about-us/Colaboration'
 
-export default function ColaborationsPage() {
+export default function ColaborationsPage(props) {
+
+  const elementstomap = props.colabs
+
+  const settings = {
+    infinite: true,
+    dots: true,
+    slidesToShow: 4,
+    arrows: false,
+    slidesToScroll: 4,
+    lazyLoad: true
+  }
+
+
   return (
     <>
       <PagesHeader
@@ -10,7 +28,19 @@ export default function ColaborationsPage() {
         text1="COLLABORATIONS"
       />
       <PageChanger />
-      <div>colaborations</div>
+      <Box h="200px" px="5%">
+        <ImageCarousel settings={settings}>
+          {elementstomap.map((element) => <Colaboration element={element} />)}
+        </ImageCarousel>
+      </Box>
     </>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      colabs: collaborations
+    }
+  }
 }

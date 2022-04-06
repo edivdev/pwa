@@ -140,7 +140,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
 
       <Box m="50px 10%">
         {!isMobile &&
-          <Grid templateColumns={'repeat(4, 1fr)'} gap="4px" minHeight="782px" overflowX="scroll">
+          <Grid templateColumns={'repeat(4, 1fr)'} gap="10px 3px" minHeight="782px" overflowX="scroll">
 
             {filteredProjects && filteredProjects.map((project) =>
               <GridItem key={project.id}>
@@ -153,7 +153,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
 
           </Grid>
         }
-        {isMobile && <Flex overflowX="scroll" h="500px">
+        {isMobile && <Flex overflowX="scroll" h="430px">
           {filteredProjects && filteredProjects.map((project) =>
             <ProjectTile key={project.id} mr="10px" project={project} />
           )}
@@ -161,7 +161,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
             <ProjectTile key={project.id} mr="10px" project={project} />
           )}
         </Flex>}
-        <Box w={isMobile ? "100%" : "65%"} m="50px auto" textAlign="center">
+        <Box w={isMobile ? "100%" : "65%"} m="20px auto" textAlign="center">
           <Text fontWeight="900" fontSize="23px">We hope this showcase of projects and campaigns inspires you to support us or take part and join in the fun!  </Text>
         </Box>
       </Box>

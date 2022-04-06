@@ -1,6 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react"
 import Image from 'next/image'
 import Text from "../../ui/Text"
+import Link from 'next/link'
 
 export default function ProjectTile({ project, ...props }) {
 
@@ -8,16 +9,20 @@ export default function ProjectTile({ project, ...props }) {
   const background = project.category === 'EDUCATION' ? '/images/static/assets/educationbg.jpg' : project.category === 'ACTIVISM' ? '/images/static/assets/activismbg.jpg' : '/images/static/assets/empowermentbg.jpg'
 
   return (
-    <Flex flexDirection="column" alignItems="center" {...props}>
-      <Box w="230px" h="281px" backgroundImage={background} borderRadius="6px" />
-      <Flex w="55px" h="55px" bg="white" borderRadius="50%" mt="-25px" p="5px" alignItems="center" justifyContent="center">
-        <Image src={icon} alt="icon" width="50px" height="50px" />
-      </Flex>
-      <Box m="20px auto 0" w="60%" textAlign="center" h="72px">
-        <Text>
-          {project.title}
-        </Text>
-      </Box>
-    </Flex>
+    <Link href={`/projects/${project.slug}`}>
+      <a>
+        <Flex flexDirection="column" alignItems="center" {...props}>
+          <Box w="230px" h="281px" backgroundImage={background} borderRadius="6px" />
+          <Flex w="55px" h="55px" bg="white" borderRadius="50%" mt="-25px" p="5px" alignItems="center" justifyContent="center">
+            <Image src={icon} alt="icon" width="50px" height="50px" />
+          </Flex>
+          <Box m="10px auto 0" w="70%" textAlign="center" h="72px">
+            <Text>
+              {project.title}
+            </Text>
+          </Box>
+        </Flex>
+      </a>
+    </Link>
   )
 }
