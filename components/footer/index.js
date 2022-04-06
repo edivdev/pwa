@@ -25,6 +25,8 @@ function Footer() {
       color={theme.colors.main.white}
       p={isMobile ? "7% 4%" : "4% 7%"}
       justifyContent="space-evenly"
+      zIndex="3"
+      position="relative"
     >
       <ModuleOne isMobile={isMobile} />
       <ModuleTwo isMobile={isMobile} />

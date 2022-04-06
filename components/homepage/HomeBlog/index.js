@@ -19,7 +19,7 @@ export default function HomeBlog({ featuredBlogs }) {
   return (
 
     <Box textAlign="center" overflow="hidden">
-      <Box zIndex="0" w="100vw" h="950px" position="absolute">
+      <Box zIndex="0" w="100vw" h={isMobile ? "620px" : "950px"} position="absolute">
         <Image src="/images/static/backgrounds/BACKGROUND-blog.jpg" layout="fill" objectFit="cover" />
       </Box>
 
