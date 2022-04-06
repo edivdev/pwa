@@ -4,6 +4,7 @@ import Button from '../../ui/Button'
 import SectionsTitle from '../../ui/SectionsTitle'
 import Link from 'next/link'
 import useViewport from '../../../hooks/useViewport'
+import Image from 'next/image'
 import DesktopBlogLayout, { MobileBlogLayout } from './BlogLayout'
 
 export default function HomeBlog({ featuredBlogs }) {
@@ -16,9 +17,14 @@ export default function HomeBlog({ featuredBlogs }) {
   }, [isMobile])
 
   return (
-    <section>
-      <Box textAlign="center" backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" backgroundSize="cover" py="5%">
-        <SectionsTitle title="Blog" />
+
+    <Box textAlign="center" overflow="hidden">
+      <Box zIndex="0" w="100vw" h="950px" position="absolute">
+        <Image src="/images/static/backgrounds/BACKGROUND-blog.jpg" layout="fill" objectFit="cover" />
+      </Box>
+
+      <Box zIndex="1">
+        <SectionsTitle title="Blog" mt="30px" />
         {!isMobile && <DesktopBlogLayout featuredBlogs={featuredBlogs} />}
         {isMobile && <MobileBlogLayout featuredBlogs={featuredBlogs} />}
         <Box py="20px">
@@ -28,8 +34,8 @@ export default function HomeBlog({ featuredBlogs }) {
             </a>
           </Link>
         </Box>
-
       </Box>
-    </section>
+    </Box>
+
   )
 }

@@ -18,8 +18,11 @@ const MainSlider = () => {
   }, [isMobile])
 
   return (
-    <Flex py={isMobile ? '5%' : 'none'} backgroundImage="/images/static/backgrounds/BLUE_BACKGROUND.jpg" backgroundSize="cover" w="100vw" flexDirection={isMobile ? 'column' : 'row'}>
-      <Box w={isMobile ? "100vw" : "50vw"} px="6%">
+    <Flex py={isMobile ? '5%' : 'none'} w="100vw" flexDirection={isMobile ? 'column' : 'row'}>
+      <Box zIndex="0" w="100vw" h="50vw" position="absolute">
+        <Image src="/images/static/backgrounds/BLUE_BACKGROUND.jpg" layout="fill" objectFit="contain" />
+      </Box>
+      <Box zIndex="1" w={isMobile ? "100vw" : "50vw"} px="6%">
         <Flex flexDirection="column" justifyContent="center" h="100%">
           <Box>
             <Text color="white" variant="mainSubTitle"> Become part of the </Text>

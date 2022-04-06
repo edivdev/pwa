@@ -14,7 +14,7 @@ export default function DesktopBlogLayout({ featuredBlogs }) {
   const fifthFBlog = featuredBlogs[4]
   return (
     <Flex justifyContent="center">
-      <Box className='home-blogs-wrapper'>
+      <Box className='home-blogs-wrapper' zIndex="2">
         <FirstFeaturedBlog blogEntry={firstFBlog} />
         <SecondaryFeaturedBlog classname='blog-second' blogEntry={secondFBlog} />
         <SecondaryFeaturedBlog classname='blog-third' blogEntry={thirdFBlog} />
