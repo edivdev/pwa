@@ -30,7 +30,7 @@ export default function VolunteersPageContent({ volunteers, members }) {
 
   useEffect(() => {
     setIsMobile(viewport[0])
-  }, [isMobile])
+  }, [isMobile, viewport])
 
   return (
     <>
@@ -39,7 +39,7 @@ export default function VolunteersPageContent({ volunteers, members }) {
         <p><b>{title2}</b></p>
       </Box>
       <Box width="100%" height={isMobile ? "350px" : "600px"} position="relative" my="5%">
-        <Image src="/images/static/volunteers/volunteersmap.jpg" layout="fill" objectFit="contain" />
+        <Image src="/images/static/volunteers/volunteersmap.jpg" layout="fill" objectFit="contain" alt="map" />
       </Box>
       <Volunteers isMobile={isMobile} volunteers={volunteers} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
       <BeVolunteer isMobile={isMobile} />

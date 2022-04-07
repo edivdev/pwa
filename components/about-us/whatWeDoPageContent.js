@@ -24,7 +24,7 @@ export default function WhatWeDoPageContent() {
 
   useEffect(() => {
     setIsMobile(viewport[0])
-  }, [isMobile])
+  }, [isMobile, viewport])
 
   const initialContent = `At Educación Diversa we are dedicated to creating a world in which everyone has the opportunity to reach their full potential. We provide free inclusive art-based education in the areas of human rights, sexual and reproductive health and the elimination of violence.
   <br/><br/>
@@ -48,7 +48,7 @@ export default function WhatWeDoPageContent() {
       <Flex backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" px="5%" flexDirection={isMobile ? "column" : "row"}>
         <Box w={isMobile ? "100%" : "50%"} px="8%">
           <Box w="auto" h={isMobile ? "350px" : "610px"} position="relative">
-            <Image src="/images/static/about/LaurenVideo.jpg" objectFit="contain" layout="fill" className="hoverable" onClick={openPopup} />
+            <Image src="/images/static/about/LaurenVideo.jpg" objectFit="contain" layout="fill" className="hoverable" onClick={openPopup} alt="video-poster" />
           </Box>
         </Box>
         <Box w={isMobile ? "100%" : "50%"}>

@@ -16,7 +16,7 @@ export default function Recognition() {
       </Flex>
       <Box w="50%">
         <Box position="relative" w="498px" h="328px">
-          <Image src="/images/static/about/recognitionPicture.jpg" layout="fill" objectFit="contain" />
+          <Image src="/images/static/about/recognitionPicture.jpg" layout="fill" objectFit="contain" alt="recognition" />
         </Box>
       </Box>
     </Flex>

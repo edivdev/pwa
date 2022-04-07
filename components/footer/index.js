@@ -16,7 +16,7 @@ function Footer() {
 
   useEffect(() => {
     setIsMobile(viewport[0])
-  }, [isMobile])
+  }, [isMobile, viewport])
 
   return (
     <Flex

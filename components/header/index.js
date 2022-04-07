@@ -42,7 +42,7 @@ const Header = () => {
             <Link href="/">
               <a>
                 <Box position="relative" width="65px" height="65px" mt="-20px">
-                  <Image src="/images/static/assets/logo.png" layout="fill" objectFit="cover" />
+                  <Image src="/images/static/assets/logo.png" layout="fill" objectFit="cover" alt="logo" />
                 </Box>
               </a>
             </Link>

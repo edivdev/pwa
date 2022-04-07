@@ -15,12 +15,12 @@ const MainSlider = () => {
 
   useEffect(() => {
     setIsMobile(viewport[0])
-  }, [isMobile])
+  }, [isMobile, viewport])
 
   return (
     <Flex w="100vw" flexDirection={isMobile ? 'column' : 'row'}>
       <Box zIndex="0" w="100vw" h={isMobile ? "90vh" : "50vw"} position="absolute">
-        <Image src="/images/static/backgrounds/BLUE_BACKGROUND.jpg" layout="fill" objectFit={isMobile ? "cover" : "contain"} />
+        <Image src="/images/static/backgrounds/BLUE_BACKGROUND.jpg" layout="fill" objectFit={isMobile ? "cover" : "contain"} alt="background" />
       </Box>
       <Box zIndex="1" w={isMobile ? "100vw" : "50vw"} px="6%" mt="5%">
         <Flex flexDirection="column" justifyContent="center" h="100%">

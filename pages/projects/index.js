@@ -47,7 +47,7 @@ const Projects = (props) => {
 
   useEffect(() => {
     setIsMobile(viewport[0])
-  }, [isMobile])
+  }, [isMobile, viewport])
 
   const colorBlue = theme.colors.main.blue
 

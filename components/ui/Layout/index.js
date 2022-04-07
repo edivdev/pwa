@@ -12,7 +12,7 @@ export default function Layout(props) {
 
   useEffect(() => {
     setIsMobile(result[0])
-  }, [isMobile])
+  }, [isMobile, result])
 
   return (
     <Box>

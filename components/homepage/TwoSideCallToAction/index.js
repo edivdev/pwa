@@ -16,7 +16,7 @@ export default function TwoSideCallToAction({ content, image, title, reverse, ct
 
   useEffect(() => {
     setIsMobile(viewport[0])
-  }, [isMobile])
+  }, [isMobile, viewport])
 
   useEffect(() => {
     if (isMobile && reverse) {
@@ -29,7 +29,7 @@ export default function TwoSideCallToAction({ content, image, title, reverse, ct
     } else {
       setLayout('row')
     }
-  }, [layout])
+  }, [layout, reverse])
 
   return (
 

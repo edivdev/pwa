@@ -43,7 +43,7 @@ export default function MobileMenu() {
         <Box w="60px" h="60px" position="relative" m="5px">
           <Link href="/">
             <a>
-              <Image src="/images/static/assets/logo.png" layout="fill" objectFit="contain" />
+              <Image src="/images/static/assets/logo.png" layout="fill" objectFit="contain" alt="logo" />
             </a>
           </Link>
         </Box>

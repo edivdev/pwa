@@ -18,7 +18,7 @@ export default function index({ isPopupShowing, closePopUp, popupInfo }) {
         <Flex justifyContent="space-around" alignItems="center" h="100%" pt="5%">
           <Flex w="50%" h="100%" justifyContent="center">
             <Box w="270px" h="270px" position="relative">
-              <Image className="bnwhite-card-image" layout="fill" objectFit="contain" src={picture} />
+              <Image className="bnwhite-card-image" layout="fill" objectFit="contain" src={picture} alt={name} />
             </Box>
           </Flex>
           <Box w="50%" px="5%" h="100%">

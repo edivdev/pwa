@@ -18,7 +18,7 @@ export default function MemberCard({ member, setPopupInfo, setIsPopupShowing, ..
   return (
     <Flex {...props} w="322px" h="375px" m="10px" flexDirection="column" onClick={clickOnVolunteer} className="hoverable">
       <Box h="50%" position="relative">
-        <Image src={member.pic} layout="fill" objectFit="contain" />
+        <Image src={member.pic} layout="fill" objectFit="contain" alt={member.name} />
       </Box>
       <Flex h="50%" bg="white" flexDirection="column" justifyContent="space-evenly">
         <Box>

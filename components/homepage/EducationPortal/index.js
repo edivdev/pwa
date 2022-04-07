@@ -17,7 +17,7 @@ export default function EducationPortalSection() {
 
   useEffect(() => {
     setIsMobile(viewport[0])
-  }, [isMobile])
+  }, [isMobile, viewport])
 
   return (
 

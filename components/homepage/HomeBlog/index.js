@@ -14,13 +14,13 @@ export default function HomeBlog({ featuredBlogs }) {
 
   useEffect(() => {
     setIsMobile(viewport[0])
-  }, [isMobile])
+  }, [isMobile, viewport])
 
   return (
 
     <Box textAlign="center" overflow="hidden">
       <Box zIndex="0" w="100vw" h={isMobile ? "620px" : "950px"} position="absolute">
-        <Image src="/images/static/backgrounds/BACKGROUND-blog.jpg" layout="fill" objectFit="cover" />
+        <Image src="/images/static/backgrounds/BACKGROUND-blog.jpg" layout="fill" objectFit="cover" alt="background" />
       </Box>
 
       <Box zIndex="1">

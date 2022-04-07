@@ -16,15 +16,16 @@ export default function PageChanger() {
 
   const viewport = useViewport()
   const [isMobile, setIsMobile] = useState(null)
+  const pathname = splitPathname(router.pathname)
 
   useEffect(() => {
-    const pathname = splitPathname(router.pathname)
+
     if (pathname.length >= 3) {
       setPage(pathname[2])
     } else {
       setPage(pathname[1])
     }
-  }, [page])
+  }, [page, pathname])
 
   useEffect(() => {
     setIsMobile(viewport[0])
