@@ -5,7 +5,7 @@ import PagesHeader from '../../components/ui/PagesHeader'
 import Text from '../../components/ui/Text'
 import useViewport from '../../hooks/useViewport'
 
-export default function index(props) {
+export default function BlogDetail(props) {
   const { blog } = props
   const { title, content, excerpt, image } = blog
 

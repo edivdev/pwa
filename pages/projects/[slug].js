@@ -5,7 +5,7 @@ import { projects } from "../../components/data/initialState"
 import Text from "../../components/ui/Text"
 import useViewport from '../../hooks/useViewport'
 
-export default function projectDetail(props) {
+export default function ProjectDetail(props) {
 
   const { project } = props
   const { title, id } = project

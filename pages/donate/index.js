@@ -7,7 +7,7 @@ import Text from '../../components/ui/Text'
 import DonateEspecific from './DonateEspecific'
 import useViewport from '../../hooks/useViewport'
 
-export default function donatePage() {
+export default function DonatePage() {
 
   const viewport = useViewport()
   const [isMobile, setIsMobile] = useState(null)

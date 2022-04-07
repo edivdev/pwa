@@ -34,7 +34,7 @@ export default function BlogIndexPage(props) {
 
       {isMobile &&
         <Flex my="20px" overflowX="scroll">
-          {blogEntries.map((blog) => <BlogTile blog={blog} />)}
+          {blogEntries.map((blog) => <BlogTile key={blog.id} blog={blog} />)}
         </Flex>
       }
     </>
