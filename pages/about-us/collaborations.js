@@ -30,7 +30,7 @@ export default function ColaborationsPage(props) {
       <PageChanger />
       <Box h="200px" px="5%">
         <ImageCarousel settings={settings}>
-          {elementstomap.map((element) => <Colaboration element={element} />)}
+          {elementstomap.map((element) => <Colaboration key={element.id} element={element} />)}
         </ImageCarousel>
       </Box>
     </>
