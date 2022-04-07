@@ -29,7 +29,7 @@ export default function TwoSideCallToAction({ content, image, title, reverse, ct
     } else {
       setLayout('row')
     }
-  }, [layout, reverse])
+  }, [layout, reverse, isMobile])
 
   return (
 

@@ -29,7 +29,7 @@ export default function PageChanger() {
 
   useEffect(() => {
     setIsMobile(viewport[0])
-  }, [isMobile])
+  }, [isMobile, viewport])
 
   if (!isMobile) {
     return (
