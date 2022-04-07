@@ -28,6 +28,10 @@ export default {
       fontSize: '44px',
       lineHeight: '60.72px'
     },
+    titleMobile: {
+      fontWeight: '700',
+      fontSize: '30px',
+    },
     sectionTitle: {
       fontSize: '36px',
       lineHeight: '49.68px',

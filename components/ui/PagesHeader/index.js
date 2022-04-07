@@ -1,17 +1,26 @@
+import { useState, useEffect } from 'react'
 import { Box } from '@chakra-ui/react'
 import Text from '../Text'
 import Button from '../Button'
 import Link from 'next/link'
 import useTheme from '../../../hooks/useTheme'
+import useViewport from '../../../hooks/useViewport'
 
 export default function PagesHeader({ background, ...props }) {
+
+  const viewport = useViewport()
+  const [isMobile, setIsMobile] = useState(null)
+
+  useEffect(() => {
+    setIsMobile(viewport[0])
+  }, [isMobile, viewport])
 
   const theme = useTheme()
 
   const { text0, text1, text2, text3, cta, ctaTarget } = props
   return (
     <Box
-      minHeight="450px"
+      minHeight={isMobile ? "150px" : "450px"}
       backgroundImage={background}
       backgroundRepeat="no-repeat"
       backgroundSize="cover"

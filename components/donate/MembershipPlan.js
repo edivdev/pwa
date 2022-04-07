@@ -9,14 +9,14 @@ import {
   List
 } from '@chakra-ui/react'
 
-export default function MembershipPlan() {
+export default function MembershipPlan({ isMobile }) {
   const theme = useTheme()
 
   return (
     <section>
       <Box backgroundImage='/images/static/backgrounds/light_blue_background.jpg'>
-        <Flex>
-          <Box w="50%" p="5%">
+        <Flex flexDirection={isMobile ? "column" : "row"}>
+          <Box w={isMobile ? "100%" : "50%"} p="5%">
             <Text color="white" variant="mainSubTitle">Membership Plan</Text>
             <Text color="white" variant="introSection">Lorem ipsum dolor sit amet, consectetur incididunt ut labore et dolore magna aliqua</Text>
 
@@ -35,7 +35,7 @@ export default function MembershipPlan() {
               SEE MORE
             </Button> */}
           </Box>
-          <Box w="50%">
+          <Box w={isMobile ? "100%" : "50%"} p="5%">
             <Box display="flex" justifyContent="center" alignItems="center" h="100%">
               <Image style={{ margin: 'auto' }} src="/images/static/home/home-main.png" alt="asd" width={904} height={860} />
             </Box>

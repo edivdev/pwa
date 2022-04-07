@@ -42,7 +42,7 @@ export default function WhatWeDoPageContent() {
 
   return (
     <>
-      <Box maxWidth={isMobile ? "90%" : "60%"} m="0 auto" py={isMobile ? "0" : "5%"}>
+      <Box maxWidth={isMobile ? "90%" : "60%"} m="0 auto" p={isMobile ? "1% 0 5% 0" : "5% 0"}>
         <Text dangerouslySetInnerHTML={{ __html: initialContent }} />
       </Box>
       <Flex backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" px="5%" flexDirection={isMobile ? "column" : "row"}>

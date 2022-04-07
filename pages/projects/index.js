@@ -98,15 +98,11 @@ const Projects = (props) => {
       <Flex pt="50px" px="10%" justifyContent="center">
         <Box textAlign="center">
 
-
           <Text as="h1" variant="h1" pb="4%">
             Our Projects
           </Text>
 
-          <Flex minHeight="290px" alignItems="center">
-            {!filteredProjects && <ProjectsIntro />}
-            {filteredProjects && <Text textAlign="justify" dangerouslySetInnerHTML={{ __html: branchText }} />}
-          </Flex>
+          <ProjectsIntro filteredProjects={filteredProjects} branchText={branchText} />
         </Box>
       </Flex>
 
