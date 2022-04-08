@@ -17,6 +17,11 @@ export default {
       fontSize: '18px',
       textTransform: 'uppercase'
     },
+    mobileMainSubTitle: {
+      fontWeight: '900',
+      fontSize: '12px',
+      textTransform: 'uppercase'
+    },
     normal: {
       fontWeight: '400',
       fontSize: '14px',

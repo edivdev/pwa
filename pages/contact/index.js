@@ -1,11 +1,19 @@
+import { useEffect, useState } from 'react'
 import { Box } from '@chakra-ui/react'
 import Text from '../../components/ui/Text'
 import SectionsTitle from '../../components/ui/SectionsTitle'
 import ContactForm from '../../components/contact/contact-form'
 import PagesHeader from '../../components/ui/PagesHeader'
-import Button from '../../components/ui/Button'
+import useViewport from '../../hooks/useViewport'
 
 export default function contactPage() {
+
+  const viewport = useViewport()
+  const [isMobile, setIsMobile] = useState(null)
+
+  useEffect(() => {
+    setIsMobile(viewport[0])
+  }, [isMobile, viewport])
 
   return (
     <section>
@@ -16,14 +24,14 @@ export default function contactPage() {
         cta="educaciondiversa@gmail.com"
         ctaTarget="mailto:educaciondiversa@gmail.com"
       />
-      <Box px="5%">
+      <Box p="5%">
         <SectionsTitle title="Send us a Message" center />
 
-        <Box w="60%" display="block" m="auto">
+        <Box w={isMobile ? "100%" : "60%"} display="block" m="auto">
 
           <Box display="flex" flexDirection="column" alignItems="center">
             <Text variant="normal">* required fields</Text>
-            <ContactForm />
+            <ContactForm isMobile={isMobile} />
           </Box>
         </Box>
 

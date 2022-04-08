@@ -33,11 +33,11 @@ export default function PagesHeader({ background, ...props }) {
         {text0}
       </Text>
 
-      <Text variant="h1" color={background ? "white" : theme.colors.main.blue} textTransform="capitalize">
+      <Text variant={isMobile ? "titleMobile" : "h1"} color={background ? "white" : theme.colors.main.blue} textTransform="capitalize">
         {text1}
       </Text>
 
-      <Text variant="mainSubTitle" color="white" textTransform="uppercase" my="24px">
+      <Text variant={isMobile ? "mobileMainSubTitle" : "mainSubTitle"} color="white" textTransform="uppercase" my="24px">
         {text2}
       </Text>
 
@@ -46,7 +46,7 @@ export default function PagesHeader({ background, ...props }) {
       {
         ctaTarget && cta && <Link href={ctaTarget}>
           <a>
-            <Button variant="fillBlue" size="longbutton">
+            <Button variant="fillBlue" size={isMobile ? "mobileLongButton" : "longbutton"}>
               {cta}
             </Button>
           </a>

@@ -94,6 +94,13 @@ export default {
       fontSize: '24px',
       padding: '12px 20px'
     },
+    mobileLongButton: {
+      width: 'auto',
+      height: 'auto',
+      fontSize: '12px',
+      padding: '12px 20px',
+      margin: '10px 0'
+    }
   }
 }
 

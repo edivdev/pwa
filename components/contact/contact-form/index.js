@@ -4,15 +4,17 @@ import Button from '../../ui/Button'
 import { Textarea } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
 
-export default function ContactForm() {
+export default function ContactForm({ isMobile }) {
+
   function handleSubmit(e) {
     e.preventDefault()
     console.log('connectme')
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <Box>
-        <Box className="contact-form-wrapper">
+        <Box className={isMobile ? "contact-form-wrapper-mobile" : "contact-form-wrapper"}>
           <Box className="form-name">
             <Input placeholder="Full Name*" type="text" />
           </Box>
@@ -22,8 +24,8 @@ export default function ContactForm() {
           </Box>
 
           <Box className="form-organization">
-            <Select required>
-              <option value="" disabled selected>Type of organization*</option>
+            <Select required defaultValue={'DEFAULT'}>
+              <option value="DEFAULT" disabled>Type of organization*</option>
               <option>Individual</option>
               <option>Community / Organization non for profit</option>
               <option>Company / Business</option>
@@ -43,8 +45,8 @@ export default function ContactForm() {
           </Box>
 
           <Box className="form-help">
-            <Select required>
-              <option value="" disabled selected>How can we help you?*</option>
+            <Select required defaultValue={"DEFAULT"}>
+              <option value="DEFAULT" disabled>How can we help you?*</option>
               <option>General inquiry</option>
               <option>Become a volunteer</option>
               <option>Become a member</option>
