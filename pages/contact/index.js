@@ -6,7 +6,7 @@ import ContactForm from '../../components/contact/contact-form'
 import PagesHeader from '../../components/ui/PagesHeader'
 import useViewport from '../../hooks/useViewport'
 
-export default function contactPage() {
+export default function ContactPage() {
 
   const viewport = useViewport()
   const [isMobile, setIsMobile] = useState(null)
