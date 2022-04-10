@@ -1,12 +1,20 @@
+import { useState, useEffect } from 'react'
 import PageChanger from '../../components/about-us/pageChanger'
 import PagesHeader from '../../components/ui/PagesHeader'
-import { Flex, Box } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { collaborations } from '../../components/data/initialState'
 import ImageCarousel from '../../components/ui/Slider'
-import Image from 'next/image'
 import Colaboration from '../../components/about-us/Colaboration'
+import useViewport from '../../hooks/useViewport'
 
 export default function ColaborationsPage(props) {
+
+  const viewport = useViewport()
+  const [isMobile, setIsMobile] = useState(null)
+
+  useEffect(() => {
+    setIsMobile(viewport[0])
+  }, [isMobile, viewport])
 
   const elementstomap = props.colabs
 
@@ -19,6 +27,15 @@ export default function ColaborationsPage(props) {
     lazyLoad: true
   }
 
+  const mobileSettings = {
+    infinite: true,
+    dots: true,
+    slidesToShow: 1,
+    arrows: false,
+    slidesToScroll: 1,
+    lazyLoad: true
+  }
+
 
   return (
     <>
@@ -28,8 +45,8 @@ export default function ColaborationsPage(props) {
         text1="COLLABORATIONS"
       />
       <PageChanger />
-      <Box h="200px" px="5%">
-        <ImageCarousel settings={settings}>
+      <Box h="200px" px={isMobile ? "0" : "5%"}>
+        <ImageCarousel settings={isMobile ? mobileSettings : settings}>
           {elementstomap.map((element) => <Colaboration key={element.id} element={element} />)}
         </ImageCarousel>
       </Box>

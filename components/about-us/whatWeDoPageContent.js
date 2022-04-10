@@ -37,8 +37,10 @@ export default function WhatWeDoPageContent() {
   We are also working to change attitudes towards gender roles in society. We empower women and girls to speak up for their rights, and crucially we engage men and boys in the fight to eliminate gender based violence and femicide. 
   `
 
+  const videoWidth = isMobile ? 390 : 560
+  const videHeight = isMobile ? 219 : 315
 
-  const ytIframe = '<iframe width="560" height="315" src="https://www.youtube.com/embed/l_E2g0bw6dI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+  const ytIframe = `<iframe width=${videoWidth} height=${videHeight} src="https://www.youtube.com/embed/l_E2g0bw6dI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
 
   return (
     <>
@@ -63,7 +65,7 @@ export default function WhatWeDoPageContent() {
         </Box>
       </Flex>
       <Goals isMobile={isMobile} />
-      <VideoPopup isPopupShowing={isPopupShowing} closePopUp={closePopUp} popupInfo={popupInfo} />
+      <VideoPopup isPopupShowing={isPopupShowing} closePopUp={closePopUp} popupInfo={popupInfo} isMobile={isMobile} />
     </>
   )
 }
