@@ -16,16 +16,16 @@ export default function index({ isPopupShowing, closePopUp, popupInfo, isMobile 
           </Flex>
         </Flex>
         <Flex justifyContent="space-around" alignItems="center" h="100%" pt="5%" flexDirection={isMobile ? "column" : "row"}>
-          <Flex w="50%" h="100%" justifyContent="center">
-            <Box w="270px" h="270px" position="relative">
+          <Flex w="50%" h={isMobile ? "50%" : "100%"} justifyContent="center">
+            <Box w={isMobile ? "120px" : "270px"} h={isMobile ? "120px" : "270px"} position="relative">
               <Image className="bnwhite-card-image" layout="fill" objectFit="contain" src={picture} alt={name} />
             </Box>
           </Flex>
-          <Box w={isMobile ? "85%" : "50%"} px="5%" h="100%">
+          <Box w={isMobile ? "95%" : "50%"} px="3%" h="100%">
             <Box>
               <Text fontSize="24px" fontWeight="900">{name}</Text>
             </Box>
-            <Box mb="5%">
+            <Box mb="3%">
               <Text fontSize="18px">{country}</Text>
             </Box>
             <Box>
