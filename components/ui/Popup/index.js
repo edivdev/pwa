@@ -28,7 +28,7 @@ export default function index({ isPopupShowing, closePopUp, popupInfo, isMobile 
             <Box mb="3%">
               <Text fontSize="18px">{country}</Text>
             </Box>
-            <Box>
+            <Box h={isMobile ? "120px" : "auto"} overflowY="scroll" px="5%">
               <Text textAlign="justify" variant="normal">{bio}</Text>
             </Box>
             <Box>
