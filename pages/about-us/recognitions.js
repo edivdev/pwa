@@ -8,7 +8,7 @@ export default function RecognitionsPage() {
       <PagesHeader
         background="/images/static/backgrounds/BLUE_BACKGROUND.jpg"
         text0="educación diversa"
-        text1="RECOGNITIONS"
+        text1="RECOGNITIONS & COLLABORATIONS"
       />
       <PageChanger />
       <RecognitionsContent />

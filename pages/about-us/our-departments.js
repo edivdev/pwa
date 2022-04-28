@@ -42,7 +42,7 @@ export default function ColaborationsPage(props) {
       <PagesHeader
         background="/images/static/backgrounds/BLUE_BACKGROUND.jpg"
         text0="educación diversa"
-        text1="COLLABORATIONS"
+        text1="OUR DEPARTMENTS"
       />
       <PageChanger />
       <Box h="200px" px={isMobile ? "0" : "5%"}>

@@ -40,7 +40,7 @@ export default function TwoSideCallToAction({ content, image, title, reverse, ct
         </Box>
         <Flex w={isMobile ? "100%" : "50%"} p="2%" minHeight="100%" justifyContent="center" flexDirection="column">
           <SectionsTitle title={title} />
-          <Text py="20px" color="black" variant="normal">{content}</Text>
+          <Text py="20px" color="black" variant="normal" dangerouslySetInnerHTML={{ __html: content }} />
           {cta &&
             <Box textAlign={isMobile ? 'center' : ''}>
               <Link href={ctaTarget}>

@@ -51,14 +51,14 @@ export default function PageChanger() {
         <Link href='/about-us/recognitions#page-changer'>
           <a>
             <Button variant={page === "recognitions" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
-              recognitions
+              recognitions &<br />collaborations
             </Button>
           </a>
         </Link>
-        <Link href='/about-us/collaborations#page-changer'>
+        <Link href='/about-us/our-departments#page-changer'>
           <a>
             <Button variant={page === "collaborations" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
-              collaborations
+              our departments
             </Button>
           </a>
         </Link>
