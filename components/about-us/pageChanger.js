@@ -48,13 +48,13 @@ export default function PageChanger() {
             </Button>
           </a>
         </Link>
-        <Link href='/about-us/recognitions#page-changer'>
+        {/* <Link href='/about-us/recognitions#page-changer'>
           <a>
             <Button variant={page === "recognitions" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
               recognitions &<br />collaborations
             </Button>
           </a>
-        </Link>
+        </Link> */}
         <Link href='/about-us/our-departments#page-changer'>
           <a>
             <Button variant={page === "collaborations" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
@@ -89,17 +89,17 @@ export default function PageChanger() {
           </Button>
         </a>
       </Link>
-      <Link href='/about-us/recognitions#page-changer'>
+      {/* <Link href='/about-us/recognitions#page-changer'>
         <a>
           <Button variant={page === "recognitions" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
-            recognitions
+            recognitions &<br />collaborations
           </Button>
         </a>
-      </Link>
-      <Link href='/about-us/collaborations#page-changer'>
+      </Link> */}
+      <Link href='/about-us/our-departments#page-changer'>
         <a>
-          <Button variant={page === "collaborations" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
-            collaborations
+          <Button variant={page === "our-departments" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
+            Our departments
           </Button>
         </a>
       </Link>

@@ -11,7 +11,7 @@ const menu = [
     id: 1, name: 'about us', slug: 'about-us', children: [
       { id: 1.1, name: 'about us', slug: '/about-us' },
       { id: 1.2, name: 'what we do', slug: '/about-us/what-we-do' },
-      { id: 1.3, name: 'recognitions & collaborations', slug: '/about-us/recognitions' },
+      // { id: 1.3, name: 'recognitions & collaborations', slug: '/about-us/recognitions' },
       { id: 1.4, name: 'our departments', slug: '/about-us/our-departments' },
       { id: 1.5, name: 'volunteers', slug: '/about-us/volunteers' },
     ]
