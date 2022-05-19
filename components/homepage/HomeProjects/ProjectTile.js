@@ -18,7 +18,7 @@ const icons = {
 
 export default function ProjectTile({ project, ...props }) {
 
-  console.log(icons[project.department])
+  // console.log(icons[project.department])
 
   //const icon = project.category === 'EDUCATION' ? '/images/static/assets/icon_education_purple.png' : project.category === 'ACTIVISM' ? '/images/static/assets/icon_activism_yellow.png' : '/images/static/assets/icon_empowerment_red.png'
   const icon = icons[project.department]
