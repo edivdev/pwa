@@ -4,16 +4,16 @@ import Text from "../../ui/Text"
 import Link from 'next/link'
 
 const icons = {
-  'women-rights': '/images/static/assets/Womensrights.png',
+  'women-rights': '/images/static/assets/womensrights.png',
   'inclusion': '/images/static/assets/inclusion.png',
-  'children-rights': '/images/static/assets/Childrenrights.png',
-  'eliminating-violence': '/images/static/assets/AgaintstGBV.png',
+  'children-rights': '/images/static/assets/childrenrights.png',
+  'eliminating-violence': '/images/static/assets/againtstgbv.png',
   'legal': '/images/static/assets/legal.png',
-  'sustainability': '/images/static/assets/Sustainability.png',
-  'translators': '/images/static/assets/Translators.png',
-  'sexual-reproductive-health': '/images/static/assets/SRH.png',
-  'art': '/images/static/assets/Art.png',
-  'peaceful-conflict-resolution': '/images/static/assets/Art.png' //temporal for not breaking site
+  'sustainability': '/images/static/assets/sustainability.png',
+  'translators': '/images/static/assets/translators.png',
+  'sexual-reproductive-health': '/images/static/assets/srh.png',
+  'art': '/images/static/assets/art.png',
+  'peaceful-conflict-resolution': '/images/static/assets/art.png' //temporal for not breaking site
 }
 
 export default function ProjectTile({ project, ...props }) {
