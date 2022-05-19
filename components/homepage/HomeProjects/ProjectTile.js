@@ -4,16 +4,16 @@ import Text from "../../ui/Text"
 import Link from 'next/link'
 
 const icons = {
-  'women-rights': '/images/static/assets/womensrights.png',
-  'inclusion': '/images/static/assets/inclusion.png',
-  'children-rights': '/images/static/assets/childrenrights.png',
-  'eliminating-violence': '/images/static/assets/againtstgbv.png',
-  'legal': '/images/static/assets/legal.png',
-  'sustainability': '/images/static/assets/sustainability.png',
-  'translators': '/images/static/assets/translators.png',
-  'sexual-reproductive-health': '/images/static/assets/srh.png',
-  'art': '/images/static/assets/art.png',
-  'peaceful-conflict-resolution': '/images/static/assets/art.png' //temporal for not breaking site
+  'women-rights': '/images/static/assets/icon1.png',
+  'inclusion': '/images/static/assets/icon2.png',
+  'children-rights': '/images/static/assets/icon3.png',
+  'eliminating-violence': '/images/static/assets/icon4.png',
+  'legal': '/images/static/assets/icon5.png',
+  'sustainability': '/images/static/assets/icon6.png',
+  'translators': '/images/static/assets/icon7.png',
+  'sexual-reproductive-health': '/images/static/assets/icon8.png',
+  'art': '/images/static/assets/icon9.png',
+  'peaceful-conflict-resolution': '/images/static/assets/icon9.png' //temporal for not breaking site
 }
 
 export default function ProjectTile({ project, ...props }) {
