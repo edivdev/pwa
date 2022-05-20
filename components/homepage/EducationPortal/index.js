@@ -44,7 +44,7 @@ export default function EducationPortalSection() {
         </Box>
         <Box w={isMobile ? "100%" : "50%"}>
           <Box display="flex" justifyContent="center" alignItems="center" h="100%">
-            <Image style={{ margin: 'auto' }} src="https://via.placeholder.com/939x574" alt="asd" width="939" height="574" />
+            <Image style={{ margin: 'auto' }} src="/images/static/home/home-main.png" alt="asd" width={904} height={860} />
           </Box>
         </Box>
       </Flex>

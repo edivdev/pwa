@@ -26,7 +26,7 @@ export default function homePage(props) {
         ctaTarget="/about-us/volunteers"
       />
       <TwoSideCallToAction
-        content='Educacion Diversa is a run by a collective of volunteers from around the world who kindly give their time and skills to contribute to creating educational resources that are used to incentivise donations from people with the money raised going to projects in underdeveloped countries around the world that focus on educating people in our areas of focus.<br/><br/>We hope to raise enough money in the future to build small schools in rural areas too!.'
+        content='Educacion Diversa an International Registered Not for Profit.<br/><br/>We are a community of volunteers from around the world who give time and skills to create educational resources. Most of our resources are available free of charge, however we do create products to sell to raise money to support projects on the ground in underdeveloped countries.<br/><br/>Our long term goal is to raise enough money in the future to build small schools in rural areas too!'
         image="/images/static/home/donate.png"
         title="How to donate"
         imageWidth="723"
