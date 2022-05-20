@@ -137,7 +137,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
 
       <Box m="50px 10%">
         {!isMobile &&
-          <Grid templateColumns={'repeat(4, 1fr)'} gap="10px 3px" minHeight="782px" overflowX="scroll">
+          <Grid templateColumns={'repeat(4, 1fr)'} gap="10px 10px" minHeight="782px" overflowX="scroll">
 
             {filteredProjects && filteredProjects.map((project) =>
               <GridItem key={project.id}>

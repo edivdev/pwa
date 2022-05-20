@@ -6,7 +6,7 @@ import Link from 'next/link'
 import useTheme from '../../../hooks/useTheme'
 import useViewport from '../../../hooks/useViewport'
 
-export default function PagesHeader({ background, ...props }) {
+export default function PagesHeader({ background, isProject = false, ...props }) {
 
   const viewport = useViewport()
   const [isMobile, setIsMobile] = useState(null)
@@ -20,7 +20,7 @@ export default function PagesHeader({ background, ...props }) {
   const { text0, text1, text2, text3, cta, ctaTarget } = props
   return (
     <Box
-      minHeight={isMobile ? "150px" : "450px"}
+      minHeight={isMobile ? "150px" : isProject ? "1000px" : "450px"}
       backgroundImage={background}
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
@@ -28,6 +28,7 @@ export default function PagesHeader({ background, ...props }) {
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
+      backgroundPosition="center"
     >
       <Text color="white" textTransform="uppercase">
         {text0}

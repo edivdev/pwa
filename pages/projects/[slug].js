@@ -8,7 +8,9 @@ import useViewport from '../../hooks/useViewport'
 export default function ProjectDetail(props) {
 
   const { project } = props
-  const { title, id } = project
+  const { title, id, pic } = project
+
+  const background = `/images/static/projects/${pic}`
 
   const viewport = useViewport()
   const [isMobile, setIsMobile] = useState(null)
@@ -19,7 +21,7 @@ export default function ProjectDetail(props) {
 
   return (
     <section>
-      <PagesHeader />
+      <PagesHeader background={background} isProject />
       <Box px={isMobile ? "8%" : "25%"}>
         <Box my="5%" textAlign="center"><h1><Text variant={isMobile ? "titleMobile" : "h1"}>{title}</Text></h1></Box>
         <Box my="5%">
