@@ -16,7 +16,7 @@ const icons = {
   'peaceful-conflict-resolution': '/images/static/assets/icon9.png' //temporal for not breaking site
 }
 
-export default function ProjectTile({ project, ...props }) {
+export default function ProjectTile({ project, isMobile = false, ...props }) {
 
   //const icon = project.category === 'EDUCATION' ? '/images/static/assets/icon_education_purple.png' : project.category === 'ACTIVISM' ? '/images/static/assets/icon_activism_yellow.png' : '/images/static/assets/icon_empowerment_red.png'
   const icon = icons[project.department]
@@ -25,7 +25,7 @@ export default function ProjectTile({ project, ...props }) {
   return (
     <Link href={`/projects/${project.slug}`}>
       <a>
-        <Flex w="100%" h="100%" flexDirection="column" alignItems="center" justifyContent="space-between">
+        <Flex w={isMobile?"250px":"100%"} h="100%" flexDirection="column" alignItems="center" justifyContent="space-between" m={isMobile ? "0 10px 0 0": "0"}>
           <Box w="100%" h="291px" backgroundImage={background} borderRadius="6px" m="auto" p="10px">
             <Box backgroundImage={`/images/static/projects/${project.pic}`} w="100%" h="100%" backgroundSize="cover" backgroundPosition="center" />
           </Box>
