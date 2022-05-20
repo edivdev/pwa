@@ -1,6 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react"
 import Image from "next/image"
 import Link from 'next/link'
+import { changesForOpenPopUp } from "../../helpers/domManipulations";
 import Text from "../ui/Text";
 
 export default function MemberCard({ member, setPopupInfo, setIsPopupShowing, ...props }) {
@@ -13,6 +14,7 @@ export default function MemberCard({ member, setPopupInfo, setIsPopupShowing, ..
       bio: member.bio
     })
     setIsPopupShowing(true)
+    changesForOpenPopUp()
   }
 
   return (

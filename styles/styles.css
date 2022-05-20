@@ -171,3 +171,6 @@ a:hover {
 .menu-mobile-wrapper{
   transition: 0.5s;
 }
+#main-footer.hide{
+  display:none;
+}

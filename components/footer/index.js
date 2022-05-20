@@ -27,6 +27,7 @@ function Footer() {
       justifyContent="space-evenly"
       zIndex="3"
       position="relative"
+      id="main-footer"
     >
       <ModuleOne isMobile={isMobile} />
       <ModuleTwo isMobile={isMobile} />

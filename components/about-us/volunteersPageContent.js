@@ -6,6 +6,7 @@ import Volunteers from "./volunteersList"
 import Popup from '../ui/Popup'
 import Image from 'next/image'
 import useViewport from '../../hooks/useViewport'
+import { changesForClosePopUp } from '../../helpers/domManipulations'
 
 export default function VolunteersPageContent({ volunteers, members }) {
 
@@ -23,6 +24,7 @@ export default function VolunteersPageContent({ volunteers, members }) {
 
   function closePopUp() {
     setIsPopupShowing(false)
+    changesForClosePopUp()
   }
 
   const title1 = `At Educación Diversa we rely on the goodwill of our volunteers to be able to provide the educational resources that we do. Every member of the Educación Diversa team donates their time and skills out of the goodness of their heart, including our CEO and the board. 

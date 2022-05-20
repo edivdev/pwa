@@ -1,5 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react'
 import Image from 'next/image'
+import { changesForOpenPopUp } from '../../helpers/domManipulations'
 import Text from '../ui/Text'
 
 export default function VolunteerCard({ volunteer, setPopupInfo, setIsPopupShowing, ...props }) {
@@ -12,6 +13,7 @@ export default function VolunteerCard({ volunteer, setPopupInfo, setIsPopupShowi
       bio: volunteer.bio
     })
     setIsPopupShowing(true)
+    changesForOpenPopUp()
   }
   return (
     <Flex {...props} w="155px" h="312px" borderRadius="6px" boxShadow="0 0 24px rgba(44, 41, 47, 0.12)" flexDirection="column" justifyContent="space-between" onClick={clickOnVolunteer} className="hoverable">
