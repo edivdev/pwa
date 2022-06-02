@@ -6,7 +6,7 @@ import VideoPopup from '../ui/Popup/VideoPopup'
 import Goals from './Goals'
 import useViewport from '../../hooks/useViewport'
 
-export default function WhatWeDoPageContent() {
+export default function WhatWeDoPageContent({ goals }) {
 
   const [isPopupShowing, setIsPopupShowing] = useState(false)
   const [popupInfo, setPopupInfo] = useState('')
@@ -64,7 +64,7 @@ export default function WhatWeDoPageContent() {
           </Flex>
         </Box>
       </Flex>
-      <Goals isMobile={isMobile} />
+      <Goals isMobile={isMobile} goals={goals} />
       <VideoPopup isPopupShowing={isPopupShowing} closePopUp={closePopUp} popupInfo={popupInfo} isMobile={isMobile} />
     </>
   )
