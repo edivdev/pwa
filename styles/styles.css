@@ -174,3 +174,7 @@ a:hover {
 #main-footer.hide{
   display:none;
 }
+
+#blog-entry p{
+  margin:25px 0;
+}

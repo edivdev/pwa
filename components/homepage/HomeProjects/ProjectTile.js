@@ -13,7 +13,7 @@ const icons = {
   'translators': '/images/static/assets/icon7.png',
   'sexual-reproductive-health': '/images/static/assets/icon8.png',
   'art': '/images/static/assets/icon9.png',
-  'peaceful-conflict-resolution': '/images/static/assets/icon9.png' //temporal for not breaking site
+  'peaceful-conflict-resolution': '/images/static/assets/icon4.png' //temporal for not breaking site
 }
 
 export default function ProjectTile({ project, isMobile = false, ...props }) {
