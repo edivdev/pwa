@@ -8,9 +8,9 @@ export default function VolunteersList({ isMobile, volunteers, setPopupInfo, set
   const settings = {
     infinite: true,
     dots: true,
-    slidesToShow: 7,
+    slidesToShow: 6,
     arrows: false,
-    slidesToScroll: 7,
+    slidesToScroll: 6,
     lazyLoad: true
   }
 
