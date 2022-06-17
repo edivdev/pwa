@@ -57,7 +57,7 @@ export default function PageChanger() {
         </Link> */}
         <Link href='/about-us/our-departments#page-changer'>
           <a>
-            <Button variant={page === "collaborations" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
+            <Button variant={page === "our-departments" ? "fillBlue" : "fillWhite"} size="banner" textTransform="uppercase">
               our departments
             </Button>
           </a>

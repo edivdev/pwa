@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react'
 import PageChanger from '../../components/about-us/pageChanger'
 import PagesHeader from '../../components/ui/PagesHeader'
 import { Box } from '@chakra-ui/react'
-import { collaborations } from '../../components/data/initialState'
+import { collaborations, goals } from '../../components/data/initialState'
 import ImageCarousel from '../../components/ui/Slider'
 import Colaboration from '../../components/about-us/Colaboration'
 import useViewport from '../../hooks/useViewport'
+import Goals from '../../components/about-us/Goals'
 
 export default function ColaborationsPage(props) {
 
@@ -45,11 +46,8 @@ export default function ColaborationsPage(props) {
         text1="OUR DEPARTMENTS"
       />
       <PageChanger />
-      <Box h="200px" px={isMobile ? "0" : "5%"}>
-        <ImageCarousel settings={isMobile ? mobileSettings : settings}>
-          {elementstomap.map((element) => <Colaboration key={element.id} element={element} />)}
-        </ImageCarousel>
-      </Box>
+      
+      <Goals isMobile={isMobile} goals={goals} />
     </>
   )
 }
@@ -57,7 +55,8 @@ export default function ColaborationsPage(props) {
 export async function getStaticProps() {
   return {
     props: {
-      colabs: collaborations
+      colabs: collaborations,
+      goals: goals
     }
   }
 }

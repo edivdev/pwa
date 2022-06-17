@@ -1,9 +1,9 @@
 import PageChanger from "../../components/about-us/pageChanger";
 import PagesHeader from "../../components/ui/PagesHeader";
 import WhatWeDoPageContent from "../../components/about-us/whatWeDoPageContent";
-import { goals } from "../../components/data/initialState"
 
-export default function WhatWeDoPage(props) {
+
+export default function WhatWeDoPage() {
 
   return (
     <>
@@ -13,15 +13,7 @@ export default function WhatWeDoPage(props) {
         text1="WHAT WE DO"
       />
       <PageChanger />
-      <WhatWeDoPageContent goals={props.goals} />
+      <WhatWeDoPageContent />
     </>
   )
-}
-
-export async function getStaticProps() {
-  return {
-    props: {
-      goals: goals
-    }
-  }
 }

@@ -24,7 +24,7 @@ export default {
     },
     normal: {
       fontWeight: '400',
-      fontSize: '14px',
+      fontSize: '18px',
       lineHeight: '24px',
       textAlign: 'left'
     },

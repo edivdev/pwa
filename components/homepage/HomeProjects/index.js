@@ -88,7 +88,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
 
   return (
     <section>
-      <Flex pt="50px" px="10%" justifyContent="center">
+      <Flex pt="100px" px="10%" justifyContent="center">
         <Box textAlign="center">
 
           <Text as="h1" variant="h1" pb="4%">

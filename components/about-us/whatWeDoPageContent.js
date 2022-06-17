@@ -3,7 +3,6 @@ import { Box, Flex } from "@chakra-ui/react"
 import Image from 'next/image'
 import Text from "../ui/Text"
 import VideoPopup from '../ui/Popup/VideoPopup'
-import Goals from './Goals'
 import useViewport from '../../hooks/useViewport'
 
 export default function WhatWeDoPageContent({ goals }) {
@@ -64,7 +63,6 @@ export default function WhatWeDoPageContent({ goals }) {
           </Flex>
         </Box>
       </Flex>
-      <Goals isMobile={isMobile} goals={goals} />
       <VideoPopup isPopupShowing={isPopupShowing} closePopUp={closePopUp} popupInfo={popupInfo} isMobile={isMobile} />
     </>
   )
