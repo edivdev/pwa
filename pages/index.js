@@ -17,7 +17,7 @@ export default function homePage(props) {
       <HomeProjects featuredProjects={featuredProjects} educationProjects={educationProjects} empowermentProjects={empowermentProjects} activismProjects={activismProjects} />
       <EducationPortalSection />
       <TwoSideCallToAction
-        content='We wouldn’t exist without the amazing volunteers who give us their skills and time to ensure we continue to grow and produce educational materials and resources for people in underdeveloped countries. If you have some time and skills that you think could help us, join us today!  Volunteering with us means you WILL make a difference to people’s lives around the world when it comes to accessing good quality education.'
+        content='We wouldn’t exist without the amazing volunteers who give us their skills and time to ensure we continue to grow and produce educational materials and resources for people in underdeveloped countries.<br/><br/>If you have some time and skills that you think could help us, join us today!  Volunteering with us means you WILL make a difference to people’s lives around the world when it comes to accessing good quality education.'
         image="/images/static/home/volunteer.png"
         title="Become a Volunteer"
         imageWidth="761"
@@ -43,10 +43,12 @@ export default function homePage(props) {
 
 export async function getStaticProps() {
 
-  const featuredProjects = projects.filter((project) => project.featured === true).sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
-  const educationProjects = projects.filter((project) => project.category === 'EDUCATION').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
-  const empowermentProjects = projects.filter((project) => project.category === 'EMPOWERMENT').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
-  const activismProjects = projects.filter((project) => project.category === 'ACTIVISM').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
+  const publishedProjects = projects.filter((project)=>project.published === true)
+
+  const featuredProjects = publishedProjects.filter((project) => project.featured === true).sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
+  const educationProjects = publishedProjects.filter((project) => project.category === 'EDUCATION').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
+  const empowermentProjects = publishedProjects.filter((project) => project.category === 'EMPOWERMENT').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
+  const activismProjects = publishedProjects.filter((project) => project.category === 'ACTIVISM').sort((a, b) => parseFloat(a.order) - parseFloat(b.order)).slice(0, 8)
 
   const featuredBlogs = blogs.filter((blog) => blog.featured <= 5 && blog.isFeatured === true).sort((a, b) => parseFloat(a.featured) - parseFloat(b.featured))
 

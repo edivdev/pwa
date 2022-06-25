@@ -16,7 +16,7 @@ export default function ContactForm({ isMobile }) {
       <Box>
         <Box className={isMobile ? "contact-form-wrapper-mobile" : "contact-form-wrapper"}>
           <Box className="form-name">
-            <Input placeholder="Full Name*" type="text" />
+            <Input placeholder="Full Name*" type="text" required />
           </Box>
 
           <Box className="form-email">
@@ -37,11 +37,11 @@ export default function ContactForm({ isMobile }) {
           </Box>
 
           <Box className="phone">
-            <Input placeholder="phone*" type="number" />
+            <Input placeholder="phone" type="number" />
           </Box>
 
           <Box className="form-school">
-            <Input placeholder="School or organization*" type="text" />
+            <Input placeholder="School or organization*" type="text" required />
           </Box>
 
           <Box className="form-help">
@@ -56,7 +56,7 @@ export default function ContactForm({ isMobile }) {
           </Box>
 
           <Box className="form-message">
-            <Textarea placeholder="Message*" rows="5" />
+            <Textarea placeholder="Message*" rows="5" required/>
           </Box>
 
           <Box className="form-send">

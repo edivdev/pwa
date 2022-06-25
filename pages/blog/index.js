@@ -21,7 +21,7 @@ export default function BlogIndexPage(props) {
     <>
       <PagesHeader
         text1="BLOG"
-        text3="This area of our website is a shared space for our volunteers to publish their voices and opinions so that they can be heard on our global platform. It also allows us to publicly recognise their contribution to our work. Members of our collective are encouraged to contribute content that focuses on, or supports the provision of education in the areas of <b>Human Rights</b>, <b>Eliminating Violence and Peaceful Conflict Management and Sexual</b> and <b>Reproductive Health</b>"
+        text3="This area of our website is a shared space for our volunteers to publish their voices and opinions so that they can be heard on our global platform. It also allows us to publicly recognise their contribution to our work.<br/><br/>Members of our collective are encouraged to contribute content that focuses on, or supports the provision of education in the areas of <b>Human Rights</b>, <b>Eliminating Violence and Peaceful Conflict Management and Sexual</b> and <b>Reproductive Health</b>"
       />
       {!isMobile && <Flex backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" flexDirection="column" alignItems="center" py="5%">
         {/* <Flex py="5%">Buttons</Flex> */}

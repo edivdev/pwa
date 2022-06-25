@@ -28,6 +28,18 @@ export default {
       lineHeight: '24px',
       textAlign: 'left'
     },
+    normalSmall:{
+      fontWeight: '400',
+      fontSize: '14px',
+      lineHeight: '24px',
+      textAlign: 'left'
+    },
+    blogTile:{
+      fontWeight: '400',
+      fontSize: '14px',
+      lineHeight: '24px',
+      textAlign: 'left'
+    },
     h1: {
       fontWeight: '700',
       fontSize: '44px',

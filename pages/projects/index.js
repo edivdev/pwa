@@ -106,6 +106,10 @@ const Projects = (props) => {
         </Box>
       </Flex>
 
+      <Box pt="5%" display="flex" justifyContent="center">
+        <Text variant="normal"><b>Stay tuned into the website to see all of our projects launch over the next 12 months!</b></Text>
+      </Box>
+
       <Box my="50px" textAlign="center" fontSize="12px">FILTER BY CATEGORY</Box>
 
       <Box p="5% 10% 2%">
@@ -173,13 +177,15 @@ export default Projects;
 
 export async function getStaticProps() {
 
-  const educationProjects = projects.filter((project) => project.category === 'EDUCATION').sort((a, b) => parseFloat(a.order) - parseFloat(b.order))
-  const empowermentProjects = projects.filter((project) => project.category === 'EMPOWERMENT').sort((a, b) => parseFloat(a.order) - parseFloat(b.order))
-  const activismProjects = projects.filter((project) => project.category === 'ACTIVISM').sort((a, b) => parseFloat(a.order) - parseFloat(b.order))
+  const publishedProjects = projects.filter((project)=> project.published === true)
+
+  const educationProjects = publishedProjects.filter((project) => project.category === 'EDUCATION').sort((a, b) => parseFloat(a.order) - parseFloat(b.order))
+  const empowermentProjects = publishedProjects.filter((project) => project.category === 'EMPOWERMENT').sort((a, b) => parseFloat(a.order) - parseFloat(b.order))
+  const activismProjects = publishedProjects.filter((project) => project.category === 'ACTIVISM').sort((a, b) => parseFloat(a.order) - parseFloat(b.order))
 
   return {
     props: {
-      projects: projects,
+      projects: publishedProjects,
       educationProjects: educationProjects,
       empowermentProjects: empowermentProjects,
       activismProjects: activismProjects

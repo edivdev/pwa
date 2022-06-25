@@ -30,19 +30,19 @@ export default function PagesHeader({ background, isProject = false, ...props })
       alignItems="center"
       backgroundPosition="center"
     >
-      <Text color="white" textTransform="uppercase">
+      {text0 && <Text color="white" textTransform="uppercase">
         {text0}
-      </Text>
+      </Text>}
 
-      <Text variant={isMobile ? "titleMobile" : "h1"} color={background ? "white" : theme.colors.main.blue} textTransform="capitalize">
+      {text1 && <Text variant={isMobile ? "titleMobile" : "h1"} color={background ? "white" : theme.colors.main.blue} textTransform="capitalize">
         {text1}
-      </Text>
+      </Text>}
 
-      <Text variant={isMobile ? "mobileMainSubTitle" : "mainSubTitle"} color="white" textTransform="uppercase" my="24px">
+      { text2 && <Text variant={isMobile ? "mobileMainSubTitle" : "mainSubTitle"} color="white" textTransform="uppercase" my="24px">
         {text2}
-      </Text>
+      </Text>}
 
-      <Text variant="normal" color={background ? "white" : theme.colors.main.blue} maxWidth="60%" dangerouslySetInnerHTML={{ __html: text3 }} />
+      { text3 && <Text variant="normal" color={background ? "white" : theme.colors.main.blue} maxWidth="60%" dangerouslySetInnerHTML={{ __html: text3 }} />}
 
       {
         ctaTarget && cta && <Link href={ctaTarget}>

@@ -24,7 +24,7 @@ export default function HomeBlog({ featuredBlogs }) {
       <Box>
         <SectionsTitle title="Blog" mt="30px" />
         <Box w={isMobile ? "95%" : "70%"} m="0 auto 15px">
-          <Text>Our blog is an ongoing compilation of papers and articles written by volunteers and academics in which they share their knowledge and expereince in the hope it will help others access better opportunities.  Our blog is also used to showcase the talented volunteers from within our collective and provide them with a safe avenue to have a voice. </Text>
+          <Text>Our blog is an ongoing compilation of papers and articles written by volunteers and academics in which they share their knowledge and expereince in the hope it will help others access better opportunities.<br/><br/>Our blog is also used to showcase the talented volunteers from within our collective and provide them with a safe avenue to have a voice. </Text>
         </Box>
         {!isMobile && <DesktopBlogLayout featuredBlogs={featuredBlogs} />}
         {isMobile && <MobileBlogLayout featuredBlogs={featuredBlogs} />}

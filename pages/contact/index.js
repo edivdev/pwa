@@ -18,11 +18,8 @@ export default function ContactPage() {
   return (
     <section>
       <PagesHeader
-        background="/images/static/contact/header.jpg"
-        text1="Contact Educacion Diversa"
-        text2="4321 Street Name, City, ZIP Code"
-        cta="educaciondiversa@gmail.com"
-        ctaTarget="mailto:educaciondiversa@gmail.com"
+        background="/images/static/backgrounds/BLUE_BACKGROUND.jpg"
+        text1="Contact Us"
       />
       <Box p="5%">
         <SectionsTitle title="Send us a Message" center />

@@ -10,9 +10,9 @@ export default function BlogTile({ blog }) {
   return (
     <Flex
       flexDirection="column"
-      justifyContent="space-between"
+      justifyContent="flex-start"
       w="229px"
-      h="380px"
+      h="340px"
       bg="white"
     >
       <Box w="229px" height="122px" position="relative" border="4px solid white">
@@ -20,11 +20,11 @@ export default function BlogTile({ blog }) {
       </Box>
 
       <Box px="5%" border="4px solid white">
-        <Text variant="featuredSecondaryBlog">{blog.title}</Text>
+        <Text variant="blogTile"><b>{blog.title}</b></Text>
       </Box>
 
-      <Box px="5%" h="100px" overflow="hidden" textOverflow="ellipsis" border="4px solid white">
-        <Text variant="normal">{blog.excerpt}</Text>
+      <Box px="5%" h="100px" overflowY="scroll" border="4px solid white">
+        <Text variant="blogTile">{blog.excerpt}</Text>
       </Box>
 
       <Box px="5%" border="4px solid white">
