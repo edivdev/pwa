@@ -34,7 +34,7 @@ export default function PagesHeader({ background, isProject = false, ...props })
         {text0}
       </Text>}
 
-      {text1 && <Text variant={isMobile ? "titleMobile" : "h1"} color={background ? "white" : theme.colors.main.blue} textTransform="capitalize">
+      {text1 && <Text variant={isMobile ? "titleMobile" : "h1"} color={background ? "white" : theme.colors.main.blue} textTransform="capitalize" textShadow="0 0 5px rgb(54,93,158)">
         {text1}
       </Text>}
 

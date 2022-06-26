@@ -25,7 +25,7 @@ export default function ProjectTile({ project, isMobile = false, ...props }) {
   return (
     <Link href={`/projects/${project.slug}`}>
       <a>
-        <Flex w={isMobile?"250px":"100%"} h="100%" flexDirection="column" alignItems="center" justifyContent="space-between" m={isMobile ? "0 10px 0 0": "0"}>
+        <Flex w={isMobile?"250px":"100%"} h="393px" flexDirection="column" alignItems="center" justifyContent="space-between" m={isMobile ? "0 10px 0 0": "0"}>
           <Box w="100%" h="291px" backgroundImage={background} borderRadius="6px" m="auto" p="10px">
             <Box backgroundImage={`/images/static/projects/${project.pic}`} w="100%" h="100%" backgroundSize="cover" backgroundPosition="center" />
           </Box>

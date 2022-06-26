@@ -18,7 +18,7 @@ export default function ContactPage() {
   return (
     <section>
       <PagesHeader
-        background="/images/static/backgrounds/BLUE_BACKGROUND.jpg"
+        background="/images/static/contact/header.png"
         text1="Contact Us"
       />
       <Box p="5%">

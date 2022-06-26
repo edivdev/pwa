@@ -17,14 +17,14 @@ export default function AboutUsPage() {
         image="/images/static/about/mission.png"
         title="Our Mission"
         imageWidth="761"
-        imageHeight="692"
+        imageHeight="507"
       />
       <TwoSideCallToAction
         content='Connect people and provide opportunities for skilled volunteers to contribute to the equality of education for people in underdeveloped countries and build a future in which people are all given access to free inclusive fun education.'
         image="/images/static/about/vision.png"
         title="Our Vision"
-        imageWidth="723"
-        imageHeight="704"
+        imageWidth="761"
+        imageHeight="507"
         reverse
       />
     </>

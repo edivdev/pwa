@@ -35,7 +35,7 @@ export default function TwoSideCallToAction({ content, image, title, reverse, ct
 
     <section>
       <Flex flexDirection={layout}>
-        <Box w={isMobile ? "100%" : "50%"} p="6%" h="100%">
+        <Box w={isMobile ? "100%" : "50%"} p="3%" h="100%">
           <Image src={image} width={imageWidth} height={imageHeight} alt={title} />
         </Box>
         <Flex w={isMobile ? "100%" : "50%"} p="2%" minHeight="100%" justifyContent="center" flexDirection="column">

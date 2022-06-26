@@ -20,8 +20,8 @@ export default function homePage(props) {
         content='We wouldn’t exist without the amazing volunteers who give us their skills and time to ensure we continue to grow and produce educational materials and resources for people in underdeveloped countries.<br/><br/>If you have some time and skills that you think could help us, join us today!  Volunteering with us means you WILL make a difference to people’s lives around the world when it comes to accessing good quality education.'
         image="/images/static/home/volunteer.png"
         title="Become a Volunteer"
-        imageWidth="761"
-        imageHeight="692"
+        imageWidth="723"
+        imageHeight="657"
         cta="See More"
         ctaTarget="/about-us/volunteers"
       />
@@ -30,7 +30,7 @@ export default function homePage(props) {
         image="/images/static/home/donate.png"
         title="How to donate"
         imageWidth="723"
-        imageHeight="704"
+        imageHeight="482"
         reverse
         cta="See More"
         ctaTarget="/donate"

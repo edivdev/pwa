@@ -10,7 +10,7 @@ export default function BlogTile({ blog }) {
   return (
     <Flex
       flexDirection="column"
-      justifyContent="flex-start"
+      justifyContent="space-between"
       w="229px"
       h="340px"
       bg="white"
@@ -19,15 +19,15 @@ export default function BlogTile({ blog }) {
         <Image src={blog.image} layout="fill" alt={blog.title} objectFit="cover" />
       </Box>
 
-      <Box px="5%" border="4px solid white">
-        <Text variant="blogTile"><b>{blog.title}</b></Text>
+      <Box px="5%" h="82px" border="4px solid white" display="flex" justifyContent="center" alignItems="center">
+        <Text textAlign="center" variant="blogTile"><b>{blog.title}</b></Text>
       </Box>
 
       <Box px="5%" h="100px" overflowY="scroll" border="4px solid white">
         <Text variant="blogTile">{blog.excerpt}</Text>
       </Box>
 
-      <Box px="5%" border="4px solid white">
+      <Box px="5%" h="36px" border="4px solid white">
         <Link href={`/blog/${blog.slug}`}>
           <a>
             <Flex>
