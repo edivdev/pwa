@@ -46,7 +46,6 @@ export default function ColaborationsPage(props) {
         text1="OUR DEPARTMENTS"
       />
       <PageChanger />
-      
       <Goals isMobile={isMobile} goals={goals} />
     </>
   )

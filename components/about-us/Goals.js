@@ -8,10 +8,9 @@ export default function Goals({ isMobile, goals }) {
   if (isMobile) {
     return (
       <section>
-        <Box pt="5%">
-          
+        <Box py="5%">
           <Box display="flex" overflowX="scroll" h="400px">
-            {goals.map((goal) => <Goal key={goal.id} minWidth="285px" goal={goal.goal} num={goal.id} pic={goal.pic} />)}
+            {goals.map((goal) => <Goal key={goal.id} minWidth="285px" goal={goal.goal} title={goal.title} pic={goal.pic} />)}
           </Box>
         </Box>
       </section>
@@ -19,10 +18,9 @@ export default function Goals({ isMobile, goals }) {
   }
   return (
     <section>
-      <Box py="5%">
-        
+      <Box py="8%">
         <Flex flexWrap="wrap" justifyContent="center">
-          {goals.map((goal) => <Goal key={goal.id} goal={goal.goal} num={goal.id} pic={goal.pic} />)}
+          {goals.map((goal) => <Goal key={goal.id} goal={goal.goal} title={goal.title} pic={goal.pic} />)}
         </Flex>
       </Box>
     </section>

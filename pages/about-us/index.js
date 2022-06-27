@@ -13,7 +13,7 @@ export default function AboutUsPage() {
       />
       <PageChanger />
       <TwoSideCallToAction
-        content='Give children and adolescents in underdeveloped communities at-based inclusive education about diverse topics to ensure they have the best chance to access opportunities to break their  cycle of poverty.'
+        content='Give children and adolescents in underdeveloped communities art-based inclusive education about diverse topics to ensure they have the best chance to access opportunities to break their  cycle of poverty.'
         image="/images/static/about/mission.png"
         title="Our Mission"
         imageWidth="761"
