@@ -70,7 +70,7 @@ const MainSlider = () => {
         </Flex>
       </Box>
       <Box w={isMobile ? "100vw" : "100%"} display="flex" alignItems="center" h="600px">
-        <Box w={isMobile ? "100vw" : "50vw"} position="relative" h="500px" mt="90px">
+        <Box w={isMobile ? "504px" : "750px"} position="relative" h={isMobile?"336px":"500px"} mt={isMobile? "0":"90px"}>
           <Image src="/images/static/home/home-main2.png" alt="connect-with-us" layout='fill' />
         </Box>
       </Box>
