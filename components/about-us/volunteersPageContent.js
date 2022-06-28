@@ -8,7 +8,7 @@ import Image from 'next/image'
 import useViewport from '../../hooks/useViewport'
 import { changesForClosePopUp } from '../../helpers/domManipulations'
 
-export default function VolunteersPageContent({ volunteers, members }) {
+export default function VolunteersPageContent({ volunteers }) {
 
   const viewport = useViewport()
   const [isMobile, setIsMobile] = useState(null)
@@ -42,7 +42,6 @@ export default function VolunteersPageContent({ volunteers, members }) {
     <>
       <Box maxWidth={isMobile ? "90%" : "60%"} m="auto" textAlign="justify">
         <p dangerouslySetInnerHTML={{ __html: title1 }} />
-        {/* <p><b>{title2}</b></p> */}
       </Box>
       <Box width="100%" height={isMobile ? "350px" : "600px"} position="relative" my="5%">
         <Image src="/images/static/volunteers/volunteersmap.jpg" layout="fill" objectFit="contain" alt="map" />

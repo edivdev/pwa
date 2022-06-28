@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^1.7.4",
+    "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@fontsource/just-another-hand": "^4.5.3",

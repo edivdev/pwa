@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Text from "../ui/Text"
 import VideoPopup from '../ui/Popup/VideoPopup'
 import useViewport from '../../hooks/useViewport'
+import { changesForClosePopUp, changesForOpenPopUp } from '../../helpers/domManipulations'
 
 export default function WhatWeDoPageContent({ goals }) {
 
@@ -16,9 +17,11 @@ export default function WhatWeDoPageContent({ goals }) {
   function openPopup() {
     setIsPopupShowing(true)
     setPopupInfo(ytIframe)
+    changesForOpenPopUp()
   }
   function closePopUp() {
     setIsPopupShowing(false)
+    changesForClosePopUp()
   }
 
   useEffect(() => {
