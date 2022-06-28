@@ -1,28 +1,16 @@
-import { Box, Flex } from '@chakra-ui/react'
-import React from 'react'
-import SectionsTitle from '../ui/SectionsTitle'
-import Goal from './Goal'
+import { Box } from "@chakra-ui/react";
+import SectionsTitle from "../ui/SectionsTitle";
+import Goal from "./Goal";
 
-export default function Goals({ isMobile, goals }) {
-
-  if (isMobile) {
-    return (
-      <section>
-        <Box py="5%">
-          <Box display="flex" overflowX="scroll" h="400px">
-            {goals.map((goal) => <Goal key={goal.id} minWidth="285px" goal={goal.goal} title={goal.title} pic={goal.pic} />)}
-          </Box>
+export default function Goals({goals}){
+    return(
+        <Box maxWidth="900px" m="20px auto">
+        <Box textAlign="center">
+            <SectionsTitle title="Our Goals" />
         </Box>
-      </section>
+        <Box>
+            {goals.map((goal) => <Goal key={goal.id} goal={goal}/> )}
+        </Box>
+        </Box>
     )
-  }
-  return (
-    <section>
-      <Box py="8%">
-        <Flex flexWrap="wrap" justifyContent="center">
-          {goals.map((goal) => <Goal key={goal.id} goal={goal.goal} title={goal.title} pic={goal.pic} />)}
-        </Flex>
-      </Box>
-    </section>
-  )
 }

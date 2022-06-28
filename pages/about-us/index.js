@@ -1,9 +1,38 @@
-
+import { useState, useEffect } from "react"
 import PageChanger from "../../components/about-us/pageChanger"
 import PagesHeader from "../../components/ui/PagesHeader"
 import TwoSideCallToAction from "../../components/homepage/TwoSideCallToAction"
+import { goals, members } from '../../components/data/initialState'
+import Goal from "../../components/about-us/Goal"
+import Goals from "../../components/about-us/Goals"
+import BoardMembers from "../../components/about-us/boardMembers"
+import Popup from '../../components/ui/Popup'
+import useViewport from "../../hooks/useViewport"
+import { changesForClosePopUp } from "../../helpers/domManipulations"
 
-export default function AboutUsPage() {
+export default function AboutUsPage({goals}) {
+
+  const viewport = useViewport()
+  const [isMobile, setIsMobile] = useState(null)
+
+  useEffect(() => {
+    setIsMobile(viewport[0])
+  }, [isMobile, viewport])
+
+  const [isPopupShowing, setIsPopupShowing] = useState(false)
+  const [popupInfo, setPopupInfo] = useState({
+    picture: '/',
+    name: '',
+    country: '',
+    bio: '',
+    position: ''
+  })
+
+  function closePopUp() {
+    setIsPopupShowing(false)
+    changesForClosePopUp()
+  }
+
   return (
     <>
       <PagesHeader
@@ -27,6 +56,18 @@ export default function AboutUsPage() {
         imageHeight="507"
         reverse
       />
+      <Goals goals={goals} />
+      <BoardMembers isMobile={isMobile} members={members} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
+      <Popup isPopupShowing={isPopupShowing} closePopUp={closePopUp} popupInfo={popupInfo} isMobile={isMobile} />
     </>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      goals: goals,
+      members: members
+    }
+  }
 }

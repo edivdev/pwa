@@ -10,6 +10,9 @@ import { changesForClosePopUp } from '../../helpers/domManipulations'
 
 export default function VolunteersPageContent({ volunteers, members }) {
 
+  const viewport = useViewport()
+  const [isMobile, setIsMobile] = useState(null)
+
   const [isPopupShowing, setIsPopupShowing] = useState(false)
   const [popupInfo, setPopupInfo] = useState({
     picture: '/',
@@ -18,9 +21,6 @@ export default function VolunteersPageContent({ volunteers, members }) {
     bio: '',
     position: ''
   })
-
-  const viewport = useViewport()
-  const [isMobile, setIsMobile] = useState(null)
 
   function closePopUp() {
     setIsPopupShowing(false)
@@ -49,7 +49,6 @@ export default function VolunteersPageContent({ volunteers, members }) {
       </Box>
       <Volunteers isMobile={isMobile} volunteers={volunteers} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
       <BeVolunteer isMobile={isMobile} />
-      <BoardMembers isMobile={isMobile} members={members} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
       <Popup isPopupShowing={isPopupShowing} closePopUp={closePopUp} popupInfo={popupInfo} isMobile={isMobile} />
     </>
   )

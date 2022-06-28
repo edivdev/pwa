@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react'
 import PageChanger from '../../components/about-us/pageChanger'
 import PagesHeader from '../../components/ui/PagesHeader'
-import { Box } from '@chakra-ui/react'
-import { collaborations, goals } from '../../components/data/initialState'
-import ImageCarousel from '../../components/ui/Slider'
-import Colaboration from '../../components/about-us/Colaboration'
+import { departments } from '../../components/data/initialState'
 import useViewport from '../../hooks/useViewport'
-import Goals from '../../components/about-us/Goals'
+import Departments from '../../components/about-us/Departments'
 
-export default function ColaborationsPage(props) {
+export default function ColaborationsPage() {
 
   const viewport = useViewport()
   const [isMobile, setIsMobile] = useState(null)
@@ -17,7 +14,6 @@ export default function ColaborationsPage(props) {
     setIsMobile(viewport[0])
   }, [isMobile, viewport])
 
-  const elementstomap = props.colabs
 
   const settings = {
     infinite: true,
@@ -37,7 +33,6 @@ export default function ColaborationsPage(props) {
     lazyLoad: true
   }
 
-
   return (
     <>
       <PagesHeader
@@ -46,7 +41,7 @@ export default function ColaborationsPage(props) {
         text1="OUR DEPARTMENTS"
       />
       <PageChanger />
-      <Goals isMobile={isMobile} goals={goals} />
+      <Departments isMobile={isMobile} departments={departments} />
     </>
   )
 }
@@ -54,8 +49,7 @@ export default function ColaborationsPage(props) {
 export async function getStaticProps() {
   return {
     props: {
-      colabs: collaborations,
-      goals: goals
+      departments: departments
     }
   }
 }

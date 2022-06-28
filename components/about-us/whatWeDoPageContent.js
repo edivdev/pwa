@@ -48,11 +48,11 @@ export default function WhatWeDoPageContent({ goals }) {
   Fast forward to now, about 1 year and a bit after the relaunch, we grew to an international community of over 100 incredible volunteers from at least 34 countries across the world and they fill roles from The board, an artists, designers, researcher right through to teachers and lawyers.  What we’re trying to say is if you want experience or to share your skills and time there is a place in our collective for everyone. If you're someone who shares our vision, please get in touch and be part of where this next chapter takes us!
   ` 
 
-  const videoWidth = isMobile ? 390 : 560
-  const videHeight = isMobile ? 219 : 315
+  const videoWidth = isMobile ? 390 : 700
+  const videHeight = isMobile ? 219 : 395
 
-  const ytIframe = `<iframe width=${videoWidth} height=${videHeight} src="https://www.youtube.com/embed/l_E2g0bw6dI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-
+  const ytIframe = `<iframe width=${videoWidth} height=${videHeight} src="https://www.youtube.com/embed/HlyoEF0708g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+  
   return (
     <>
       <Box maxWidth={isMobile ? "90%" : "60%"} m="0 auto" p={isMobile ? "1% 0 5% 0" : "5% 0"}>

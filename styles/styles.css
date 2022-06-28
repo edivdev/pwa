@@ -185,3 +185,11 @@ a:hover {
 .slick-initialized .hoverable {
   /* box-shadow: none!important; */
 }
+.donate-block p {
+  margin-bottom: 15px;
+}
+.donate-block h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
