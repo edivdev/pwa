@@ -27,20 +27,17 @@ export default function MemberForm() {
     email_address: email
 };
 
-  
-
-
   if (sentEmail){
     return (
-      <p>Registered Sucesfully!</p>
+      <p>Thanks for your registration, your data has been submited sucesfully, now you will receive our montly Newsletter!</p>
     )
   }
 
   return (
     <form id="footer-form" onSubmit={handleSubmit}>
-      <Input my="3%" placeholder="First Name"  type="text" onChange={(e)=>setFname(e.target.value)}/>
-      <Input my="3%" placeholder="Last Name"  type="text" onChange={(e)=>setLname(e.target.value)} />
-      <Input my="3%" placeholder="Email"  type="text" name="email" onChange={(e)=>setEmail(e.target.value)} />
+      <Input my="3%" placeholder="First Name" required type="text" name="name" onChange={(e)=>setFname(e.target.value)}/>
+      <Input my="3%" placeholder="Last Name" required type="text" name="last-name" onChange={(e)=>setLname(e.target.value)} />
+      <Input my="3%" placeholder="Email" required type="email" name="email" onChange={(e)=>setEmail(e.target.value)} />
       <Button type="submit" variant="SignUp">REGISTER</Button>
     </form>
   )
