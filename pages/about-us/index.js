@@ -56,7 +56,7 @@ export default function AboutUsPage({goals}) {
         imageHeight="507"
         reverse
       />
-      <Goals goals={goals} />
+      <Goals goals={goals} isMobile={isMobile}/>
       <BoardMembers isMobile={isMobile} members={members} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
       <Popup isPopupShowing={isPopupShowing} closePopUp={closePopUp} popupInfo={popupInfo} isMobile={isMobile} />
     </>

@@ -8,14 +8,14 @@ export default function Departments({ isMobile, departments }) {
   if (isMobile) {
     return (
       <section>
-        <Box py="5%">
+        <Box my="10%">
           <Box display="flex" overflowX="scroll" h="400px">
             {departments.map((department) => <Department 
+              isMobile={isMobile}
               key={department.id} 
-              minWidth="285px" 
-              department={department.content} 
+              content={department.content} 
               title={department.title} 
-              pic={department.pic} 
+              pic={department.pic}
             />)}
           </Box>
         </Box>

@@ -88,7 +88,7 @@ const HomeProjects = ({ featuredProjects, educationProjects, empowermentProjects
 
   return (
     <section>
-      <Flex pt="100px" px="10%" justifyContent="center">
+      <Flex pt={isMobile?"0":"100px"} mt={isMobile ? "-120px" :"0"} px="10%" justifyContent="center">
         <Box textAlign="center">
 
           <Text as="h1" variant="h1" pb="4%">

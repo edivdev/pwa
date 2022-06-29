@@ -107,7 +107,7 @@ const Projects = (props) => {
       </Flex>
 
       <Box pt="5%" display="flex" justifyContent="center">
-        <Text variant="normal"><b>Stay tuned into the website to see all of our projects launch over the next 12 months!</b></Text>
+        <Text textAlign="center" variant="normal"><b>Stay tuned into the website to see all of our projects launch over the next 12 months!</b></Text>
       </Box>
 
       <Box my="50px" textAlign="center" fontSize="12px">FILTER BY CATEGORY</Box>

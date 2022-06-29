@@ -7,7 +7,7 @@ import useViewport from '../../hooks/useViewport'
 
 export default function BlogDetail(props) {
   const { blog } = props
-  const { title, content, excerpt, image } = blog
+  const { title, content, excerpt, image, author, department } = blog
 
   const viewport = useViewport()
   const [isMobile, setIsMobile] = useState(null)
@@ -21,6 +21,7 @@ export default function BlogDetail(props) {
       <PagesHeader
         background={image}
       />
+      <Box px="8%" textAlign="right"><Text>Written by: <b>{author}</b><br/>{department} department</Text></Box>
       <Box px={isMobile ? "8%" : "25%"}>
         <Box my="5%" textAlign="center"><h1><Text variant={isMobile ? "titleMobile" : "h1"}>{title}</Text></h1></Box>
         <Box my="5%">

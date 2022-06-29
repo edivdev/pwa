@@ -65,7 +65,9 @@ export const blogs = [
     <p>If we want our nations and communities to grow and prosper, then we all will have to bet on children and youth and their contribution. The aim of Educacion Diversa is to provide art-based educational materials for children to learn about SDGs. With our educational materials on SDGs, they will be able to learn in a playful and engaging way. We hope this will inspire them to become global leaders and vote every day about the kind of world they want to live in. </p>`,
     tags: "",
     featured: 1,
-    isFeatured: true
+    isFeatured: true,
+    author:'xxx',
+    department:'xxx',
   },
   {
     id: 2,
@@ -80,7 +82,9 @@ export const blogs = [
     <p>Achieving gender equality is a societal responsibility that must fully engage both men and women. Men need to be addressed as part of the solution, not just part of the problem. They need to be invited and challenged to critically reflect on the existence of patriarchy, male power and privilege; to analyze the costs to women and girls, but also the costs to men and boys. Finally, men and boys also need to be shown the benefits of gender equality, to women, girls, and all of humanity.</p>`,
     tags: "",
     featured: 2,
-    isFeatured: true
+    isFeatured: true,
+    author:'xxx',
+    department:'xxx',
   },
   {
     id: 3,
@@ -149,7 +153,9 @@ export const blogs = [
   </div>`,
     tags: "",
     featured: 3,
-    isFeatured: true
+    isFeatured: true,
+    author:'xxx',
+    department:'xxx',
   },
   {
     id: 4,
@@ -167,7 +173,9 @@ export const blogs = [
     <p>In conclusion, promoting gender equality and strengthening women's rights is essential for sustainable development. People like Lydia María Cacho Rìbeiro should serve as an example to overcome inequality. Her work and her bravery helped many girls to come forward and bring their oppressors to justice and take back control of their lives. She dedicated her years as an activist to the cause by deciding to denounce on paper the suffering of women, even if that required putting herself in danger. Through her book, she sent many criminals to prison and gave voice to many victims in different parts of the country. Additionally, after her detention following the publication of “The Demons of Eden,” journalism was decriminalized; hence, journalists could no longer be held accountable for defamation and libel. Her court case, together with the media reaction, and the intervention of political actors, initiated a process of change. Thanks to her book, also legislation concerning child pornography has evolved considerably. Particularly in a country like Mexico, which is one of the most dangerous countries in the world for journalism, the work of Lydia is essential. The prizes she was accredited with and the international visibility she received acted as a shield and provided her protection. To conclude, Lydia Cacho firmly believes in the importance of electronic media and its decisive role in accessing information. She criticizes media monopoly, one of the most significant problems in Mexico, and fight to keep community radio stations alive as they are vital for the freedom of information and to spread the news across the country.</p>`,
     tags: "",
     featured: 4,
-    isFeatured: true
+    isFeatured: true,
+    author:'xxx',
+    department:'xxx',
   },
   {
     id: 5,
@@ -184,7 +192,9 @@ export const blogs = [
     <p>Collaborative post written by Educacion Diversa’s team: Founder, Lauren Cannell @lozzlepop; Director of the Women’s Rights Department, Nikky Suárez @nic_gin; and Ambassador, Bianca Herrera @_.biancaherrera._ with edits from our Director of Marketing and Strategy, Lylia Hafiz @lyliafz_</p>`,
     tags: "",
     featured: 5,
-    isFeatured: true
+    isFeatured: true,
+    author:'xxx',
+    department:'xxx',
   }
 ]
 
@@ -692,4 +702,10 @@ export const goals = [
   { id: 6,  goal: 'Promote peaceful conflict resolution by giving free information and activity sheets that support teaching well-being, mindfullness and self-care for people living in communities where conflict has been normalised.' },
   { id: 7,  goal: 'Engage people to engage in diverse topics using art to ensure our materials are inclusive and accessible to as many people as possble, regardless of socio-economic status or academic ability.' },
   { id: 8,  goal: 'Contribute to the Sustainable Development Goals by providing age appropriate educational information and activities to gain interest about them from children earlier with the hope that they are able to take the action needed to save our planet!' }
+]
+
+export const donateDepartments = [
+  {id:1, name:'Drawing for your Rights', content:'On December 4th 2016 a 7 year old indigenous girl named Yhuliana Samboni was taken from her home in a displaced community in Bogota by a rich architect who believed money could buy him anything. He had sexually abused her in the past and when he went back this time for more and she refused him, he dragged her into his car, took her to one of his many empty apartments raped her and tortured her before moving her to another empty apartment of his where he continued to do it again and again until eventually he had enough and he suffocated her, like she was just a piece of meat.'},
+  {id:2, name:'Sandwich for Sanitary products', content:'Due to the increase in teenage pregnancies and girls dropping out of school due to the lack of sufficient resources to manage their periods, especially in the rural schools and the slum areas, the consequences are always experienced by the parents. These young women have confessed to being using old clothes for sanitary products and even using the same pads for two days, without considering the health risks.'},
+  {id:3, name:'Helping Indigenous Women in Colombia gain financial literacy skills', content:'Women’s rights are not recognized as needed in developing countries like Colombia. In Putumayo, a department of Southern Colombia, women struggle to become independent and above all, entrepreneurs. Having the incredible chance to meet with Nancy, founder of the Association for Entrepreneurial Women living in Putumayo, urged a need inside the organization to raise awareness about women’s entrepreneurial work and raise funds to help towards their social and economic development.'},
 ]

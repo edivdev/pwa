@@ -6,8 +6,13 @@ import Image from 'next/image'
 import Text from '../../components/ui/Text'
 import DonateEspecific from './DonateEspecific'
 import useViewport from '../../hooks/useViewport'
+import { donateDepartments } from '../../components/data/initialState'
+import SectionsTitle from '../../components/ui/SectionsTitle'
 
-export default function DonatePage() {
+
+export default function DonatePage(props) {
+
+  const { projs } = props
 
   const viewport = useViewport()
   const [isMobile, setIsMobile] = useState(null)
@@ -36,10 +41,32 @@ export default function DonatePage() {
           <p>We believe with education we can make a difference and we would like for you to be part of this.</p>
           <h2>Membership Program</h2>
           <p>Educacion Diversa Inc. has been structured as an Incorporated Association according to the legislation of the Australian Capital Territory. In this system, a group of people decide to register as an association and in return, it receives recognition as a legal entity separate from its members, providing a mechanism for associations to establish a corporate identity with limited liability for its members and office bearers. Another important characteristic of being an Incorporated Association is that all proceeds from memberships or other activities undertaken by the association can’t be distributed among its members as profits, but rather need to be re-invested in the pursue of the goals and objectives set out by the organisation.</p>
-              <p>Becoming a member of Educacion Diversa Inc. gives you the chance to contribute to the on-going financial sustainability and operations of the organisation, projects, campaigns and the development of educational packages in the areas of diverse topics.  You also are given the chance to participate in the strategic decision-making process of Educacion Diversa Inc and you will be able to nominate yourself or other qualified members to fill any vacancies advertised in the Board of Directors. Your membership contribution also will help to create small scholarship opportunities for academics and adolescents from underdeveloped countries to ensure they also have access to opportunities to gain experience in their sector but also to ensure they can be paid for their contribution, as they really do need it to break the cycle of poverty.  Lastly, any surplus funding received will be used to fund the development of learning resources to support our educational activities on the ground.</p>
+            <p>Becoming a member of Educacion Diversa Inc. gives you the chance to contribute to the on-going financial sustainability and operations of the organisation, projects, campaigns and the development of educational packages in the areas of diverse topics.  You also are given the chance to participate in the strategic decision-making process of Educacion Diversa Inc and you will be able to nominate yourself or other qualified members to fill any vacancies advertised in the Board of Directors. Your membership contribution also will help to create small scholarship opportunities for academics and adolescents from underdeveloped countries to ensure they also have access to opportunities to gain experience in their sector but also to ensure they can be paid for their contribution, as they really do need it to break the cycle of poverty.  Lastly, any surplus funding received will be used to fund the development of learning resources to support our educational activities on the ground.</p>
         </Box>
       </Box>
       <MembershipPlan isMobile={isMobile} />
+      <Box display="flex" flexWrap="wrap" margin="auto" maxWidth="900px" p="50px 0">
+        <Box textAlign="center" width="100%">
+        <SectionsTitle title="Donate to a specific project" />
+        </Box>
+        {projs.map((project)=>{
+          return(
+              <Box key={project.id} m="25px 10px">
+                <Text textAlign="center"><b>{project.name}</b></Text>
+                <Text textAlign="justify">{project.content}</Text>
+              </Box>
+          )
+        })}
+      </Box>
     </Box>
   )
+}
+
+export async function getStaticProps() {
+
+  return {
+    props: {
+      projs: donateDepartments
+    }
+  }
 }

@@ -190,3 +190,9 @@ a:hover {
   font-weight: 600;
   margin-bottom: 20px;
 }
+.contact-form-wrapper-mobile{
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
