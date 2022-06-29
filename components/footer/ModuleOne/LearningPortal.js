@@ -5,7 +5,7 @@ export default function LearningPortal() {
   return (
     <Box mb="15px">
       <Text fontWeight="900" color="white">LEARNING PORTAL</Text>
-      <Text color="white">Lorem ipsum dolor sit, consectetur learning portal</Text>
+      <Text color="white">In development and coming soon.</Text>
     </Box>
   )
 }

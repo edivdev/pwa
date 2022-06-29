@@ -14,10 +14,10 @@ export default function BeVolunteer({ isMobile }) {
         </Box>
         <Flex w={isMobile ? "100" : "50%"} px={isMobile ? "30px" : "90px"} flexDirection="column" justifyContent="center">
           <Text variant="introSection" color="white" textTransform="uppercase">
-            be a volunteer
+            Become a Volunteer
           </Text>
           <Text color="white" fontSize="24px">
-            Consectetur incididunt ut labore et dolore magna aliqua!
+            Just fill in the details below and one of our team members will be in touch!
           </Text>
           <Box w="72px" h="16px" position="relative" my="20px">
             <Image src="/images/static/assets/underline-title-red.png" layout="fill" objectFit="contain" alt="underline" />

@@ -28,10 +28,10 @@ function Footer() {
       zIndex="3"
       position="relative"
       id="main-footer"
+      className="footer-wrapper"
     >
       <ModuleOne isMobile={isMobile} />
       <ModuleTwo isMobile={isMobile} />
-      <ModuleThree isMobile={isMobile} />
       <BecomeMember isMobile={isMobile} />
     </Flex>
   )

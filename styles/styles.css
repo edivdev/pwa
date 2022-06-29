@@ -145,14 +145,15 @@ a:hover {
 #footer-form input {
   background: rgba(255, 255, 255, 0.1);
 }
-.footer-blog a {
+.footer-wrapper a {
   text-decoration: underline;
 }
 
-.footer-blog a:hover {
+.footer-wrapper a:hover {
   text-decoration: underline;
   color: #658ac8;
   font-weight: 900;
+  cursor:pointer;
 }
 .menu-modal{
   position: fixed;
