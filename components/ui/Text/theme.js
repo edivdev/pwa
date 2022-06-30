@@ -37,7 +37,7 @@ export default {
     blogTile:{
       fontWeight: '400',
       fontSize: '14px',
-      lineHeight: '24px',
+      lineHeight: '19px',
       textAlign: 'left'
     },
     h1: {

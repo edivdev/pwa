@@ -66,12 +66,12 @@ export const blogs = [
     tags: "",
     featured: 1,
     isFeatured: true,
-    author:'xxx',
-    department:'xxx',
+    author:'Tanya Gribanove',
+    department:'Sustainability',
   },
   {
     id: 2,
-    title: "Women's Rights",
+    title: "The benefits of engaging men to eliminate GBV and the importance of their advocacy",
     excerpt: "In 1993, the United Nations (UN) General Assembly defined violence against women as “any act of gender-based violence that results in, or is likely to result in, physical, sexual or psychological harm or suffering to women” (United Nations, 1993). In real terms this...",
     slug: "womens-rights",
     image: "/images/static/examples/blogs/blogpost2.jpg",
@@ -83,8 +83,8 @@ export const blogs = [
     tags: "",
     featured: 2,
     isFeatured: true,
-    author:'xxx',
-    department:'xxx',
+    author:'Duda Basso',
+    department:`Women's Rights`,
   },
   {
     id: 3,
@@ -154,8 +154,8 @@ export const blogs = [
     tags: "",
     featured: 3,
     isFeatured: true,
-    author:'xxx',
-    department:'xxx',
+    author:'Dr Rana Tayara',
+    department:`Children's Rights`,
   },
   {
     id: 4,
@@ -174,8 +174,8 @@ export const blogs = [
     tags: "",
     featured: 4,
     isFeatured: true,
-    author:'xxx',
-    department:'xxx',
+    author:'Beatrice Bandini',
+    department:`Women's Rights`,
   },
   {
     id: 5,
@@ -193,8 +193,8 @@ export const blogs = [
     tags: "",
     featured: 5,
     isFeatured: true,
-    author:'xxx',
-    department:'xxx',
+    author:'Bianca Herrera',
+    department:`Women's Rights`,
   }
 ]
 
@@ -705,7 +705,7 @@ export const goals = [
 ]
 
 export const donateDepartments = [
-  {id:1, name:'Drawing for your Rights', content:'On December 4th 2016 a 7 year old indigenous girl named Yhuliana Samboni was taken from her home in a displaced community in Bogota by a rich architect who believed money could buy him anything. He had sexually abused her in the past and when he went back this time for more and she refused him, he dragged her into his car, took her to one of his many empty apartments raped her and tortured her before moving her to another empty apartment of his where he continued to do it again and again until eventually he had enough and he suffocated her, like she was just a piece of meat.'},
-  {id:2, name:'Sandwich for Sanitary products', content:'Due to the increase in teenage pregnancies and girls dropping out of school due to the lack of sufficient resources to manage their periods, especially in the rural schools and the slum areas, the consequences are always experienced by the parents. These young women have confessed to being using old clothes for sanitary products and even using the same pads for two days, without considering the health risks.'},
-  {id:3, name:'Helping Indigenous Women in Colombia gain financial literacy skills', content:'Women’s rights are not recognized as needed in developing countries like Colombia. In Putumayo, a department of Southern Colombia, women struggle to become independent and above all, entrepreneurs. Having the incredible chance to meet with Nancy, founder of the Association for Entrepreneurial Women living in Putumayo, urged a need inside the organization to raise awareness about women’s entrepreneurial work and raise funds to help towards their social and economic development.'},
+  {id:1, name:'Drawing for your Rights', content:'On December 4th 2016 a 7 year old indigenous girl named Yhuliana Samboni was taken from her home in a displaced community in Bogota by a rich architect who believed money could buy him anything. He had sexually abused her in the past and when he went back this time for more and she refused him, he dragged her into his car, took her to one of his many empty apartments raped her and tortured her before moving her to another empty apartment of his where he continued to do it again and again until eventually he had enough and he suffocated her, like she was just a piece of meat.', donateURL:''},
+  {id:2, name:'Sandwich for Sanitary products', content:'Due to the increase in teenage pregnancies and girls dropping out of school due to the lack of sufficient resources to manage their periods, especially in the rural schools and the slum areas, the consequences are always experienced by the parents. These young women have confessed to being using old clothes for sanitary products and even using the same pads for two days, without considering the health risks.', donateURL:'https://www.paypal.com/instantcommerce/checkout/EXZ5UEQK57ENA'},
+  {id:3, name:'Helping Indigenous Women in Colombia gain financial literacy skills', content:'Women’s rights are not recognized as needed in developing countries like Colombia. In Putumayo, a department of Southern Colombia, women struggle to become independent and above all, entrepreneurs. Having the incredible chance to meet with Nancy, founder of the Association for Entrepreneurial Women living in Putumayo, urged a need inside the organization to raise awareness about women’s entrepreneurial work and raise funds to help towards their social and economic development.', donateURL:''},
 ]

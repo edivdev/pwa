@@ -50,7 +50,7 @@ export default function DonatePage(props) {
       <Box display="flex" justifyContent="space-evenly">
       
           <Box width="45%" display="flex" flexDirection="column" alignItems="center">
-          <Text textAlign="center"><b>Click Here to get you Membership</b></Text>
+          <Text textAlign="center"><b>Click Here to get your Membership</b></Text>
               <Link href="https://www.paypal.com/instantcommerce/checkout/RYZH4VQY7ETD2" passHref>
               <a target="_blank" rel="noopener noreferrer">
                 <Box display="flex" flexDirection="column" >
@@ -80,9 +80,19 @@ export default function DonatePage(props) {
         </Box>
         {projs.map((project)=>{
           return(
-              <Box key={project.id} m="25px 10px">
+              <Box key={project.id} m="35px 10px">
                 <Text textAlign="center"><b>{project.name}</b></Text>
                 <Text textAlign="justify">{project.content}</Text>
+                <Box display="flex" flexDirection="column" m="25px" alignItems="center">
+                  <Link passHref href={project.donateURL}>
+                  <a target="_blank" rel="noopener noreferrer">
+                  <Text textAlign="center" maxWidth="200px">Donate this project clicking here</Text>
+                  <Box width="180px" height="180px" position="relative">
+                    <Image alt="membership-program-payment-button" src="/images/static/donate/with-white-outline.png" layout="fill" />
+                  </Box>
+                  </a>
+                  </Link>
+                </Box>
               </Box>
           )
         })}
