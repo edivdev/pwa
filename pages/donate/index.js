@@ -75,23 +75,29 @@ export default function DonatePage(props) {
       </Box>
       <MembershipPlan isMobile={isMobile} />
       <Box display="flex" flexWrap="wrap" margin="auto" maxWidth="900px" p="50px 0">
-        <Box textAlign="center" width="100%">
-        <SectionsTitle title="Donate to a specific project" />
+        <Box textAlign="center" w="100%">
+          <SectionsTitle title="Donate to a specific project" />
         </Box>
         {projs.map((project)=>{
           return(
               <Box key={project.id} m="35px 10px">
                 <Text textAlign="center"><b>{project.name}</b></Text>
                 <Text textAlign="justify">{project.content}</Text>
-                <Box display="flex" flexDirection="column" m="25px" alignItems="center">
-                  <Link passHref href={project.donateURL}>
-                  <a target="_blank" rel="noopener noreferrer">
-                  <Text textAlign="center" maxWidth="200px">Donate this project clicking here</Text>
-                  <Box width="180px" height="180px" position="relative">
-                    <Image alt="membership-program-payment-button" src="/images/static/donate/with-white-outline.png" layout="fill" />
-                  </Box>
-                  </a>
-                  </Link>
+                <Box display="flex" flexDirection="row" m="25px" alignItems="center" justifyContent="center">
+                  { project.donateOptions.map((x, i) => {
+                    return(
+                      <Box key={`option-${project.id}-${i}`} display="flex" flexDirection="column" alignItems="center" m="10px" boxShadow="0 0 1em rgba(0,0,0,0.3)" maxWidth="50%">
+                      <Link passHref href={x.donateURL}>
+                        <a target="_blank" rel="noopener noreferrer">
+                          <Text p="10px" textAlign="center">{x.donateText}</Text>
+                            <Box width={isMobile ? "90px":"180px"} height={isMobile?"90px":"180px"} position="relative" m="auto">
+                              <Image alt="membership-program-payment-button" src="/images/static/donate/with-white-outline.png" layout="fill" />
+                            </Box>
+                        </a>
+                      </Link>
+                      </Box>
+                    )
+                  })}
                 </Box>
               </Box>
           )
