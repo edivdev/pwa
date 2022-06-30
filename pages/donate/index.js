@@ -48,8 +48,8 @@ export default function DonatePage(props) {
       </Box>
       <Box display="flex">
       
-          <Box width="50%" display="flex" flexDirection="column" alignItems="center">
-          <Text>Click Here to get you Membership Program</Text>
+          <Box width="45%" display="flex" flexDirection="column" alignItems="center">
+          <Text>Click Here to get you Membership</Text>
               <Link href="https://www.paypal.com/instantcommerce/checkout/RYZH4VQY7ETD2" passHref>
               <a target="_blank" rel="noopener noreferrer">
                 <Box display="flex" flexDirection="column" >
@@ -60,17 +60,19 @@ export default function DonatePage(props) {
                 </a>
               </Link>
             </Box> 
-            <Box>OR</Box>
-            <Box width="50%" display="flex" flexDirection="column" alignItems="center">
-            <Text>Scan this QR code to get your Membership Program</Text>
+
+            <Box w="5%">OR</Box>
+
+            <Box width="45%" display="flex" flexDirection="column" alignItems="center">
+            <Text>Scan this QR code to get your Membership</Text>
               
                 <Box display="flex" flexDirection="column" >
                   <Box width="180px" height="180px" position="relative">
                     <Image alt="membership-program-payment-button" src={`data:image/png;base64,${qrdata}`} layout="fill" />
                   </Box>
                 </Box>
-                
             </Box>
+
       </Box>
       <MembershipPlan isMobile={isMobile} />
       <Box display="flex" flexWrap="wrap" margin="auto" maxWidth="900px" p="50px 0">
