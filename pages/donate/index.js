@@ -46,10 +46,11 @@ export default function DonatePage(props) {
             <p>Becoming a member of Educacion Diversa Inc. gives you the chance to contribute to the on-going financial sustainability and operations of the organisation, projects, campaigns and the development of educational packages in the areas of diverse topics.  You also are given the chance to participate in the strategic decision-making process of Educacion Diversa Inc and you will be able to nominate yourself or other qualified members to fill any vacancies advertised in the Board of Directors. Your membership contribution also will help to create small scholarship opportunities for academics and adolescents from underdeveloped countries to ensure they also have access to opportunities to gain experience in their sector but also to ensure they can be paid for their contribution, as they really do need it to break the cycle of poverty.  Lastly, any surplus funding received will be used to fund the development of learning resources to support our educational activities on the ground.</p>
         </Box>
       </Box>
-      <Box display="flex">
+      
+      <Box display="flex" justifyContent="space-evenly">
       
           <Box width="45%" display="flex" flexDirection="column" alignItems="center">
-          <Text>Click Here to get you Membership</Text>
+          <Text textAlign="center"><b>Click Here to get you Membership</b></Text>
               <Link href="https://www.paypal.com/instantcommerce/checkout/RYZH4VQY7ETD2" passHref>
               <a target="_blank" rel="noopener noreferrer">
                 <Box display="flex" flexDirection="column" >
@@ -61,10 +62,8 @@ export default function DonatePage(props) {
               </Link>
             </Box> 
 
-            <Box w="5%">OR</Box>
-
             <Box width="45%" display="flex" flexDirection="column" alignItems="center">
-            <Text>Scan this QR code to get your Membership</Text>
+            <Text textAlign="center"><b>Scan this QR code to get your Membership</b></Text>
               
                 <Box display="flex" flexDirection="column" >
                   <Box width="180px" height="180px" position="relative">
