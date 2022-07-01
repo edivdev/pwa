@@ -74,7 +74,7 @@ export const blogs = [
     title: "Why should we teach children about Sustainable Development Goals?",
     excerpt: "When kids learn about different Sustainable Development Goals and how they are interrelated, they develop a better understanding of the world. Learning about global challenges our community faces such as poverty, inequality and climate change, they become more...",
     slug: "why-should-we-teach-children-about-Sustainable-Development-Goals",
-    image: "/images/static/examples/blogs/blogpost1.png",
+    image: "/images/static/examples/blogs/blogpost1.jpg",
     content: `<p>When kids learn about different Sustainable Development Goals and how they are interrelated, they develop a better understanding of the world. Learning about global challenges our community faces such as poverty, inequality and climate change, they become more aware of what’s happening around the world and develop empathy and compassion. For example, learning about Goal 10 (reducing inequality) will help children understand the importance of respecting people regardless of race, ethnicity, sex, sexual orientation, background and other characteristics.</p>
     <p>Children form core values, attitudes and habits at an early age and these values can persist for a long time. When we teach children about Sustainable Development Goals such as gender equality, quality education and responsible consumption, they grow up conscious and ready to contribute to achieving SDGs by 2030.</p>
     <p>Child participation is one of the guiding principles of the Convention on the Rights of the Child. They have the right to participate in all matters affecting them within their communities, families, and schools. When children learn about the SDGs, they also learn about different actions they can take in everyday life in order to contribute to achieving those goals. This will help them feel motivated and encourage their meaningful participation in society. Children will feel inspired to create a better future for the world. In addition, community engagement will give children a sense of belonging which is crucial to the building of their identity.</p>
@@ -90,7 +90,7 @@ export const blogs = [
     title: "The benefits of engaging men to eliminate GBV and the importance of their advocacy",
     excerpt: "In 1993, the United Nations (UN) General Assembly defined violence against women as “any act of gender-based violence that results in, or is likely to result in, physical, sexual or psychological harm or suffering to women” (United Nations, 1993). In real terms this...",
     slug: "womens-rights",
-    image: "/images/static/examples/blogs/blogpost2.png",
+    image: "/images/static/examples/blogs/blogpost2.jpg",
     content: `<p>In 1993, the United Nations (UN) General Assembly defined violence against women as “any act of gender-based violence that results in, or is likely to result in, physical, sexual or psychological harm or suffering to women” (United Nations, 1993). In real terms this includes violence in domestic and inter-personal relationships; many forms of sexual violence including rape and sexual assault; systemic, institutional and culture based forms of violence; and new emerging forms of harassment and stalking based in modern technology. </p>
     <p>In this context, experience has demonstrated that women are significantly more likely to experience GBV than men. It has also shown that working with men, as partners, is critical to the prevention of and response to GBV. </p>
     <p>But why is important to work with men to address GBV? Work with men and boys can have a positive, transformative impact for the lives of women and girls, but also for the lives of men and boys. There is a much broader spectrum of positive roles for men and boys to play than perpetrator or potential perpetrator of gender-based violence. These roles not only prevent and reduce violence against women, but also improve the lives of men and boys by freeing them from these harmful and limiting aspects of masculinities. As a result, we can eliminate gender inequalities that hold back the development of our communities and nation, and ensure that women and girls that men care about do not have to live a life in fear of violence.</p>
@@ -107,7 +107,7 @@ export const blogs = [
     title: "How to talk to kids about body safety and consent",
     excerpt: "Moreover, many parents  and caregivers often wait until their children are older to talk about sexual consent. What they are missing on is the fact that sexual consent is not just in relation to intercourse. Waiting until your child is ready to become sexually active...",
     slug: "How-to-talk-to-kids-about-body-safety-and-consent",
-    image: "/images/static/examples/blogs/blogpost3.png",
+    image: "/images/static/examples/blogs/blogpost3.jpg",
     content: `<p>“How about a hug?” a relative asked my daughter the other day, her negative response at first was shutdown, “Come on, it’s only a hug and I miss you”.</p>
     <p>This is when I said, “It’s ok, you can go and play, and if you want to come back and give a hug, you can. But you don’t have to.”</p>
     <p>You see, what kind of messages are we giving our children when we are telling them that they have to say Yes and give consent to physical touch when it comes to certain people, because they are relatives, or friends, or it’s socially not ok to turn them down, when at the same time we are telling them that they have the power to say NO?</p>
@@ -165,7 +165,7 @@ export const blogs = [
   <p>On a final note, here are some books that I recommend, or head to https://ranatayara.selz.com/pages/products and download our “I am the boss of my body” activity books (in English, Arabic or French).</p>
   
   <div>
-  <img src="/images/static/examples/blogs/attach-blogpost3.png" alt="books-recommend" />
+  <img src="/images/static/examples/blogs/attach-blogpost3.jpg" alt="books-recommend" />
   </div>`,
     tags: "",
     featured: 3,
@@ -178,7 +178,7 @@ export const blogs = [
     title: "The story of Lydia María Cacho Rìbeiro",
     excerpt: "Lydia María Cacho Rìbeiro was born in 1963 in Mexico City. She became a journalist at 23 years old, specializing in gender issues and human rights. She is a feminist and a human rights activist who has been keen on defending human rights from an early age...",
     slug: "The-story-of-Lydia-María-Cacho-Rìbeiro",
-    image: "/images/static/examples/blogs/blogpost4.png",
+    image: "/images/static/examples/blogs/blogpost4.jpg",
     content: `<p><b>The background (origins, personal story)</b></p>
     <p>Lydia María Cacho Rìbeiro was born in 1963 in Mexico City. She became a journalist at 23 years old, specializing in gender issues and human rights. She is a feminist and a human rights activist who has been keen on defending human rights from an early age. Thanks to her mother, who has been her source of inspiration, Lydia has dedicated her life to investigating and exposing human trafficking, sexual violence, organized crime, corruption, and impunity. Amnesty International described her as "perhaps Mexico's most famous investigative journalist and women's rights advocate." Cacho is the winner of numerous international awards for her journalism, including the Civil Courage Prize, the Wallenberg Medal, and the Olof Palme Prize. In 2010, she was named a World Press Freedom Hero of the International Press Institute. When describing her job, she said: "I believe the role of journalism is to be a lantern, allowing society to exercise its right to know and understand; I believe human rights are non-negotiable. As long as I live, I will continue to write, and writing will keep me alive."</p>
     <p><b>The barrier(s) that she is trying to address</b></p>
@@ -198,7 +198,7 @@ export const blogs = [
     title: "Violence Against Transgender Womxn+",
     excerpt: `"Tolerance is respect, acceptance and appreciation of the rich diversity of our world's cultures, our forms of expression, and ways of being human." UNESCO's 1995 Declaration of Principles on Tolerance.`,
     slug: "Violence-Against-Transgender-Womxn+",
-    image: "/images/static/examples/blogs/blogpost5.png",
+    image: "/images/static/examples/blogs/blogpost5.jpg",
     content: `<p>"Tolerance is respect, acceptance and appreciation of the rich diversity of our world's cultures, our forms of expression, and ways of being human." UNESCO's 1995 Declaration of Principles on Tolerance.</p>
     <p>In celebration of International Day of Tolerance, the #InHerShoes/#EnSusZapatos campaign will be sharing this space with our LGBTQAI+ community and their stories of what it means to come out in society. For those that haven’t had the chance to showcase their true essence, we see you and acknowledge the great bravery and courage that comes with accepting yourself fully.</p>
     <p>“Transgender people – and particularly Black and Latina transgender women – are marginalized, stigmatized and criminalized in our country.” said Rodrigo Heng-Lehtinen, deputy executive director for the National Center for Transgender Equality (NCTE). (Stories)</p>
