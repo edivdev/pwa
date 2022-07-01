@@ -8,7 +8,7 @@ import useViewport from '../../hooks/useViewport'
 export default function ProjectDetail(props) {
 
   const { project } = props
-  const { title, id, pic } = project
+  const { title, pic, content } = project
 
   const background = `/images/static/projects/${pic}`
 
@@ -25,8 +25,9 @@ export default function ProjectDetail(props) {
       <Box px={isMobile ? "8%" : "25%"}>
         <Box my="5%" textAlign="center"><h1><Text variant={isMobile ? "titleMobile" : "h1"}>{title}</Text></h1></Box>
         <Box my="5%">
-          {/* <Box textAlign="justify" dangerouslySetInnerHTML={{ __html: content }} /> */}
-          content
+          <Box textAlign="justify" dangerouslySetInnerHTML={{ __html: content }} />
+          <br/><br/>
+          <p>More information coming soon...</p>
         </Box>
       </Box>
     </section>

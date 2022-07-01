@@ -16,7 +16,8 @@ export default function VolunteersPageContent({ volunteers }) {
   const [isPopupShowing, setIsPopupShowing] = useState(false)
   const [popupInfo, setPopupInfo] = useState({
     picture: '/',
-    name: '',
+    fname: '',
+    lname: '',
     country: '',
     bio: '',
     position: ''

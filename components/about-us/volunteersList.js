@@ -30,7 +30,7 @@ export default function VolunteersList({ isMobile, volunteers, setPopupInfo, set
           <Text fontWeight="900" fontSize="25px">Our Volunteers</Text>
           <Box display="flex" overflowX="scroll">
             {volunteers.map((volunteer) => (
-              <VolunteerCard mr="10px" volunteer={volunteer} key={volunteer.name} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
+              <VolunteerCard mr="10px" volunteer={volunteer} key={`${volunteer.fname}-${volunteer.country}-${volunteer.lname}`} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
             ))}
           </Box>
         </Box>
@@ -44,7 +44,7 @@ export default function VolunteersList({ isMobile, volunteers, setPopupInfo, set
         <Text fontWeight="900" fontSize="25px">Our Volunteers</Text>
         <ImageCarousel settings={settings}>
           {volunteers.map((volunteer) => (
-            <VolunteerCard volunteer={volunteer} key={volunteer.name} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
+            <VolunteerCard volunteer={volunteer} key={`${volunteer.fname}-${volunteer.country}-${volunteer.lname}`} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
           ))}
         </ImageCarousel>
       </Box>

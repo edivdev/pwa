@@ -83,14 +83,14 @@ export default function DonatePage(props) {
               <Box key={project.id} m="35px 10px">
                 <Text textAlign="center"><b>{project.name}</b></Text>
                 <Text textAlign="justify">{project.content}</Text>
-                <Box display="flex" flexDirection="row" m="25px" alignItems="center" justifyContent="center">
+                <Box display="flex" flexDirection={isMobile ?"column":"row"} m="25px" alignItems="center" justifyContent="center">
                   { project.donateOptions.map((x, i) => {
                     return(
-                      <Box key={`option-${project.id}-${i}`} display="flex" flexDirection="column" alignItems="center" m="10px" boxShadow="0 0 1em rgba(0,0,0,0.3)" maxWidth="50%">
+                      <Box key={`option-${project.id}-${i}`} display="flex" flexDirection="column" alignItems="center" m="10px" boxShadow="0 0 1em rgba(0,0,0,0.3)">
                       <Link passHref href={x.donateURL}>
                         <a target="_blank" rel="noopener noreferrer">
-                          <Text p="10px" textAlign="center">{x.donateText}</Text>
-                            <Box width={isMobile ? "90px":"180px"} height={isMobile?"90px":"180px"} position="relative" m="auto">
+                          <Text w="200px" p="10px" textAlign="center">{x.donateText}</Text>
+                            <Box width="200px" height="200px" position="relative" m="auto">
                               <Image alt="membership-program-payment-button" src="/images/static/donate/with-white-outline.png" layout="fill" />
                             </Box>
                         </a>
