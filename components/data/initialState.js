@@ -218,7 +218,7 @@ export const members = [
   {
     id: 1,
     fname: "Lauren",
-    lname: "Canell",
+    lname: "Cannell",
     pic: "/images/static/board/laurencanell.jpeg",
     position: "PRESIDENT",
     bio: `Lauren Cannell is the director and founder of Educacion Diversa and a mother of two, who, after marrying a Colombian and volunteering in Cazuca, realised the inequality of access to good quality education focussed on areas that actually target awareness and preventive action on key problems in underdeveloped countries. 
