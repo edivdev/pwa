@@ -707,7 +707,7 @@ export const volunteers = [
     fname: "Marcella",
     lname: "Israel",
     country: "Brazil",
-    pic: "/images/static/volunteers/Luz Leal.png",
+    pic: "/images/static/volunteers/marcella-israel.png",
     bio:`Dr. Marcella Israel is originally from Brazil, where she finished her OB/GYN training at Hospital das Clinicas da Universidade Federal de Minas Gerais in 2017. After that, she joined Doctors Without Borders and was part of maternity projects in Afghanistan, Nigeria, South Sudan, Chad, and Somalia. 
     <br/><br/>
     She currently lives in Ohio and is waiting to repeat the OB/GYN residency in the USA.
