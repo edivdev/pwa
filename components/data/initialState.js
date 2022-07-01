@@ -201,9 +201,10 @@ export const blogs = [
 export const members = [
   {
     id: 1,
-    fname: "Lauren Canell",
-    pic: "/images/static/about/board-example-pic.png",
-    position: "CEO",
+    fname: "Lauren",
+    lname: "Canell",
+    pic: "/images/static/board/laurencanell.jpeg",
+    position: "PRESIDENT",
     bio: `Lauren Cannell is the director and founder of Educacion Diversa and a mother of two, who, after marrying a Colombian and volunteering in Cazuca, realised the inequality of access to good quality education focussed on areas that actually target awareness and preventive action on key problems in underdeveloped countries. 
     She is based in Australia, however, has lived and travelled to many countries around the world. In Australia she works for a Sexual Health and Family Planning clinic and is responsible for an abuse prevention tool and social and sexual skills framework for people with moderate to severe intellectual disabilities. She also provides in-school sexual and reproductive health and respectful relationship education to both neurotypical and children with intellectual disabilities and/or ASD in primary, high school, college, and universities.
     Lauren´s mission, together with everyone in the collaborative, is to provide artistic good quality, free, inclusive education to children and young adults in underdeveloped countries. Additionally, she also aims to  support schools from underdeveloped countries in forming partnerships with  schools in developed countries so that they can experience each other's life challenges and accomplishments and share education on diverse topics.
@@ -211,37 +212,103 @@ export const members = [
   },
   {
     id: 2,
-    fname: "Jose Alejandro Ruiz",
-    pic: "/images/static/about/board-example-pic.png",
-    position: "CLO",
+    fname: "Nicolle",
+    lname: "O'Malley",
+    pic: "/images/static/board/nicoleomalley.jpg",
+    position: "TREASURER",
+    bio: "---"
+  },
+  {
+    id: 3,
+    fname: "Noya",
+    lname: "Suárez",
+    pic: "/images/static/board/noyasuarez.jpg",
+    position: "SECRETARY",
+    bio: "---"
+  },
+  {
+    id: 4,
+    fname: "Jose Alejandro",
+    lname: "Ruiz Forero",
+    pic: "/images/static/board/joseruizfr.jpg",
+    position: "BOARD MEMBER",
     bio: `Jose Alejandro Ruiz is a lawyer interested in socio-juridical research and constitutional law. As Educación Diversa’s cofounder, he´s undertaken the role of advisor and legal investigator, and currently works as the Organisation´s legal director. 
     From his perspective, it is fundamental to have clarity on the laws and jurisprudence that has been set about the subjects that interest Educación Diversa, so we can offer correct and relevant education, that reflects what’s established by the legal system, so we can work together in getting the State, the schools, the parents and the general community to become accountable for their obligations, and contribute to the fulfillment of Children’s Rights in Colombia, particularly, and in the world in general.
     He joined ED to Offer free legal information and education about the core areas of focus for Educacion Diversa
     `
   },
   {
-    id: 3,
-    fname: "---",
-    pic: "/images/static/about/board-example-pic.png",
-    position: "---",
-    bio: "---"
-  },
-  {
-    id: 4,
-    fname: "---",
-    pic: "/images/static/about/board-example-pic.png",
-    position: "---",
-    bio: "---"
-  },
-  {
     id: 5,
-    fname: "Felipe Estrada",
-    pic: "/images/static/volunteers/Felipe - Colombia.png",
-    position: "CTO",
+    fname: "Felipe",
+    lname: "Estrada",
+    pic: "/images/static/board/felipeestrada.jpeg",
+    position: "BOARD MEMBER",
     bio: `Felipe Estrada was born in Bogotá with a particular liking for technology and computing from an early age, he obtained a bachelor's degree in sound and acoustic engineering.
     For the last seven years he has been dedicated to the management, construction and development of internet spaces, software, and cloud computing.
     Felipe joined Educacion Diversa with the desire to make technology accessible and easy for others and to participate in activities that allow them to generate solutions to technical problems and gain experience and learn new things.`
-  }
+  },
+  {
+    id: 6,
+    fname: "Arizette",
+    lname: "Thompson",
+    pic: "/images/static/board/arizettethompson.jpg",
+    position: "BOARD MEMBER",
+    bio: `Felipe Estrada was born in Bogotá with a particular liking for technology and computing from an early age, he obtained a bachelor's degree in sound and acoustic engineering.
+    For the last seven years he has been dedicated to the management, construction and development of internet spaces, software, and cloud computing.
+    Felipe joined Educacion Diversa with the desire to make technology accessible and easy for others and to participate in activities that allow them to generate solutions to technical problems and gain experience and learn new things.`
+  },
+  {
+    id: 7,
+    fname: "Jefferey",
+    lname: "Mbarushimana",
+    pic: "/images/static/board/jefferymbarushimana.jpg",
+    position: "BOARD MEMBER",
+    bio: `Felipe Estrada was born in Bogotá with a particular liking for technology and computing from an early age, he obtained a bachelor's degree in sound and acoustic engineering.
+    For the last seven years he has been dedicated to the management, construction and development of internet spaces, software, and cloud computing.
+    Felipe joined Educacion Diversa with the desire to make technology accessible and easy for others and to participate in activities that allow them to generate solutions to technical problems and gain experience and learn new things.`
+  },
+  {
+    id: 8,
+    fname: "Liliana",
+    lname: "Gómez",
+    pic: "/images/static/board/lilianagomez.jpg",
+    position: "BOARD MEMBER",
+    bio: `Felipe Estrada was born in Bogotá with a particular liking for technology and computing from an early age, he obtained a bachelor's degree in sound and acoustic engineering.
+    For the last seven years he has been dedicated to the management, construction and development of internet spaces, software, and cloud computing.
+    Felipe joined Educacion Diversa with the desire to make technology accessible and easy for others and to participate in activities that allow them to generate solutions to technical problems and gain experience and learn new things.`
+  },
+  {
+    id: 9,
+    fname: "Selene",
+    lname: "Caspani",
+    pic: "/images/static/board/selenecaspani.jpeg",
+    position: "BOARD MEMBER",
+    bio: `Felipe Estrada was born in Bogotá with a particular liking for technology and computing from an early age, he obtained a bachelor's degree in sound and acoustic engineering.
+    For the last seven years he has been dedicated to the management, construction and development of internet spaces, software, and cloud computing.
+    Felipe joined Educacion Diversa with the desire to make technology accessible and easy for others and to participate in activities that allow them to generate solutions to technical problems and gain experience and learn new things.`
+  },
+  {
+    id: 10,
+    fname: "Tanya",
+    lname: "Gribanova",
+    pic: "/images/static/board/tanyagribanova.jpeg",
+    position: "BOARD MEMBER",
+    bio: `Felipe Estrada was born in Bogotá with a particular liking for technology and computing from an early age, he obtained a bachelor's degree in sound and acoustic engineering.
+    For the last seven years he has been dedicated to the management, construction and development of internet spaces, software, and cloud computing.
+    Felipe joined Educacion Diversa with the desire to make technology accessible and easy for others and to participate in activities that allow them to generate solutions to technical problems and gain experience and learn new things.`
+  },
+  
+  {
+    id: 11,
+    fname: "Emily",
+    lname: "Falcon",
+    pic: "/images/static/board/emilyfalcon.jpg",
+    position: "BOARD MEMBER",
+    bio: `Felipe Estrada was born in Bogotá with a particular liking for technology and computing from an early age, he obtained a bachelor's degree in sound and acoustic engineering.
+    For the last seven years he has been dedicated to the management, construction and development of internet spaces, software, and cloud computing.
+    Felipe joined Educacion Diversa with the desire to make technology accessible and easy for others and to participate in activities that allow them to generate solutions to technical problems and gain experience and learn new things.`
+  },
+  
 ]
 
 export const volunteers = [
