@@ -133,8 +133,8 @@ export default function DonatePage(props) {
               </a>
             </Link>{" "}
             {""}
-            and select the option "Want to make a donation". We will contact you
-            by email.
+            and select the option &quot;Want to make a donation&quot;. We will
+            contact you by email.
           </Text>
         </Box>
         {/* <Box width="45%" display="flex" flexDirection="column" alignItems="center">
