@@ -1,10 +1,10 @@
-import PagesHeader from "../../components/ui/PagesHeader"
-import PageChanger from "../../components/about-us/pageChanger"
-import { volunteers, members } from "../../components/data/initialState"
-import VolunteersPageContent from "../../components/about-us/volunteersPageContent"
+import PagesHeader from "../../components/ui/PagesHeader";
+import PageChanger from "../../components/about-us/pageChanger";
+import { volunteers, members } from "../../components/data/initialState";
+import VolunteersPageContent from "../../components/about-us/volunteersPageContent";
 
 export default function VolunteersPage(props) {
-  const { volunteers, members } = props
+  const { volunteers, members } = props;
   return (
     <>
       <PagesHeader
@@ -15,15 +15,14 @@ export default function VolunteersPage(props) {
       <PageChanger />
       <VolunteersPageContent volunteers={volunteers} members={members} />
     </>
-  )
+  );
 }
 
 export async function getStaticProps() {
-
   return {
     props: {
       volunteers: volunteers,
-      members: members
-    }
-  }
+      members: members,
+    },
+  };
 }

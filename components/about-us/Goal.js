@@ -1,9 +1,9 @@
-import { Box } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react";
 
-export default function Goal({goal}){
-return (
+export default function Goal({ goal }) {
+  return (
     <Box p="20px">
-        <b>Goal #{goal.id}</b>: {goal.goal}
+      <b>Goal #{goal.id}</b>: {goal.goal}
     </Box>
-)
+  );
 }

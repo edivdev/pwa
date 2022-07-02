@@ -1,32 +1,34 @@
-import { useState, useEffect } from 'react'
-import { Box, Flex } from "@chakra-ui/react"
-import Image from 'next/image'
-import Text from "../ui/Text"
-import VideoPopup from '../ui/Popup/VideoPopup'
-import useViewport from '../../hooks/useViewport'
-import { changesForClosePopUp, changesForOpenPopUp } from '../../helpers/domManipulations'
+import { useState, useEffect } from "react";
+import { Box, Flex } from "@chakra-ui/react";
+import Image from "next/image";
+import Text from "../ui/Text";
+import VideoPopup from "../ui/Popup/VideoPopup";
+import useViewport from "../../hooks/useViewport";
+import {
+  changesForClosePopUp,
+  changesForOpenPopUp,
+} from "../../helpers/domManipulations";
 
 export default function WhatWeDoPageContent({ goals }) {
+  const [isPopupShowing, setIsPopupShowing] = useState(false);
+  const [popupInfo, setPopupInfo] = useState("");
+  const [isMobile, setIsMobile] = useState(null);
 
-  const [isPopupShowing, setIsPopupShowing] = useState(false)
-  const [popupInfo, setPopupInfo] = useState('')
-  const [isMobile, setIsMobile] = useState(null)
-
-  const viewport = useViewport()
+  const viewport = useViewport();
 
   function openPopup() {
-    setIsPopupShowing(true)
-    setPopupInfo(ytIframe)
-    changesForOpenPopUp()
+    setIsPopupShowing(true);
+    setPopupInfo(ytIframe);
+    changesForOpenPopUp();
   }
   function closePopUp() {
-    setIsPopupShowing(false)
-    changesForClosePopUp()
+    setIsPopupShowing(false);
+    changesForClosePopUp();
   }
 
   useEffect(() => {
-    setIsMobile(viewport[0])
-  }, [isMobile, viewport])
+    setIsMobile(viewport[0]);
+  }, [isMobile, viewport]);
 
   const initialContent = `At Educación Diversa we are dedicated to creating a world in which everyone has the opportunity to reach their full potential. We provide free inclusive art-based education in the areas of human rights, sexual and reproductive health and the elimination of violence.
   <br/><br/>
@@ -37,7 +39,7 @@ export default function WhatWeDoPageContent({ goals }) {
   As much of our work is created with underdeveloped countries in mind, the focus on art, aims to ensure that our resources are accessible to all irrespective of literacy levels. Art is also proven to have therapeutic benefits, so our resources also help to support the mental health of the young people, particularly those living in areas of conflict and those who have been affected by traumas.
   <br/><br/>
   We are also working to change attitudes towards gender roles in society. We empower women and girls to speak up for their rights, and crucially we engage men and boys in the fight to eliminate gender based violence and femicide. 
-  `
+  `;
 
   const EdJourney = `
   My name’s Lauren Cannell and I’m the founder of Educacion Diversa.  Educacion Diversa is a volunteer-led international not for profit based out of Australia.  It creates a community of like minded people and we were established by connecting volunteers from across the world to work together to provide art-based inclusive education in diverse topics to people in lower socio-economic communities to ensure they have the information they need to make healthy decisions about their lives and bodies.<br/></br>
@@ -49,37 +51,64 @@ export default function WhatWeDoPageContent({ goals }) {
   In 2018 the time came for us to move back to Australia and Educacion Diversa was put on the back burner while we added another little one to our family.  I then had some health complications and took a bit of a break to get well and get back on track and then finally a group of children from Bolivia called Los Trovadorcitos saw an old post about our Children’s Rights book and asked us if we could work together on a project.  They were in quarantine due to COVID and hadn’t been to school for about a year and they wanted to work with me to showcase children’s rights.  With that we launched Respect My Rights and then when realising the global problem of children missing school, we relaunched ED as a digital platform.<br/><br/>
   The desire to create real, impactful change in these areas never left us though, and it was time to reawaken this dream.<br/><br/>
   Fast forward to now, about 1 year and a bit after the relaunch, we grew to an international community of over 100 incredible volunteers from at least 34 countries across the world and they fill roles from The board, an artists, designers, researcher right through to teachers and lawyers.  What we’re trying to say is if you want experience or to share your skills and time there is a place in our collective for everyone. If you're someone who shares our vision, please get in touch and be part of where this next chapter takes us!
-  ` 
+  `;
 
-  const videoWidth = isMobile ? 390 : 700
-  const videHeight = isMobile ? 219 : 395
+  const videoWidth = isMobile ? 390 : 700;
+  const videHeight = isMobile ? 219 : 395;
 
-  const ytIframe = `<iframe width=${videoWidth} height=${videHeight} src="https://www.youtube.com/embed/HlyoEF0708g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-  
+  const ytIframe = `<iframe width=${videoWidth} height=${videHeight} src="https://www.youtube.com/embed/HlyoEF0708g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
   return (
     <>
-      <Box maxWidth={isMobile ? "90%" : "60%"} m="0 auto" p={isMobile ? "1% 0 5% 0" : "5% 0"}>
+      <Box
+        maxWidth={isMobile ? "90%" : "60%"}
+        m="0 auto"
+        p={isMobile ? "1% 0 5% 0" : "5% 0"}
+      >
         <Text dangerouslySetInnerHTML={{ __html: initialContent }} />
       </Box>
-      <Flex backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg" px="5%" flexDirection={isMobile ? "column" : "row"}>
-        <Box w={isMobile ? "100%" : "50%"} p={isMobile ? "0":"10% 8%"}>
-          <Box w="auto" h={isMobile ? "455px" : "310px"} position="relative"> 
-            <Image src="/images/static/about/LaurenVideo.png" objectFit="contain" layout="fill" className="hoverable" onClick={openPopup} alt="video-poster" />
+      <Flex
+        backgroundImage="/images/static/backgrounds/BACKGROUND-blog.jpg"
+        px="5%"
+        flexDirection={isMobile ? "column" : "row"}
+      >
+        <Box w={isMobile ? "100%" : "50%"} p={isMobile ? "0" : "10% 8%"}>
+          <Box w="auto" h={isMobile ? "455px" : "310px"} position="relative">
+            <Image
+              src="/images/static/about/LaurenVideo.png"
+              objectFit="contain"
+              layout="fill"
+              className="hoverable"
+              onClick={openPopup}
+              alt="video-poster"
+            />
           </Box>
         </Box>
         <Box w={isMobile ? "100%" : "50%"}>
           <Flex flexDirection="column" p="5%" h="100%" justifyContent="center">
-            <Text fontWeight="900" fontSize="25px">Lauren Cannell</Text>
-            <Text pt="2%" pb="5%" fontSize="15px">Founder and CEO</Text>
-            
-            <Box h="430px" overflow="hidden" overflowY="scroll" px="14px"> 
-              <Text fontSize="16" textAlign="justify" dangerouslySetInnerHTML={{ __html: EdJourney}}/>
+            <Text fontWeight="900" fontSize="25px">
+              Lauren Cannell
+            </Text>
+            <Text pt="2%" pb="5%" fontSize="15px">
+              Founder and CEO
+            </Text>
+
+            <Box h="430px" overflow="hidden" overflowY="scroll" px="14px">
+              <Text
+                fontSize="16"
+                textAlign="justify"
+                dangerouslySetInnerHTML={{ __html: EdJourney }}
+              />
             </Box>
-            
           </Flex>
         </Box>
       </Flex>
-      <VideoPopup isPopupShowing={isPopupShowing} closePopUp={closePopUp} popupInfo={popupInfo} isMobile={isMobile} />
+      <VideoPopup
+        isPopupShowing={isPopupShowing}
+        closePopUp={closePopUp}
+        popupInfo={popupInfo}
+        isMobile={isMobile}
+      />
     </>
-  )
+  );
 }

@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react'
-import { Box } from '@chakra-ui/react'
-import Text from '../../components/ui/Text'
-import SectionsTitle from '../../components/ui/SectionsTitle'
-import ContactForm from '../../components/contact/contact-form'
-import PagesHeader from '../../components/ui/PagesHeader'
-import useViewport from '../../hooks/useViewport'
+import { useEffect, useState } from "react";
+import { Box } from "@chakra-ui/react";
+import Text from "../../components/ui/Text";
+import SectionsTitle from "../../components/ui/SectionsTitle";
+import ContactForm from "../../components/contact/contact-form";
+import PagesHeader from "../../components/ui/PagesHeader";
+import useViewport from "../../hooks/useViewport";
 
 export default function ContactPage() {
-
-  const viewport = useViewport()
-  const [isMobile, setIsMobile] = useState(null)
+  const viewport = useViewport();
+  const [isMobile, setIsMobile] = useState(null);
 
   useEffect(() => {
-    setIsMobile(viewport[0])
-  }, [isMobile, viewport])
+    setIsMobile(viewport[0]);
+  }, [isMobile, viewport]);
 
   return (
     <section>
@@ -25,14 +24,12 @@ export default function ContactPage() {
         <SectionsTitle title="Send us a Message" center />
 
         <Box w={isMobile ? "100%" : "60%"} display="block" m="auto">
-
           <Box display="flex" flexDirection="column" alignItems="center">
             <Text variant="normal">* required fields</Text>
             <ContactForm isMobile={isMobile} />
           </Box>
         </Box>
-
       </Box>
     </section>
-  )
+  );
 }

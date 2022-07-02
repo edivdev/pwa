@@ -1,7 +1,7 @@
 body {
   min-width: 100%;
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
 }
 a:hover {
   text-decoration: none !important;
@@ -19,14 +19,14 @@ a:hover {
   column-gap: 10px;
   row-gap: 10px;
 }
-.mobile-home-blogs-wrapper{
-  width:100%;
+.mobile-home-blogs-wrapper {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-template-areas:
     "first first"
-    "first first" 
+    "first first"
     "second third"
     "fourth fifth";
   column-gap: 10px;
@@ -153,9 +153,9 @@ a:hover {
   text-decoration: underline;
   color: #658ac8;
   font-weight: 900;
-  cursor:pointer;
+  cursor: pointer;
 }
-.menu-modal{
+.menu-modal {
   position: fixed;
   z-index: 1;
   display: flex;
@@ -166,21 +166,21 @@ a:hover {
   bottom: 0;
   justify-content: flex-start;
 }
-.block-scroll{
-  overflow:hidden;
+.block-scroll {
+  overflow: hidden;
 }
-.menu-mobile-wrapper{
+.menu-mobile-wrapper {
   transition: 0.5s;
 }
-#main-footer.hide{
-  display:none;
+#main-footer.hide {
+  display: none;
 }
-#blog-entry p{
-  margin:25px 0;
+#blog-entry p {
+  margin: 25px 0;
 }
 .slick-initialized .slick-slide {
-  display: flex!important;
-  justify-content: center!important;
+  display: flex !important;
+  justify-content: center !important;
 }
 .donate-block p {
   margin-bottom: 15px;
@@ -190,7 +190,7 @@ a:hover {
   font-weight: 600;
   margin-bottom: 20px;
 }
-.contact-form-wrapper-mobile{
+.contact-form-wrapper-mobile {
   min-height: 560px;
   display: flex;
   flex-direction: column;
