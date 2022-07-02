@@ -1,6 +1,6 @@
-import PageChanger from "../../components/about-us/pageChanger"
-import RecognitionsContent from "../../components/about-us/recognitionsContent"
-import PagesHeader from "../../components/ui/PagesHeader"
+import PageChanger from "../../components/about-us/pageChanger";
+import RecognitionsContent from "../../components/about-us/recognitionsContent";
+import PagesHeader from "../../components/ui/PagesHeader";
 
 export default function RecognitionsPage() {
   return (
@@ -13,5 +13,5 @@ export default function RecognitionsPage() {
       <PageChanger />
       <RecognitionsContent />
     </>
-  )
+  );
 }

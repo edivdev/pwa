@@ -1,18 +1,23 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Flex } from "@chakra-ui/react";
 
-import VolunteerCard from './volunteerCard'
-import Text from '../ui/Text'
-import ImageCarousel from '../ui/Slider'
+import VolunteerCard from "./volunteerCard";
+import Text from "../ui/Text";
+import ImageCarousel from "../ui/Slider";
 
-export default function VolunteersList({ isMobile, volunteers, setPopupInfo, setIsPopupShowing }) {
+export default function VolunteersList({
+  isMobile,
+  volunteers,
+  setPopupInfo,
+  setIsPopupShowing,
+}) {
   const settings = {
     infinite: true,
     dots: true,
     slidesToShow: 6,
     arrows: false,
     slidesToScroll: 6,
-    lazyLoad: true
-  }
+    lazyLoad: true,
+  };
 
   const mobileSettings = {
     infinite: true,
@@ -20,34 +25,49 @@ export default function VolunteersList({ isMobile, volunteers, setPopupInfo, set
     slidesToShow: 4,
     arrows: false,
     slidesToScroll: 4,
-    lazyLoad: true
-  }
+    lazyLoad: true,
+  };
 
   if (isMobile) {
     return (
       <section>
         <Box my="50px" textAlign="center" px="20px">
-          <Text fontWeight="900" fontSize="25px">Our Volunteers</Text>
+          <Text fontWeight="900" fontSize="25px">
+            Our Volunteers
+          </Text>
           <Box display="flex" overflowX="scroll">
             {volunteers.map((volunteer) => (
-              <VolunteerCard mr="10px" volunteer={volunteer} key={`${volunteer.fname}-${volunteer.country}-${volunteer.lname}`} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
+              <VolunteerCard
+                mr="10px"
+                volunteer={volunteer}
+                key={`${volunteer.fname}-${volunteer.country}-${volunteer.lname}`}
+                setPopupInfo={setPopupInfo}
+                setIsPopupShowing={setIsPopupShowing}
+              />
             ))}
           </Box>
         </Box>
       </section>
-    )
+    );
   }
 
   return (
     <section>
       <Box my="50px" textAlign="center" px="20px">
-        <Text fontWeight="900" fontSize="25px">Our Volunteers</Text>
+        <Text fontWeight="900" fontSize="25px">
+          Our Volunteers
+        </Text>
         <ImageCarousel settings={settings}>
           {volunteers.map((volunteer) => (
-            <VolunteerCard volunteer={volunteer} key={`${volunteer.fname}-${volunteer.country}-${volunteer.lname}`} setPopupInfo={setPopupInfo} setIsPopupShowing={setIsPopupShowing} />
+            <VolunteerCard
+              volunteer={volunteer}
+              key={`${volunteer.fname}-${volunteer.country}-${volunteer.lname}`}
+              setPopupInfo={setPopupInfo}
+              setIsPopupShowing={setIsPopupShowing}
+            />
           ))}
         </ImageCarousel>
       </Box>
     </section>
-  )
+  );
 }

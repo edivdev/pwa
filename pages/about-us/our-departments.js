@@ -1,19 +1,17 @@
-import { useState, useEffect } from 'react'
-import PageChanger from '../../components/about-us/pageChanger'
-import PagesHeader from '../../components/ui/PagesHeader'
-import { departments } from '../../components/data/initialState'
-import useViewport from '../../hooks/useViewport'
-import Departments from '../../components/about-us/Departments'
+import { useState, useEffect } from "react";
+import PageChanger from "../../components/about-us/pageChanger";
+import PagesHeader from "../../components/ui/PagesHeader";
+import { departments } from "../../components/data/initialState";
+import useViewport from "../../hooks/useViewport";
+import Departments from "../../components/about-us/Departments";
 
 export default function ColaborationsPage() {
-
-  const viewport = useViewport()
-  const [isMobile, setIsMobile] = useState(null)
+  const viewport = useViewport();
+  const [isMobile, setIsMobile] = useState(null);
 
   useEffect(() => {
-    setIsMobile(viewport[0])
-  }, [isMobile, viewport])
-
+    setIsMobile(viewport[0]);
+  }, [isMobile, viewport]);
 
   const settings = {
     infinite: true,
@@ -21,8 +19,8 @@ export default function ColaborationsPage() {
     slidesToShow: 4,
     arrows: false,
     slidesToScroll: 4,
-    lazyLoad: true
-  }
+    lazyLoad: true,
+  };
 
   const mobileSettings = {
     infinite: true,
@@ -30,8 +28,8 @@ export default function ColaborationsPage() {
     slidesToShow: 1,
     arrows: false,
     slidesToScroll: 1,
-    lazyLoad: true
-  }
+    lazyLoad: true,
+  };
 
   return (
     <>
@@ -43,13 +41,13 @@ export default function ColaborationsPage() {
       <PageChanger />
       <Departments isMobile={isMobile} departments={departments} />
     </>
-  )
+  );
 }
 
 export async function getStaticProps() {
   return {
     props: {
-      departments: departments
-    }
-  }
+      departments: departments,
+    },
+  };
 }

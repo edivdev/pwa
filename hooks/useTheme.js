@@ -1,3 +1,3 @@
-import { useTheme } from '@chakra-ui/react'
+import { useTheme } from "@chakra-ui/react";
 
-export default useTheme
+export default useTheme;

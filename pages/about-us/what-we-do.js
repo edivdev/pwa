@@ -2,9 +2,7 @@ import PageChanger from "../../components/about-us/pageChanger";
 import PagesHeader from "../../components/ui/PagesHeader";
 import WhatWeDoPageContent from "../../components/about-us/whatWeDoPageContent";
 
-
 export default function WhatWeDoPage() {
-
   return (
     <>
       <PagesHeader
@@ -15,5 +13,5 @@ export default function WhatWeDoPage() {
       <PageChanger />
       <WhatWeDoPageContent />
     </>
-  )
+  );
 }

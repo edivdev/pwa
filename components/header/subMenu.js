@@ -1,19 +1,18 @@
-import React from 'react'
-import { Box, Link } from '@chakra-ui/react'
-import useTheme from '../../hooks/useTheme'
-import Text from '../ui/Text'
+import React from "react";
+import { Box, Link } from "@chakra-ui/react";
+import useTheme from "../../hooks/useTheme";
+import Text from "../ui/Text";
 
 export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
-
-  const theme = useTheme()
+  const theme = useTheme();
 
   const handleMouseIn = () => {
-    setIsSubMenuOpen(true)
-  }
+    setIsSubMenuOpen(true);
+  };
 
   const handleMouseOut = () => {
-    setIsSubMenuOpen(false)
-  }
+    setIsSubMenuOpen(false);
+  };
 
   return (
     <Box
@@ -27,11 +26,17 @@ export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
       onMouseEnter={handleMouseIn}
       onMouseLeave={handleMouseOut}
     >
-      <Box display="flex" justifyContent="space-evenly" w="60%" pt="10px" m="auto">
+      <Box
+        display="flex"
+        justifyContent="space-evenly"
+        w="60%"
+        pt="10px"
+        m="auto"
+      >
         {submenuElements.map((element) => {
           return (
             <Box key={element.id}>
-              <Link href={element.slug} _hover={{ textDecoration: 'none' }}>
+              <Link href={element.slug} _hover={{ textDecoration: "none" }}>
                 <Text
                   color="white"
                   variant="submenuItem"
@@ -43,9 +48,9 @@ export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
                 </Text>
               </Link>
             </Box>
-          )
+          );
         })}
       </Box>
     </Box>
-  )
+  );
 }
