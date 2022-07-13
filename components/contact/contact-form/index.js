@@ -7,11 +7,6 @@ import { Box } from "@chakra-ui/react";
 import emailjs from "@emailjs/browser";
 
 export default function ContactForm({ isMobile }) {
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log("connectme");
-  }
-
   const [sentEmail, setSentEmail] = useState(false);
   const [fullname, setFullname] = useState("");
   const [typeOrganization, setTypeOrganization] = useState("");
