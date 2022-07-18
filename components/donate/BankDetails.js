@@ -43,8 +43,30 @@ export default function BankDetails() {
 
   return (
     <Box w="100%" textAlign="center" p="3% 0">
-      <Box w="100%" textAlign="center" p="2% 0">
-        <select onChange={(e) => handleChange(e.target.value)} defaultValue="0">
+      <Box
+        style={{
+          width: "270px",
+          backgroundColor: "rgb(111,135,193)",
+          margin: "0 auto 20px",
+          borderRadius: "12px",
+          boxShadow: "0 0 6px gray",
+          padding: "10px 20px",
+        }}
+        className="b-select"
+        w="100%"
+        textAlign="center"
+        p="2% 0"
+      >
+        <select
+          style={{
+            backgroundColor: "rgb(111,135,193)",
+            fontSize: "20px",
+            color: "white",
+            fontWeight: "600",
+          }}
+          onChange={(e) => handleChange(e.target.value)}
+          defaultValue="0"
+        >
           {bdetails.map((x, idx) => (
             <option key={x.bankAcount} value={idx}>
               {x.bankAcount}
