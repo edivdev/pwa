@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Box } from "@chakra-ui/react";
 
-export default function BankDetails() {
+export default function BankDetails({ isMobile }) {
   const [details, setDetails] = useState({});
 
   useEffect(() => {
@@ -23,13 +23,13 @@ export default function BankDetails() {
     },
     {
       bankAcount: "Outside EU and SEPA",
-      currency: "Eur",
+      currency: "EUR",
       bsb: "SWIFT/ BIC: TRWIBEB1XXX",
       acountnumber: "IBAN: BE96 9672 1622 6605",
     },
     {
       bankAcount: "AUS",
-      currency: "AU",
+      currency: "AUD",
       bsb: "032-778",
       acountnumber: "661543",
     },
@@ -75,34 +75,61 @@ export default function BankDetails() {
         </select>
       </Box>
       <Box w="100%" textAlign="center" p="2% 0">
-        <table style={{ margin: "auto" }}>
-          <thead>
-            <tr
-              style={{
-                backgroundColor: "lightgray",
-                height: "50px",
-                border: "1px solid lightgray",
-              }}
-            >
-              <th>Bank Account</th>
-              <th>Currency</th>
-              <th>BSB</th>
-              <th>Account Number</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              {details && (
-                <>
-                  <CustomTd>{details.bankAcount}</CustomTd>
-                  <CustomTd>{details.currency}</CustomTd>
-                  <CustomTd>{details.bsb}</CustomTd>
-                  <CustomTd>{details.acountnumber}</CustomTd>
-                </>
-              )}
-            </tr>
-          </tbody>
-        </table>
+        {!isMobile && (
+          <table style={{ margin: "auto" }}>
+            <thead>
+              <tr
+                style={{
+                  backgroundColor: "lightgray",
+                  height: "50px",
+                  border: "1px solid lightgray",
+                }}
+              >
+                <th>Bank Account</th>
+                <th>Currency</th>
+                <th>BSB</th>
+                <th>Account Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {details && (
+                  <>
+                    <CustomTd>{details.bankAcount}</CustomTd>
+                    <CustomTd>{details.currency}</CustomTd>
+                    <CustomTd>{details.bsb}</CustomTd>
+                    <CustomTd>{details.acountnumber}</CustomTd>
+                  </>
+                )}
+              </tr>
+            </tbody>
+          </table>
+        )}
+
+        {isMobile && (
+          <Box>
+            <Box mb="10px">
+              <b>Bank Account:</b>
+              <br />
+              {details.bankAcount}
+            </Box>
+            <Box mb="10px">
+              <b>Currency:</b>
+              <br />
+              {details.currency}
+            </Box>
+            <Box mb="10px">
+              <b>BSB:</b>
+              <br />
+              {details.bsb}
+            </Box>
+            <Box mb="10px">
+              <b>Account Number:</b>
+              <br />
+              {details.acountnumber}
+            </Box>
+          </Box>
+        )}
       </Box>
     </Box>
   );

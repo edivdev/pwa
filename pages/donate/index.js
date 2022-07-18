@@ -160,7 +160,7 @@ export default function DonatePage(props) {
             </Box> */}
       </Box>
       <Box>
-        <BankDetails />
+        <BankDetails isMobile={isMobile} />
       </Box>
       <MembershipPlan isMobile={isMobile} />
       {/* <Box display="flex" flexWrap="wrap" margin="auto" maxWidth="900px" p="50px 0">
