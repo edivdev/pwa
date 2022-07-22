@@ -73,6 +73,4 @@ export async function getStaticProps(ctx) {
       },
     };
   }
-
-  // console.log(rawDepartments.data.data);
 }
