@@ -52,7 +52,7 @@ export async function getStaticProps(ctx) {
   try {
     const rawDepartments = await axios({
       method: "GET",
-      baseURL: process.env.contactFormTemplate,
+      baseURL: process.env.backendUrl,
       url: "/api/departments",
       headers: {
         Authorization:
