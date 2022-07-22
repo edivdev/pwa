@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import PageChanger from "../../components/about-us/pageChanger";
 import PagesHeader from "../../components/ui/PagesHeader";
-import { departments } from "../../components/data/initialState";
+// import { departments } from "../../components/data/initialState";
 import useViewport from "../../hooks/useViewport";
 import Departments from "../../components/about-us/Departments";
 
-export default function ColaborationsPage() {
+import axios from "axios";
+
+export default function ColaborationsPage({ departments }) {
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
+
+  // console.log(departments[0].attributes);
 
   useEffect(() => {
     setIsMobile(viewport[0]);
@@ -44,10 +48,23 @@ export default function ColaborationsPage() {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(ctx) {
+  const rawDepartments = await axios({
+    method: "GET",
+    baseURL: process.env.contactFormTemplate,
+    url: "/api/departments",
+    headers: {
+      Authorization:
+        "Bearer " +
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4NTIwMDM5LCJleHAiOjE2NjExMTIwMzl9.j5loBXsJTY9gKDXli2ncKSiDHu5SExtBBMqwRhU5fJk",
+    },
+  });
+
+  // console.log(rawDepartments.data.data);
+
   return {
     props: {
-      departments: departments,
+      departments: rawDepartments.data.data,
     },
   };
 }
