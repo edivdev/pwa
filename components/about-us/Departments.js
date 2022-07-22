@@ -4,6 +4,7 @@ import SectionsTitle from "../ui/SectionsTitle";
 import Department from "./Department";
 
 export default function Departments({ isMobile, departments }) {
+  console.log(departments);
   if (isMobile) {
     return (
       <section>
@@ -13,9 +14,9 @@ export default function Departments({ isMobile, departments }) {
               <Department
                 isMobile={isMobile}
                 key={department.id}
-                content={department.content}
-                title={department.title}
-                pic={department.pic}
+                content={department.attributes.content}
+                title={department.attributes.name}
+                pic={department.attributes.picture}
               />
             ))}
           </Box>
@@ -30,9 +31,9 @@ export default function Departments({ isMobile, departments }) {
           {departments.map((department) => (
             <Department
               key={department.id}
-              content={department.content}
-              title={department.title}
-              pic={department.pic}
+              content={department.attributes.content}
+              title={department.attributes.name}
+              pic={department.attributes.picture}
             />
           ))}
         </Flex>
