@@ -4,7 +4,7 @@ import SectionsTitle from "../ui/SectionsTitle";
 import Department from "./Department";
 
 export default function Departments({ isMobile, departments }) {
-  console.log(departments);
+  // console.log(departments);
   if (isMobile) {
     return (
       <section>
