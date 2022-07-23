@@ -52,7 +52,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      departments: departments.data,
+      departments: departments.data ? departments.data : null,
     },
   };
 }
