@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { Box, Grid, GridItem, Flex } from "@chakra-ui/react";
+import { Grid, GridItem, Flex } from "@chakra-ui/react";
 import React from "react";
 import PagesHeader from "../../components/ui/PagesHeader";
-import Text from "../../components/ui/Text";
-import { blogs } from "../../components/data/initialState";
 import BlogTile from "../../components/blog/BlogTile";
 import useViewport from "../../hooks/useViewport";
+import { getBlogs } from "../../lib/cmsClient";
 
 export default function BlogIndexPage(props) {
   const viewport = useViewport();
@@ -29,7 +28,6 @@ export default function BlogIndexPage(props) {
           alignItems="center"
           py="5%"
         >
-          {/* <Flex py="5%">Buttons</Flex> */}
           <Grid templateColumns="repeat(4, 1fr)" gap={6}>
             {blogEntries.map((blog) => (
               <GridItem key={blog.id}>
@@ -52,6 +50,8 @@ export default function BlogIndexPage(props) {
 }
 
 export async function getStaticProps() {
+  const blogs = await getBlogs();
+
   return {
     props: {
       blogs: blogs,
