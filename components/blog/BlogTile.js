@@ -8,6 +8,11 @@ export default function BlogTile({ blog }) {
   const theme = useTheme();
 
   const { title, picture, excerpt, slug } = blog.attributes;
+  const { data } = picture;
+
+  const pictureData = data;
+
+  const pictureUrl = pictureData.attributes.url;
 
   return (
     <Flex
@@ -24,7 +29,7 @@ export default function BlogTile({ blog }) {
         border="4px solid white"
       >
         <Image
-          src={`/images/static/examples/blogs/${picture}`}
+          src={pictureUrl}
           layout="fill"
           alt={blog.title}
           objectFit="cover"

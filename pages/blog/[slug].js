@@ -8,7 +8,9 @@ import { getBlogs } from "../../lib/cmsClient";
 export default function BlogDetail(props) {
   const { blog } = props;
   const { title, content, picture, author, department } = blog.attributes;
-
+  const { data } = picture;
+  const pictureData = data;
+  const pictureUrl = pictureData.attributes.url;
   const departmentName = department.data.attributes.name;
 
   const viewport = useViewport();
@@ -20,7 +22,9 @@ export default function BlogDetail(props) {
 
   return (
     <section id="blog-entry">
-      <PagesHeader background={`/images/static/examples/blogs/${picture}`} />
+      <PagesHeader
+        background={pictureUrl ? pictureUrl : "https://none.com/asd"}
+      />
       <Box px="8%" textAlign="right">
         <Text>
           Written by: <b>{author}</b>
