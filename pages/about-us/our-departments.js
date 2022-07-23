@@ -4,6 +4,7 @@ import PagesHeader from "../../components/ui/PagesHeader";
 // import { departments } from "../../components/data/initialState";
 import useViewport from "../../hooks/useViewport";
 import Departments from "../../components/about-us/Departments";
+import axios from "axios";
 
 import { getDepartments } from "../../lib/cmsClient";
 
@@ -48,11 +49,25 @@ export default function ColaborationsPage(props) {
 }
 
 export async function getStaticProps() {
-  const departments = await getDepartments();
+  // const departments = await getDepartments();
+
+  const res = await axios({
+    method: "GET",
+    baseURL: process.env.backendUrl,
+    url: "/api/departments",
+    headers: {
+      Accept: "application/json",
+      Authorization:
+        "Bearer " +
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4NTIwMDM5LCJleHAiOjE2NjExMTIwMzl9.j5loBXsJTY9gKDXli2ncKSiDHu5SExtBBMqwRhU5fJk",
+    },
+  });
+
+  const departments = await res.data.data;
 
   return {
     props: {
-      departments: departments.data ? departments.data : null,
+      departments: departments ? departments : null,
     },
   };
 }
