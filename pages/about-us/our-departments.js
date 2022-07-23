@@ -4,14 +4,14 @@ import PagesHeader from "../../components/ui/PagesHeader";
 // import { departments } from "../../components/data/initialState";
 import useViewport from "../../hooks/useViewport";
 import Departments from "../../components/about-us/Departments";
-
 import axios from "axios";
 
-export default function ColaborationsPage({ departments }) {
+import { getDepartments } from "../../lib/cmsClient";
+
+export default function ColaborationsPage(props) {
+  const { departments } = props;
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
-
-  // console.log(departments[0].attributes);
 
   useEffect(() => {
     setIsMobile(viewport[0]);
@@ -48,29 +48,26 @@ export default function ColaborationsPage({ departments }) {
   );
 }
 
-export async function getStaticProps(ctx) {
-  try {
-    const rawDepartments = await axios({
-      method: "GET",
-      baseURL: process.env.backendUrl,
-      url: "/api/departments",
-      headers: {
-        Authorization:
-          "Bearer " +
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4NTIwMDM5LCJleHAiOjE2NjExMTIwMzl9.j5loBXsJTY9gKDXli2ncKSiDHu5SExtBBMqwRhU5fJk",
-      },
-    });
+export async function getStaticProps() {
+  // const departments = await getDepartments();
 
-    return {
-      props: {
-        departments: rawDepartments.data.data,
-      },
-    };
-  } catch (err) {
-    return {
-      props: {
-        departments: [],
-      },
-    };
-  }
+  const res = await axios({
+    method: "GET",
+    baseURL: process.env.backendUrl,
+    url: "/api/departments",
+    headers: {
+      Accept: "application/json",
+      Authorization:
+        "Bearer " +
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4NTIwMDM5LCJleHAiOjE2NjExMTIwMzl9.j5loBXsJTY9gKDXli2ncKSiDHu5SExtBBMqwRhU5fJk",
+    },
+  });
+
+  const departments = await res.data.data;
+
+  return {
+    props: {
+      departments: departments ? departments : null,
+    },
+  };
 }
