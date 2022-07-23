@@ -49,28 +49,22 @@ export default function ColaborationsPage({ departments }) {
 }
 
 export async function getStaticProps(ctx) {
-  try {
-    const rawDepartments = await axios({
-      method: "GET",
-      baseURL: process.env.backendUrl,
-      url: "/api/departments",
-      headers: {
-        Authorization:
-          "Bearer " +
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4NTIwMDM5LCJleHAiOjE2NjExMTIwMzl9.j5loBXsJTY9gKDXli2ncKSiDHu5SExtBBMqwRhU5fJk",
-      },
-    });
+  const rawDepartments = await axios({
+    method: "GET",
+    baseURL: process.env.backendUrl,
+    url: "/api/departments",
+    headers: {
+      Authorization:
+        "Bearer " +
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4NTIwMDM5LCJleHAiOjE2NjExMTIwMzl9.j5loBXsJTY9gKDXli2ncKSiDHu5SExtBBMqwRhU5fJk",
+    },
+  });
 
-    return {
-      props: {
-        departments: rawDepartments.data.data,
-      },
-    };
-  } catch (err) {
-    return {
-      props: {
-        departments: [],
-      },
-    };
-  }
+  console.log(rawDepartments.data.data);
+
+  return {
+    props: {
+      departments: rawDepartments.data.data,
+    },
+  };
 }
