@@ -7,11 +7,10 @@ import Departments from "../../components/about-us/Departments";
 
 import { getDepartments } from "../../lib/cmsClient";
 
-export default function ColaborationsPage({ departments }) {
+export default function ColaborationsPage(props) {
+  const { departments } = props;
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
-
-  console.log(departments);
 
   useEffect(() => {
     setIsMobile(viewport[0]);
@@ -49,20 +48,11 @@ export default function ColaborationsPage({ departments }) {
 }
 
 export async function getStaticProps() {
-  try {
-    const departments = await getDepartments();
+  const departments = await getDepartments();
 
-    console.log(departments);
-    return {
-      props: {
-        departments: departments,
-      },
-    };
-  } catch (err) {
-    return {
-      props: {
-        departments: [],
-      },
-    };
-  }
+  return {
+    props: {
+      departments: departments.data,
+    },
+  };
 }

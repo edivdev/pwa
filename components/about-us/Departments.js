@@ -4,11 +4,10 @@ import SectionsTitle from "../ui/SectionsTitle";
 import Department from "./Department";
 
 export default function Departments({ isMobile, departments }) {
-  // console.log(departments);
   if (isMobile) {
     return (
       <section>
-        <Box my="10%">
+        {/* <Box my="10%">
           <Box display="flex" overflowX="scroll" h="400px">
             {departments.map((department) => (
               <Department
@@ -20,7 +19,7 @@ export default function Departments({ isMobile, departments }) {
               />
             ))}
           </Box>
-        </Box>
+        </Box> */}
       </section>
     );
   }
