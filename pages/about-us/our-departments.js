@@ -49,12 +49,20 @@ export default function ColaborationsPage({ departments }) {
 }
 
 export async function getStaticProps() {
-  const departments = await getDepartments();
+  try {
+    const departments = await getDepartments();
 
-  console.log(departments);
-  return {
-    props: {
-      departments: departments,
-    },
-  };
+    console.log(departments);
+    return {
+      props: {
+        departments: departments,
+      },
+    };
+  } catch (err) {
+    return {
+      props: {
+        departments: [],
+      },
+    };
+  }
 }
