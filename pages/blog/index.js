@@ -15,6 +15,7 @@ export default function BlogIndexPage(props) {
   }, [isMobile, viewport]);
 
   const blogEntries = props.blogs;
+
   return (
     <>
       <PagesHeader

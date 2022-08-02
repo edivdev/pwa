@@ -3,7 +3,9 @@ import React from "react";
 import SectionsTitle from "../ui/SectionsTitle";
 import Department from "./Department";
 
-export default function Departments({ isMobile, departments }) {
+export default function Departments(props) {
+  const { isMobile, departments } = props;
+
   if (departments === null) {
     return <>loading...</>;
   }
