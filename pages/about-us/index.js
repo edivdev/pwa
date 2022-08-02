@@ -10,9 +10,11 @@ import Popup from "../../components/ui/Popup";
 import useViewport from "../../hooks/useViewport";
 import { changesForClosePopUp } from "../../helpers/domManipulations";
 
-export default function AboutUsPage({ goals }) {
+export default function AboutUsPage(props) {
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
+
+  const { goals, members } = props;
 
   useEffect(() => {
     setIsMobile(viewport[0]);

@@ -75,7 +75,7 @@ export default function WhatWeDoPageContent({ goals }) {
         <Box w={isMobile ? "100%" : "50%"} p={isMobile ? "0" : "10% 8%"}>
           <Box w="auto" h={isMobile ? "455px" : "310px"} position="relative">
             <Image
-              src="/images/static/about/LaurenVideo.png"
+              src="/images/static/about/LaurenVideo.jpg"
               objectFit="contain"
               layout="fill"
               className="hoverable"

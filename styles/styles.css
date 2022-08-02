@@ -196,3 +196,6 @@ a:hover {
   flex-direction: column;
   justify-content: space-between;
 }
+.removeScroll::-webkit-scrollbar {
+  display: none;
+}

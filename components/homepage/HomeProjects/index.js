@@ -227,6 +227,7 @@ const HomeProjects = ({
             gap="10px 10px"
             minHeight="782px"
             overflowX="scroll"
+            className="removeScroll"
           >
             {filteredProjects &&
               filteredProjects.map((project) => (
@@ -243,7 +244,7 @@ const HomeProjects = ({
           </Grid>
         )}
         {isMobile && (
-          <Flex overflowX="scroll" h="430px">
+          <Flex overflowX="scroll" h="430px" className="removeScroll">
             {filteredProjects &&
               filteredProjects.map((project) => (
                 <ProjectTile
