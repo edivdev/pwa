@@ -5,6 +5,7 @@ import Button from "../../ui/Button";
 import { Textarea } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
 import emailjs from "@emailjs/browser";
+import axios from "axios";
 
 export default function ContactForm({ isMobile }) {
   const [sentEmail, setSentEmail] = useState(false);
@@ -15,37 +16,32 @@ export default function ContactForm({ isMobile }) {
   const [phone, setPhone] = useState("");
   const [help, setHelp] = useState("");
   const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
     setSentEmail(true);
-    emailjs
-      .send(
-        process.env.newsletterService,
-        process.env.contactFormTemplate,
-        templateParams,
-        process.env.newsletterKey
-      )
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-        },
-        (err) => {
-          console.log("FAILED...", err);
-        }
-      );
-  }
 
-  const templateParams = {
-    full_name: fullname,
-    type_organization: typeOrganization,
-    email: email,
-    name_organization: nameOrganization,
-    phone: phone,
-    contact_phone: phone,
-    can_we_help: help,
-    message: message,
-  };
+    let data = {
+      data: {
+        name: fullname,
+        email: email,
+        organization: typeOrganization,
+        phone,
+        orgName: nameOrganization,
+        request: help,
+        message,
+      },
+    };
+
+    await axios.post("/api/contacts", data).then((response) => {
+      // console.log(response);
+      if (response.data.status) {
+        setErrorMessage(true);
+        console.log(response.data.status, response.data.message);
+      }
+    });
+  }
 
   return (
     <>
@@ -148,7 +144,9 @@ export default function ContactForm({ isMobile }) {
       </form>
       {sentEmail && (
         <Box color="black">
-          Thank you! your information has been sent. Soon we will contact you!
+          {errorMessage
+            ? "An Error has ocurred, please write us an email to educaciondiversa@gmail.com with your message"
+            : "Thank you! your information has been sent. Soon we will contact you!"}
         </Box>
       )}
     </>

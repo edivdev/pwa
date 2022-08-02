@@ -1,41 +1,45 @@
 import { useState } from "react";
 import Input from "../../ui/Input";
 import Button from "../../ui/Button";
-import emailjs from "@emailjs/browser";
+import axios from "axios";
 
 export default function MemberForm() {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [sentEmail, setSentEmail] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
     setSentEmail(true);
-    emailjs
-      .send(
-        process.env.newsletterService,
-        process.env.newsletterTemplate,
-        templateParams,
-        process.env.newsletterKey
-      )
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-        },
-        (err) => {
-          console.log("FAILED...", err);
-        }
-      );
+
+    let data = {
+      data: {
+        fname,
+        lname,
+        email,
+      },
+    };
+
+    await axios.post("/api/subscribers", data).then((response) => {
+      // console.log(response);
+      if (response.data.status) {
+        setErrorMessage(true);
+        console.log(response.data.status, response.data.message);
+      }
+    });
   }
 
-  const templateParams = {
-    first_name: fname,
-    last_name: lname,
-    email_address: email,
-  };
-
   if (sentEmail) {
+    if (errorMessage) {
+      return (
+        <p>
+          An error has ocurred, please write a message to
+          educaciondiversa@gmail.com to request yout Newsletter subscription.
+        </p>
+      );
+    }
     return (
       <p>
         Thanks for your registration, your data has been submited sucesfully,

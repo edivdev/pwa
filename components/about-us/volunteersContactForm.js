@@ -3,7 +3,7 @@ import { Box, Grid, GridItem, Flex } from "@chakra-ui/react";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Image from "next/image";
-import emailjs from "@emailjs/browser";
+import axios from "axios";
 
 export default function VolunteersContactForm() {
   const [sentEmail, setSentEmail] = useState(false);
@@ -12,37 +12,31 @@ export default function VolunteersContactForm() {
   const [phone, setPhone] = useState("");
   const [country, setCountry] = useState("");
   const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setSentEmail(true);
 
-    console.log("hey!!", templateParams);
+    let data = {
+      data: {
+        fname,
+        lname,
+        email,
+        phone,
+        country,
+        publishedAt: null,
+      },
+    };
 
-    emailjs
-      .send(
-        process.env.newsletterService,
-        process.env.volunteersTemplate,
-        templateParams,
-        process.env.newsletterKey
-      )
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-        },
-        (err) => {
-          console.log("FAILED...", err);
-        }
-      );
+    await axios.post("/api/volunteers", data).then((response) => {
+      // console.log(response);
+      if (response.data.status) {
+        setErrorMessage(true);
+        console.log(response.data.status, response.data.message);
+      }
+    });
   }
-
-  const templateParams = {
-    first_name: fname,
-    last_name: lname,
-    email_address: email,
-    contact_phone: phone,
-    country: country,
-  };
 
   return (
     <>
@@ -105,7 +99,7 @@ export default function VolunteersContactForm() {
 
             <GridItem colSpan={2}>
               <Button
-                disabled={sentEmail}
+                disabled={sentEmail ? true : false}
                 size="banner"
                 variant="noButton"
                 type="submit"
@@ -130,7 +124,9 @@ export default function VolunteersContactForm() {
       </form>
       {sentEmail && (
         <Box color="white">
-          Thank you! your information has been sent. Soon we will contact you!
+          {errorMessage
+            ? "An Error has ocurred, please write us an email to educaciondiversa@gmail.com with your message"
+            : "Thank you! your information has been sent. Soon we will contact you!"}
         </Box>
       )}
     </>
