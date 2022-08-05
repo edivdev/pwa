@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { projects } from "../../components/data/initialState";
 import { Grid, GridItem, Box, Flex } from "@chakra-ui/react";
 import ProjectTile from "../../components/homepage/HomeProjects/ProjectTile";
 import PagesHeader from "../../components/ui/PagesHeader";
@@ -9,9 +8,12 @@ import Image from "next/image";
 import Text from "../../components/ui/Text";
 import useViewport from "../../hooks/useViewport";
 import ProjectsIntro from "../../components/homepage/HomeProjects/ProjectsIntro";
+import { getProjects } from "../../lib/cmsClient";
 
 const Projects = (props) => {
   const { educationProjects, empowermentProjects, activismProjects } = props;
+
+  // console.log(empowermentProjects);
 
   const EmpowermentText = `Our empowerment projects engage children, young people and adults with the aim of giving them the resources, ideas and creative space to really reflect on the topics we are teaching about, whilst at the same time, healing and finding a therapeutic space due to the nature of the activities being art-based.  
   <br/><br/>
@@ -275,26 +277,53 @@ const Projects = (props) => {
 export default Projects;
 
 export async function getStaticProps() {
-  const publishedProjects = projects.filter(
-    (project) => project.published === true
-  );
+  const projects = await getProjects();
 
-  const educationProjects = publishedProjects
-    .filter((project) => project.category === "EDUCATION")
+  const empowermentProjects = projects
+    .filter(
+      (project) =>
+        project.attributes.project_category.data.attributes.title ===
+        "EMPOWERMENT"
+    )
     .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
-  const empowermentProjects = publishedProjects
-    .filter((project) => project.category === "EMPOWERMENT")
+
+  const activismProjects = projects
+    .filter(
+      (project) =>
+        project.attributes.project_category.data.attributes.title === "ACTIVISM"
+    )
     .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
-  const activismProjects = publishedProjects
-    .filter((project) => project.category === "ACTIVISM")
+
+  const educationProjects = projects
+    .filter(
+      (project) =>
+        project.attributes.project_category.data.attributes.title ===
+        "EDUCATION"
+    )
     .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
+
+  // console.log("empowerment", empowermentProjects);
+
+  // const educationProjects = publishedProjects
+  //   .filter((project) => project.category === "EDUCATION")
+  //   .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
+
+  // const empowermentProjects = projects
+  //   .filter((project) => project.project_category === "EMPOWERMENT")
+  //   .sort((a, b) => parseFloat(a.id) - parseFloat(b.id));
+
+  // console.log("@@@@", empowermentProjects);
+
+  // const activismProjects = publishedProjects
+  //   .filter((project) => project.category === "ACTIVISM")
+  //   .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
 
   return {
     props: {
-      projects: publishedProjects,
-      educationProjects: educationProjects,
-      empowermentProjects: empowermentProjects,
-      activismProjects: activismProjects,
+      projects,
+      educationProjects,
+      empowermentProjects,
+      activismProjects,
     },
   };
 }

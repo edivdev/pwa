@@ -2,10 +2,11 @@ import MainSlider from "../components/homepage/MainSlider";
 
 import HomeProjects from "../components/homepage/HomeProjects";
 
-import { projects, blogs } from "../components/data/initialState";
+import { blogs } from "../components/data/initialState";
 import EducationPortalSection from "../components/homepage/EducationPortal";
 import TwoSideCallToAction from "../components/homepage/TwoSideCallToAction";
 import HomeBlog from "../components/homepage/HomeBlog";
+import { getBlogs, getProjects } from "../lib/cmsClient";
 
 export default function homePage(props) {
   const {
@@ -51,37 +52,64 @@ export default function homePage(props) {
 }
 
 export async function getStaticProps() {
-  const publishedProjects = projects.filter(
-    (project) => project.published === true
-  );
+  const projects = await getProjects();
+  const blogs = await getBlogs();
 
-  const featuredProjects = publishedProjects
-    .filter((project) => project.featured === true)
-    .sort((a, b) => parseFloat(a.order) - parseFloat(b.order))
+  const featuredProjects = projects
+    .filter((project) => project.attributes.featured === true)
+    .sort(
+      (a, b) => parseFloat(a.attributes.order) - parseFloat(b.attributes.order)
+    )
     .slice(0, 8);
-  const educationProjects = publishedProjects
-    .filter((project) => project.category === "EDUCATION")
-    .sort((a, b) => parseFloat(a.order) - parseFloat(b.order))
+
+  const educationProjects = projects
+    .filter(
+      (project) =>
+        project.attributes.project_category.data.attributes.title ===
+        "EDUCATION"
+    )
+    .sort(
+      (a, b) => parseFloat(a.attributes.order) - parseFloat(b.attributes.order)
+    )
     .slice(0, 8);
-  const empowermentProjects = publishedProjects
-    .filter((project) => project.category === "EMPOWERMENT")
-    .sort((a, b) => parseFloat(a.order) - parseFloat(b.order))
+
+  const empowermentProjects = projects
+    .filter(
+      (project) =>
+        project.attributes.project_category.data.attributes.title ===
+        "EMPOWERMENT"
+    )
+    .sort(
+      (a, b) => parseFloat(a.attributes.order) - parseFloat(b.attributes.order)
+    )
     .slice(0, 8);
-  const activismProjects = publishedProjects
-    .filter((project) => project.category === "ACTIVISM")
-    .sort((a, b) => parseFloat(a.order) - parseFloat(b.order))
+
+  const activismProjects = projects
+    .filter(
+      (project) =>
+        project.attributes.project_category.data.attributes.title === "ACTIVISM"
+    )
+    .sort(
+      (a, b) => parseFloat(a.attributes.order) - parseFloat(b.attributes.order)
+    )
     .slice(0, 8);
 
   const featuredBlogs = blogs
-    .filter((blog) => blog.featured <= 5 && blog.isFeatured === true)
-    .sort((a, b) => parseFloat(a.featured) - parseFloat(b.featured));
+    .filter(
+      (blog) =>
+        blog.attributes.featured <= 5 && blog.attributes.isFeatured === true
+    )
+    .sort(
+      (a, b) =>
+        parseFloat(a.attributes.featured) - parseFloat(b.attributes.featured)
+    );
 
   return {
     props: {
-      featuredProjects: featuredProjects,
-      educationProjects: educationProjects,
-      empowermentProjects: empowermentProjects,
-      activismProjects: activismProjects,
+      featuredProjects,
+      educationProjects,
+      empowermentProjects,
+      activismProjects,
       featuredBlogs: featuredBlogs,
     },
   };

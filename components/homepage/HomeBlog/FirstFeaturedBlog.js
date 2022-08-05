@@ -13,15 +13,15 @@ export default function FirstFeaturedBlog({ blogEntry }) {
       <Flex flexDirection="column" h="100%" justifyContent="space-between">
         <Box width="auto" height="252px" position="relative">
           <Image
-            src={blogEntry.image}
-            alt={blogEntry.title}
+            src={blogEntry.attributes.picture.data.attributes.url}
+            alt={blogEntry.attributes.title}
             layout="fill"
             objectFit="cover"
           />
         </Box>
 
         <Box px="5%">
-          <Text variant="featuredFirstBlog">{blogEntry.title}</Text>
+          <Text variant="featuredFirstBlog">{blogEntry.attributes.title}</Text>
         </Box>
 
         <Box
@@ -31,11 +31,11 @@ export default function FirstFeaturedBlog({ blogEntry }) {
           overflow="hidden"
           textOverflow="ellipsis"
         >
-          <Text variant="normal">{blogEntry.excerpt} </Text>
+          <Text variant="normal">{blogEntry.attributes.excerpt} </Text>
         </Box>
 
         <Box px="5%">
-          <Link href={`/blog/${blogEntry.slug}`}>
+          <Link href={`/blog/${blogEntry.attributes.slug}`}>
             <a>
               <Flex>
                 <Box mr="5px">

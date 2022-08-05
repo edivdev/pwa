@@ -199,3 +199,14 @@ a:hover {
 .removeScroll::-webkit-scrollbar {
   display: none;
 }
+
+.template-one h1 p {
+  text-align: center;
+  margin: 2% 0 0 0;
+}
+.template-one h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
