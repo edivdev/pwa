@@ -39,20 +39,22 @@ export default function TemplateOne({
               />
             </Box>
             <Box w={isMobile ? "auto" : "49%"}>
-              <Flex
-                w={isMobile ? "95vw" : "auto"}
-                h={isMobile ? "50vw" : "100%"}
-                position="relative"
-                m="1% 0"
-                alignItems="center"
-              >
-                <Image
-                  src={pictures.data[0].attributes.url}
-                  alt=""
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Flex>
+              {pictures.data !== null && (
+                <Flex
+                  w={isMobile ? "95vw" : "auto"}
+                  h={isMobile ? "50vw" : "100%"}
+                  position="relative"
+                  m="1% 0"
+                  alignItems="center"
+                >
+                  <Image
+                    src={pictures.data[0].attributes.url}
+                    alt=""
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </Flex>
+              )}
             </Box>
           </Flex>
         )}
@@ -79,20 +81,22 @@ export default function TemplateOne({
               />
             </Box>
             <Box w={isMobile ? "auto" : "49%"}>
-              <Flex
-                w={isMobile ? "95vw" : "auto"}
-                h={isMobile ? "50vw" : "100%"}
-                position="relative"
-                m="1% 0"
-                alignItems="center"
-              >
-                <Image
-                  src={pictures.data[1].attributes.url}
-                  alt=""
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Flex>
+              {pictures.data !== null && (
+                <Flex
+                  w={isMobile ? "95vw" : "auto"}
+                  h={isMobile ? "50vw" : "100%"}
+                  position="relative"
+                  m="1% 0"
+                  alignItems="center"
+                >
+                  <Image
+                    src={pictures.data[1].attributes.url}
+                    alt=""
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </Flex>
+              )}
             </Box>
           </Flex>
         )}
@@ -100,19 +104,21 @@ export default function TemplateOne({
         {campaignText && (
           <Box>
             <Box>
-              <Box
-                w={isMobile ? "95vw" : "auto"}
-                h={isMobile ? "50vw" : "350px"}
-                position="relative"
-                m="1% 0"
-              >
-                <Image
-                  src={campaignPicture.data.attributes.url}
-                  alt="campaign-picture"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
+              {campaignPicture.data !== null && (
+                <Box
+                  w={isMobile ? "95vw" : "auto"}
+                  h={isMobile ? "50vw" : "350px"}
+                  position="relative"
+                  m="1% 0"
+                >
+                  <Image
+                    src={campaignPicture.data.attributes.url}
+                    alt="campaign-picture"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </Box>
+              )}
               <Box>
                 <h2>The Campaign</h2>
               </Box>
@@ -122,24 +128,26 @@ export default function TemplateOne({
               />
             </Box>
 
-            <Flex
-              w={isMobile ? "95vw" : "auto"}
-              h={isMobile ? "50vw" : "500px"}
-              position="relative"
-              mt="2%"
-              alignItems="center"
-            >
-              <Image
-                src={pictures.data[2].attributes.url}
-                alt=""
-                layout="fill"
-                objectFit="contain"
-              />
-            </Flex>
+            {pictures.data !== null && (
+              <Flex
+                w={isMobile ? "95vw" : "auto"}
+                h={isMobile ? "50vw" : "500px"}
+                position="relative"
+                mt="2%"
+                alignItems="center"
+              >
+                <Image
+                  src={pictures.data[2].attributes.url}
+                  alt=""
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </Flex>
+            )}
           </Box>
         )}
 
-        {sustainable_dev_goals.data.length > 0 && (
+        {/* {sustainable_dev_goals.data.length > 0 && (
           <Flex
             w={isMobile ? "95vw" : "auto%"}
             flexWrap="wrap"
@@ -150,7 +158,7 @@ export default function TemplateOne({
               <Sdg key={sdvEl.id} sdg={sdvEl} isMobile={isMobile} />
             ))}
           </Flex>
-        )}
+        )} */}
       </Box>
     </section>
   );

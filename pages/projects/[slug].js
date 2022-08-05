@@ -10,6 +10,8 @@ import TemplateOne from "../../components/ui/ProjectTemplates/TemplateOne";
 export default function ProjectDetail(props) {
   const { project } = props;
 
+  console.log(project);
+
   const {
     title,
     mainPicture,
