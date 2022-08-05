@@ -147,7 +147,7 @@ export default function TemplateOne({
           </Box>
         )}
 
-        {/* {sustainable_dev_goals.data.length > 0 && (
+        {sustainable_dev_goals.data.length > 0 && (
           <Flex
             w={isMobile ? "95vw" : "auto%"}
             flexWrap="wrap"
@@ -158,7 +158,7 @@ export default function TemplateOne({
               <Sdg key={sdvEl.id} sdg={sdvEl} isMobile={isMobile} />
             ))}
           </Flex>
-        )} */}
+        )}
       </Box>
     </section>
   );
