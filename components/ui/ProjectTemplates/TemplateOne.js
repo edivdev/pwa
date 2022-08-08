@@ -16,6 +16,9 @@ export default function TemplateOne({
   pictures,
   sustainable_dev_goals,
 }) {
+  console.log(pictures.data[1] === undefined);
+
+  //   pictures.data[1].attributes.url
   return (
     <section className="template-one">
       <PagesHeader background={background} />
@@ -39,7 +42,7 @@ export default function TemplateOne({
               />
             </Box>
             <Box w={isMobile ? "auto" : "49%"}>
-              {pictures.data !== null && (
+              {pictures.data !== null && pictures.data[0] !== undefined && (
                 <Flex
                   w={isMobile ? "95vw" : "auto"}
                   h={isMobile ? "50vw" : "100%"}
@@ -81,7 +84,7 @@ export default function TemplateOne({
               />
             </Box>
             <Box w={isMobile ? "auto" : "49%"}>
-              {pictures.data !== null && (
+              {pictures.data[1] !== undefined && (
                 <Flex
                   w={isMobile ? "95vw" : "auto"}
                   h={isMobile ? "50vw" : "100%"}
@@ -128,7 +131,7 @@ export default function TemplateOne({
               />
             </Box>
 
-            {pictures.data !== null && (
+            {pictures.data[2] !== undefined && (
               <Flex
                 w={isMobile ? "95vw" : "auto"}
                 h={isMobile ? "50vw" : "500px"}
