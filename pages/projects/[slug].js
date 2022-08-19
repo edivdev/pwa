@@ -10,7 +10,7 @@ import TemplateOne from "../../components/ui/ProjectTemplates/TemplateOne";
 export default function ProjectDetail(props) {
   const { project } = props;
 
-  console.log(project);
+  console.log({ project });
 
   const {
     title,
@@ -23,6 +23,9 @@ export default function ProjectDetail(props) {
     contentThree,
     pictures,
     sustainable_dev_goals,
+    department,
+    project_category,
+    subtitle,
   } = project.attributes;
 
   const background = mainPicture.data.attributes.url;
@@ -72,6 +75,9 @@ export default function ProjectDetail(props) {
         contentThree={contentThree}
         pictures={pictures}
         sustainable_dev_goals={sustainable_dev_goals}
+        department={department}
+        category={project_category}
+        subtitle={subtitle}
       />
     );
   }

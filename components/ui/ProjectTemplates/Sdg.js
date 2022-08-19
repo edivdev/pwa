@@ -4,8 +4,8 @@ import { Box } from "@chakra-ui/react";
 export default function Sdg({ sdg, isMobile }) {
   return (
     <Box
-      w={isMobile ? "90px" : "200px"}
-      h={isMobile ? "90px" : "200px"}
+      w={isMobile ? "30px" : "35px"}
+      h={isMobile ? "30px" : "35px"}
       position="relative"
       alignSelf="flex-start"
     >
