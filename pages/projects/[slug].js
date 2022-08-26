@@ -26,6 +26,8 @@ export default function ProjectDetail(props) {
     department,
     project_category,
     subtitle,
+    resources,
+    contentDownload,
   } = project.attributes;
 
   const background = mainPicture.data.attributes.url;
@@ -78,6 +80,8 @@ export default function ProjectDetail(props) {
         department={department}
         category={project_category}
         subtitle={subtitle}
+        documents={resources}
+        contentDownload={contentDownload}
       />
     );
   }

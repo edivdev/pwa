@@ -4,10 +4,10 @@ import { Box } from "@chakra-ui/react";
 export default function Sdg({ sdg, isMobile }) {
   return (
     <Box
-      w={isMobile ? "30px" : "35px"}
-      h={isMobile ? "30px" : "35px"}
+      w={isMobile ? "30px" : "42px"}
+      h={isMobile ? "30px" : "42px"}
+      m="0.5px"
       position="relative"
-      alignSelf="flex-start"
     >
       <Image
         src={sdg.attributes.picture.data.attributes.url}

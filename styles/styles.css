@@ -1,6 +1,3 @@
-p {
-  margin-top: 10px !important;
-}
 body {
   min-width: 100%;
   padding: 0;
@@ -267,4 +264,20 @@ li {
   .two-cols iframe {
     max-height: 200px;
   }
+}
+
+.template-one .slick-prev:before {
+  color: brown !important;
+  background-color: white;
+}
+.template-one .slick-next:before {
+  color: brown !important;
+  background-color: white;
+}
+
+.template-one .slick-list {
+  padding: 8px !important;
+}
+.template-one p {
+  margin-top: 10px !important;
 }

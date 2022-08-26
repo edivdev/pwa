@@ -3,6 +3,8 @@ import Text from "../Text";
 import PagesHeader from "../PagesHeader";
 import Image from "next/image";
 import Sdg from "./Sdg";
+import ProjectResources from "../../project/ProjectResources";
+import ProjectSlider from "../../project/ProjectSlider";
 
 export default function TemplateOne({
   isMobile,
@@ -18,35 +20,90 @@ export default function TemplateOne({
   department,
   category,
   subtitle,
+  documents,
+  contentDownload,
 }) {
+  console.log(pictures, contentDownload);
+
+  const SliderSettings = {
+    infinite: true,
+    dots: false,
+    slidesToShow: 3,
+    arrows: true,
+    slidesToScroll: 1,
+    lazyLoad: true,
+  };
+
   return (
     <section className="template-one">
       <PagesHeader background={background} />
-      <Flex flexDirection={isMobile ? "column" : "row"}>
-        <Flex p="2%" w="100vw" alignItems="center">
-          {/* <Box>
-              <ul
-                style={{
-                  display: "flex",
-                  fontSize: isMobile ? "8px" : "inherit",
-                }}
-              >
-                <li>{`${department.data.attributes.name}`}</li>
-                <li>{`${category.data.attributes.title.toLowerCase()}`}</li>
-                <li>{title}</li>
-              </ul>
-            </Box> */}
+      <Flex
+        flexDirection={isMobile ? "column" : "row"}
+        p={isMobile ? "2%" : "2% 100px"}
+        justifyContent="space-between"
+      >
+        <Flex
+          //downloads block
+          w={isMobile ? "100%" : "32%"}
+          flexWrap="wrap"
+          justifyContent={isMobile ? "flex-start" : "space-between"}
+          order={isMobile ? 2 : 0}
+          m="5px 0"
+          p="5px"
+        >
+          <div style={{ backgroundColor: "transparent" }}>
+            {contentDownload.data !== null && (
+              <ProjectResources document={contentDownload.data} />
+            )}
+          </div>
+
+          <ProjectSlider isMobile={isMobile} settings={SliderSettings}>
+            {documents.data !== null &&
+              documents.data.map((document) => (
+                <ProjectResources document={document} />
+              ))}
+          </ProjectSlider>
         </Flex>
 
-        <Box p="2% 100px">
-          {" "}
+        <Box
+          // sustainable dev goals block
+          h="100%"
+          w={isMobile ? "72%" : "23%"}
+          order={isMobile ? 1 : 0}
+          m="5px auto"
+        >
           {sustainable_dev_goals.data.length > 0 && (
-            <Flex w={isMobile ? "auto" : "auto"} margin="auto">
+            <Flex flexWrap="wrap" alignItems="center" justifyContent="center">
               {sustainable_dev_goals.data.map((sdvEl) => (
                 <Sdg key={sdvEl.id} sdg={sdvEl} isMobile={isMobile} />
               ))}
             </Flex>
           )}
+        </Box>
+
+        <Box
+          // currentLocation
+          h="100%"
+          w={isMobile ? "100%" : "34%"}
+          order={isMobile ? -1 : 3}
+          m="5px 0"
+        >
+          <div
+            style={{
+              display: "flex",
+              fontSize: isMobile ? "8px" : "12px",
+              justifyContent: isMobile ? "flex-start" : "flex-end",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{ marginRight: "12px" }}
+            >{`${department.data.attributes.name}`}</div>
+            <div style={{ marginRight: "12px" }}>
+              <b>{`${category.data.attributes.title.toLowerCase()}`}</b>
+            </div>
+            {/* <div style={{ marginRight: "12px" }}>{title}</div> */}
+          </div>
         </Box>
       </Flex>
 
@@ -100,33 +157,8 @@ export default function TemplateOne({
           </Box>
         )}
 
-        {/*pictures.data !== null && (
-              <Flex
-                w={isMobile ? "95vw" : "auto"}
-                h={isMobile ? "50vw" : "500px"}
-                position="relative"
-                mt="2%"
-                alignItems="center"
-              >
-                <Image
-                  src={pictures.data[2].attributes.url}
-                  alt=""
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Flex>
-            )}
-          </Box>
-        )} */}
+        {/* {pictures !== null ? <Box>component with pictures</Box> : null} */}
       </Box>
     </section>
   );
 }
-
-// li:before {
-//   content: "\f00c"; /* FontAwesome Unicode */
-//   font-family: FontAwesome;
-//   display: inline-block;
-//   margin-left: -1.3em; /* same as padding-left set on li */
-//   width: 1.3em; /* same as padding-left set on li */
-// }

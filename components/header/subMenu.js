@@ -38,6 +38,7 @@ export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
             <Box key={element.id}>
               <Link href={element.slug} _hover={{ textDecoration: "none" }}>
                 <Text
+                  as="h5"
                   color="white"
                   variant="submenuItem"
                   _hover={{
