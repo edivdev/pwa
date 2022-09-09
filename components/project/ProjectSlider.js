@@ -8,10 +8,9 @@ export default function ProjectSlider({ settings, children, isMobile }) {
     <div
       style={{
         // backgroundColor: "coral",
-        padding: "0.5em ",
-        width: "auto",
-        maxWidth: "210px",
-        marginLeft: isMobile ? "60px" : "0",
+        height: "100px",
+        padding: "2px",
+        maxWidth: "230px",
       }}
     >
       <Slider {...settings}>{children}</Slider>

@@ -49,9 +49,16 @@ export default function TemplateOne({
           justifyContent={isMobile ? "flex-start" : "space-between"}
           order={isMobile ? 2 : 0}
           m="5px 0"
-          p="5px"
+          p="3px"
         >
-          <div style={{ backgroundColor: "transparent" }}>
+          <div
+            style={{
+              // backgroundColor: "red",
+              height: "100px",
+              padding: "10px",
+              maxWidth: "230px",
+            }}
+          >
             {contentDownload.data !== null && (
               <ProjectResources document={contentDownload.data} />
             )}
@@ -60,7 +67,7 @@ export default function TemplateOne({
           <ProjectSlider isMobile={isMobile} settings={SliderSettings}>
             {documents.data !== null &&
               documents.data.map((document) => (
-                <ProjectResources document={document} />
+                <ProjectResources key={document.id} document={document} />
               ))}
           </ProjectSlider>
         </Flex>

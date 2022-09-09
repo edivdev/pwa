@@ -1,37 +1,38 @@
-import { background } from "@chakra-ui/react";
+import Image from "next/image";
+import { Box } from "@chakra-ui/react";
+import Link from "next/link";
+import Text from "../ui/Text";
 
 export default function ProjectResources(props) {
   const { document } = props;
   console.log("@@document", document, document.attributes.url);
   return (
-    <div
-      style={{
-        height: "100%",
-        width: "65px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+    <Box
+      w="auto"
+      h="90px"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
     >
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href={document.attributes.url}
-      >
-        <div style={{ width: "50px", marginBottom: "10px", margin: "auto" }}>
-          <img src="/images/static/assets/image22.png" alt="pdf-icon" />
-        </div>
-        <div
-          style={{
-            fontSize: "11px",
-            lineHeight: "1em",
-            textAlign: "center",
-          }}
-        >
-          <div style={{ maxWidth: "65px" }}>{document.attributes.name}</div>
-        </div>
-      </a>
-    </div>
+      <Link href={document.attributes.url}>
+        <a target="_blank" rel="noreferrer noopener">
+          <Box h="60px" position="relative">
+            <Image
+              src="/images/static/assets/image22.png"
+              alt="pdf-icon"
+              layout="fill"
+            />
+          </Box>
+          <Box mt="5px">
+            <Box maxWidth="65px">
+              <Text fontSize="11px" lineHeight="1em" textAlign="center">
+                {document.attributes.name}
+              </Text>
+            </Box>
+          </Box>
+        </a>
+      </Link>
+    </Box>
   );
 }
