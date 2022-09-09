@@ -210,3 +210,74 @@ a:hover {
   font-weight: 600;
   margin-bottom: 20px;
 }
+
+.template-one ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.template-one li:before {
+  content: "\003E";
+  display: inline-block;
+  margin-left: -1.3em;
+  width: 1.3em;
+}
+li {
+  padding-left: 1.3em;
+  padding-right: 1em;
+  text-transform: capitalize;
+  font-weight: 900;
+}
+
+.template-one .full-center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+  align-items: center;
+}
+
+.template-one .two-cols {
+  width: 50%;
+  padding: 20px 0;
+}
+.template-one .center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.template-one .two-cols iframe {
+  padding: 1em;
+}
+
+@media screen and (max-width: 700px) {
+  .template-one .full-center {
+    flex-direction: column;
+  }
+  .template-one .full-center p {
+    margin-top: 20px;
+  }
+  .template-one .two-cols {
+    width: 100%;
+  }
+
+  .two-cols iframe {
+    max-height: 200px;
+  }
+}
+
+.template-one .slick-prev:before {
+  color: brown !important;
+  background-color: white;
+}
+.template-one .slick-next:before {
+  color: brown !important;
+  background-color: white;
+}
+
+.template-one .slick-list {
+  padding: 8px !important;
+}
+.template-one p {
+  margin-top: 10px !important;
+}

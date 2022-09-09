@@ -19,9 +19,7 @@ export default function Departments(props) {
               <Department
                 isMobile={isMobile}
                 key={department.id}
-                content={department.attributes.content}
-                title={department.attributes.name}
-                pic={department.attributes.picture}
+                department={department}
               />
             ))}
           </Box>
@@ -34,12 +32,7 @@ export default function Departments(props) {
       <Box py="8%">
         <Flex flexWrap="wrap" justifyContent="center">
           {departments.map((department) => (
-            <Department
-              key={department.id}
-              content={department.attributes.content}
-              title={department.attributes.name}
-              pic={department.attributes.picture}
-            />
+            <Department key={department.id} department={department} />
           ))}
         </Flex>
       </Box>

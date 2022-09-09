@@ -3,6 +3,8 @@ import Text from "../Text";
 import PagesHeader from "../PagesHeader";
 import Image from "next/image";
 import Sdg from "./Sdg";
+import ProjectResources from "../../project/ProjectResources";
+import ProjectSlider from "../../project/ProjectSlider";
 
 export default function TemplateOne({
   isMobile,
@@ -15,51 +17,133 @@ export default function TemplateOne({
   contentThree,
   pictures,
   sustainable_dev_goals,
+  department,
+  category,
+  subtitle,
+  documents,
+  contentDownload,
 }) {
-  console.log(pictures.data[1] === undefined);
+  console.log(pictures, contentDownload);
 
-  //   pictures.data[1].attributes.url
+  const SliderSettings = {
+    infinite: true,
+    dots: false,
+    slidesToShow: 3,
+    arrows: true,
+    slidesToScroll: 1,
+    lazyLoad: true,
+  };
+
   return (
     <section className="template-one">
       <PagesHeader background={background} />
+      <Flex
+        flexDirection={isMobile ? "column" : "row"}
+        p={isMobile ? "2%" : "2% 100px"}
+        justifyContent="space-between"
+      >
+        <Flex
+          //downloads block
+          w={isMobile ? "100%" : "32%"}
+          flexWrap="wrap"
+          justifyContent={isMobile ? "flex-start" : "space-between"}
+          order={isMobile ? 2 : 0}
+          m="5px 0"
+          p="3px"
+        >
+          <div
+            style={{
+              // backgroundColor: "red",
+              height: "100px",
+              padding: "10px",
+              maxWidth: "230px",
+            }}
+          >
+            {contentDownload.data !== null && (
+              <ProjectResources document={contentDownload.data} />
+            )}
+          </div>
+
+          <ProjectSlider isMobile={isMobile} settings={SliderSettings}>
+            {documents.data !== null &&
+              documents.data.map((document) => (
+                <ProjectResources key={document.id} document={document} />
+              ))}
+          </ProjectSlider>
+        </Flex>
+
+        <Box
+          // sustainable dev goals block
+          h="100%"
+          w={isMobile ? "72%" : "23%"}
+          order={isMobile ? 1 : 0}
+          m="5px auto"
+        >
+          {sustainable_dev_goals.data.length > 0 && (
+            <Flex flexWrap="wrap" alignItems="center" justifyContent="center">
+              {sustainable_dev_goals.data.map((sdvEl) => (
+                <Sdg key={sdvEl.id} sdg={sdvEl} isMobile={isMobile} />
+              ))}
+            </Flex>
+          )}
+        </Box>
+
+        <Box
+          // currentLocation
+          h="100%"
+          w={isMobile ? "100%" : "34%"}
+          order={isMobile ? -1 : 3}
+          m="5px 0"
+        >
+          <div
+            style={{
+              display: "flex",
+              fontSize: isMobile ? "8px" : "12px",
+              justifyContent: isMobile ? "flex-start" : "flex-end",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{ marginRight: "12px" }}
+            >{`${department.data.attributes.name}`}</div>
+            <div style={{ marginRight: "12px" }}>
+              <b>{`${category.data.attributes.title.toLowerCase()}`}</b>
+            </div>
+            {/* <div style={{ marginRight: "12px" }}>{title}</div> */}
+          </div>
+        </Box>
+      </Flex>
+
       <Box p={isMobile ? "0 10px" : "0 100px"} pb="20px">
-        <Box>
+        <Box pb="20px">
           <h1>
             <Text variant={isMobile ? "titleMobile" : "h1"}>{title}</Text>
           </h1>
         </Box>
+        {campaignText && (
+          <Box>
+            <Box
+              textAlign="justify"
+              dangerouslySetInnerHTML={{ __html: campaignText }}
+            />
+          </Box>
+        )}
+
+        {subtitle && (
+          <Box>
+            <h2>
+              <Text variant={isMobile ? "titleMobile" : "h2"}>{subtitle}</Text>
+            </h2>
+          </Box>
+        )}
 
         {contentOne && (
-          <Flex
-            flexDirection={isMobile ? "column" : "row"}
-            justifyContent="space-between"
-            p="10px 0"
-          >
-            <Box w={isMobile ? "auto" : "49%"}>
-              <Box
-                textAlign="justify"
-                dangerouslySetInnerHTML={{ __html: contentOne }}
-              />
-            </Box>
-            <Box w={isMobile ? "auto" : "49%"}>
-              {pictures.data !== null && pictures.data[0] !== undefined && (
-                <Flex
-                  w={isMobile ? "95vw" : "auto"}
-                  h={isMobile ? "50vw" : "100%"}
-                  position="relative"
-                  m="1% 0"
-                  alignItems="center"
-                >
-                  <Image
-                    src={pictures.data[0].attributes.url}
-                    alt=""
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                </Flex>
-              )}
-            </Box>
-          </Flex>
+          <Box>
+            <Box
+              textAlign="justify"
+              dangerouslySetInnerHTML={{ __html: contentOne }}
+            />
+          </Box>
         )}
 
         {contentTwo && (
@@ -72,96 +156,15 @@ export default function TemplateOne({
         )}
 
         {contentThree && (
-          <Flex
-            flexDirection={isMobile ? "column-reverse" : "row-reverse"}
-            p="10px 0"
-            justifyContent="space-between"
-          >
-            <Box w={isMobile ? "auto" : "49%"}>
-              <Box
-                textAlign="justify"
-                dangerouslySetInnerHTML={{ __html: contentThree }}
-              />
-            </Box>
-            <Box w={isMobile ? "auto" : "49%"}>
-              {pictures.data[1] !== undefined && (
-                <Flex
-                  w={isMobile ? "95vw" : "auto"}
-                  h={isMobile ? "50vw" : "100%"}
-                  position="relative"
-                  m="1% 0"
-                  alignItems="center"
-                >
-                  <Image
-                    src={pictures.data[1].attributes.url}
-                    alt=""
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                </Flex>
-              )}
-            </Box>
-          </Flex>
-        )}
-
-        {campaignText && (
-          <Box>
-            <Box>
-              {campaignPicture.data !== null && (
-                <Box
-                  w={isMobile ? "95vw" : "auto"}
-                  h={isMobile ? "50vw" : "350px"}
-                  position="relative"
-                  m="1% 0"
-                >
-                  <Image
-                    src={campaignPicture.data.attributes.url}
-                    alt="campaign-picture"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                </Box>
-              )}
-              <Box>
-                <h2>The Campaign</h2>
-              </Box>
-              <Box
-                textAlign="justify"
-                dangerouslySetInnerHTML={{ __html: campaignText }}
-              />
-            </Box>
-
-            {pictures.data[2] !== undefined && (
-              <Flex
-                w={isMobile ? "95vw" : "auto"}
-                h={isMobile ? "50vw" : "500px"}
-                position="relative"
-                mt="2%"
-                alignItems="center"
-              >
-                <Image
-                  src={pictures.data[2].attributes.url}
-                  alt=""
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Flex>
-            )}
+          <Box w="100%">
+            <Box
+              textAlign="justify"
+              dangerouslySetInnerHTML={{ __html: contentThree }}
+            />
           </Box>
         )}
 
-        {sustainable_dev_goals.data.length > 0 && (
-          <Flex
-            w={isMobile ? "95vw" : "auto%"}
-            flexWrap="wrap"
-            margin="auto"
-            mt="20px"
-          >
-            {sustainable_dev_goals.data.map((sdvEl) => (
-              <Sdg key={sdvEl.id} sdg={sdvEl} isMobile={isMobile} />
-            ))}
-          </Flex>
-        )}
+        {/* {pictures !== null ? <Box>component with pictures</Box> : null} */}
       </Box>
     </section>
   );

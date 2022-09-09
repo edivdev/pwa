@@ -45,6 +45,12 @@ export default {
       fontSize: "44px",
       lineHeight: "60.72px",
     },
+    h2: {
+      fontWeight: "700",
+      fontSize: "34px",
+      lineHeight: "60.72px",
+      textAlign: "center",
+    },
     titleMobile: {
       fontWeight: "700",
       fontSize: "30px",

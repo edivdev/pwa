@@ -59,7 +59,9 @@ export default function ProjectTile({ project, isMobile = false, ...props }) {
             />
           </Flex>
           <Box m="10px auto 0" w="70%" textAlign="center" h="72px">
-            <Text fontSize="14px">{project.attributes.title}</Text>
+            <Text as="h5" fontSize="14px">
+              {project.attributes.title}
+            </Text>
           </Box>
         </Flex>
       </a>
