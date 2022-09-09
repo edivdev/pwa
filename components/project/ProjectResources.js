@@ -19,7 +19,7 @@ export default function ProjectResources(props) {
         <a target="_blank" rel="noreferrer noopener">
           <Box h="60px" position="relative">
             <Image
-              src="/images/static/assets/image22.png"
+              src="/images/static/assets/pdf-icon.png"
               alt="pdf-icon"
               layout="fill"
             />
