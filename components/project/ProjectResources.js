@@ -5,7 +5,7 @@ import Text from "../ui/Text";
 
 export default function ProjectResources(props) {
   const { document } = props;
-  console.log("@@document", document, document.attributes.url);
+  // console.log("@@document", document, document.attributes.url);
   return (
     <Box
       w="auto"

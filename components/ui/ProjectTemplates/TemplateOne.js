@@ -23,7 +23,7 @@ export default function TemplateOne({
   documents,
   contentDownload,
 }) {
-  console.log(pictures, contentDownload);
+  const principalImage = campaignPicture.data.attributes;
 
   const SliderSettings = {
     infinite: true,
@@ -46,7 +46,7 @@ export default function TemplateOne({
           //downloads block
           w={isMobile ? "100%" : "32%"}
           flexWrap="wrap"
-          justifyContent={isMobile ? "flex-start" : "space-between"}
+          justifyContent={isMobile ? "space-around" : "space-between"}
           order={isMobile ? 2 : 0}
           m="5px 0"
           p="3px"
@@ -95,6 +95,7 @@ export default function TemplateOne({
           order={isMobile ? -1 : 3}
           m="5px 0"
         >
+          {/* TODO refacrtor into Box schema */}
           <div
             style={{
               display: "flex",
@@ -128,6 +129,15 @@ export default function TemplateOne({
             />
           </Box>
         )}
+
+        <Box textAlign="center">
+          <Image
+            src={principalImage.url}
+            alt={principalImage.name}
+            width={principalImage.width}
+            height={principalImage.height}
+          />
+        </Box>
 
         {subtitle && (
           <Box>
