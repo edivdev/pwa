@@ -131,12 +131,14 @@ export default function TemplateOne({
         )}
 
         <Box textAlign="center">
-          <Image
-            src={principalImage.url}
-            alt={principalImage.name}
-            width={principalImage.width}
-            height={principalImage.height}
-          />
+          {principalImage.data !== null && (
+            <Image
+              src={principalImage.url}
+              alt={principalImage.name}
+              width={principalImage.width}
+              height={principalImage.height}
+            />
+          )}
         </Box>
 
         {subtitle && (
