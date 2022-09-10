@@ -23,7 +23,8 @@ export default function TemplateOne({
   documents,
   contentDownload,
 }) {
-  const principalImage = campaignPicture.data.attributes;
+  const principalImage =
+    campaignPicture.data === null ? null : campaignPicture.data;
 
   const SliderSettings = {
     infinite: true,
@@ -131,12 +132,12 @@ export default function TemplateOne({
         )}
 
         <Box textAlign="center">
-          {principalImage.data !== null && (
+          {principalImage !== null && (
             <Image
-              src={principalImage.url}
-              alt={principalImage.name}
-              width={principalImage.width}
-              height={principalImage.height}
+              src={principalImage.attributes.url}
+              alt={principalImage.attributes.name}
+              width={principalImage.attributes.width}
+              height={principalImage.attributes.height}
             />
           )}
         </Box>
