@@ -13,25 +13,25 @@ export default function SecondaryFeaturedBlog({ classname, blogEntry }) {
       <Flex flexDirection="column" h="100%" justifyContent="space-between">
         <Box w="auto" height="122px" position="relative">
           <Image
-            src={blogEntry.attributes.picture.data.attributes.url}
+            src={blogEntry?.attributes.picture.data.attributes.url || "/image"}
             layout="fill"
-            alt={blogEntry.attributes.title}
+            alt={blogEntry?.attributes.title}
             objectFit="cover"
           />
         </Box>
 
         <Box px="5%">
           <Text variant="featuredSecondaryBlog">
-            {blogEntry.attributes.title}
+            {blogEntry?.attributes.title}
           </Text>
         </Box>
 
         <Box px="5%" h="100px" overflow="hidden" textOverflow="ellipsis">
-          <Text variant="normal">{blogEntry.attributes.excerpt}</Text>
+          <Text variant="normal">{blogEntry?.attributes.excerpt}</Text>
         </Box>
 
         <Box px="5%">
-          <Link href={`/blog/${blogEntry.attributes.slug}`}>
+          <Link href={`/blog/${blogEntry?.attributes.slug}`}>
             <a>
               <Flex>
                 <Box mr="5px">

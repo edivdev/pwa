@@ -52,8 +52,8 @@ export default function homePage(props) {
 }
 
 export async function getStaticProps() {
-  const projects = await getProjects();
-  const blogs = await getBlogs();
+  const projects = (await getProjects()) || [];
+  const blogs = (await getBlogs()) || [];
 
   const featuredProjects = projects
     .filter((project) => project.attributes.featured === true)
