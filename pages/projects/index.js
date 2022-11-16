@@ -228,7 +228,7 @@ const Projects = (props) => {
         </Flex>
       </Box>
 
-      {!isMobile && (
+      {!isMobile ? (
         <Box m="50px 10%">
           <Grid templateColumns="repeat(4, 1fr)" gap={6} minHeight="782px">
             {filteredProjects &&
@@ -245,8 +245,8 @@ const Projects = (props) => {
               ))}
           </Grid>
         </Box>
-      )}
-      {isMobile && (
+      ) : null}
+      {isMobile ? (
         <Box m="50px 5%">
           <Flex overflowX="scroll" h="420px">
             {filteredProjects &&
@@ -269,7 +269,7 @@ const Projects = (props) => {
               ))}
           </Flex>
         </Box>
-      )}
+      ) : null}
     </section>
   );
 };
