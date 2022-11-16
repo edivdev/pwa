@@ -11,7 +11,7 @@ export default function BlogDetail(props) {
   const { data } = picture;
   const pictureData = data;
   const pictureUrl = pictureData.attributes.url;
-  const departmentName = department.data.attributes.name;
+  const departmentName = department.data?.attributes?.name || null;
 
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
@@ -25,13 +25,15 @@ export default function BlogDetail(props) {
       <PagesHeader
         background={pictureUrl ? pictureUrl : "https://none.com/asd"}
       />
-      <Box px="8%" textAlign="right">
-        <Text>
-          Written by: <b>{author}</b>
-          <br />
-          {departmentName} department
-        </Text>
-      </Box>
+      {departmentName ? (
+        <Box px="8%" textAlign="right">
+          <Text>
+            Written by: <b>{author}</b>
+            <br />
+            {departmentName} department
+          </Text>
+        </Box>
+      ) : null}
       <Box px={isMobile ? "8%" : "25%"}>
         <Box my="5%" textAlign="center">
           <h1>
