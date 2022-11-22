@@ -36,7 +36,7 @@ export default function TemplateOne({
   };
 
   return (
-    <section className="template-one">
+    <section className="custom-template">
       <PagesHeader background={background} />
       <Flex
         flexDirection={isMobile ? "column" : "row"}

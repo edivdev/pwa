@@ -85,7 +85,6 @@ export default function MembershipPlan({ isMobile }) {
               h="100%"
             >
               <Image
-                style={{ margin: "auto" }}
                 src="/images/static/home/home-main.png"
                 alt="asd"
                 width={904}

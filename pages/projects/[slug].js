@@ -14,10 +14,9 @@ import TemplateTwo from "../../components/ui/ProjectTemplates/TemplateTwo";
 import ProjectFooter from "../../components/project/ProjectFooter";
 
 export default function ProjectDetail(props) {
-  const featuredProjects = [2, 6];
   const { project } = props;
 
-  console.log({ project });
+  //console.log({ project });
 
   const {
     title,
@@ -37,7 +36,7 @@ export default function ProjectDetail(props) {
     contentDownload,
   } = project.attributes;
 
-  console.log(project_template);
+  console.log(project_template, "0999");
 
   const background = mainPicture.data.attributes.url;
 

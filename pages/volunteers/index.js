@@ -59,7 +59,7 @@ export default function Volunters() {
   };
 
   const createElement = async () => {
-    console.log("bang!", fileArr);
+    //console.log("bang!", fileArr);
 
     await sendVolunteer(fileArr);
   };

@@ -7,7 +7,7 @@ import { Box } from "@chakra-ui/react";
 export default function ProjectFooter(props) {
   const { featuredProjects } = props;
 
-  console.log({ featuredProjects });
+  // console.log({ featuredProjects });
   return (
     <Box backgroundImage="url('/images/static/backgrounds/BACKGROUND-blog.jpg')">
       <h2>Other Projects</h2>

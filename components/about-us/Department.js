@@ -3,8 +3,6 @@ import Text from "../ui/Text";
 import Image from "next/image";
 
 export default function Department({ isMobile, department }) {
-  console.log("department", department.attributes);
-
   const { content, name, picture } = department.attributes;
 
   return (

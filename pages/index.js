@@ -6,7 +6,9 @@ import { blogs } from "../components/data/initialState";
 import EducationPortalSection from "../components/homepage/EducationPortal";
 import TwoSideCallToAction from "../components/homepage/TwoSideCallToAction";
 import HomeBlog from "../components/homepage/HomeBlog";
-import { getBlogs, getProjects } from "../lib/cmsClient";
+import { getBlogs, getFeaturedProjects } from "../lib/cmsClient";
+
+import axios from "axios";
 
 export default function homePage(props) {
   const {
@@ -52,15 +54,12 @@ export default function homePage(props) {
 }
 
 export async function getStaticProps() {
-  const projects = (await getProjects()) || [];
-  const blogs = (await getBlogs()) || [];
+  // intentar llamar a todos los lugares y traer lo necesario en _app.js de modo que lo apendeamos al props y lo jalamos de las paginas
+  // const projects = [];
 
-  const featuredProjects = projects
-    .filter((project) => project.attributes.featured === true)
-    .sort(
-      (a, b) => parseFloat(a.attributes.order) - parseFloat(b.attributes.order)
-    )
-    .slice(0, 8);
+  const projects = (await getFeaturedProjects()) || [];
+  // const blogs = (await getBlogs()) || [];
+  const blogs = [];
 
   const educationProjects = projects
     .filter(
@@ -106,7 +105,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      featuredProjects,
+      featuredProjects: projects,
       educationProjects,
       empowermentProjects,
       activismProjects,

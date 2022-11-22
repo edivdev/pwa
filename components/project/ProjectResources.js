@@ -1,19 +1,7 @@
-/**
- * <div
-      style={{
-        backgroundColor: "coral",
-        margin: "0 auto",
-        padding: "2px",
-        maxWidth: "160px",
-      }}
-    >
- */
-
 import Image from "next/image";
 import { Box } from "@chakra-ui/react";
 import Link from "next/link";
 import Text from "../ui/Text";
-import Button from "../ui/Button";
 
 export default function ProjectResources(props) {
   const { document } = props;
@@ -55,7 +43,7 @@ export default function ProjectResources(props) {
       </Box>
       <Link variant="projectsDownloadButton" href={document.attributes.url}>
         <a target="_blank" rel="noreferrer noopener">
-          <div>download icon</div>
+          <Text>Download</Text>
         </a>
       </Link>
     </Box>

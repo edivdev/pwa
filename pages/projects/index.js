@@ -10,11 +10,7 @@ import useViewport from "../../hooks/useViewport";
 import ProjectsIntro from "../../components/homepage/HomeProjects/ProjectsIntro";
 import { getProjects } from "../../lib/cmsClient";
 
-const Projects = (props) => {
-  const { educationProjects, empowermentProjects, activismProjects } = props;
-
-  // console.log(empowermentProjects);
-
+const Projects = () => {
   const EmpowermentText = `Our empowerment projects engage children, young people and adults with the aim of giving them the resources, ideas and creative space to really reflect on the topics we are teaching about, whilst at the same time, healing and finding a therapeutic space due to the nature of the activities being art-based.  
   <br/><br/>
   Many of our projects result in resources for people to support their learning.  These learning resources are sold through our website to raise money for educational projects in underdeveloped countries.  We do however, also understand that it can be extremely hard to empower people who live in a cycle of poverty, so we also believe that we can contribute to empowering people from underdeveloped communities by generating accessible educational resources which help people navigate important life decisions.
@@ -38,17 +34,39 @@ const Projects = (props) => {
 
   const theme = useTheme();
 
-  const [projects, setProjects] = useState(props.projects);
+  const [projects, setProjects] = useState([]);
   const [activeProjects, setActiveProjects] = useState("");
   const [filteredProjects, setFilteredProjects] = useState(null);
   const [branchText, setBranchText] = useState("");
 
+  const [empowermentProjects, setEmpowermentProjects] = useState([]);
+  const [educationProjects, setEducationProjects] = useState([]);
+  const [activismProjects, setActivismProjects] = useState([]);
+
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
+
+  const [loading, setLoading] = useState(true);
+
+  const callForProjects = async () => {
+    let data = await getProjects();
+    return data;
+  };
 
   useEffect(() => {
     setIsMobile(viewport[0]);
   }, [isMobile, viewport]);
+
+  useEffect(() => {
+    fetch(
+      "https://cms.educaciondiversa.com/api/projects?populate=*,mainPicture,project_category,department.picture,project_template,campaignPicture,pictures,sustainable_dev_goals.picture,resources,contentDownload"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setProjects(data);
+        setLoading(false);
+      });
+  }, []);
 
   const colorBlue = theme.colors.main.blue;
 
@@ -88,8 +106,19 @@ const Projects = (props) => {
     }
   }
 
+  if (loading) {
+    return (
+      <Flex h="80vh" alignItems="center" justifyContent="center">
+        <div>
+          <p>LOADNG....</p>
+        </div>
+      </Flex>
+    );
+  }
+
   return (
     <section>
+      {console.log("projectsman", projects.data[0])}
       <PagesHeader
         background="/images/static/backgrounds/BLUE_BACKGROUND.jpg"
         text0="educación diversa"
@@ -228,25 +257,21 @@ const Projects = (props) => {
         </Flex>
       </Box>
 
-      {!isMobile ? (
+      {!isMobile && (
         <Box m="50px 10%">
           <Grid templateColumns="repeat(4, 1fr)" gap={6} minHeight="782px">
-            {filteredProjects &&
-              filteredProjects.map((project) => (
-                <GridItem key={project.id}>
-                  <ProjectTile project={project} />
-                </GridItem>
-              ))}
-            {!filteredProjects &&
-              projects.map((project) => (
-                <GridItem key={project.id}>
-                  <ProjectTile project={project} />
-                </GridItem>
-              ))}
+            {projects
+              ? projects.data.map((project) => (
+                  <GridItem key={project.id}>
+                    <ProjectTile project={project} />
+                  </GridItem>
+                ))
+              : null}
           </Grid>
         </Box>
-      ) : null}
-      {isMobile ? (
+      )}
+
+      {/* {isMobile && (
         <Box m="50px 5%">
           <Flex overflowX="scroll" h="420px">
             {filteredProjects &&
@@ -269,61 +294,9 @@ const Projects = (props) => {
               ))}
           </Flex>
         </Box>
-      ) : null}
+      )} */}
     </section>
   );
 };
 
 export default Projects;
-
-export async function getStaticProps() {
-  const projects = await getProjects();
-
-  const empowermentProjects = projects
-    .filter(
-      (project) =>
-        project.attributes.project_category.data.attributes.title ===
-        "EMPOWERMENT"
-    )
-    .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
-
-  const activismProjects = projects
-    .filter(
-      (project) =>
-        project.attributes.project_category.data.attributes.title === "ACTIVISM"
-    )
-    .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
-
-  const educationProjects = projects
-    .filter(
-      (project) =>
-        project.attributes.project_category.data.attributes.title ===
-        "EDUCATION"
-    )
-    .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
-
-  // console.log("empowerment", empowermentProjects);
-
-  // const educationProjects = publishedProjects
-  //   .filter((project) => project.category === "EDUCATION")
-  //   .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
-
-  // const empowermentProjects = projects
-  //   .filter((project) => project.project_category === "EMPOWERMENT")
-  //   .sort((a, b) => parseFloat(a.id) - parseFloat(b.id));
-
-  // console.log("@@@@", empowermentProjects);
-
-  // const activismProjects = publishedProjects
-  //   .filter((project) => project.category === "ACTIVISM")
-  //   .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
-
-  return {
-    props: {
-      projects,
-      educationProjects,
-      empowermentProjects,
-      activismProjects,
-    },
-  };
-}

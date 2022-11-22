@@ -3,13 +3,17 @@
 }
 .slick-prev:before {
   color: purple !important;
-  left: 25px !important;
 }
 .slick-prev {
   left: 15px !important;
 }
 .slick-next {
   right: 15px !important;
+}
+.slick-prev,
+.slick-next {
+  width: 6px !important;
+  top: 40% !important;
 }
 body {
   min-width: 100%;
@@ -299,13 +303,13 @@ li {
 
 */
 
-.text-left {
+.custom-template .text-left {
   padding-left: 12px;
-  border-left: #658ac8 12px solid;
+  border-left: #658ac8 8px solid;
 }
-.text-right {
+.custom-template .text-right {
   padding-right: 12px;
-  border-right: #658ac8 12px solid;
+  border-right: #658ac8 8px solid;
 }
 .custom-template h1 p {
   text-align: center;
@@ -377,4 +381,8 @@ li {
 }
 .custom-template p {
   margin-bottom: 10px !important;
+}
+.infinite-scroll-view {
+  display: flex;
+  flex-wrap: wrap;
 }
