@@ -109,9 +109,13 @@ const Projects = () => {
   if (loading) {
     return (
       <Flex h="80vh" alignItems="center" justifyContent="center">
-        <div>
-          <p>LOADNG....</p>
-        </div>
+        <Image
+          unoptimized={true}
+          width={25}
+          height={25}
+          src="/images/static/assets/loader.gif"
+          alt="loading..."
+        />
       </Flex>
     );
   }
