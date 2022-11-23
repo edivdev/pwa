@@ -1,3 +1,7 @@
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 .slick-next:before {
   color: purple !important;
 }

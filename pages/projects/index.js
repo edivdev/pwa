@@ -35,13 +35,9 @@ const Projects = () => {
   const theme = useTheme();
 
   const [projects, setProjects] = useState([]);
-  const [activeProjects, setActiveProjects] = useState("");
+  const [original, setOriginal] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState(null);
   const [branchText, setBranchText] = useState("");
-
-  const [empowermentProjects, setEmpowermentProjects] = useState([]);
-  const [educationProjects, setEducationProjects] = useState([]);
-  const [activismProjects, setActivismProjects] = useState([]);
 
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
@@ -58,54 +54,74 @@ const Projects = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setProjects(data);
+        setOriginal(data.data);
+        setProjects(data.data);
         setLoading(false);
       });
   }, []);
 
-  // const sortProjects = (arr) => {
-  //   let projects = arr.sort(
-  //     (a, b) => parseFloat(a.attributes.order) - parseFloat(b.attributes.order)
-  //   );
-
-  //   return projects;
-  // };
-
   const colorBlue = theme.colors.main.blue;
 
+  const filterEducation = () => {
+    let filtered = original.filter(
+      (el) =>
+        el.attributes.project_category.data.attributes.title === "EDUCATION"
+    );
+
+    setProjects(filtered);
+    setFilteredProjects("EDUCATION");
+    setBranchText(EducationText);
+  };
+
+  const filterEmpowerment = () => {
+    let filtered = original.filter(
+      (el) =>
+        el.attributes.project_category.data.attributes.title === "EMPOWERMENT"
+    );
+
+    setProjects(filtered);
+    setFilteredProjects("EMPOWERMENT");
+    setBranchText(EmpowermentText);
+  };
+
+  const filterActivism = () => {
+    let filtered = original.filter(
+      (el) =>
+        el.attributes.project_category.data.attributes.title === "ACTIVISM"
+    );
+
+    setProjects(filtered);
+    setFilteredProjects("ACTIVISM");
+    setBranchText(ActivismText);
+  };
+
   function filterByEducation() {
-    if (activeProjects === "education") {
-      setFilteredProjects(null);
-      setActiveProjects("");
-      setBranchText("");
+    if (filteredProjects !== "EDUCATION") {
+      filterEducation();
     } else {
-      setActiveProjects("education");
-      setBranchText(EducationText);
-      setFilteredProjects(educationProjects);
+      setProjects(original);
+      setFilteredProjects(null);
+      setBranchText("");
     }
   }
 
   function filterByEmpowerment() {
-    if (activeProjects === "empowerment") {
-      setFilteredProjects(null);
-      setActiveProjects("");
-      setBranchText("");
+    if (filteredProjects !== "EMPOWERMENT") {
+      filterEmpowerment();
     } else {
-      setActiveProjects("empowerment");
-      setBranchText(EmpowermentText);
-      setFilteredProjects(empowermentProjects);
+      setProjects(original);
+      setFilteredProjects(null);
+      setBranchText("");
     }
   }
 
   function filterByActivism() {
-    if (activeProjects === "activism") {
-      setFilteredProjects(null);
-      setActiveProjects("");
-      setBranchText("");
+    if (filteredProjects !== "ACTIVISM") {
+      filterActivism();
     } else {
-      setActiveProjects("activism");
-      setBranchText(ActivismText);
-      setFilteredProjects(activismProjects);
+      setProjects(original);
+      setFilteredProjects(null);
+      setBranchText("");
     }
   }
 
@@ -125,7 +141,6 @@ const Projects = () => {
 
   return (
     <section>
-      {console.log("projectsman", projects.data[0])}
       <PagesHeader
         background="/images/static/backgrounds/BLUE_BACKGROUND.jpg"
         text0="educación diversa"
@@ -163,7 +178,7 @@ const Projects = () => {
           <Button
             minWidth={isMobile ? "100px" : "200px"}
             variant={
-              activeProjects === "education"
+              filteredProjects === "EDUCATION"
                 ? "projectsButtonActive"
                 : "projectsButton"
             }
@@ -197,7 +212,7 @@ const Projects = () => {
           <Button
             minWidth={isMobile ? "100px" : "200px"}
             variant={
-              activeProjects === "activism"
+              filteredProjects === "ACTIVISM"
                 ? "projectsButtonActive"
                 : "projectsButton"
             }
@@ -231,7 +246,7 @@ const Projects = () => {
           <Button
             minWidth={isMobile ? "100px" : "200px"}
             variant={
-              activeProjects === "empowerment"
+              filteredProjects === "EMPOWERMENT"
                 ? "projectsButtonActive"
                 : "projectsButton"
             }
@@ -268,7 +283,7 @@ const Projects = () => {
         <Box m="50px 10%">
           <Grid templateColumns="repeat(4, 1fr)" gap={6} minHeight="782px">
             {projects
-              ? projects.data.map((project) => (
+              ? projects.map((project) => (
                   <GridItem key={project.id}>
                     <ProjectTile project={project} />
                   </GridItem>
@@ -282,7 +297,7 @@ const Projects = () => {
         <Box m="50px 5%">
           <Flex overflowX="scroll" h="420px">
             {projects
-              ? projects.data.map((project) => (
+              ? projects.map((project) => (
                   <ProjectTile
                     key={project.id}
                     mr="10px"
