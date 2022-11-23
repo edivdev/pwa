@@ -8,29 +8,42 @@ export default function ProjectResources(props) {
   // console.log("@@document", document, document.attributes.url);
   return (
     <Box
-      w="auto"
-      h="90px"
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
+      textAlign="center"
+      // background="coral"
+      width="100%"
+      padding="12px 0"
+      margin="0 auto"
     >
-      <Link href={document.attributes.url}>
-        <a target="_blank" rel="noreferrer noopener">
-          <Box h="60px" position="relative">
-            <Image
-              src="/images/static/assets/pdf-icon.png"
-              alt="pdf-icon"
-              layout="fill"
-            />
-          </Box>
-          <Box mt="5px">
-            <Box maxWidth="65px">
-              <Text fontSize="11px" lineHeight="1em" textAlign="center">
-                {document.attributes.name}
-              </Text>
+      <Box
+        w="auto"
+        h="90px"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Link href={document.attributes.url}>
+          <a target="_blank" rel="noreferrer noopener">
+            <Box h="60px" w="65px" position="relative" m="auto">
+              <Image
+                src="/images/static/assets/pdf-icon.png"
+                alt="pdf-icon"
+                layout="fill"
+              />
             </Box>
-          </Box>
+            <Box mt="5px">
+              <Box>
+                <Text fontSize="11px" lineHeight="1em" textAlign="center">
+                  {document.attributes.name}
+                </Text>
+              </Box>
+            </Box>
+          </a>
+        </Link>
+      </Box>
+      <Link variant="projectsDownloadButton" href={document.attributes.url}>
+        <a target="_blank" rel="noreferrer noopener">
+          <Text>Download</Text>
         </a>
       </Link>
     </Box>

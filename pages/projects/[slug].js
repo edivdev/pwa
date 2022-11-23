@@ -1,3 +1,7 @@
+/**
+ * cms.educaciondiversa.com/api/projects/1?populate=department.picture,project_template,*
+ */
+
 import { useState, useEffect } from "react";
 import PagesHeader from "../../components/ui/PagesHeader";
 import { Box } from "@chakra-ui/react";
@@ -6,11 +10,13 @@ import useViewport from "../../hooks/useViewport";
 import { getProjects } from "../../lib/cmsClient";
 import Loading from "../../components/ui/Loading";
 import TemplateOne from "../../components/ui/ProjectTemplates/TemplateOne";
+import TemplateTwo from "../../components/ui/ProjectTemplates/TemplateTwo";
+import ProjectFooter from "../../components/project/ProjectFooter";
 
 export default function ProjectDetail(props) {
   const { project } = props;
 
-  console.log({ project });
+  //console.log({ project });
 
   const {
     title,
@@ -29,6 +35,8 @@ export default function ProjectDetail(props) {
     resources,
     contentDownload,
   } = project.attributes;
+
+  console.log(project_template, "0999");
 
   const background = mainPicture.data.attributes.url;
 
@@ -83,6 +91,31 @@ export default function ProjectDetail(props) {
         documents={resources}
         contentDownload={contentDownload}
       />
+    );
+  }
+
+  if (project_template.data.attributes.name === "templateTwo") {
+    return (
+      <>
+        <TemplateTwo
+          isMobile={isMobile}
+          background={background}
+          title={title}
+          campaignText={campaignText}
+          campaignPicture={campaignPicture}
+          contentOne={contentOne}
+          contentTwo={contentTwo}
+          contentThree={contentThree}
+          pictures={pictures}
+          sustainable_dev_goals={sustainable_dev_goals}
+          department={department}
+          category={project_category}
+          subtitle={subtitle}
+          documents={resources}
+          contentDownload={contentDownload}
+        />
+        {/* <ProjectFooter featuredProjects={featuredProjects} /> */}
+      </>
     );
   }
 
