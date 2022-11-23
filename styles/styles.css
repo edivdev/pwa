@@ -303,14 +303,17 @@ li {
 
 */
 
-.custom-template .text-left {
-  padding-left: 12px;
-  border-left: #658ac8 8px solid;
+@media screen and (min-width: 999px) {
+  .custom-template .text-left {
+    padding-left: 12px;
+    border-left: #658ac8 8px solid;
+  }
+  .custom-template .text-right {
+    padding-right: 12px;
+    border-right: #658ac8 8px solid;
+  }
 }
-.custom-template .text-right {
-  padding-right: 12px;
-  border-right: #658ac8 8px solid;
-}
+
 .custom-template h1 p {
   text-align: center;
   margin: 2% 0 0 0;

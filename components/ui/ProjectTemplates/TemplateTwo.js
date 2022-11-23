@@ -66,8 +66,7 @@ export default function TemplateTwo({
           </Box>
 
           <Box
-            // sustainable dev goals block
-            // backgroundColor="coral"
+            // bg="coral"
             display="flex"
             flexWrap="wrap"
             mt="15px"

@@ -48,11 +48,6 @@ const Projects = () => {
 
   const [loading, setLoading] = useState(true);
 
-  const callForProjects = async () => {
-    let data = await getProjects();
-    return data;
-  };
-
   useEffect(() => {
     setIsMobile(viewport[0]);
   }, [isMobile, viewport]);
@@ -67,6 +62,14 @@ const Projects = () => {
         setLoading(false);
       });
   }, []);
+
+  // const sortProjects = (arr) => {
+  //   let projects = arr.sort(
+  //     (a, b) => parseFloat(a.attributes.order) - parseFloat(b.attributes.order)
+  //   );
+
+  //   return projects;
+  // };
 
   const colorBlue = theme.colors.main.blue;
 
@@ -275,30 +278,22 @@ const Projects = () => {
         </Box>
       )}
 
-      {/* {isMobile && (
+      {isMobile && (
         <Box m="50px 5%">
           <Flex overflowX="scroll" h="420px">
-            {filteredProjects &&
-              filteredProjects.map((project) => (
-                <ProjectTile
-                  key={project.id}
-                  mr="10px"
-                  project={project}
-                  isMobile
-                />
-              ))}
-            {!filteredProjects &&
-              projects.map((project) => (
-                <ProjectTile
-                  key={project.id}
-                  mr="10px"
-                  project={project}
-                  isMobile
-                />
-              ))}
+            {projects
+              ? projects.data.map((project) => (
+                  <ProjectTile
+                    key={project.id}
+                    mr="10px"
+                    project={project}
+                    isMobile
+                  />
+                ))
+              : null}
           </Flex>
         </Box>
-      )} */}
+      )}
     </section>
   );
 };
