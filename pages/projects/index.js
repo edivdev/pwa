@@ -10,7 +10,7 @@ import useViewport from "../../hooks/useViewport";
 import ProjectsIntro from "../../components/homepage/HomeProjects/ProjectsIntro";
 import { getProjects } from "../../lib/cmsClient";
 
-const Projects = () => {
+const Projects = (props) => {
   const EmpowermentText = `Our empowerment projects engage children, young people and adults with the aim of giving them the resources, ideas and creative space to really reflect on the topics we are teaching about, whilst at the same time, healing and finding a therapeutic space due to the nature of the activities being art-based.  
   <br/><br/>
   Many of our projects result in resources for people to support their learning.  These learning resources are sold through our website to raise money for educational projects in underdeveloped countries.  We do however, also understand that it can be extremely hard to empower people who live in a cycle of poverty, so we also believe that we can contribute to empowering people from underdeveloped communities by generating accessible educational resources which help people navigate important life decisions.
@@ -34,31 +34,31 @@ const Projects = () => {
 
   const theme = useTheme();
 
-  const [projects, setProjects] = useState([]);
-  const [original, setOriginal] = useState([]);
+  const [projects, setProjects] = useState(props.projects.data);
+  const [original, setOriginal] = useState(props.projects.data);
   const [filteredProjects, setFilteredProjects] = useState(null);
   const [branchText, setBranchText] = useState("");
 
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setIsMobile(viewport[0]);
   }, [isMobile, viewport]);
 
-  useEffect(() => {
-    fetch(
-      "https://cms.educaciondiversa.com/api/projects?populate=*,mainPicture,project_category,department.picture,project_template,campaignPicture,pictures,sustainable_dev_goals.picture,resources,contentDownload"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setOriginal(data.data);
-        setProjects(data.data);
-        setLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(
+  //     "https://cms.educaciondiversa.com/api/projects?populate=*,mainPicture,project_category,department.picture,project_template,campaignPicture,pictures,sustainable_dev_goals.picture,resources,contentDownload"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setOriginal(data.data);
+  //       setProjects(data.data);
+  //       setLoading(false);
+  //     });
+  // }, []);
 
   const colorBlue = theme.colors.main.blue;
 
@@ -125,7 +125,7 @@ const Projects = () => {
     }
   }
 
-  if (loading) {
+  if (false) {
     return (
       <Flex h="80vh" alignItems="center" justifyContent="center">
         <Image
@@ -314,3 +314,13 @@ const Projects = () => {
 };
 
 export default Projects;
+
+export async function getStaticProps() {
+  let projects = await getProjects();
+
+  return {
+    props: {
+      projects,
+    },
+  };
+}
