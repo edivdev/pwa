@@ -357,6 +357,10 @@ li {
 .custom-template .two-cols {
   width: 50%;
 }
+
+.custom-template .two-cols img {
+  padding: 15px;
+}
 .custom-template .center {
   display: flex;
   align-items: center;
