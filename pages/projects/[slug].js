@@ -131,7 +131,7 @@ export async function getStaticProps(context) {
   const { params } = context;
   const { slug } = params;
 
-  const projectDetail = projects.filter(
+  const projectDetail = projects.data.filter(
     (project) => project.attributes.slug === slug
   );
 
@@ -145,7 +145,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   const projects = await getProjects();
   let slugs = [];
-  projects.map((project) => slugs.push(project.attributes.slug));
+  projects.data.map((project) => slugs.push(project.attributes.slug));
 
   return {
     paths: slugs.map((slug) => ({ params: { slug: slug } })),
