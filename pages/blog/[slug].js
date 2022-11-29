@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { Box } from "@chakra-ui/react";
-import { blogs } from "../../components/data/initialState";
 import PagesHeader from "../../components/ui/PagesHeader";
 import Text from "../../components/ui/Text";
 import useViewport from "../../hooks/useViewport";
+import { getBlogs } from "../../lib/cmsClient";
 
 export default function BlogDetail(props) {
   const { blog } = props;
-  const { title, content, excerpt, image, author, department } = blog;
+  const { title, content, picture, author, department } = blog.attributes;
+  const { data } = picture;
+  const pictureData = data;
+  const pictureUrl = pictureData.attributes.url;
+  const departmentName = department.data?.attributes?.name || null;
 
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
@@ -18,14 +22,18 @@ export default function BlogDetail(props) {
 
   return (
     <section id="blog-entry">
-      <PagesHeader background={image} />
-      <Box px="8%" textAlign="right">
-        <Text>
-          Written by: <b>{author}</b>
-          <br />
-          {department} department
-        </Text>
-      </Box>
+      <PagesHeader
+        background={pictureUrl ? pictureUrl : "https://none.com/asd"}
+      />
+      {departmentName ? (
+        <Box px="8%" textAlign="right">
+          <Text>
+            Written by: <b>{author}</b>
+            <br />
+            {departmentName} department
+          </Text>
+        </Box>
+      ) : null}
       <Box px={isMobile ? "8%" : "25%"}>
         <Box my="5%" textAlign="center">
           <h1>
@@ -47,7 +55,9 @@ export async function getStaticProps(context) {
   const { params } = context;
   const { slug } = params;
 
-  const blogEntry = blogs.filter((blog) => blog.slug === slug);
+  const blogs = await getBlogs();
+
+  const blogEntry = blogs.filter((blog) => blog.attributes.slug === slug);
 
   return {
     props: {
@@ -57,8 +67,12 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
+  const blogs = await getBlogs();
+
   let slugs = [];
-  blogs.map((blog) => slugs.push(blog.slug));
+  blogs.map((blog) => {
+    slugs.push(blog.attributes.slug);
+  });
 
   return {
     paths: slugs.map((slug) => ({ params: { slug: slug } })),

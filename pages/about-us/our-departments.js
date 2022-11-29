@@ -23,7 +23,7 @@ export default function ColaborationsPage(props) {
         text1="OUR DEPARTMENTS"
       />
       <PageChanger />
-      <Departments isMobile={isMobile} departments={departments.data} />
+      <Departments isMobile={isMobile} departments={departments} />
     </>
   );
 }
@@ -33,7 +33,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      departments: departments ? departments : null,
+      departments: departments,
     },
   };
 }

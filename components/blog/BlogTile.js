@@ -7,6 +7,13 @@ import Text from "../ui/Text";
 export default function BlogTile({ blog }) {
   const theme = useTheme();
 
+  const { title, picture, excerpt, slug } = blog.attributes;
+  const { data } = picture;
+
+  const pictureData = data;
+
+  const pictureUrl = pictureData.attributes.url;
+
   return (
     <Flex
       flexDirection="column"
@@ -22,7 +29,7 @@ export default function BlogTile({ blog }) {
         border="4px solid white"
       >
         <Image
-          src={blog.image}
+          src={pictureUrl}
           layout="fill"
           alt={blog.title}
           objectFit="cover"
@@ -38,16 +45,16 @@ export default function BlogTile({ blog }) {
         alignItems="center"
       >
         <Text textAlign="center" variant="blogTile">
-          <b>{blog.title}</b>
+          <b>{title}</b>
         </Text>
       </Box>
 
       <Box px="5%" h="100px" overflowY="scroll" border="4px solid white">
-        <Text variant="blogTile">{blog.excerpt}</Text>
+        <Text variant="blogTile">{excerpt}</Text>
       </Box>
 
       <Box px="5%" h="36px" border="4px solid white">
-        <Link href={`/blog/${blog.slug}`}>
+        <Link href={`/blog/${slug}`}>
           <a>
             <Flex>
               <Box mr="5px">

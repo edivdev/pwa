@@ -94,7 +94,6 @@ export default function EducationPortalSection() {
             h="100%"
           >
             <Image
-              style={{ margin: "auto" }}
               src="/images/static/home/home-main.png"
               alt="asd"
               width={904}

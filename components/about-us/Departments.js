@@ -3,7 +3,9 @@ import React from "react";
 import SectionsTitle from "../ui/SectionsTitle";
 import Department from "./Department";
 
-export default function Departments({ isMobile, departments }) {
+export default function Departments(props) {
+  const { isMobile, departments } = props;
+
   if (departments === null) {
     return <>loading...</>;
   }
@@ -17,9 +19,7 @@ export default function Departments({ isMobile, departments }) {
               <Department
                 isMobile={isMobile}
                 key={department.id}
-                content={department.attributes.content}
-                title={department.attributes.name}
-                pic={department.attributes.picture}
+                department={department}
               />
             ))}
           </Box>
@@ -32,12 +32,7 @@ export default function Departments({ isMobile, departments }) {
       <Box py="8%">
         <Flex flexWrap="wrap" justifyContent="center">
           {departments.map((department) => (
-            <Department
-              key={department.id}
-              content={department.attributes.content}
-              title={department.attributes.name}
-              pic={department.attributes.picture}
-            />
+            <Department key={department.id} department={department} />
           ))}
         </Flex>
       </Box>

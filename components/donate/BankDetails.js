@@ -10,19 +10,19 @@ export default function BankDetails({ isMobile }) {
 
   const bdetails = [
     {
-      bankAcount: "Outside the US",
+      bankAcount: "US",
       currency: "USD",
       bsb: "SWIFT / BIC: CMFGUS33",
       acountnumber: "8311162566",
     },
     {
-      bankAcount: "Outside the UK",
+      bankAcount: "UK",
       currency: "GBP",
       bsb: "SWIFT / BIC: TRWIGB2L",
       acountnumber: "IBAN: GB74 TRWI 2314 7083 8262 69",
     },
     {
-      bankAcount: "Outside EU and SEPA",
+      bankAcount: "EU and SEPA",
       currency: "EUR",
       bsb: "SWIFT/ BIC: TRWIBEB1XXX",
       acountnumber: "IBAN: BE96 9672 1622 6605",

@@ -46,7 +46,7 @@ export function MobileBlogLayout({ featuredBlogs }) {
         >
           <Box w="auto" height="122px" position="relative">
             <Image
-              src={blog.image}
+              src={blog.attributes.picture.data.attributes.url}
               layout="fill"
               alt={blog.title}
               objectFit="cover"
@@ -54,11 +54,11 @@ export function MobileBlogLayout({ featuredBlogs }) {
           </Box>
 
           <Box px="5%">
-            <Text variant="featuredSecondaryBlog">{blog.title}</Text>
+            <Text variant="featuredSecondaryBlog">{blog.attributes.title}</Text>
           </Box>
 
           <Box px="5%" h="100px" overflow="hidden" textOverflow="ellipsis">
-            <Text variant="normal">{blog.excerpt}</Text>
+            <Text variant="normal">{blog.attributes.excerpt}</Text>
           </Box>
 
           <Box px="5%">

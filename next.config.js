@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["via.placeholder.com"],
+    domains: ["educacion-diversa.s3.amazonaws.com"],
     formats: ["image/avif", "image/webp"],
   },
   env: {

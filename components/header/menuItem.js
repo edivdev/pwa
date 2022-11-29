@@ -31,6 +31,7 @@ export default function MenuItem({
           variant="menuItem"
           fontWeight="bold"
           color={parentMenuIsHovered ? theme.colors.main.blue : "black"}
+          as="h5"
         >
           {element.name}
         </Text>
@@ -47,7 +48,7 @@ export default function MenuItem({
   return (
     <Link href={`/${element.slug}`}>
       <a>
-        <Text variant="menuItem" color="black" fontWeight="bold">
+        <Text variant="menuItem" color="black" fontWeight="bold" as="h5">
           {element.name}
         </Text>
       </a>

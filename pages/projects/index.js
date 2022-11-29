@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { projects } from "../../components/data/initialState";
 import { Grid, GridItem, Box, Flex } from "@chakra-ui/react";
 import ProjectTile from "../../components/homepage/HomeProjects/ProjectTile";
 import PagesHeader from "../../components/ui/PagesHeader";
@@ -9,10 +8,9 @@ import Image from "next/image";
 import Text from "../../components/ui/Text";
 import useViewport from "../../hooks/useViewport";
 import ProjectsIntro from "../../components/homepage/HomeProjects/ProjectsIntro";
+import { getProjects } from "../../lib/cmsClient";
 
 const Projects = (props) => {
-  const { educationProjects, empowermentProjects, activismProjects } = props;
-
   const EmpowermentText = `Our empowerment projects engage children, young people and adults with the aim of giving them the resources, ideas and creative space to really reflect on the topics we are teaching about, whilst at the same time, healing and finding a therapeutic space due to the nature of the activities being art-based.  
   <br/><br/>
   Many of our projects result in resources for people to support their learning.  These learning resources are sold through our website to raise money for educational projects in underdeveloped countries.  We do however, also understand that it can be extremely hard to empower people who live in a cycle of poverty, so we also believe that we can contribute to empowering people from underdeveloped communities by generating accessible educational resources which help people navigate important life decisions.
@@ -36,54 +34,109 @@ const Projects = (props) => {
 
   const theme = useTheme();
 
-  const [projects, setProjects] = useState(props.projects);
-  const [activeProjects, setActiveProjects] = useState("");
+  const [projects, setProjects] = useState(props.projects.data);
+  const [original, setOriginal] = useState(props.projects.data);
   const [filteredProjects, setFilteredProjects] = useState(null);
   const [branchText, setBranchText] = useState("");
 
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
 
+  // const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     setIsMobile(viewport[0]);
   }, [isMobile, viewport]);
 
+  // useEffect(() => {
+  //   fetch(
+  //     "https://cms.educaciondiversa.com/api/projects?populate=*,mainPicture,project_category,department.picture,project_template,campaignPicture,pictures,sustainable_dev_goals.picture,resources,contentDownload"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setOriginal(data.data);
+  //       setProjects(data.data);
+  //       setLoading(false);
+  //     });
+  // }, []);
+
   const colorBlue = theme.colors.main.blue;
 
+  const filterEducation = () => {
+    let filtered = original.filter(
+      (el) =>
+        el.attributes.project_category.data.attributes.title === "EDUCATION"
+    );
+
+    setProjects(filtered);
+    setFilteredProjects("EDUCATION");
+    setBranchText(EducationText);
+  };
+
+  const filterEmpowerment = () => {
+    let filtered = original.filter(
+      (el) =>
+        el.attributes.project_category.data.attributes.title === "EMPOWERMENT"
+    );
+
+    setProjects(filtered);
+    setFilteredProjects("EMPOWERMENT");
+    setBranchText(EmpowermentText);
+  };
+
+  const filterActivism = () => {
+    let filtered = original.filter(
+      (el) =>
+        el.attributes.project_category.data.attributes.title === "ACTIVISM"
+    );
+
+    setProjects(filtered);
+    setFilteredProjects("ACTIVISM");
+    setBranchText(ActivismText);
+  };
+
   function filterByEducation() {
-    if (activeProjects === "education") {
-      setFilteredProjects(null);
-      setActiveProjects("");
-      setBranchText("");
+    if (filteredProjects !== "EDUCATION") {
+      filterEducation();
     } else {
-      setActiveProjects("education");
-      setBranchText(EducationText);
-      setFilteredProjects(educationProjects);
+      setProjects(original);
+      setFilteredProjects(null);
+      setBranchText("");
     }
   }
 
   function filterByEmpowerment() {
-    if (activeProjects === "empowerment") {
-      setFilteredProjects(null);
-      setActiveProjects("");
-      setBranchText("");
+    if (filteredProjects !== "EMPOWERMENT") {
+      filterEmpowerment();
     } else {
-      setActiveProjects("empowerment");
-      setBranchText(EmpowermentText);
-      setFilteredProjects(empowermentProjects);
+      setProjects(original);
+      setFilteredProjects(null);
+      setBranchText("");
     }
   }
 
   function filterByActivism() {
-    if (activeProjects === "activism") {
-      setFilteredProjects(null);
-      setActiveProjects("");
-      setBranchText("");
+    if (filteredProjects !== "ACTIVISM") {
+      filterActivism();
     } else {
-      setActiveProjects("activism");
-      setBranchText(ActivismText);
-      setFilteredProjects(activismProjects);
+      setProjects(original);
+      setFilteredProjects(null);
+      setBranchText("");
     }
+  }
+
+  if (false) {
+    return (
+      <Flex h="80vh" alignItems="center" justifyContent="center">
+        <Image
+          unoptimized={true}
+          width={25}
+          height={25}
+          src="/images/static/assets/loader.gif"
+          alt="loading..."
+        />
+      </Flex>
+    );
   }
 
   return (
@@ -125,7 +178,7 @@ const Projects = (props) => {
           <Button
             minWidth={isMobile ? "100px" : "200px"}
             variant={
-              activeProjects === "education"
+              filteredProjects === "EDUCATION"
                 ? "projectsButtonActive"
                 : "projectsButton"
             }
@@ -159,7 +212,7 @@ const Projects = (props) => {
           <Button
             minWidth={isMobile ? "100px" : "200px"}
             variant={
-              activeProjects === "activism"
+              filteredProjects === "ACTIVISM"
                 ? "projectsButtonActive"
                 : "projectsButton"
             }
@@ -193,7 +246,7 @@ const Projects = (props) => {
           <Button
             minWidth={isMobile ? "100px" : "200px"}
             variant={
-              activeProjects === "empowerment"
+              filteredProjects === "EMPOWERMENT"
                 ? "projectsButtonActive"
                 : "projectsButton"
             }
@@ -229,42 +282,30 @@ const Projects = (props) => {
       {!isMobile && (
         <Box m="50px 10%">
           <Grid templateColumns="repeat(4, 1fr)" gap={6} minHeight="782px">
-            {filteredProjects &&
-              filteredProjects.map((project) => (
-                <GridItem key={project.id}>
-                  <ProjectTile project={project} />
-                </GridItem>
-              ))}
-            {!filteredProjects &&
-              projects.map((project) => (
-                <GridItem key={project.id}>
-                  <ProjectTile project={project} />
-                </GridItem>
-              ))}
+            {projects
+              ? projects.map((project) => (
+                  <GridItem key={project.id}>
+                    <ProjectTile project={project} />
+                  </GridItem>
+                ))
+              : null}
           </Grid>
         </Box>
       )}
+
       {isMobile && (
         <Box m="50px 5%">
           <Flex overflowX="scroll" h="420px">
-            {filteredProjects &&
-              filteredProjects.map((project) => (
-                <ProjectTile
-                  key={project.id}
-                  mr="10px"
-                  project={project}
-                  isMobile
-                />
-              ))}
-            {!filteredProjects &&
-              projects.map((project) => (
-                <ProjectTile
-                  key={project.id}
-                  mr="10px"
-                  project={project}
-                  isMobile
-                />
-              ))}
+            {projects
+              ? projects.map((project) => (
+                  <ProjectTile
+                    key={project.id}
+                    mr="10px"
+                    project={project}
+                    isMobile
+                  />
+                ))
+              : null}
           </Flex>
         </Box>
       )}
@@ -275,26 +316,11 @@ const Projects = (props) => {
 export default Projects;
 
 export async function getStaticProps() {
-  const publishedProjects = projects.filter(
-    (project) => project.published === true
-  );
-
-  const educationProjects = publishedProjects
-    .filter((project) => project.category === "EDUCATION")
-    .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
-  const empowermentProjects = publishedProjects
-    .filter((project) => project.category === "EMPOWERMENT")
-    .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
-  const activismProjects = publishedProjects
-    .filter((project) => project.category === "ACTIVISM")
-    .sort((a, b) => parseFloat(a.order) - parseFloat(b.order));
+  let projects = await getProjects();
 
   return {
     props: {
-      projects: publishedProjects,
-      educationProjects: educationProjects,
-      empowermentProjects: empowermentProjects,
-      activismProjects: activismProjects,
+      projects,
     },
   };
 }

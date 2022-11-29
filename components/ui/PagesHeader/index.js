@@ -6,11 +6,7 @@ import Link from "next/link";
 import useTheme from "../../../hooks/useTheme";
 import useViewport from "../../../hooks/useViewport";
 
-export default function PagesHeader({
-  background,
-  isProject = false,
-  ...props
-}) {
+export default function PagesHeader({ background, ...props }) {
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
 
@@ -20,10 +16,10 @@ export default function PagesHeader({
 
   const theme = useTheme();
 
-  const { text0, text1, text2, text3, cta, ctaTarget } = props;
+  const { text0, text1, text2, text3, cta, ctaTarget, projectTitle } = props;
   return (
     <Box
-      minHeight={isMobile ? "150px" : isProject ? "1000px" : "450px"}
+      minHeight={isMobile ? "150px" : "450px"}
       backgroundImage={background}
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
@@ -32,14 +28,15 @@ export default function PagesHeader({
       justifyContent="center"
       alignItems="center"
       backgroundPosition="center"
+      order="0"
     >
-      {text0 && (
+      {text0 ? (
         <Text color="white" textTransform="uppercase">
           {text0}
         </Text>
-      )}
+      ) : null}
 
-      {text1 && (
+      {text1 ? (
         <Text
           variant={isMobile ? "titleMobile" : "h1"}
           color={background ? "white" : theme.colors.main.blue}
@@ -49,9 +46,9 @@ export default function PagesHeader({
         >
           {text1}
         </Text>
-      )}
+      ) : null}
 
-      {text2 && (
+      {text2 ? (
         <Text
           variant={isMobile ? "mobileMainSubTitle" : "mainSubTitle"}
           color="white"
@@ -60,18 +57,31 @@ export default function PagesHeader({
         >
           {text2}
         </Text>
-      )}
+      ) : null}
 
-      {text3 && (
+      {text3 ? (
         <Text
           variant="normal"
           color={background ? "white" : theme.colors.main.blue}
           maxWidth={isMobile ? "95%" : "50%"}
           dangerouslySetInnerHTML={{ __html: text3 }}
         />
-      )}
+      ) : null}
 
-      {ctaTarget && cta && (
+      {projectTitle ? (
+        <Text
+          as="h1"
+          color="white"
+          fontSize="120px"
+          fontFamily="Just Another Hand"
+          pt="50px"
+          textShadow="0 0 .4em rgba(0,0,0, .4)"
+        >
+          {projectTitle}
+        </Text>
+      ) : null}
+
+      {ctaTarget && cta ? (
         <Link href={ctaTarget}>
           <a>
             <Button
@@ -82,7 +92,7 @@ export default function PagesHeader({
             </Button>
           </a>
         </Link>
-      )}
+      ) : null}
     </Box>
   );
 }

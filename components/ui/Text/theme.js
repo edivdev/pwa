@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import theme from "../../theme";
 
 export default {
@@ -44,6 +45,12 @@ export default {
       fontWeight: "700",
       fontSize: "44px",
       lineHeight: "60.72px",
+    },
+    h2: {
+      fontWeight: "700",
+      fontSize: "34px",
+      lineHeight: "60.72px",
+      textAlign: "center",
     },
     titleMobile: {
       fontWeight: "700",

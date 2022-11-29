@@ -29,6 +29,8 @@ const MainSlider = () => {
           layout="fill"
           objectFit={isMobile ? "cover" : "contain"}
           alt="background"
+          priority
+          margin="auto"
         />
       </Box>
       <Box zIndex="1" w={isMobile ? "100vw" : "50vw"} px="6%" mt="5%">

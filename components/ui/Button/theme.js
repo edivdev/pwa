@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import theme from "../../theme";
 
 export default {
@@ -49,6 +50,14 @@ export default {
       borderRadius: "6px",
       border: `2px solid ${theme.colors.main.blue}`,
       margin: "0 5px",
+    }),
+    projectsDownloadButton: ({ theme }) => ({
+      height: "30px",
+      borderRadius: "12px",
+      border: `2px solid ${theme.colors.main.blue}`,
+      margin: "5px",
+      backgroundColor: `${theme.colors.main.blue}`,
+      color: `${theme.colors.main.white}`,
     }),
     projectsButtonActive: ({ theme }) => ({
       background: theme.colors.main.lightblue,
