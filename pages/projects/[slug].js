@@ -36,7 +36,7 @@ export default function ProjectDetail(props) {
     contentDownload,
   } = project.attributes;
 
-  console.log(project_template, "0999");
+  // console.log(project_template, "0999");
 
   const background = mainPicture.data.attributes.url;
 

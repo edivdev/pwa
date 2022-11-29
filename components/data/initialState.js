@@ -809,7 +809,16 @@ export const members = [
     For the last seven years he has been dedicated to the management, construction and development of internet spaces, software, and cloud computing.
     Felipe joined Educacion Diversa with the desire to make technology accessible and easy for others and to participate in activities that allow them to generate solutions to technical problems and gain experience and learn new things.`,
   },
-
+  {
+    id: 8,
+    fname: "Liliana",
+    lname: "Gómez",
+    pic: "/images/static/board/lilianagomez.jpg",
+    position: "BOARD MEMBER",
+    bio: `Felipe Estrada was born in Bogotá with a particular liking for technology and computing from an early age, he obtained a bachelor's degree in sound and acoustic engineering.
+    For the last seven years he has been dedicated to the management, construction and development of internet spaces, software, and cloud computing.
+    Felipe joined Educacion Diversa with the desire to make technology accessible and easy for others and to participate in activities that allow them to generate solutions to technical problems and gain experience and learn new things.`,
+  },
   {
     id: 9,
     fname: "Selene",

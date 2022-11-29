@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Box } from "@chakra-ui/react";
 
 export default function Sdg({ sdg, isMobile }) {
-  console.log(sdg);
+  // console.log(sdg);
   return (
     <Box
       w={isMobile ? "40px" : "92px"}
