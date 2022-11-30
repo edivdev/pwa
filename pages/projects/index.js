@@ -34,8 +34,8 @@ const Projects = (props) => {
 
   const theme = useTheme();
 
-  const [projects, setProjects] = useState(props.projects.data);
-  const [original, setOriginal] = useState(props.projects.data);
+  const [projects, setProjects] = useState(props.projects);
+  const [original, setOriginal] = useState(props.projects);
   const [filteredProjects, setFilteredProjects] = useState(null);
   const [branchText, setBranchText] = useState("");
 
@@ -317,10 +317,13 @@ export default Projects;
 
 export async function getStaticProps() {
   let projects = await getProjects();
+  let sortedProjects = projects.data.sort(
+    (a, b) => parseFloat(a.attributes.order) - parseFloat(b.attributes.order)
+  );
 
   return {
     props: {
-      projects,
+      projects: sortedProjects,
     },
   };
 }
