@@ -58,8 +58,7 @@ export async function getStaticProps() {
   // const projects = [];
 
   const projects = (await getFeaturedProjects()) || [];
-  // const blogs = (await getBlogs()) || [];
-  const blogs = [];
+  const blogs = (await getBlogs()) || [];
 
   const educationProjects = projects
     .filter(
