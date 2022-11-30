@@ -11,7 +11,6 @@ import ProjectsIntro from "../../components/homepage/HomeProjects/ProjectsIntro"
 import { getProjects } from "../../lib/cmsClient";
 
 const Projects = (props) => {
-  console.log(props.projects);
   const EmpowermentText = `Our empowerment projects engage children, young people and adults with the aim of giving them the resources, ideas and creative space to really reflect on the topics we are teaching about, whilst at the same time, healing and finding a therapeutic space due to the nature of the activities being art-based.  
   <br/><br/>
   Many of our projects result in resources for people to support their learning.  These learning resources are sold through our website to raise money for educational projects in underdeveloped countries.  We do however, also understand that it can be extremely hard to empower people who live in a cycle of poverty, so we also believe that we can contribute to empowering people from underdeveloped communities by generating accessible educational resources which help people navigate important life decisions.
