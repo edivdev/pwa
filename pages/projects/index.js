@@ -11,6 +11,7 @@ import ProjectsIntro from "../../components/homepage/HomeProjects/ProjectsIntro"
 import { getProjects } from "../../lib/cmsClient";
 
 const Projects = (props) => {
+  console.log(props.projects);
   const EmpowermentText = `Our empowerment projects engage children, young people and adults with the aim of giving them the resources, ideas and creative space to really reflect on the topics we are teaching about, whilst at the same time, healing and finding a therapeutic space due to the nature of the activities being art-based.  
   <br/><br/>
   Many of our projects result in resources for people to support their learning.  These learning resources are sold through our website to raise money for educational projects in underdeveloped countries.  We do however, also understand that it can be extremely hard to empower people who live in a cycle of poverty, so we also believe that we can contribute to empowering people from underdeveloped communities by generating accessible educational resources which help people navigate important life decisions.
@@ -34,8 +35,8 @@ const Projects = (props) => {
 
   const theme = useTheme();
 
-  const [projects, setProjects] = useState(props.projects.data);
-  const [original, setOriginal] = useState(props.projects.data);
+  const [projects, setProjects] = useState(props.projects);
+  const [original, setOriginal] = useState(props.projects);
   const [filteredProjects, setFilteredProjects] = useState(null);
   const [branchText, setBranchText] = useState("");
 
@@ -317,10 +318,13 @@ export default Projects;
 
 export async function getStaticProps() {
   let projects = await getProjects();
+  let sortedProjects = projects.data.sort(
+    (a, b) => parseFloat(a.attributes.order) - parseFloat(b.attributes.order)
+  );
 
   return {
     props: {
-      projects,
+      projects: sortedProjects,
     },
   };
 }
