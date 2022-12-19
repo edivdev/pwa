@@ -1,27 +1,32 @@
-import axios from "axios";
-
+import { transporter } from "../../../lib/emailService/transport";
 export default async function handler(req, res) {
-  try {
-    const reqAuth = await axios.post(
-      process.env.BACKEND_URL + "/api/auth/local",
-      {
-        identifier: process.env.WEBSITE_USER,
-        password: process.env.WEBSITE_USER_PASSWORD,
-      }
-    );
+  if (req.method === "POST") {
+    const { name, email, organization, phone, orgName, request, message } =
+      req.body.data;
 
-    const data = await axios.post(
-      process.env.BACKEND_URL + "/api/contacts",
-      req.body,
-      {
-        headers: {
-          Accept: "application/json",
-          Authorization: "Bearer " + reqAuth.data.jwt,
-        },
-      }
-    );
-    return res.status(200).json(data);
-  } catch (error) {
-    res.json(error);
+    const mailData = {
+      from: "EDUCACION DIVERSA WEBSITE",
+      to: process.env.CONTACT_EMAIL_TARGET_ADDRESS,
+      subject: "New contact message from website",
+      html: `
+    <div>
+        This is a new contact form message from ED website<br/><br/>
+        Fullname: ${name}<br/>
+        Email: ${email}<br/>
+        Organization Type: ${organization}<br/>
+        Phone: ${phone}<br/>
+        Organization Name: ${orgName}<br/>
+        How can we help: ${request}<br/>
+        Message: ${message}<br/>
+    </div>
+          `,
+    };
+
+    transporter.sendMail(mailData, function (err, info) {
+      if (err) console.log(err);
+      else console.log(info);
+    });
+
+    return res.status(200);
   }
 }
