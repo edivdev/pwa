@@ -1,14 +1,9 @@
 import MainSlider from "../components/homepage/MainSlider";
-
 import HomeProjects from "../components/homepage/HomeProjects";
-
-import { blogs } from "../components/data/initialState";
 import EducationPortalSection from "../components/homepage/EducationPortal";
 import TwoSideCallToAction from "../components/homepage/TwoSideCallToAction";
 import HomeBlog from "../components/homepage/HomeBlog";
 import { getBlogs, getFeaturedProjects } from "../lib/cmsClient";
-
-import axios from "axios";
 
 export default function homePage(props) {
   const {
@@ -54,9 +49,6 @@ export default function homePage(props) {
 }
 
 export async function getStaticProps() {
-  // intentar llamar a todos los lugares y traer lo necesario en _app.js de modo que lo apendeamos al props y lo jalamos de las paginas
-  // const projects = [];
-
   const projects = (await getFeaturedProjects()) || [];
   const blogs = (await getBlogs()) || [];
 
