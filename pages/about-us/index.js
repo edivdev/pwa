@@ -50,7 +50,7 @@ export default function AboutUsPage(props) {
         imageHeight="507"
       />
       <TwoSideCallToAction
-        content="Connect people and provide opportunities for skilled volunteers to contribute to the equality of education for people in underdeveloped countries and build a future in which people are all given access to free inclusive fun education."
+        content="Empowering people through art based education in diverse topics"
         image="/images/static/about/vision.png"
         title="Our Vision"
         imageWidth="761"
