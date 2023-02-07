@@ -4,6 +4,7 @@ import PagesHeader from "../../components/ui/PagesHeader";
 import Text from "../../components/ui/Text";
 import useViewport from "../../hooks/useViewport";
 import { getBlogs } from "../../lib/cmsClient";
+import Head from "next/head";
 
 export default function BlogDetail(props) {
   const { blog } = props;
@@ -21,33 +22,38 @@ export default function BlogDetail(props) {
   }, [isMobile, viewport]);
 
   return (
-    <section id="blog-entry">
-      <PagesHeader
-        background={pictureUrl ? pictureUrl : "https://none.com/asd"}
-      />
-      {departmentName ? (
-        <Box px="8%" textAlign="right">
-          <Text>
-            Written by: <b>{author}</b>
-            <br />
-            {departmentName} department
-          </Text>
+    <>
+      <Head>
+        <title>Blog | {title}</title>
+      </Head>
+      <section id="blog-entry">
+        <PagesHeader
+          background={pictureUrl ? pictureUrl : "https://none.com/asd"}
+        />
+        {departmentName ? (
+          <Box px="8%" textAlign="right">
+            <Text>
+              Written by: <b>{author}</b>
+              <br />
+              {departmentName} department
+            </Text>
+          </Box>
+        ) : null}
+        <Box px={isMobile ? "8%" : "25%"}>
+          <Box my="5%" textAlign="center">
+            <h1>
+              <Text variant={isMobile ? "titleMobile" : "h1"}>{title}</Text>
+            </h1>
+          </Box>
+          <Box my="5%">
+            <Box
+              textAlign="justify"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+          </Box>
         </Box>
-      ) : null}
-      <Box px={isMobile ? "8%" : "25%"}>
-        <Box my="5%" textAlign="center">
-          <h1>
-            <Text variant={isMobile ? "titleMobile" : "h1"}>{title}</Text>
-          </h1>
-        </Box>
-        <Box my="5%">
-          <Box
-            textAlign="justify"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-        </Box>
-      </Box>
-    </section>
+      </section>
+    </>
   );
 }
 

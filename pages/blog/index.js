@@ -5,6 +5,7 @@ import PagesHeader from "../../components/ui/PagesHeader";
 import BlogTile from "../../components/blog/BlogTile";
 import useViewport from "../../hooks/useViewport";
 import { getBlogs } from "../../lib/cmsClient";
+import Head from "next/head";
 
 export default function BlogIndexPage(props) {
   const viewport = useViewport();
@@ -18,6 +19,9 @@ export default function BlogIndexPage(props) {
 
   return (
     <>
+      <Head>
+        <title>Blog</title>
+      </Head>
       <PagesHeader
         text1="BLOG"
         text3="This area of our website is a shared space for our volunteers to publish their voices and opinions so that they can be heard on our global platform. It also allows us to publicly recognise their contribution to our work.<br/><br/>Members of our collective are encouraged to contribute content that focuses on, or supports the provision of education in the areas of <b>Human Rights</b>, <b>Eliminating Violence and Peaceful Conflict Management and Sexual</b> and <b>Reproductive Health</b>"

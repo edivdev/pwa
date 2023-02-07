@@ -9,6 +9,7 @@ import BoardMembers from "../../components/about-us/boardMembers";
 import Popup from "../../components/ui/Popup";
 import useViewport from "../../hooks/useViewport";
 import { changesForClosePopUp } from "../../helpers/domManipulations";
+import Head from "next/head";
 
 export default function AboutUsPage(props) {
   const viewport = useViewport();
@@ -36,6 +37,9 @@ export default function AboutUsPage(props) {
 
   return (
     <>
+      <Head>
+        <title>About Us</title>
+      </Head>
       <PagesHeader
         background="/images/static/backgrounds/BLUE_BACKGROUND.jpg"
         text0="educación diversa"

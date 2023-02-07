@@ -5,6 +5,7 @@ import SectionsTitle from "../../components/ui/SectionsTitle";
 import ContactForm from "../../components/contact/contact-form";
 import PagesHeader from "../../components/ui/PagesHeader";
 import useViewport from "../../hooks/useViewport";
+import Head from "next/head";
 
 export default function ContactPage() {
   const viewport = useViewport();
@@ -15,21 +16,26 @@ export default function ContactPage() {
   }, [isMobile, viewport]);
 
   return (
-    <section>
-      <PagesHeader
-        background="/images/static/contact/header.png"
-        text1="Contact Us"
-      />
-      <Box p="5%">
-        <SectionsTitle title="Send us a Message" center />
+    <>
+      <Head>
+        <title>Contact</title>
+      </Head>
+      <section>
+        <PagesHeader
+          background="/images/static/contact/header.png"
+          text1="Contact Us"
+        />
+        <Box p="5%">
+          <SectionsTitle title="Send us a Message" center />
 
-        <Box w={isMobile ? "100%" : "60%"} display="block" m="auto">
-          <Box display="flex" flexDirection="column" alignItems="center">
-            <Text variant="normal">* required fields</Text>
-            <ContactForm isMobile={isMobile} />
+          <Box w={isMobile ? "100%" : "60%"} display="block" m="auto">
+            <Box display="flex" flexDirection="column" alignItems="center">
+              <Text variant="normal">* required fields</Text>
+              <ContactForm isMobile={isMobile} />
+            </Box>
           </Box>
         </Box>
-      </Box>
-    </section>
+      </section>
+    </>
   );
 }
