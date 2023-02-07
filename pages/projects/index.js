@@ -9,6 +9,7 @@ import Text from "../../components/ui/Text";
 import useViewport from "../../hooks/useViewport";
 import ProjectsIntro from "../../components/homepage/HomeProjects/ProjectsIntro";
 import { getProjects } from "../../lib/cmsClient";
+import Head from "next/head";
 
 const Projects = (props) => {
   const EmpowermentText = `Our empowerment projects engage children, young people and adults with the aim of giving them the resources, ideas and creative space to really reflect on the topics we are teaching about, whilst at the same time, healing and finding a therapeutic space due to the nature of the activities being art-based.  
@@ -140,176 +141,181 @@ const Projects = (props) => {
   }
 
   return (
-    <section>
-      <PagesHeader
-        background="/images/static/backgrounds/BLUE_BACKGROUND.jpg"
-        text0="educación diversa"
-        text1="PROJECTS"
-      />
+    <>
+      <Head>
+        <title>Projects</title>
+      </Head>
+      <section>
+        <PagesHeader
+          background="/images/static/backgrounds/BLUE_BACKGROUND.jpg"
+          text0="educación diversa"
+          text1="PROJECTS"
+        />
 
-      <Flex pt="50px" px="10%" justifyContent="center">
-        <Box textAlign="center">
-          <Text as="h1" variant="h1" pb="4%">
-            Our Projects
-          </Text>
+        <Flex pt="50px" px="10%" justifyContent="center">
+          <Box textAlign="center">
+            <Text as="h1" variant="h1" pb="4%">
+              Our Projects
+            </Text>
 
-          <ProjectsIntro
-            filteredProjects={filteredProjects}
-            branchText={branchText}
-          />
-        </Box>
-      </Flex>
-
-      <Box pt="5%" display="flex" justifyContent="center">
-        <Text textAlign="center" variant="normal">
-          <b>
-            Stay tuned into the website to see all of our projects launch over
-            the next 12 months!
-          </b>
-        </Text>
-      </Box>
-
-      <Box my="50px" textAlign="center" fontSize="12px">
-        FILTER BY CATEGORY
-      </Box>
-
-      <Box p="5% 10% 2%">
-        <Flex justifyContent="center">
-          <Button
-            minWidth={isMobile ? "100px" : "200px"}
-            variant={
-              filteredProjects === "EDUCATION"
-                ? "projectsButtonActive"
-                : "projectsButton"
-            }
-            onClick={filterByEducation}
-          >
-            <Flex
-              w="100%"
-              justifyContent="space-evenly"
-              alignItems="center"
-              h="100%"
-              flexDirection={isMobile ? "column" : "row"}
-            >
-              <Box
-                position="relative"
-                width={isMobile ? "25px" : "40px"}
-                height={isMobile ? "25px" : "40px"}
-              >
-                <Image
-                  src="/images/static/assets/icon_education_blue.png"
-                  alt="education"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-              <Text mt="10px" variant="projectsButton" color={colorBlue}>
-                EDUCATION
-              </Text>
-            </Flex>
-          </Button>
-
-          <Button
-            minWidth={isMobile ? "100px" : "200px"}
-            variant={
-              filteredProjects === "ACTIVISM"
-                ? "projectsButtonActive"
-                : "projectsButton"
-            }
-            onClick={filterByActivism}
-          >
-            <Flex
-              w="100%"
-              justifyContent="space-evenly"
-              alignItems="center"
-              h="100%"
-              flexDirection={isMobile ? "column" : "row"}
-            >
-              <Box
-                position="relative"
-                width={isMobile ? "25px" : "40px"}
-                height={isMobile ? "25px" : "40px"}
-              >
-                <Image
-                  src="/images/static/assets/icon_activism_blue.png"
-                  alt="education"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-              <Text mt="10px" variant="projectsButton" color={colorBlue}>
-                ACTIVISM
-              </Text>
-            </Flex>
-          </Button>
-
-          <Button
-            minWidth={isMobile ? "100px" : "200px"}
-            variant={
-              filteredProjects === "EMPOWERMENT"
-                ? "projectsButtonActive"
-                : "projectsButton"
-            }
-            onClick={filterByEmpowerment}
-          >
-            <Flex
-              w="100%"
-              justifyContent="space-evenly"
-              alignItems="center"
-              h="100%"
-              flexDirection={isMobile ? "column" : "row"}
-            >
-              <Box
-                position="relative"
-                width={isMobile ? "25px" : "40px"}
-                height={isMobile ? "25px" : "40px"}
-              >
-                <Image
-                  src="/images/static/assets/icon_empowerment_blue.png"
-                  alt="education"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-              <Text mt="10px" variant="projectsButton" color={colorBlue}>
-                EMPOWERMENT
-              </Text>
-            </Flex>
-          </Button>
+            <ProjectsIntro
+              filteredProjects={filteredProjects}
+              branchText={branchText}
+            />
+          </Box>
         </Flex>
-      </Box>
 
-      {!isMobile && (
-        <Box m="50px 10%">
-          <Grid templateColumns="repeat(4, 1fr)" gap={6} minHeight="782px">
-            {projects
-              ? projects.map((project) => (
-                  <GridItem key={project.id}>
-                    <ProjectTile project={project} />
-                  </GridItem>
-                ))
-              : null}
-          </Grid>
+        <Box pt="5%" display="flex" justifyContent="center">
+          <Text textAlign="center" variant="normal">
+            <b>
+              Stay tuned into the website to see all of our projects launch over
+              the next 12 months!
+            </b>
+          </Text>
         </Box>
-      )}
 
-      {isMobile && (
-        <Box m="50px 5%">
-          <Flex overflowX="scroll" h="420px">
-            {projects
-              ? projects.map((project) => (
-                  <ProjectTile
-                    key={project.id}
-                    mr="10px"
-                    project={project}
-                    isMobile
+        <Box my="50px" textAlign="center" fontSize="12px">
+          FILTER BY CATEGORY
+        </Box>
+
+        <Box p="5% 10% 2%">
+          <Flex justifyContent="center">
+            <Button
+              minWidth={isMobile ? "100px" : "200px"}
+              variant={
+                filteredProjects === "EDUCATION"
+                  ? "projectsButtonActive"
+                  : "projectsButton"
+              }
+              onClick={filterByEducation}
+            >
+              <Flex
+                w="100%"
+                justifyContent="space-evenly"
+                alignItems="center"
+                h="100%"
+                flexDirection={isMobile ? "column" : "row"}
+              >
+                <Box
+                  position="relative"
+                  width={isMobile ? "25px" : "40px"}
+                  height={isMobile ? "25px" : "40px"}
+                >
+                  <Image
+                    src="/images/static/assets/icon_education_blue.png"
+                    alt="education"
+                    layout="fill"
+                    objectFit="contain"
                   />
-                ))
-              : null}
+                </Box>
+                <Text mt="10px" variant="projectsButton" color={colorBlue}>
+                  EDUCATION
+                </Text>
+              </Flex>
+            </Button>
+
+            <Button
+              minWidth={isMobile ? "100px" : "200px"}
+              variant={
+                filteredProjects === "ACTIVISM"
+                  ? "projectsButtonActive"
+                  : "projectsButton"
+              }
+              onClick={filterByActivism}
+            >
+              <Flex
+                w="100%"
+                justifyContent="space-evenly"
+                alignItems="center"
+                h="100%"
+                flexDirection={isMobile ? "column" : "row"}
+              >
+                <Box
+                  position="relative"
+                  width={isMobile ? "25px" : "40px"}
+                  height={isMobile ? "25px" : "40px"}
+                >
+                  <Image
+                    src="/images/static/assets/icon_activism_blue.png"
+                    alt="education"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </Box>
+                <Text mt="10px" variant="projectsButton" color={colorBlue}>
+                  ACTIVISM
+                </Text>
+              </Flex>
+            </Button>
+
+            <Button
+              minWidth={isMobile ? "100px" : "200px"}
+              variant={
+                filteredProjects === "EMPOWERMENT"
+                  ? "projectsButtonActive"
+                  : "projectsButton"
+              }
+              onClick={filterByEmpowerment}
+            >
+              <Flex
+                w="100%"
+                justifyContent="space-evenly"
+                alignItems="center"
+                h="100%"
+                flexDirection={isMobile ? "column" : "row"}
+              >
+                <Box
+                  position="relative"
+                  width={isMobile ? "25px" : "40px"}
+                  height={isMobile ? "25px" : "40px"}
+                >
+                  <Image
+                    src="/images/static/assets/icon_empowerment_blue.png"
+                    alt="education"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </Box>
+                <Text mt="10px" variant="projectsButton" color={colorBlue}>
+                  EMPOWERMENT
+                </Text>
+              </Flex>
+            </Button>
           </Flex>
         </Box>
-      )}
-    </section>
+
+        {!isMobile && (
+          <Box m="50px 10%">
+            <Grid templateColumns="repeat(4, 1fr)" gap={6} minHeight="782px">
+              {projects
+                ? projects.map((project) => (
+                    <GridItem key={project.id}>
+                      <ProjectTile project={project} />
+                    </GridItem>
+                  ))
+                : null}
+            </Grid>
+          </Box>
+        )}
+
+        {isMobile && (
+          <Box m="50px 5%">
+            <Flex overflowX="scroll" h="420px">
+              {projects
+                ? projects.map((project) => (
+                    <ProjectTile
+                      key={project.id}
+                      mr="10px"
+                      project={project}
+                      isMobile
+                    />
+                  ))
+                : null}
+            </Flex>
+          </Box>
+        )}
+      </section>
+    </>
   );
 };
 
