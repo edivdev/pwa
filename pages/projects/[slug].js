@@ -12,6 +12,7 @@ import Loading from "../../components/ui/Loading";
 import TemplateOne from "../../components/ui/ProjectTemplates/TemplateOne";
 import TemplateTwo from "../../components/ui/ProjectTemplates/TemplateTwo";
 import ProjectFooter from "../../components/project/ProjectFooter";
+import Head from "next/head";
 
 export default function ProjectDetail(props) {
   const { project } = props;
@@ -49,54 +50,67 @@ export default function ProjectDetail(props) {
 
   if (project_template.data === null) {
     return (
-      <section>
-        <PagesHeader background={background} />
+      <>
+        <Head>
+          <title>Project | {title}</title>
+        </Head>
+        <section>
+          <PagesHeader background={background} />
 
-        <Box px={isMobile ? "8%" : "25%"}>
-          <Box my="5%" textAlign="center">
-            <h1>
-              <Text variant={isMobile ? "titleMobile" : "h1"}>{title}</Text>
-            </h1>
+          <Box px={isMobile ? "8%" : "25%"}>
+            <Box my="5%" textAlign="center">
+              <h1>
+                <Text variant={isMobile ? "titleMobile" : "h1"}>{title}</Text>
+              </h1>
+            </Box>
+            <Box my="5%">
+              <Box
+                textAlign="justify"
+                dangerouslySetInnerHTML={{ __html: campaignText }}
+              />
+              <br />
+              <br />
+              <p>More information coming soon...</p>
+            </Box>
           </Box>
-          <Box my="5%">
-            <Box
-              textAlign="justify"
-              dangerouslySetInnerHTML={{ __html: campaignText }}
-            />
-            <br />
-            <br />
-            <p>More information coming soon...</p>
-          </Box>
-        </Box>
-      </section>
+        </section>
+      </>
     );
   }
 
   if (project_template.data.attributes.name === "templateOne") {
     return (
-      <TemplateOne
-        isMobile={isMobile}
-        background={background}
-        title={title}
-        campaignText={campaignText}
-        campaignPicture={campaignPicture}
-        contentOne={contentOne}
-        contentTwo={contentTwo}
-        contentThree={contentThree}
-        pictures={pictures}
-        sustainable_dev_goals={sustainable_dev_goals}
-        department={department}
-        category={project_category}
-        subtitle={subtitle}
-        documents={resources}
-        contentDownload={contentDownload}
-      />
+      <>
+        <Head>
+          <title>Project | {title}</title>
+        </Head>
+        <TemplateOne
+          isMobile={isMobile}
+          background={background}
+          title={title}
+          campaignText={campaignText}
+          campaignPicture={campaignPicture}
+          contentOne={contentOne}
+          contentTwo={contentTwo}
+          contentThree={contentThree}
+          pictures={pictures}
+          sustainable_dev_goals={sustainable_dev_goals}
+          department={department}
+          category={project_category}
+          subtitle={subtitle}
+          documents={resources}
+          contentDownload={contentDownload}
+        />
+      </>
     );
   }
 
   if (project_template.data.attributes.name === "templateTwo") {
     return (
       <>
+        <Head>
+          <title>Project | {title}</title>
+        </Head>
         <TemplateTwo
           isMobile={isMobile}
           background={background}

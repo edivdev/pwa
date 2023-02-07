@@ -3,6 +3,7 @@ import PageChanger from "../../components/about-us/pageChanger";
 import PagesHeader from "../../components/ui/PagesHeader";
 import useViewport from "../../hooks/useViewport";
 import Departments from "../../components/about-us/Departments";
+import Head from "next/head";
 
 import { getDepartments } from "../../lib/cmsClient";
 
@@ -17,6 +18,9 @@ export default function ColaborationsPage(props) {
 
   return (
     <>
+      <Head>
+        <title>Our Departments</title>
+      </Head>
       <PagesHeader
         background="/images/static/backgrounds/BLUE_BACKGROUND.jpg"
         text0="educación diversa"
