@@ -72,7 +72,7 @@ export default function WhatWeDoPageContent({ goals }) {
         px="5%"
         flexDirection={isMobile ? "column" : "row"}
       >
-        <Box w={isMobile ? "100%" : "50%"} p={isMobile ? "0" : "10% 8%"}>
+        <Box w={isMobile ? "100%" : "50%"} p={isMobile ? "0" : "10% 8%"} id="ceo">
           <Box w="auto" h={isMobile ? "455px" : "310px"} position="relative">
             <Image
               src="/images/static/about/LaurenVideo.jpg"
@@ -84,7 +84,7 @@ export default function WhatWeDoPageContent({ goals }) {
             />
           </Box>
         </Box>
-        <Box w={isMobile ? "100%" : "50%"} id="ceo">
+        <Box w={isMobile ? "100%" : "50%"}>
           <Flex flexDirection="column" p="5%" h="100%" justifyContent="center">
             <Text fontWeight="900" fontSize="25px">
               Lauren Cannell
