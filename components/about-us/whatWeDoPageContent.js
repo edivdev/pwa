@@ -84,7 +84,7 @@ export default function WhatWeDoPageContent({ goals }) {
             />
           </Box>
         </Box>
-        <Box w={isMobile ? "100%" : "50%"}>
+        <Box w={isMobile ? "100%" : "50%"} id="ceo">
           <Flex flexDirection="column" p="5%" h="100%" justifyContent="center">
             <Text fontWeight="900" fontSize="25px">
               Lauren Cannell
