@@ -323,6 +323,8 @@ export default Projects;
 
 export async function getStaticProps() {
   let projects = await getProjects();
+
+  console.log(projects);
   let sortedProjects = projects.data.sort(
     (a, b) => parseFloat(a.attributes.order) - parseFloat(b.attributes.order)
   );
