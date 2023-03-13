@@ -3,7 +3,7 @@ import SectionsTitle from "../ui/SectionsTitle";
 import Goal from "./Goal";
 import Image from "next/image";
 
-export default function Goals({ goals, isMobile }) {
+export default function Goals({ picture, goals, isMobile }) {
   return (
     <Box maxWidth="900px" m="20px auto">
       <Box textAlign="center">
@@ -15,7 +15,7 @@ export default function Goals({ goals, isMobile }) {
         position="relative"
         margin="auto"
       >
-        <Image src="/images/static/about/goals.png" alt="goals" layout="fill" />
+        <Image src={JSON.parse(picture)} alt="goals" layout="fill" />
       </Box>
       <Box>
         {goals.map((goal) => (

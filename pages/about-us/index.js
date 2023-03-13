@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PageChanger from "../../components/about-us/pageChanger";
 import PagesHeader from "../../components/ui/PagesHeader";
 import TwoSideCallToAction from "../../components/homepage/TwoSideCallToAction";
-import { goals, members } from "../../components/data/initialState";
+import { goals } from "../../components/data/initialState";
 import Goal from "../../components/about-us/Goal";
 import Goals from "../../components/about-us/Goals";
 import BoardMembers from "../../components/about-us/boardMembers";
@@ -10,12 +10,17 @@ import Popup from "../../components/ui/Popup";
 import useViewport from "../../hooks/useViewport";
 import { changesForClosePopUp } from "../../helpers/domManipulations";
 import Head from "next/head";
+import { getAboutUsPageData, getMembers } from "../../lib/cmsClient";
 
 export default function AboutUsPage(props) {
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
 
-  const { goals, members } = props;
+  const { members } = props;
+
+  console.log(props, props.pageData.goals);
+
+  const { Mission, Vision } = props.pageData;
 
   useEffect(() => {
     setIsMobile(viewport[0]);
@@ -47,21 +52,25 @@ export default function AboutUsPage(props) {
       />
       <PageChanger />
       <TwoSideCallToAction
-        content="Give children and adolescents in underdeveloped communities art-based inclusive education about diverse topics to ensure they have the best chance to access opportunities to break their  cycle of poverty."
-        image="/images/static/about/mission.png"
+        content={Mission}
+        image={JSON.parse(props.missionPicture)}
         title="Our Mission"
         imageWidth="761"
         imageHeight="507"
       />
       <TwoSideCallToAction
-        content="Empowering people through art based education in diverse topics"
-        image="/images/static/about/vision.png"
+        content={Vision}
+        image={JSON.parse(props.visionPicture)}
         title="Our Vision"
         imageWidth="761"
         imageHeight="507"
         reverse
       />
-      <Goals goals={goals} isMobile={isMobile} />
+      <Goals
+        picture={props.goalsPicture}
+        goals={props.pageData.goals.data}
+        isMobile={isMobile}
+      />
       <BoardMembers
         isMobile={isMobile}
         members={members}
@@ -79,10 +88,33 @@ export default function AboutUsPage(props) {
 }
 
 export async function getStaticProps() {
+  // go and fetch from api
+
+  const pageData = await getAboutUsPageData();
+  const members = await getMembers();
+  const sortedMembers = members.data.sort((a, b) => a.id - b.id);
+
+  const missionPicture = JSON.stringify(
+    pageData.data.attributes.misionPicture.data.attributes.url
+  );
+  const visionPicture = JSON.stringify(
+    pageData.data.attributes.visionPicture.data.attributes.url
+  );
+
+  const goalsPicture = JSON.stringify(
+    pageData.data.attributes.goalsPicture.data.attributes.url
+  );
+
+  console.log(pageData.data.attributes);
+
   return {
     props: {
-      goals: goals,
-      members: members,
+      members: sortedMembers,
+      // customData: customData,
+      missionPicture,
+      visionPicture,
+      goalsPicture,
+      pageData: pageData.data.attributes,
     },
   };
 }

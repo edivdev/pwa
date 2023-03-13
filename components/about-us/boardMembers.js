@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, GridItem, SimpleGrid } from "@chakra-ui/react";
 import SectionsTitle from "../ui/SectionsTitle";
 import useTheme from "../../hooks/useTheme";
 import MemberCard from "./memberCard";
@@ -10,21 +10,28 @@ export default function BoardMembers({
   setIsPopupShowing,
 }) {
   const theme = useTheme();
+
   return (
     <section>
-      <Box bg={theme.colors.main.babyblue} textAlign="center" py="30px">
+      <Box
+        bg={theme.colors.main.babyblue}
+        textAlign="center"
+        py="30px"
+        px="10%"
+      >
         <SectionsTitle title="Board" />
         {!isMobile && (
-          <Flex flexWrap="wrap" justifyContent="center">
+          <SimpleGrid columns={5} spacing={0}>
             {members.map((member) => (
-              <MemberCard
-                member={member}
-                key={member.id}
-                setPopupInfo={setPopupInfo}
-                setIsPopupShowing={setIsPopupShowing}
-              />
+              <GridItem key={member.id}>
+                <MemberCard
+                  member={member}
+                  setPopupInfo={setPopupInfo}
+                  setIsPopupShowing={setIsPopupShowing}
+                />
+              </GridItem>
             ))}
-          </Flex>
+          </SimpleGrid>
         )}
         {isMobile && (
           <Box display="flex" overflowX="scroll">
