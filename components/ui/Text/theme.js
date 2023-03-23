@@ -90,14 +90,14 @@ export default {
       textTransform: "uppercase",
     },
     readArticle: {
-      fontSize: "12px",
+      fontSize: "1rem",
       textTransform: "uppercase",
       fontWeight: "900",
     },
     featuredFirstBlog: {
-      fontSize: "42px",
+      fontSize: "32px",
       fontWeight: "900",
-      lineHeight: "45px",
+      lineHeight: "35px",
     },
     featuredSecondaryBlog: {
       fontSize: "21px",

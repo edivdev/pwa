@@ -20,21 +20,27 @@ export default function SecondaryFeaturedBlog({ classname, blogEntry }) {
           />
         </Box>
 
-        <Box px="5%">
-          <Text variant="featuredSecondaryBlog">
+        <Box px="1%">
+          <Text
+            lineHeight="1em"
+            fontSize="16px"
+            variant="featuredSecondaryBlog"
+          >
             {blogEntry?.attributes.title}
           </Text>
         </Box>
 
-        <Box px="5%" h="100px" overflow="hidden" textOverflow="ellipsis">
-          <Text variant="normal">{blogEntry?.attributes.excerpt}</Text>
+        <Box p="1%" px="5%" h="140px" overflow="scroll" textOverflow="ellipsis">
+          <Text fontSize="15px" lineHeight="1em" variant="normal">
+            {blogEntry?.attributes.excerpt}
+          </Text>
         </Box>
 
         <Box px="5%">
           <Link href={`/blog/${blogEntry?.attributes.slug}`}>
             <a>
               <Flex>
-                <Box mr="5px">
+                <Box mr="5px" fontSize="10px">
                   <Image
                     src="/images/static/assets/right-arrow.png"
                     width={28}

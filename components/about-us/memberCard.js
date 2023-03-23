@@ -10,11 +10,11 @@ export default function MemberCard({
   setIsPopupShowing,
   ...props
 }) {
-  const { pic, fname, lname, position } = member;
+  const { picture, fname, lname, job } = member.attributes;
 
   function clickOnVolunteer() {
     setPopupInfo({
-      picture: member.pic,
+      picture: picture,
       fname: member.fname,
       lname: member.lname,
       country: member.country,
@@ -25,11 +25,11 @@ export default function MemberCard({
   }
 
   return (
-    <Flex {...props} w="322px" h="375px" m="10px" flexDirection="column">
-      <Box h="300px" position="relative">
+    <Flex {...props} w="88%" h="" m="10px auto" flexDirection="column">
+      <Box h="200px" w="100%" position="relative" m="">
         <Image
           className="bnwhite-card-image"
-          src={pic}
+          src={picture.data?.attributes.url}
           layout="fill"
           objectFit="cover"
           alt={member.fname}
@@ -50,7 +50,7 @@ export default function MemberCard({
         </Box>
         <Box mb="20px">
           <Text fontWeight="500" fontSize="18px">
-            {position}
+            {job}
           </Text>
         </Box>
       </Flex>

@@ -37,14 +37,14 @@ export default function BlogTile({ blog }) {
       </Box>
 
       <Box
-        px="5%"
-        h="82px"
+        px="1% 0"
+        h="62px"
         border="4px solid white"
         display="flex"
         justifyContent="center"
         alignItems="center"
       >
-        <Text textAlign="center" variant="blogTile">
+        <Text fontSize="13px" textAlign="center" variant="blogTile">
           <b>{title}</b>
         </Text>
       </Box>

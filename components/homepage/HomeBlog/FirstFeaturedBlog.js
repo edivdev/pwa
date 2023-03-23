@@ -31,7 +31,9 @@ export default function FirstFeaturedBlog({ blogEntry }) {
           overflow="hidden"
           textOverflow="ellipsis"
         >
-          <Text variant="normal">{blogEntry?.attributes.excerpt} </Text>
+          <Text fontSize="22px" variant="normal">
+            {blogEntry?.attributes.excerpt}{" "}
+          </Text>
         </Box>
 
         <Box px="5%">
@@ -41,12 +43,17 @@ export default function FirstFeaturedBlog({ blogEntry }) {
                 <Box mr="5px">
                   <Image
                     src="/images/static/assets/right-arrow.png"
-                    width={28}
-                    height={20}
+                    width={38}
+                    height={30}
                     alt="Read Article"
                   />
                 </Box>
-                <Text variant="readArticle" color={theme.colors.main.blue}>
+                <Text
+                  fontSize="22px"
+                  variant="readArticle"
+                  color={theme.colors.main.blue}
+                  fontWeight="600"
+                >
                   Read Article
                 </Text>
               </Flex>
