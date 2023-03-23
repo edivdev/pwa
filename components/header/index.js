@@ -63,6 +63,7 @@ const Header = () => {
           >
             {menu.map((element) => (
               <MenuItem
+                p="0 20px"
                 key={element.id}
                 element={element}
                 setIsSubMenuOpen={setIsSubMenuOpen}

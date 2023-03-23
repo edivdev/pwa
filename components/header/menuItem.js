@@ -9,6 +9,7 @@ export default function MenuItem({
   element,
   setIsSubMenuOpen,
   setSubMenuElements,
+  ...props
 }) {
   const [parentMenuIsHovered, setParentMenuIsHovered] = useState(false);
   const theme = useTheme();
@@ -26,7 +27,11 @@ export default function MenuItem({
 
   if (element.children) {
     return (
-      <Flex onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseOut}>
+      <Flex
+        {...props}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseOut}
+      >
         <Text
           variant="menuItem"
           fontWeight="bold"
