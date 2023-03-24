@@ -32,9 +32,9 @@ export default function ProjectResources(props) {
               />
             </Box>
             <Box mt="5px">
-              <Box>
+              <Box w="50%" m="auto">
                 <Text fontSize="11px" lineHeight="1em" textAlign="center">
-                  {document.attributes.name}
+                  {document.attributes.alternativeText}
                 </Text>
               </Box>
             </Box>

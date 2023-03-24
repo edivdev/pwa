@@ -11,7 +11,7 @@ export default function ProjectSlider({ settings, children, isMobile }) {
         margin: "0 auto",
         padding: "2px",
         // minWidth: "160px",
-        maxWidth: "150px",
+        maxWidth: "160px",
       }}
     >
       <Slider {...settings}>{children}</Slider>
