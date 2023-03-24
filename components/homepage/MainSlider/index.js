@@ -22,9 +22,9 @@ const MainSlider = () => {
       flexDirection={isMobile ? "column" : "row"}
       alignItems="center"
       justifyContent="center"
-      h="100vh"
+      h="80vh"
       backgroundImage="url(/images/static/backgrounds/BLUE_BACKGROUND.jpg)"
-      p="1em 5em"
+      p="0 1em"
     >
       <Box zIndex="1" w={isMobile ? "100vw" : "50vw"} height="60%" p="2em 1em">
         <Flex flexDirection="column" justifyContent="space-evenly" h="100%">
@@ -67,7 +67,7 @@ const MainSlider = () => {
         </Flex>
       </Box>
 
-      <Box bg="" w={isMobile ? "100%" : "50%"} h="60%">
+      <Box bg="" w={isMobile ? "100%" : "50%"} h="50%">
         <Box bg="" h="100%" w="100%" position="relative">
           <Image
             src="/images/static/home/home-main2.png"
