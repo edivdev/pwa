@@ -62,7 +62,7 @@ export function MobileBlogLayout({ featuredBlogs }) {
           </Box>
 
           <Box px="5%">
-            <Link href={`/blog/${blog.slug}`}>
+            <Link href={`/blog/${blog.attributes.slug}`}>
               <a>
                 <Flex>
                   <Box mr="5px">

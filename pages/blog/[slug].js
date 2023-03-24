@@ -14,6 +14,8 @@ export default function BlogDetail(props) {
   const pictureUrl = pictureData.attributes.url;
   const departmentName = department.data?.attributes?.name || null;
 
+  console.log(blog);
+
   const viewport = useViewport();
   const [isMobile, setIsMobile] = useState(null);
 
