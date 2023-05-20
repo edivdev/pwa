@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import Text from "../ui/Text";
 import { FaAngleDown } from "react-icons/fa";
 import useTheme from "../../hooks/useTheme";
@@ -51,12 +51,14 @@ export default function MenuItem({
   }
 
   return (
-    <Link href={`/${element.slug}`}>
-      <a>
-        <Text variant="menuItem" color="black" fontWeight="bold" as="h5">
-          {element.name}
-        </Text>
-      </a>
-    </Link>
+    <Box {...props}>
+      <Link href={`/${element.slug}`}>
+        <a>
+          <Text variant="menuItem" color="black" fontWeight="bold" as="h5">
+            {element.name}
+          </Text>
+        </a>
+      </Link>
+    </Box>
   );
 }

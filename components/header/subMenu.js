@@ -21,18 +21,12 @@ export default function SubMenu({ submenuElements, setIsSubMenuOpen }) {
       pt="25px"
       bg={theme.colors.main.lightblue}
       position="absolute"
-      top="60px"
-      zIndex="2"
+      top="10.5vh"
+      zIndex="1"
       onMouseEnter={handleMouseIn}
       onMouseLeave={handleMouseOut}
     >
-      <Box
-        display="flex"
-        justifyContent="space-evenly"
-        w="60%"
-        pt="10px"
-        m="auto"
-      >
+      <Box display="flex" justifyContent="space-evenly" w="60%" m="auto">
         {submenuElements.map((element) => {
           return (
             <Box key={element.id}>

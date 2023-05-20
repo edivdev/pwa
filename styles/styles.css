@@ -405,3 +405,19 @@ li {
   display: flex;
   flex-wrap: wrap;
 }
+
+.custom-template h4 {
+  margin: 10px;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.custom-template h3 {
+  margin: 30px 0;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.custom-template li {
+  margin: 10px 20px;
+}
