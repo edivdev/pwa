@@ -19,7 +19,8 @@ export default function PagesHeader({ background, ...props }) {
   const { text0, text1, text2, text3, cta, ctaTarget, projectTitle } = props;
   return (
     <Box
-      minHeight={isMobile ? "150px" : "450px"}
+      h="calc(100vw/4)"
+      // minHeight={isMobile ? "150px" : "450px"}
       backgroundImage={background}
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
