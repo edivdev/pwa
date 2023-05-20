@@ -29,59 +29,50 @@ const Header = () => {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
   const [submenuElements, setSubMenuElements] = useState();
   return (
-    <Box>
-      <nav>
-        <Flex
-          zIndex="999999"
-          h="72px"
-          position="absolute"
-          top="0"
-          justifyContent="space-around"
-          pt="25px"
-          w="100%"
-          background="white"
-        >
-          <Flex w="10%" justifyContent="center">
-            <Link href="/">
-              <a>
-                <Box position="relative" width="68px" height="68px" mt="-20px">
-                  <Image
-                    src="/images/static/assets/logo.png"
-                    layout="fill"
-                    objectFit="cover"
-                    alt="logo"
-                  />
-                </Box>
-              </a>
-            </Link>
-          </Flex>
-          <Box
-            display="flex"
-            w="70%"
-            justifyContent="space-evenly"
-            className="primary-menu-elements"
-          >
-            {menu.map((element) => (
-              <MenuItem
-                p="0 20px"
-                key={element.id}
-                element={element}
-                setIsSubMenuOpen={setIsSubMenuOpen}
-                setSubMenuElements={setSubMenuElements}
+    <Flex h="12vh" bg="" alignItems="center">
+      <Flex w="" justifyContent="center" p="0 1em" bg="white">
+        <Box position="relative" width="68px" height="68px">
+          <Link href="/">
+            <a>
+              <Image
+                src="/images/static/assets/logo.png"
+                layout="fill"
+                objectFit="contain"
+                alt="logo"
               />
-            ))}
-          </Box>
-          <Box w="10%">{/* Learning Portal */}</Box>
-          <Box w="5%">{/* EN */}</Box>
-        </Flex>
-        {isSubMenuOpen && (
-          <SubMenu
-            submenuElements={submenuElements}
+            </a>
+          </Link>
+        </Box>
+      </Flex>
+      <Box
+        display="flex"
+        w="75%"
+        justifyContent="space-evenly"
+        className="primary-menu-elements"
+        alignItems="center"
+        as="nav"
+        h="12vh"
+      >
+        {menu.map((element) => (
+          <MenuItem
+            p="50px 10px"
+            key={element.id}
+            element={element}
             setIsSubMenuOpen={setIsSubMenuOpen}
+            setSubMenuElements={setSubMenuElements}
           />
-        )}
-      </nav>
-    </Box>
+        ))}
+      </Box>
+      <Box w="10%">{/* Learning Portal */}</Box>
+      <Box w="5%">{/* EN */}</Box>
+
+      {isSubMenuOpen && (
+        <SubMenu
+          submenuElements={submenuElements}
+          setIsSubMenuOpen={setIsSubMenuOpen}
+        />
+      )}
+    </Flex>
   );
 };
 

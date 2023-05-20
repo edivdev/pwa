@@ -41,14 +41,11 @@ export default function TemplateTwo({
 
   return (
     <section className="custom-template">
+      {console.log(pictures.data === null ? "nohay" : "hay", pictures)}
       <PagesHeader background={background} projectTitle={title} />
-      <Flex
-        style={{ background: "", height: "" }}
-        p={isMobile ? "2%" : "2% 100px"}
-      >
+      <Flex p={isMobile ? "2%" : "2% 100px"}>
         <Box w="full">
           <Box
-          // currentLocation
           // backgroundColor="lightblue"
           >
             <Box>
@@ -65,12 +62,7 @@ export default function TemplateTwo({
             </Box>
           </Box>
 
-          <Box
-            // bg="coral"
-            display="flex"
-            flexWrap="wrap"
-            mt="15px"
-          >
+          <Box bg="" display="flex" flexWrap="wrap" mt="15px">
             {sustainable_dev_goals.data.length > 0
               ? sortSdg(sustainable_dev_goals.data).map((sdvEl) => (
                   <Sdg key={sdvEl.id} sdg={sdvEl} isMobile={isMobile} />
@@ -81,11 +73,12 @@ export default function TemplateTwo({
 
         <Flex
           mt="20px"
-          h="290px"
+          maxH="290px"
           flexDirection="column"
           minW="156px"
           justifyContent="center"
           //downloads block
+          // bg="red"
         >
           <Box>
             {contentDownload.data !== null && (
