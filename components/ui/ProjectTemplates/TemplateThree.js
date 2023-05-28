@@ -179,7 +179,7 @@ export default function TemplateThree({
           {pictures ? (
             <Flex>
               <Flex bg="" w="100%">
-                {pictures.data.map((el) => {
+                {pictures.data?.map((el) => {
                   return (
                     <Box
                       key={el.attributes.id}
