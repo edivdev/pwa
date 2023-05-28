@@ -11,6 +11,7 @@ import { getProjects } from "../../lib/cmsClient";
 import Loading from "../../components/ui/Loading";
 import TemplateOne from "../../components/ui/ProjectTemplates/TemplateOne";
 import TemplateTwo from "../../components/ui/ProjectTemplates/TemplateTwo";
+import TemplateThree from "../../components/ui/ProjectTemplates/TemplateThree";
 import ProjectFooter from "../../components/project/ProjectFooter";
 import Head from "next/head";
 
@@ -112,6 +113,34 @@ export default function ProjectDetail(props) {
           <title>Project | {title}</title>
         </Head>
         <TemplateTwo
+          isMobile={isMobile}
+          background={background}
+          title={title}
+          campaignText={campaignText}
+          campaignPicture={campaignPicture}
+          contentOne={contentOne}
+          contentTwo={contentTwo}
+          contentThree={contentThree}
+          pictures={pictures}
+          sustainable_dev_goals={sustainable_dev_goals}
+          department={department}
+          category={project_category}
+          subtitle={subtitle}
+          documents={resources}
+          contentDownload={contentDownload}
+        />
+        {/* <ProjectFooter featuredProjects={featuredProjects} /> */}
+      </>
+    );
+  }
+
+  if (project_template.data.attributes.name === "templateThree") {
+    return (
+      <>
+        <Head>
+          <title>Project | {title}</title>
+        </Head>
+        <TemplateThree
           isMobile={isMobile}
           background={background}
           title={title}
