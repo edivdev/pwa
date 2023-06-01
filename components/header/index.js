@@ -29,7 +29,17 @@ const Header = () => {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
   const [submenuElements, setSubMenuElements] = useState();
   return (
-    <Flex h="12vh" bg="" alignItems="center">
+    <Flex
+      h="12vh"
+      bg="white"
+      alignItems="center"
+      position="fixed"
+      top="0"
+      right="0"
+      left="0"
+      zIndex="99"
+      boxShadow="0px 0px 1em rgba(0,0,0,0.1)"
+    >
       <Flex w="" justifyContent="center" p="0 1em" bg="white">
         <Box position="relative" width="68px" height="68px">
           <Link href="/">
