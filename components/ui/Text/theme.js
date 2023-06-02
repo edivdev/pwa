@@ -22,6 +22,7 @@ export default {
       fontWeight: "900",
       fontSize: "12px",
       textTransform: "uppercase",
+      lineHeight: "0.8em",
     },
     normal: {
       fontWeight: "400",
