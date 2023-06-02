@@ -25,6 +25,7 @@
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
     "react-slick": "^0.28.1",
+    "sharp": "^0.32.1",
     "slick-carousel": "^1.8.1",
     "yet-another-react-lightbox": "^3.10.0"
   },
