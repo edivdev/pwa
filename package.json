@@ -26,7 +26,6 @@
     "react-icons": "^4.3.1",
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
-    "xlsx": "^0.18.5",
     "yet-another-react-lightbox": "^3.10.0"
   },
   "devDependencies": {
