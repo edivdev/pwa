@@ -182,7 +182,7 @@ export default function TemplateThree({
                 {pictures.data?.map((el) => {
                   return (
                     <Box
-                      key={el.attributes.id}
+                      key={el.id}
                       w="300px"
                       h="100px"
                       bg=""

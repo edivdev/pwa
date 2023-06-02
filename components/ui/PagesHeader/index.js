@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import Text from "../Text";
 import Button from "../Button";
 import Link from "next/link";
@@ -19,7 +19,7 @@ export default function PagesHeader({ background, ...props }) {
   const { text0, text1, text2, text3, cta, ctaTarget, projectTitle } = props;
   return (
     <Box
-      h="calc(100vw/4)"
+      h="calc(125vw/4)"
       // minHeight={isMobile ? "150px" : "450px"}
       backgroundImage={background}
       backgroundRepeat="no-repeat"
@@ -70,16 +70,24 @@ export default function PagesHeader({ background, ...props }) {
       ) : null}
 
       {projectTitle ? (
-        <Text
-          as="h1"
-          color="white"
-          fontSize="120px"
-          fontFamily="Just Another Hand"
-          pt="50px"
-          textShadow="0 0 .4em rgba(0,0,0, .4)"
+        <Flex
+          w="35%"
+          justifyContent="center"
+          alignItems="center"
+          textAlign="center"
         >
-          {projectTitle}
-        </Text>
+          <Text
+            mt={isMobile ? "0" : "25%"}
+            as="h1"
+            color="white"
+            fontSize="12vw"
+            lineHeight="0.8em"
+            fontFamily="Just Another Hand"
+            textShadow="0 0 .4em rgba(0,0,0, .4)"
+          >
+            {projectTitle}
+          </Text>
+        </Flex>
       ) : null}
 
       {ctaTarget && cta ? (
