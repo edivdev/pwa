@@ -18,7 +18,7 @@ import Head from "next/head";
 export default function ProjectDetail(props) {
   const { project } = props;
 
-  console.log({ project });
+  // console.log({ project });
 
   const {
     title,

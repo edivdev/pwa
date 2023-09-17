@@ -1,6 +1,7 @@
 import {
   Box,
   Flex,
+  FormControl,
   FormErrorMessage,
   Input,
   Radio,
@@ -11,160 +12,328 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import Button from "../../ui/Button";
+import axios from "axios";
 
 export default function PetitionForm({ isMobile }) {
-  const [sentEmail, setSentEmail] = useState(false);
-  const [first, setFirstName] = useState(undefined);
-  const [lastName, setLastName] = useState(undefined);
-  const [email, setEmail] = useState(undefined);
-  const [signture, setSignature] = useState(undefined);
-  const [comments, setComments] = useState(undefined);
-  const [story, setStory] = useState(undefined);
-  const [displayName, setDisplayName] = useState(undefined);
-  const [shareStory, setShareStory] = useState(undefined);
+  const [sentEmail, setSentEmail] = useState("");
+  const [hasSubmit, setHasSubmit] = useState(false);
+  const [triedToSubmit, setTriedToSubmit] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [submitWithStory, setSubmitWithStory] = useState(true);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [signature, setSignature] = useState("");
+  const [comments, setComments] = useState("");
+  const [story, setStory] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [shareStory, setShareStory] = useState("");
+  const fieldsMaxLength = 50;
+  const testAreasMaxLength = 300;
+  let formIsValid = false;
+
+  const data = {
+    firstName,
+    lastName,
+    email,
+    signature,
+    comments,
+    story,
+    displayName,
+    shareStory,
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    validateData();
+    setTriedToSubmit(true);
+    formIsValid && setHasSubmit(true);
+    formIsValid && sendEmails();
+  };
+
+  const validateData = () => {
+    const requiredFields = validateRequieredFields();
+    const emailPattern = validateEmailPattern();
+    if (requiredFields && emailPattern) {
+      setErrorMessage("");
+      formIsValid = true;
+    }
+  };
+
+  const validateRequieredFields = () => {
+    const dataKeys = Object.keys(data);
+    const dataValues = Object.values(data);
+    const validate = submitWithStory
+      ? ["displayName", "shareStory"]
+      : ["displayName"];
+    let confirmValidation = true;
+    dataKeys.forEach((element, index) => {
+      if (validate.includes(element)) {
+        const emptyMessage = "Required fields should not be empty.";
+        const filedIsEmpty = dataValues[index] === "";
+        if (filedIsEmpty) {
+          setErrorMessage(emptyMessage);
+          confirmValidation = false;
+        }
+      }
+    });
+    return confirmValidation;
+  };
+
+  const validateEmailPattern = () => {
+    const regEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const emailIsValid = hasValidPattern(email, regEx);
+    if (!emailIsValid) {
+      const emailErrorMessage = "Email is invalid";
+      setErrorMessage(emailErrorMessage);
+      return false;
+    }
+    return true;
+  };
+
+  const hasValidPattern = (element, pattern) => {
+    return pattern.test(element);
+  };
+
+  const setWithMaxLength = (value, maxLength, setStateCb) => {
+    const isValid = value.length <= maxLength;
+    isValid && setStateCb(value);
+  };
+
+  const sendEmails = () => {
+    setSentEmail(true);
+    axios.post("/api/petition_signing", { data }).then((response) => {
+      // console.log(response);
+      if (response.data.status) {
+        setErrorMessage(true);
+        console.log(response.data.status, response.data.message);
+      }
+    });
+  };
 
   return (
     <>
-      <form onSubmit={() => handleSubmit(addStory)}>
+      <form onSubmit={handleSubmit}>
         <Box bg="lightgray" p={isMobile ? 5 : 10} my={5}>
-          <Box>
-            <Text as="h1" fontSize={isMobile ? "2xl" : "4xl"} align="left">
-              Sign to make gender equality mandatory in Australia
-            </Text>
-
-            <Flex flexWrap="wrap">
-              <Box flex={2}>
-                <Flex flexWrap="wrap">
-                  <Box className="form-name" p={2} flex={1} minWidth={400}>
-                    <Text>First name</Text>
-                    <Input
-                      bg={"white"}
-                      placeholder="First name"
-                      type="text"
-                      required
-                      name="firstName"
-                      onChange={(e) => setFirstName(e.target.value)}
-                    />
-                  </Box>
-
-                  <Box className="form-name" p={2} flex={1} minWidth={400}>
-                    <Text>Last name</Text>
-                    <Input
-                      bg={"white"}
-                      placeholder="Last name"
-                      type="text"
-                      required
-                      name="lastName"
-                      onChange={(e) => setLastName(e.target.value)}
-                    />
-                  </Box>
-
-                  <Box className="form-name" p={2} flex={1} minWidth={400}>
-                    <Text>Email</Text>
-                    <Input
-                      bg={"white"}
-                      placeholder="Email"
-                      type="text"
-                      required
-                      name="email"
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </Box>
-                </Flex>
+          {hasSubmit ? (
+            <Box>
+              <Text as="h1" fontSize={isMobile ? "2xl" : "4xl"} align="center">
+                Thanks for joining our cause
+              </Text>
+              <Box color="black" align="center">
+                {errorMessage &&
+                  "An Error has ocurred, please write us an email to educaciondiversa@gmail.com with your message"}
+              </Box>
+            </Box>
+          ) : (
+            <>
+              <Box>
+                <Text as="h1" fontSize={isMobile ? "2xl" : "4xl"} align="left">
+                  Sign to make gender equality mandatory in Australia
+                </Text>
 
                 <Flex flexWrap="wrap">
-                  <Stack m={2} flex={1} minWidth={300}>
-                    <Text>Signature*</Text>
-                    <Textarea
-                      onChange={(e) => setSignature(e.target.value)}
-                      placeholder="Sign here"
-                      size="sm"
-                      bg={"white"}
-                    />
-                  </Stack>
+                  <Box flex={2}>
+                    <Flex flexWrap="wrap">
+                      <Box className="form-name" p={2} flex={1} minWidth={400}>
+                        <Text>First name*</Text>
+                        <Input
+                          bg={"white"}
+                          placeholder="First name"
+                          type="text"
+                          required
+                          name="firstName"
+                          value={firstName}
+                          onChange={(e) =>
+                            setWithMaxLength(
+                              e.target.value,
+                              fieldsMaxLength,
+                              setFirstName
+                            )
+                          }
+                        />
+                      </Box>
 
-                  <Stack m={2} flex={1} minWidth={300}>
-                    <Text>Comments</Text>
-                    <Textarea
-                      onChange={(e) => setComments(e.target.value)}
-                      placeholder="Comment"
-                      size="sm"
-                      bg={"white"}
-                    />
+                      <Box className="form-name" p={2} flex={1} minWidth={400}>
+                        <Text>Last name*</Text>
+                        <Input
+                          bg={"white"}
+                          placeholder="Last name"
+                          type="text"
+                          required
+                          name="lastName"
+                          onChange={(e) =>
+                            setWithMaxLength(
+                              e.target.value,
+                              fieldsMaxLength,
+                              setLastName
+                            )
+                          }
+                        />
+                      </Box>
+
+                      <Box className="form-name" p={2} flex={1} minWidth={400}>
+                        <Text>Email*</Text>
+                        <Input
+                          bg={"white"}
+                          placeholder="Email"
+                          type="text"
+                          required
+                          name="email"
+                          onChange={(e) =>
+                            setWithMaxLength(
+                              e.target.value,
+                              fieldsMaxLength,
+                              setEmail
+                            )
+                          }
+                        />
+                      </Box>
+                    </Flex>
+
+                    <Flex flexWrap="wrap">
+                      <Stack m={2} flex={1} minWidth={300}>
+                        <Text>Signature*</Text>
+                        <Textarea
+                          onChange={(e) => setSignature(e.target.value)}
+                          placeholder="Sign here"
+                          required
+                          size="sm"
+                          bg={"white"}
+                        />
+                      </Stack>
+
+                      <Stack m={2} flex={1} minWidth={300}>
+                        <Text>Comments</Text>
+                        <Textarea
+                          placeholder="Comment"
+                          size="sm"
+                          bg={"white"}
+                          onChange={(e) =>
+                            setWithMaxLength(
+                              e.target.value,
+                              testAreasMaxLength,
+                              setComments
+                            )
+                          }
+                        />
+                      </Stack>
+                    </Flex>
+                  </Box>
+
+                  <Stack mt={2} mx={isMobile ? 2 : 5} flex={1}>
+                    <Text fontSize="lg">Display full name?*</Text>
+
+                    <FormControl
+                      isInvalid={triedToSubmit && displayName === ""}
+                    >
+                      <RadioGroup onChange={setDisplayName} value={displayName}>
+                        <Stack>
+                          <Radio colorScheme="blue" value="1">
+                            Yes
+                          </Radio>
+                          <Radio colorScheme="blue" value="0">
+                            No, I want to be anonymous
+                          </Radio>
+                        </Stack>
+                      </RadioGroup>
+                    </FormControl>
+
+                    <Text fontSize="sm" color="gray" width={300}>
+                      *Your information will be stored in our database and may
+                      be shared with third parties in accordance with our
+                      privacy policies.
+                    </Text>
+                    <Flex justifyContent={isMobile ? "center" : "left"}>
+                      <Button
+                        colorScheme="blue"
+                        width={300}
+                        type="submit"
+                        disabled={hasSubmit}
+                        onClick={() => {
+                          setSubmitWithStory(false);
+                        }}
+                      >
+                        Sign only
+                      </Button>
+                    </Flex>
+                    <FormErrorMessage>Rerasads</FormErrorMessage>
+                    {errorMessage && !submitWithStory && (
+                      <Text color="red">{errorMessage}</Text>
+                    )}
                   </Stack>
                 </Flex>
               </Box>
 
-              <Stack mt={2} mx={isMobile ? 2 : 5} flex={1}>
-                <Text fontSize="lg">Display full name?</Text>
-
-                <RadioGroup onChange={setDisplayName} value={displayName}>
-                  <Stack>
-                    <Radio colorScheme="blue" value="1">
-                      Yes
-                    </Radio>
-                    <Radio colorScheme="blue" value="0">
-                      No, I want to be anonymous
-                    </Radio>
-                  </Stack>
-                </RadioGroup>
-
-                <Text fontSize="sm" color="gray" width={300}>
-                  *Your information will be stored in our database and may be
-                  shared with third parties in accordance with our privacy
-                  policies.
+              <Box mt={5}>
+                <Text as="h1" fontSize={isMobile ? "2xl" : "4xl"} align="left">
+                  Share your story to make an impact
                 </Text>
-                <Flex justifyContent={isMobile ? "center" : "left"}>
-                  <Button colorScheme="blue" width={300}>
-                    Sign only
-                  </Button>
-                </Flex>
-              </Stack>
-            </Flex>
-          </Box>
 
-          <Box mt={5}>
-            <Text as="h1" fontSize={isMobile ? "2xl" : "4xl"} align="left">
-              Share your story to make an impact
-            </Text>
+                <Box mt={2}>
+                  <Flex flexWrap="wrap">
+                    <Flex direction={"column"} mx={2} flex={2} minWidth={400}>
+                      <Text flex={0}>Share story*</Text>
+                      <Textarea
+                        placeholder="Here you can tell us your story"
+                        size="sm"
+                        bg={"white"}
+                        flex={1}
+                        required={submitWithStory}
+                        onChange={(e) =>
+                          setWithMaxLength(
+                            e.target.value,
+                            testAreasMaxLength,
+                            setStory
+                          )
+                        }
+                      />
+                    </Flex>
 
-            <Box mt={2}>
-              <Flex flexWrap="wrap">
-                <Stack mx={2} flex={2} minWidth={400}>
-                  <Text>Share story*</Text>
-                  <Textarea
-                    value="{data.story}"
-                    onChange={(event) => handleInputChange(event, "story", 300)}
-                    placeholder="Here you can tell us your story"
-                    size="sm"
-                    bg={"white"}
-                  />
-                </Stack>
-
-                <Stack mt={isMobile && 4} mx={isMobile ? 1 : 5} flex={1}>
-                  <Text fontSize="lg">
-                    Do you give permission for ED to store and share your story
-                    on its social print material?
-                  </Text>
-                  <RadioGroup onChange={setShareStory} value={shareStory}>
-                    <Stack>
-                      <Radio colorScheme="blue" value="1">
-                        Yes
-                      </Radio>
-                      <Radio colorScheme="blue" value="0">
-                        No
-                      </Radio>
+                    <Stack mt={isMobile && 4} mx={isMobile ? 1 : 5} flex={1}>
+                      <Text fontSize="lg">
+                        Do you give permission for ED to store and share your
+                        story on its social print material?*
+                      </Text>
+                      <FormControl
+                        isInvalid={
+                          triedToSubmit && submitWithStory && shareStory === ""
+                        }
+                      >
+                        <RadioGroup onChange={setShareStory} value={shareStory}>
+                          <Stack>
+                            <Radio colorScheme="blue" value="1">
+                              Yes
+                            </Radio>
+                            <Radio colorScheme="blue" value="0">
+                              No
+                            </Radio>
+                          </Stack>
+                        </RadioGroup>
+                      </FormControl>
+                      <Flex justifyContent={isMobile ? "center" : "left"}>
+                        <Button
+                          colorScheme="blue"
+                          width={300}
+                          mt={2}
+                          type="submit"
+                          disabled={hasSubmit}
+                          onClick={() => {
+                            setSubmitWithStory(true);
+                          }}
+                        >
+                          Sign and share your story
+                        </Button>
+                      </Flex>
+                      {errorMessage && submitWithStory && (
+                        <Text color="red">{errorMessage}</Text>
+                      )}
                     </Stack>
-                  </RadioGroup>
-                  <Flex justifyContent={isMobile ? "center" : "left"}>
-                    <Button colorScheme="blue" width={300} mt={2}>
-                      Sign and share your story
-                    </Button>
                   </Flex>
-                </Stack>
-              </Flex>
-            </Box>
-          </Box>
+                </Box>
+              </Box>
+            </>
+          )}
         </Box>
       </form>
     </>
