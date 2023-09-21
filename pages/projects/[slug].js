@@ -18,7 +18,7 @@ import Head from "next/head";
 export default function ProjectDetail(props) {
   const { project } = props;
 
-  //console.log({ project });
+  // console.log({ project });
 
   const {
     title,
@@ -36,6 +36,7 @@ export default function ProjectDetail(props) {
     subtitle,
     resources,
     contentDownload,
+    showing_form_pledge
   } = project.attributes;
 
   // console.log(project_template, "0999");
@@ -156,6 +157,7 @@ export default function ProjectDetail(props) {
           subtitle={subtitle}
           documents={resources}
           contentDownload={contentDownload}
+          showing_form_pledge={showing_form_pledge}
         />
         {/* <ProjectFooter featuredProjects={featuredProjects} /> */}
       </>

@@ -9,6 +9,7 @@ import ProjectSlider from "../../project/ProjectSlider";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { useEffect, useState } from "react";
+import PetitionForm from "../../petition/petition-form";
 
 const sortSdg = (goals) => {
   return goals.sort((a, b) => a.id - b.id);
@@ -42,6 +43,7 @@ export default function TemplateThree({
   subtitle,
   documents,
   contentDownload,
+  showing_form_pledge,
 }) {
   const principalImage =
     campaignPicture.data === null ? null : campaignPicture.data;
@@ -63,7 +65,7 @@ export default function TemplateThree({
 
   return (
     <section className="custom-template">
-      {console.log(pictures.data === null ? "nohay" : "hay", pictures)}
+      {/* {console.log(pictures.data === null ? "nohay" : "hay", pictures)} */}
       <PagesHeader background={background} projectTitle={title} />
       <Flex p={isMobile ? "2%" : "2% 100px"}>
         <Box w="full">
@@ -237,6 +239,9 @@ export default function TemplateThree({
 
           {/* {pictures !== null ? <Box>component with pictures</Box> : null} */}
         </Box>
+        {showing_form_pledge && (
+          <PetitionForm isMobile={isMobile}></PetitionForm>
+        )}
       </>
     </section>
   );
