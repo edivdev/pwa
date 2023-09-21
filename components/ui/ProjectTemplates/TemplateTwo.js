@@ -41,7 +41,7 @@ export default function TemplateTwo({
 
   return (
     <section className="custom-template">
-      {console.log(pictures.data === null ? "nohay" : "hay", pictures)}
+      {/* {console.log(pictures.data === null ? "nohay" : "hay", pictures)} */}
       <PagesHeader background={background} projectTitle={title} />
       <Flex p={isMobile ? "2%" : "2% 100px"}>
         <Box w="full">
