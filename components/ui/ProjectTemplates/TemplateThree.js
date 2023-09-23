@@ -121,6 +121,9 @@ export default function TemplateThree({
 
       <>
         <Box p={isMobile ? "0 10px" : "0 100px"} pb="20px">
+          {showing_form_pledge ? (
+            <PetitionForm isMobile={isMobile}></PetitionForm>
+          ) : null}
           {campaignText && (
             <Box>
               <Box
@@ -239,9 +242,6 @@ export default function TemplateThree({
 
           {/* {pictures !== null ? <Box>component with pictures</Box> : null} */}
         </Box>
-        {showing_form_pledge && (
-          <PetitionForm isMobile={isMobile}></PetitionForm>
-        )}
       </>
     </section>
   );
