@@ -44,6 +44,8 @@ export default function PetitionForm({ isMobile }) {
     story,
     displayName,
     shareStory,
+    isOver18,
+    hasAdultPermission
   };
 
   const handleSubmit = (e) => {

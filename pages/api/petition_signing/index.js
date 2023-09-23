@@ -10,6 +10,8 @@ export default async function handler(req, res) {
       story,
       displayName,
       shareStory,
+      isOver18,
+      hasAdultPermission,
     } = req.body.data;
 
     const mailToSigner = {
@@ -76,6 +78,14 @@ export default async function handler(req, res) {
         ? "Wants to share story on social print material"
         : "Doesn't want to share story"
     },
+    Is over 18: ${
+      isOver18 ? "Yes, is over 18" : "No, should have adult permission"
+    }
+    Has an adult permission: ${
+      hasAdultPermission
+        ? "Yes, has an adult permission"
+        : "No, should be over 18 already"
+    }
     </div>
           `,
     };
