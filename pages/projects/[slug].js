@@ -36,7 +36,7 @@ export default function ProjectDetail(props) {
     subtitle,
     resources,
     contentDownload,
-    showing_form_pledge
+    showing_form_pledge,
   } = project.attributes;
 
   // console.log(project_template, "0999");
