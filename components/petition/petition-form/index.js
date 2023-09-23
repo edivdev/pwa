@@ -135,7 +135,12 @@ export default function PetitionForm({ isMobile }) {
                 <Flex flexWrap="wrap">
                   <Box flex={2}>
                     <Flex flexWrap="wrap">
-                      <Box className="form-name" p={2} flex={1} minWidth={400}>
+                      <Box
+                        className="form-name"
+                        p={2}
+                        flex={1}
+                        minWidth={isMobile ? 300 : 400}
+                      >
                         <Text>First name*</Text>
                         <Input
                           bg={"white"}
@@ -154,7 +159,12 @@ export default function PetitionForm({ isMobile }) {
                         />
                       </Box>
 
-                      <Box className="form-name" p={2} flex={1} minWidth={400}>
+                      <Box
+                        className="form-name"
+                        p={2}
+                        flex={1}
+                        minWidth={isMobile ? 300 : 400}
+                      >
                         <Text>Last name*</Text>
                         <Input
                           bg={"white"}
@@ -172,7 +182,12 @@ export default function PetitionForm({ isMobile }) {
                         />
                       </Box>
 
-                      <Box className="form-name" p={2} flex={1} minWidth={400}>
+                      <Box
+                        className="form-name"
+                        p={2}
+                        flex={1}
+                        minWidth={isMobile ? 300 : 400}
+                      >
                         <Text>Email*</Text>
                         <Input
                           bg={"white"}
@@ -192,7 +207,7 @@ export default function PetitionForm({ isMobile }) {
                     </Flex>
 
                     <Flex flexWrap="wrap">
-                      <Stack m={2} flex={1} minWidth={300}>
+                      <Stack m={2} flex={1} minWidth={isMobile ? 300 : 400}>
                         <Text>Signature*</Text>
                         <Textarea
                           onChange={(e) => setSignature(e.target.value)}
@@ -203,7 +218,7 @@ export default function PetitionForm({ isMobile }) {
                         />
                       </Stack>
 
-                      <Stack m={2} flex={1} minWidth={300}>
+                      <Stack m={2} flex={1} minWidth={isMobile ? 300 : 400}>
                         <Text>Comments</Text>
                         <Textarea
                           placeholder="Comment"
@@ -272,7 +287,12 @@ export default function PetitionForm({ isMobile }) {
 
                 <Box mt={2}>
                   <Flex flexWrap="wrap">
-                    <Flex direction={"column"} mx={2} flex={2} minWidth={400}>
+                    <Flex
+                      direction={"column"}
+                      mx={2}
+                      flex={2}
+                      minWidth={isMobile ? 300 : 400}
+                    >
                       <Text flex={0}>Share story*</Text>
                       <Textarea
                         placeholder="Here you can tell us your story"
