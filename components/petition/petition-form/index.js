@@ -1,5 +1,6 @@
 import {
   Box,
+  Checkbox,
   Flex,
   FormControl,
   FormErrorMessage,
@@ -27,6 +28,8 @@ export default function PetitionForm({ isMobile }) {
   const [comments, setComments] = useState("");
   const [story, setStory] = useState("");
   const [displayName, setDisplayName] = useState("");
+  const [isOver18, setIsOver18] = useState("");
+  const [hasAdultPermission, setHasAdultPermission] = useState(false);
   const [shareStory, setShareStory] = useState("");
   const fieldsMaxLength = 50;
   const testAreasMaxLength = 300;
@@ -41,6 +44,8 @@ export default function PetitionForm({ isMobile }) {
     story,
     displayName,
     shareStory,
+    isOver18,
+    hasAdultPermission
   };
 
   const handleSubmit = (e) => {
@@ -54,7 +59,8 @@ export default function PetitionForm({ isMobile }) {
   const validateData = () => {
     const requiredFields = validateRequieredFields();
     const emailPattern = validateEmailPattern();
-    if (requiredFields && emailPattern) {
+    const validPermission = validatePermission();
+    if (requiredFields && emailPattern && validPermission) {
       setErrorMessage("");
       formIsValid = true;
     }
@@ -111,6 +117,17 @@ export default function PetitionForm({ isMobile }) {
     });
   };
 
+  const validatePermission = () => {
+    console.log({ isOver18, hasAdultPermission });
+    const isValid = Number(isOver18) || hasAdultPermission;
+    if (!isValid) {
+      setErrorMessage(
+        "You should be over 18 years old or have signed consent of an adult to submit the petition"
+      );
+    }
+    return isValid;
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -135,7 +152,12 @@ export default function PetitionForm({ isMobile }) {
                 <Flex flexWrap="wrap">
                   <Box flex={2}>
                     <Flex flexWrap="wrap">
-                      <Box className="form-name" p={2} flex={1} minWidth={400}>
+                      <Box
+                        className="form-name"
+                        p={2}
+                        flex={1}
+                        minWidth={isMobile ? 300 : 400}
+                      >
                         <Text>First name*</Text>
                         <Input
                           bg={"white"}
@@ -154,7 +176,12 @@ export default function PetitionForm({ isMobile }) {
                         />
                       </Box>
 
-                      <Box className="form-name" p={2} flex={1} minWidth={400}>
+                      <Box
+                        className="form-name"
+                        p={2}
+                        flex={1}
+                        minWidth={isMobile ? 300 : 400}
+                      >
                         <Text>Last name*</Text>
                         <Input
                           bg={"white"}
@@ -172,7 +199,12 @@ export default function PetitionForm({ isMobile }) {
                         />
                       </Box>
 
-                      <Box className="form-name" p={2} flex={1} minWidth={400}>
+                      <Box
+                        className="form-name"
+                        p={2}
+                        flex={1}
+                        minWidth={isMobile ? 300 : 400}
+                      >
                         <Text>Email*</Text>
                         <Input
                           bg={"white"}
@@ -192,7 +224,7 @@ export default function PetitionForm({ isMobile }) {
                     </Flex>
 
                     <Flex flexWrap="wrap">
-                      <Stack m={2} flex={1} minWidth={300}>
+                      <Stack m={2} flex={1} minWidth={isMobile ? 300 : 400}>
                         <Text>Signature*</Text>
                         <Textarea
                           onChange={(e) => setSignature(e.target.value)}
@@ -203,7 +235,7 @@ export default function PetitionForm({ isMobile }) {
                         />
                       </Stack>
 
-                      <Stack m={2} flex={1} minWidth={300}>
+                      <Stack m={2} flex={1} minWidth={isMobile ? 300 : 400}>
                         <Text>Comments</Text>
                         <Textarea
                           placeholder="Comment"
@@ -239,11 +271,42 @@ export default function PetitionForm({ isMobile }) {
                       </RadioGroup>
                     </FormControl>
 
-                    <Text fontSize="sm" color="gray" width={300}>
-                      *Your information will be stored in our database and may
-                      be shared with third parties in accordance with our
-                      privacy policies.
+                    <Text fontSize="lg" pt={2}>
+                      Are you over 18 years old?*
                     </Text>
+                    <FormControl
+                      isInvalid={triedToSubmit && Number(isOver18) === ""}
+                    >
+                      <RadioGroup onChange={setIsOver18} value={isOver18}>
+                        <Stack>
+                          <Radio colorScheme="blue" value="1">
+                            Yes
+                          </Radio>
+                          <Radio colorScheme="blue" value="0">
+                            No
+                          </Radio>
+                        </Stack>
+                      </RadioGroup>
+                    </FormControl>
+
+                    <Checkbox
+                      py={2}
+                      visibility={
+                        !Number(isOver18) && isOver18 !== ""
+                          ? "visible"
+                          : "hidden"
+                      }
+                      onChange={(e) =>
+                        setHasAdultPermission([e.target.checked])
+                      }
+                      isInvalid={
+                        triedToSubmit && !Number(isOver18) && !hasAdultPermission
+                      }
+                    >
+                      I have a permission from my tutor or responsable adult to
+                      sumbit
+                    </Checkbox>
+
                     <Flex justifyContent={isMobile ? "center" : "left"}>
                       <Button
                         colorScheme="blue"
@@ -263,6 +326,12 @@ export default function PetitionForm({ isMobile }) {
                     )}
                   </Stack>
                 </Flex>
+
+                <Text fontSize="sm" color="gray">
+                  *Your information will be stored in our database and may be
+                  shared with third parties in accordance with our privacy
+                  policies.
+                </Text>
               </Box>
 
               <Box mt={5}>
@@ -272,7 +341,12 @@ export default function PetitionForm({ isMobile }) {
 
                 <Box mt={2}>
                   <Flex flexWrap="wrap">
-                    <Flex direction={"column"} mx={2} flex={2} minWidth={400}>
+                    <Flex
+                      direction={"column"}
+                      mx={2}
+                      flex={2}
+                      minWidth={isMobile ? 300 : 400}
+                    >
                       <Text flex={0}>Share story*</Text>
                       <Textarea
                         placeholder="Here you can tell us your story"
