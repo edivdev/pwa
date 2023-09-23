@@ -1,5 +1,6 @@
 import {
   Box,
+  Checkbox,
   Flex,
   FormControl,
   FormErrorMessage,
@@ -27,6 +28,8 @@ export default function PetitionForm({ isMobile }) {
   const [comments, setComments] = useState("");
   const [story, setStory] = useState("");
   const [displayName, setDisplayName] = useState("");
+  const [isOver18, setIsOver18] = useState("");
+  const [hasAdultPermission, setHasAdultPermission] = useState(false);
   const [shareStory, setShareStory] = useState("");
   const fieldsMaxLength = 50;
   const testAreasMaxLength = 300;
@@ -54,7 +57,8 @@ export default function PetitionForm({ isMobile }) {
   const validateData = () => {
     const requiredFields = validateRequieredFields();
     const emailPattern = validateEmailPattern();
-    if (requiredFields && emailPattern) {
+    const validPermission = validatePermission();
+    if (requiredFields && emailPattern && validPermission) {
       setErrorMessage("");
       formIsValid = true;
     }
@@ -109,6 +113,17 @@ export default function PetitionForm({ isMobile }) {
         console.log(response.data.status, response.data.message);
       }
     });
+  };
+
+  const validatePermission = () => {
+    console.log({ isOver18, hasAdultPermission });
+    const isValid = Number(isOver18) || hasAdultPermission;
+    if (!isValid) {
+      setErrorMessage(
+        "You should be over 18 years old or have signed consent of an adult to submit the petition"
+      );
+    }
+    return isValid;
   };
 
   return (
@@ -254,11 +269,42 @@ export default function PetitionForm({ isMobile }) {
                       </RadioGroup>
                     </FormControl>
 
-                    <Text fontSize="sm" color="gray" width={300}>
-                      *Your information will be stored in our database and may
-                      be shared with third parties in accordance with our
-                      privacy policies.
+                    <Text fontSize="lg" pt={2}>
+                      Are you over 18 years old?*
                     </Text>
+                    <FormControl
+                      isInvalid={triedToSubmit && Number(isOver18) === ""}
+                    >
+                      <RadioGroup onChange={setIsOver18} value={isOver18}>
+                        <Stack>
+                          <Radio colorScheme="blue" value="1">
+                            Yes
+                          </Radio>
+                          <Radio colorScheme="blue" value="0">
+                            No
+                          </Radio>
+                        </Stack>
+                      </RadioGroup>
+                    </FormControl>
+
+                    <Checkbox
+                      py={2}
+                      visibility={
+                        !Number(isOver18) && isOver18 !== ""
+                          ? "visible"
+                          : "hidden"
+                      }
+                      onChange={(e) =>
+                        setHasAdultPermission([e.target.checked])
+                      }
+                      isInvalid={
+                        triedToSubmit && !Number(isOver18) && !hasAdultPermission
+                      }
+                    >
+                      I have a permission from my tutor or responsable adult to
+                      sumbit
+                    </Checkbox>
+
                     <Flex justifyContent={isMobile ? "center" : "left"}>
                       <Button
                         colorScheme="blue"
@@ -278,6 +324,12 @@ export default function PetitionForm({ isMobile }) {
                     )}
                   </Stack>
                 </Flex>
+
+                <Text fontSize="sm" color="gray">
+                  *Your information will be stored in our database and may be
+                  shared with third parties in accordance with our privacy
+                  policies.
+                </Text>
               </Box>
 
               <Box mt={5}>
