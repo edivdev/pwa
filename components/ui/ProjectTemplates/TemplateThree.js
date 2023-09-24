@@ -6,11 +6,28 @@ import Sdg from "./Sdg";
 import ProjectResources from "../../project/ProjectResources";
 import ProjectSlider from "../../project/ProjectSlider";
 
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import { useEffect, useState } from "react";
+import PetitionForm from "../../petition/petition-form";
+
 const sortSdg = (goals) => {
   return goals.sort((a, b) => a.id - b.id);
 };
 
-export default function TemplateTwo({
+const preparePicturesForLightbox = (picsObj) => {
+  let pictures = [];
+
+  picsObj.data.map((el) => {
+    let obj = {};
+    obj.src = el.attributes.url;
+    pictures.push(obj);
+  });
+
+  return pictures;
+};
+
+export default function TemplateThree({
   isMobile,
   background,
   title,
@@ -26,6 +43,7 @@ export default function TemplateTwo({
   subtitle,
   documents,
   contentDownload,
+  showing_form_pledge,
 }) {
   const principalImage =
     campaignPicture.data === null ? null : campaignPicture.data;
@@ -38,6 +56,12 @@ export default function TemplateTwo({
     slidesToScroll: 1,
     lazyLoad: true,
   };
+
+  const openLightbox = () => {
+    setIsOpenLightbox(true);
+  };
+
+  const [isOpenLightbox, setIsOpenLightbox] = useState(false);
 
   return (
     <section className="custom-template">
@@ -71,7 +95,7 @@ export default function TemplateTwo({
           </Box>
         </Box>
 
-        <Flex
+        {/* <Flex
           mt="20px"
           maxH="290px"
           flexDirection="column"
@@ -92,11 +116,14 @@ export default function TemplateTwo({
                 <ProjectResources key={document.id} document={document} />
               ))}
           </ProjectSlider>
-        </Flex>
+        </Flex> */}
       </Flex>
 
       <>
         <Box p={isMobile ? "0 10px" : "0 100px"} pb="20px">
+          {showing_form_pledge ? (
+            <PetitionForm isMobile={isMobile}></PetitionForm>
+          ) : null}
           {campaignText && (
             <Box>
               <Box
@@ -153,6 +180,65 @@ export default function TemplateTwo({
               />
             </Box>
           )}
+
+          {pictures ? (
+            <Flex>
+              <Flex bg="" w="100%">
+                {pictures.data?.map((el) => {
+                  return (
+                    <Box
+                      key={el.id}
+                      w="300px"
+                      h="100px"
+                      bg=""
+                      m="10px"
+                      position="relative"
+                      onClick={() => setIsOpenLightbox(true)}
+                      cursor="pointer"
+                    >
+                      <Image
+                        src={el.attributes.url}
+                        alt={el.attributes.name}
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </Box>
+                  );
+                })}
+              </Flex>
+
+              {isOpenLightbox ? (
+                <Lightbox
+                  open={openLightbox}
+                  close={() => setIsOpenLightbox(false)}
+                  slides={preparePicturesForLightbox(pictures)}
+                />
+              ) : null}
+            </Flex>
+          ) : null}
+
+          <Flex
+            mt="20px"
+            maxH="290px"
+            flexDirection="column"
+            minW="156px"
+            justifyContent="center"
+            //downloads block
+            // bg="red"
+          >
+            <Box>
+              {contentDownload.data !== null && (
+                <ProjectResources document={contentDownload.data} />
+              )}
+            </Box>
+
+            <ProjectSlider isMobile={isMobile} settings={SliderSettings}>
+              {documents.data !== null &&
+                documents.data.map((document) => (
+                  <ProjectResources key={document.id} document={document} />
+                ))}
+            </ProjectSlider>
+          </Flex>
 
           {/* {pictures !== null ? <Box>component with pictures</Box> : null} */}
         </Box>
