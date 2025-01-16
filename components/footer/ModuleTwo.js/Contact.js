@@ -13,9 +13,9 @@ export default function Contact() {
       <Text color="white">
         Hybrid community of volunteers from around the world
       </Text>
-      <Link href="mailto:educaciondiversa@gmail.com">
+      <Link href="mailto:info@educaciondiversa.com">
         <a>
-          <Button variant="buttonFooter">educaciondiversa@gmail.com</Button>
+          <Button variant="buttonFooter">info@educaciondiversa.com</Button>
         </a>
       </Link>
     </Flex>
