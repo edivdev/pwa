@@ -36,7 +36,7 @@ export default function MemberForm() {
       return (
         <p>
           An error has ocurred, please write a message to
-          educaciondiversa@gmail.com to request yout Newsletter subscription.
+          info@educaciondiversa.com to request your Newsletter subscription.
         </p>
       );
     }
