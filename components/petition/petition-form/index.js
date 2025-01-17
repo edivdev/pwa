@@ -139,7 +139,7 @@ export default function PetitionForm({ isMobile }) {
               </Text>
               <Box color="black" align="center">
                 {errorMessage &&
-                  "An Error has ocurred, please write us an email to educaciondiversa@gmail.com with your message"}
+                  "An Error has ocurred, please write us an email to info@educaciondiversa.com with your message"}
               </Box>
             </Box>
           ) : (

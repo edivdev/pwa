@@ -145,7 +145,7 @@ export default function ContactForm({ isMobile }) {
       {sentEmail && (
         <Box color="black">
           {errorMessage
-            ? "An Error has ocurred, please write us an email to educaciondiversa@gmail.com with your message"
+            ? "An Error has ocurred, please write us an email to info@educaciondiversa.com with your message"
             : "Thank you! your information has been sent. Soon we will contact you!"}
         </Box>
       )}
