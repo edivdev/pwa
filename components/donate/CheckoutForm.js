@@ -1,65 +1,61 @@
-import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { useState } from 'react';
+import { useStripe, useElements, PaymentElement } from '@stripe/react-stripe-js';
+import Button from "../ui/Button";
 import { Box } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/react"
 
-const CheckoutForm = () => {
+export default function CheckoutForm({ clientSecret, onConfirm }) {
   const stripe = useStripe();
   const elements = useElements();
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError(null);
-    setSuccess(null);
 
     if (!stripe || !elements) {
       return;
     }
 
-    const cardElement = elements.getElement(CardElement);
+    setIsLoading(true);
 
-    const { error: stripeError, paymentMethod: donationMethod } = await stripe.createPaymentMethod({
-      type: 'card',
-      card: cardElement,
+    const { error } = await stripe.confirmPayment({
+      elements,
+      redirect: "if_required",
+      confirmParams: {},
     });
 
-    if (stripeError) {
-      setError(stripeError.message);
-      return;
-    }
+    setIsLoading(false);
 
-    const response = await fetch('/api/donations/donationIntent', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: 5000 }),
-    });
-
-    const donationResult = await response.json();
-
-    if (response.ok) {
-      const confirmResult = await stripe.confirmCardPayment(donationResult.clientSecret, {
-        payment_method: donationMethod.id,
-      });
-
-      if (confirmResult.error) {
-        setError(confirmResult.error.message);
-      } else {
-        setSuccess('Thanks for your help! We can change the world together!');
-      }
-    } else {
-      setError(donationResult.error);
+    if (!(error && error.type === "validation_error")) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('donation_intent_client_secret', clientSecret);
+      window.history.pushState(null, '', url.toString());
+      onConfirm(clientSecret)
     }
   };
 
+  const paymentElementOptions = {
+    layout: "accordion",
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <CardElement />
-      <button type="submit" disabled={!stripe}>Donate</button>
-      {error && <div>{error}</div>}
-      {success && <div>{success}</div>}
+    <form id="payment-form" onSubmit={handleSubmit} >
+      <Box textAlign="center">
+        <PaymentElement id="payment-element" options={paymentElementOptions} />
+        <Button
+          disabled={isLoading || !stripe || !elements}
+          id="submit"
+          type="submit"
+          variant="fillBlue"
+          color="white"
+          textTransform="uppercase"
+          mt="1rem">
+          <span id="button-text">
+            {isLoading ? <Spinner /> : "Donate"}
+          </span>
+        </Button>
+      </Box>
     </form>
   );
 };
-
-export default CheckoutForm;
