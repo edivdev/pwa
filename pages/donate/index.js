@@ -40,7 +40,7 @@ export default function DonatePage(props) {
 
   function handleConfirmUpdate() {
     setConfirmed(new URLSearchParams(window.location.search).get(
-      "donation_intent_client_secret"
+      "donation_intent"
     ));
   }
 
@@ -48,7 +48,7 @@ export default function DonatePage(props) {
     fetch("/api/donations/donationIntent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: 500 }),
+      body: JSON.stringify({ amount: 100 }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
@@ -187,7 +187,7 @@ should be movable to the new website.  */}
                   : <CheckoutForm clientSecret={clientSecret} onConfirm={handleConfirmUpdate} />}
               </Elements>
             )
-              : <Spinner />}
+              : <Spinner color="blue.500" />}
           </div>
         </Box>
 

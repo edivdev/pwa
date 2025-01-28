@@ -36,33 +36,43 @@ const STATUS_CONTENT_MAP = {
 export default function ConfirmationBanner() {
   const stripe = useStripe();
 
-  const [paymentIntent, setPaymentIntent] = useState({ status: "processing" });
+  const [donationIntent, setDonationIntent] = useState({ status: "processing" });
+
+  async function retrieveDonationIntent(id) {
+    return await fetch("/api/donations/retrieveDonationIntent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id })
+    }).then((res) => res.json())
+  }
 
   useEffect(() => {
     if (!stripe) {
       return;
     }
 
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "donation_intent_client_secret"
+    const donationIntentId = new URLSearchParams(window.location.search).get(
+      "donation_intent"
     );
 
-    if (!clientSecret) {
+    if (!donationIntentId) {
+      setDonationIntent({ id: "unknown", status: "requires_payment_method" })
       return;
     }
 
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-      if (!paymentIntent) {
+    retrieveDonationIntent(donationIntentId).then(({ donationIntent }) => {
+      if (!donationIntent) {
+        setDonationIntent({ id: "unknown", status: "requires_payment_method" })
         return;
       }
-      setPaymentIntent(paymentIntent);
-    });
+      setDonationIntent(donationIntent);
+    })
   }, [stripe]);
 
   function handleRetry() {
     const url = new URL(window.location.href);
     console.log(url)
-    url.searchParams.delete('donation_intent_client_secret');
+    url.searchParams.delete('donation_intent');
     console.log(url)
     window.location.replace(url)
   }
@@ -70,33 +80,33 @@ export default function ConfirmationBanner() {
   return (
     <div id="payment-status">
       <Flex id="status-bar" as='b' p="3" borderRadius="md"
-        style={{ backgroundColor: STATUS_CONTENT_MAP[paymentIntent.status].iconColor }}>
+        style={{ backgroundColor: STATUS_CONTENT_MAP[donationIntent.status].iconColor }}>
         <Icon fontSize="1.5rem" color="white" me="2">
-          {STATUS_CONTENT_MAP[paymentIntent.status].icon}
+          {STATUS_CONTENT_MAP[donationIntent.status].icon}
         </Icon>
-        <Text id="status-text" color="white">{STATUS_CONTENT_MAP[paymentIntent.status].text}</Text>
+        <Text id="status-text" color="white">{STATUS_CONTENT_MAP[donationIntent.status].text}</Text>
       </Flex>
-      {paymentIntent &&
+      {donationIntent &&
         <div id="details-table">
           <TableContainer>
             <Table>
               <Tbody>
                 <Tr>
                   <Td>Transaction ID</Td>
-                  <Td>{paymentIntent.id}</Td>
+                  <Td>{donationIntent.id}</Td>
                 </Tr>
                 <Tr>
                   <Td>Amount</Td>
-                  <Td>{paymentIntent.amount} {paymentIntent.currency?.toUpperCase()}</Td>
+                  <Td>{donationIntent.amount / 100} {donationIntent.currency?.toUpperCase()}</Td>
                 </Tr>
                 <Tr>
                   <Td>Date</Td>
-                  <Td>{new Date(paymentIntent.created * 1000).toLocaleString()}</Td>
+                  <Td>{new Date(donationIntent.created * 1000).toLocaleString()}</Td>
                 </Tr>
-                {paymentIntent.status === "requires_payment_method" &&
+                {donationIntent.status === "requires_payment_method" &&
                   <Tr>
                     <Td>Error</Td>
-                    <Td>{paymentIntent.last_payment_error?.message ?? "Unknown error."}</Td>
+                    <Td>{donationIntent.last_payment_error?.message ?? "Sever error. Please try it again or contact support."}</Td>
                   </Tr>
                 }
                 <Tr>
@@ -104,7 +114,7 @@ export default function ConfirmationBanner() {
                   <Td>
                     <Flex alignItems='center'>
                       <ChakraLink
-                        href={`https://dashboard.stripe.com/payments/${paymentIntent.id}`}
+                        href={`https://dashboard.stripe.com/payments/${donationIntent.id}`}
                         id="view-details" target="_blank"
                         textDecoration='underline'
                         color="blue.600"
@@ -133,7 +143,7 @@ export default function ConfirmationBanner() {
           mt="1rem"
           onClick={handleRetry}
         >
-          {paymentIntent.status === "requires_payment_method"
+          {donationIntent.status === "requires_payment_method"
             ? "Try again"
             : "Donate again"
           }
