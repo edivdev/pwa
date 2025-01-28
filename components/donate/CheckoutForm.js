@@ -118,8 +118,7 @@ export default function CheckoutForm({ clientSecret, onConfirm }) {
             pointerEvents='none'
             color='gray.300'
             fontSize='1.2em'
-            children='$'
-          />
+          >$</InputLeftElement>
           <Input
             placeholder="0.00"
             name="amount"
@@ -132,7 +131,7 @@ export default function CheckoutForm({ clientSecret, onConfirm }) {
               estimateChargeAmount(e.target.value)
             }
           />
-          <InputRightAddon children='USD' />
+          <InputRightAddon>USD</InputRightAddon>
         </InputGroup>
         <PaymentElement id="payment-element" options={paymentElementOptions} />
         {updateDonationAmountError &&
