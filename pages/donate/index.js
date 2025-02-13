@@ -1,4 +1,4 @@
-import { Box, Spinner } from "@chakra-ui/react";
+import { Box, Center, Spinner } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import MembershipPlan from "../../components/donate/MembershipPlan";
 import PagesHeader from "../../components/ui/PagesHeader";
@@ -80,17 +80,16 @@ export default function DonatePage(props) {
           mt={isMobile ? "30px" : "-150px"}
         >
           <Box display="flex" justifyContent="space-evenly" >
-            <Box bgColor="white" p="1rem" borderTopRadius="md">
+            <Center bgColor="white" p="1rem" borderTopRadius="md" minH="16rem" minW="10rem">
               {clientSecret ? (
                 <Elements options={options} stripe={stripePromise}>
-
                   {confirmed
                     ? <ConfirmationBanner />
                     : <CheckoutForm clientSecret={clientSecret} onConfirm={handleConfirmUpdate} />}
                 </Elements>
               )
                 : <Spinner color="blue.500" />}
-            </Box>
+            </Center>
           </Box>
 
         </Box>
