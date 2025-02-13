@@ -76,124 +76,30 @@ export default function DonatePage(props) {
         />
         <Box
           w={isMobile ? "auto" : "1000"}
-          h={isMobile ? "200px" : "666"}
           position="relative"
           mt={isMobile ? "30px" : "-150px"}
         >
-          <Image
-            src="/images/static/donate/donatevideo.png"
-            alt=".."
-            layout="fill"
-            objectFit="contain"
-          />
-        </Box>
-        <Box my="5%" mx={isMobile ? "4%" : "8%"} textAlign="justify">
-          <Box className="donate-block">
-            <p>
-              Educación Diversa would provide schools and community foundations
-              with access to free educational resources and the opportunity to
-              engage and learn from teachers in developed countries to implement
-              educative classes and projects about diverse topics in classrooms
-              and communities in underdeveloped countries. More specifically,
-              the organization provides free art-based diverse education in
-              three areas: human rights, elimination of violence and bullying,
-              and sexual and reproductive health.
-            </p>
-            <p>
-              So our main objective is to contribute to the development of
-              healthy, inclusive and respectful communities through educational
-              workshops that are fun and effective.
-            </p>
-            <p>
-              We need your help to finance the operations of the organisation
-              and fund projects like the development of our learning platform
-              and also small financial scholarships for people in need of
-              opportunities and income. Lower socio-economic community
-              foundations and organisations will always have access to this
-              platform for FREE and we hope that the education provided via the
-              platform will contribute to equality in education and the
-              information that people need to make good decisions about their
-              lives and bodies. By becoming a member of Educacion Diversa, you
-              can be part of this journey and help us help others. Lastly, we
-              hope to build the learning platform with a group of women who are
-              undergraduate coders from underdeveloped countries, in order for
-              them to learn as well as contribute to this bigger thing in
-              itself.
-            </p>
-            <h2>Why should you contribute</h2>
-            <p>
-              One thing our end users have in common is having each other, and
-              the power of learning is in the power of people too. You can
-              actually empower these kids through education. They just needed
-              someone to believe in them and give them opportunities.
-            </p>
-            <p>
-              We believe with education we can make a difference and we would
-              like for you to be part of this.
-            </p>
-            <h2>Membership Program</h2>
-            <p>
-              Educacion Diversa Inc. has been structured as an Incorporated
-              Association according to the legislation of the Australian Capital
-              Territory. In this system, a group of people decide to register as
-              an association and in return, it receives recognition as a legal
-              entity separate from its members, providing a mechanism for
-              associations to establish a corporate identity with limited
-              liability for its members and office bearers. Another important
-              characteristic of being an Incorporated Association is that all
-              proceeds from memberships or other activities undertaken by the
-              association can’t be distributed among its members as profits, but
-              rather need to be re-invested in the pursue of the goals and
-              objectives set out by the organisation.
-            </p>
-            <p>
-              Becoming a member of Educacion Diversa Inc. gives you the chance
-              to contribute to the on-going financial sustainability and
-              operations of the organisation, projects, campaigns and the
-              development of educational packages in the areas of diverse
-              topics. You also are given the chance to participate in the
-              strategic decision-making process of Educacion Diversa Inc and you
-              will be able to nominate yourself or other qualified members to
-              fill any vacancies advertised in the Board of Directors. Your
-              membership contribution also will help to create small scholarship
-              opportunities for academics and adolescents from underdeveloped
-              countries to ensure they also have access to opportunities to gain
-              experience in their sector but also to ensure they can be paid for
-              their contribution, as they really do need it to break the cycle
-              of poverty. Lastly, any surplus funding received will be used to
-              fund the development of learning resources to support our
-              educational activities on the ground.
-            </p>
-          </Box>
-        </Box>
+          <Box display="flex" justifyContent="space-evenly" >
+            <Box bgColor="white" p="1rem" borderTopRadius="md">
+              {clientSecret ? (
+                <Elements options={options} stripe={stripePromise}>
 
-        <Box id="donation-invite" display="flex" justifyContent="space-evenly">
-          <Box p="2em 0 3em 0" w={isMobile ? "90%" : "41%"}>
-            <Text fontSize="22px" textAlign="center" fontWeight="600">
-              If you want to make a donation and/or collaborate with us you can do it here
-            </Text>
+                  {confirmed
+                    ? <ConfirmationBanner />
+                    : <CheckoutForm clientSecret={clientSecret} onConfirm={handleConfirmUpdate} />}
+                </Elements>
+              )
+                : <Spinner color="blue.500" />}
+            </Box>
           </Box>
+
         </Box>
 
         {/* TODO: Trensform all the process of donation in a simple component not depending on the "Donation section",
 should be movable to the new website.  */}
-        <Box display="flex" justifyContent="space-evenly">
-          <div >
-            {clientSecret ? (
-              <Elements options={options} stripe={stripePromise}>
-
-                {confirmed
-                  ? <ConfirmationBanner />
-                  : <CheckoutForm clientSecret={clientSecret} onConfirm={handleConfirmUpdate} />}
-              </Elements>
-            )
-              : <Spinner color="blue.500" />}
-          </div>
-        </Box>
-
 
         <Box display="flex" justifyContent="space-evenly">
-          <Box p="2em 0 3em 0" w={isMobile ? "90%" : "41%"}>
+          <Box mt="2em" w={isMobile ? "90%" : "41%"}>
             <Text fontSize="22px" textAlign="center" fontWeight="600">
               Or you can contact us using the contact form on{" "}
               <Link href="/contact">
@@ -207,28 +113,6 @@ should be movable to the new website.  */}
               and select the option &quot;Want to make a donation&quot;.
             </Text>
           </Box>
-          {/* <Box width="45%" display="flex" flexDirection="column" alignItems="center">
-          <Text textAlign="center"><b>Click Here to get your Membership</b></Text>
-              <Link href="https://www.paypal.com/instantcommerce/checkout/RYZH4VQY7ETD2" passHref>
-              <a target="_blank" rel="noopener noreferrer">
-                <Box display="flex" flexDirection="column" >
-                  <Box width="180px" height="180px" position="relative">
-                    <Image alt="membership-program-payment-button" src="/images/static/donate/with-white-outline.png" layout="fill" />
-                  </Box>
-                </Box>
-                </a>
-              </Link>
-            </Box>  */}
-
-          {/* <Box width="45%" display="flex" flexDirection="column" alignItems="center">
-            <Text textAlign="center"><b>Scan this QR code to get your Membership</b></Text>
-
-                <Box display="flex" flexDirection="column" >
-                  <Box width="180px" height="180px" position="relative">
-                    <Image alt="membership-program-payment-button" src={`data:image/png;base64,${qrdata}`} layout="fill" />
-                  </Box>
-                </Box>
-            </Box> */}
         </Box>
 
         <Box>
@@ -236,25 +120,6 @@ should be movable to the new website.  */}
         </Box>
 
         <MembershipPlan isMobile={isMobile} />
-        {/* <Box display="flex" flexWrap="wrap" margin="auto" maxWidth="900px" p="50px 0">
-        <Box textAlign="center" w="100%">
-          <SectionsTitle title="Donate to a specific project" />
-        </Box>
-        {projs.map((project)=>{
-          return(
-              <Box key={project.id} m="35px 10px">
-                <Text textAlign="center"><b>{project.name}</b></Text>
-                <Text textAlign="justify">{project.content}</Text>
-                <Box display="flex" flexDirection={isMobile ?"column":"row"} m="25px" alignItems="center" justifyContent="center">
-                  
-                  
-                  <Box dangerouslySetInnerHTML={{__html: project.paypalBtnCode}}/>
-                    
-                </Box>
-              </Box>
-          )
-        })}
-      </Box> */}
       </Box>
     </>
   );
