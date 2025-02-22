@@ -1,0 +1,18 @@
+services:
+  web:
+    image: node:22.14.0-alpine3.21 # Use the official Node.js image
+    container_name: ed_website_dev
+    working_dir: /app # Set the working directory inside the container
+    volumes:
+      - ../:/app # Mount the project directory for live code updates (hot-reloading)
+      - ed_website_next_temp:/app/.next # Prevent overwriting node_modules
+    environment:
+      - NODE_ENV=development # Set environment to development
+    # env_file:
+    #   - .env                      # Load environment variables from a .env file
+    ports:
+      - '3000:3000' # Expose Next.js development server port
+    command: npm run dev # Start the development server with hot-reloading
+
+volumes:
+  ed_website_next_temp: # Declare the named volume

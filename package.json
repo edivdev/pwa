@@ -1,0 +1,32 @@
+{
+  "name": "ed-website-v2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "preinstall": "npx only-allow npm",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.24",
+    "react": "~18",
+    "react-dom": "~18"
+  },
+  "devDependencies": {
+    "@nx/eslint-plugin": "^20.4.6",
+    "@types/node": "^20.17.19",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.24",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "prettier": "^3.5.2",
+    "typescript": "^5"
+  }
+}
