@@ -1,13 +1,18 @@
-.PHONY: dev prod build-dev build-prod start-dev start-prod stop-dev stop-prod clean-dev clean-prod
+.PHONY: dev prod restart-dev build-prod start-dev start-prod stop-dev stop-prod clean-dev clean-prod
 
 # Define variables globally
 DOCKER_COMPOSE_COMMAND = docker compose -f docker/docker-compose
 
 # Development environment
-build-dev:
-	npm i
+restart-dev:
+	-rm -rf node_modules
+	npm install
+	$(DOCKER_COMPOSE_COMMAND).dev.yml up
 
 start-dev:
+	@if [ ! -d './node_modules' ]; then \
+		npm install; \
+	fi
 	$(DOCKER_COMPOSE_COMMAND).dev.yml up
 
 stop-dev:

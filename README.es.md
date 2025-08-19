@@ -30,8 +30,8 @@ Para inicializar el proyecto por primera vez, sigue estos pasos:
 1️⃣ **Compila e inicia el entorno de desarrollo:**
 
 ```sh
-make build-dev
 make start-dev
+## En caso de tener problemas con el inicio, intente 'make restart-dev'
 ```
 
 2️⃣ **Verifica que todo esté funcionando:**
@@ -58,12 +58,12 @@ El proyecto usa un **Makefile** para simplificar los comandos de Docker. A conti
 
 ### 🛠️ Entorno de Desarrollo
 
-| Comando          | Descripción                                                        |
-| ---------------- | ------------------------------------------------------------------ |
-| `make build-dev` | Construye el contenedor de desarrollo                              |
-| `make start-dev` | Inicia el entorno de desarrollo                                    |
-| `make stop-dev`  | Detiene el entorno de desarrollo                                   |
-| `make clean-dev` | Detiene y elimina contenedores, volúmenes y contenedores huérfanos |
+| Comando            | Descripción                                                        |
+| ------------------ | ------------------------------------------------------------------ |
+| `make restart-dev` | Reinstala dependencias e inicia el entorno de desarrollo           |
+| `make start-dev`   | Inicia el entorno de desarrollo                                    |
+| `make stop-dev`    | Detiene el entorno de desarrollo                                   |
+| `make clean-dev`   | Detiene y elimina contenedores, volúmenes y contenedores huérfanos |
 
 💡 **Nota:** La configuración de desarrollo permite actualizaciones en vivo del código sin necesidad de reconstruir el contenedor.
 
