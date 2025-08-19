@@ -1,0 +1,121 @@
+{
+  "root": true,
+  "ignorePatterns": ["/*", "!/src"],
+  "plugins": ["@nx", "eslint-plugin-import", "jsx-a11y", "react"],
+  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "overrides": [
+    {
+      "files": "*.json",
+      "parser": "jsonc-eslint-parser",
+      "rules": {}
+    },
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "curly": "error",
+        "max-len": [
+          "error",
+          {
+            "code": 140,
+            "ignoreUrls": true,
+            "ignoreStrings": true,
+            "ignoreTemplateLiterals": true,
+            "ignorePattern": "true"
+          }
+        ],
+        "quote-props": ["error", "as-needed"],
+        "arrow-body-style": "off",
+        "arrow-spacing": "error",
+        "keyword-spacing": "error",
+        "key-spacing": "error",
+        "no-trailing-spaces": "error",
+        "no-console": "warn",
+        "no-empty": "error",
+        "no-empty-function": "off",
+        "no-irregular-whitespace": "error",
+        "no-var": "error",
+        "space-before-function-paren": [
+          "error",
+          {
+            "anonymous": "always",
+            "named": "never",
+            "asyncArrow": "always"
+          }
+        ],
+        "space-infix-ops": "error",
+        "import/order": [
+          "warn",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              "parent",
+              "sibling",
+              "index",
+              "object"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "{next,react}{,/**}",
+                "group": "builtin",
+                "position": "before"
+              }
+            ],
+            "newlines-between": "always",
+            "pathGroupsExcludedImportTypes": ["builtin"],
+            "alphabetize": { "order": "asc", "caseInsensitive": false },
+            "warnOnUnassignedImports": true
+          }
+        ],
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-closing-tag-location": "error",
+        "react/jsx-one-expression-per-line": [
+          "error",
+          {
+            "allow": "single-child"
+          }
+        ],
+        "react/jsx-curly-spacing": [
+          "error",
+          {
+            "when": "always",
+            "children": true
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nx/typescript"],
+      "rules": {
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-empty-interface": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-var-requires": "error",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_",
+            "ignoreRestSiblings": true
+          }
+        ],
+        "@typescript-eslint/explicit-function-return-type": [
+          "warn",
+          {
+            "allowExpressions": true,
+            "allowTypedFunctionExpressions": true,
+            "allowHigherOrderFunctions": true
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {}
+    }
+  ]
+}

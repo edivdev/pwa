@@ -1,0 +1,12 @@
+services:
+  web:
+    container_name: ed_website_prod
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.prod
+    environment:
+      - NODE_ENV=production
+    ports:
+      - '3000:3000'
+    # env_file:
+    #   - .env
