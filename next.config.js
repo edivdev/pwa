@@ -12,4 +12,8 @@ module.exports = {
     contactFormTemplate: process.env.CONTACT_FORM_TEMPLATE,
     backendUrl: process.env.BACKEND_URL,
   },
+  experimental: {
+    workerThreads: false,
+    cpus: 1
+  }
 };
