@@ -63,9 +63,13 @@ export async function getStaticProps(context) {
   const { params } = context;
   const { slug } = params;
 
-  const blogs = await getBlogs();
+  const blogs = await getBlogs() || [];
 
   const blogEntry = blogs.filter((blog) => blog.attributes.slug === slug);
+
+  if (!blogEntry.length) {
+    return { notFound: true };
+  }
 
   return {
     props: {
