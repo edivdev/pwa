@@ -31,8 +31,8 @@ To initialize the project for the first time, follow these steps:
 1️⃣ **Build and start the development environment:**
 
 ```sh
-make build-dev
 make start-dev
+## In case you find issues starting try 'make restart-dev'
 ```
 
 2️⃣ **Check that everything is running:**
@@ -59,12 +59,12 @@ The project uses a **Makefile** to simplify Docker commands. Below are the avail
 
 ### 🛠️ Development Environment
 
-| Command          | Description                                                    |
-| ---------------- | -------------------------------------------------------------- |
-| `make build-dev` | Builds the development container                               |
-| `make start-dev` | Starts the development environment                             |
-| `make stop-dev`  | Stops the development environment                              |
-| `make clean-dev` | Stops and removes containers, volumes, and orphaned containers |
+| Command            | Description                                                    |
+| ------------------ | -------------------------------------------------------------- |
+| `make restart-dev` | Reinstall dependencies and starts the development environment  |
+| `make start-dev`   | Starts the development environment                             |
+| `make stop-dev`    | Stops the development environment                              |
+| `make clean-dev`   | Stops and removes containers, volumes, and orphaned containers |
 
 💡 **Note:** The development setup allows live code updates without rebuilding the container.
 
