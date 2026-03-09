@@ -102,6 +102,7 @@ export default function ProjectDetail(props) {
           subtitle={subtitle}
           documents={resources}
           contentDownload={contentDownload}
+          showing_form_pledge={showing_form_pledge}
         />
       </>
     );
@@ -129,6 +130,7 @@ export default function ProjectDetail(props) {
           subtitle={subtitle}
           documents={resources}
           contentDownload={contentDownload}
+          showing_form_pledge={showing_form_pledge}
         />
         {/* <ProjectFooter featuredProjects={featuredProjects} /> */}
       </>
