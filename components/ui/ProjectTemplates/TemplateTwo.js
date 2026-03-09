@@ -5,6 +5,7 @@ import Image from "next/image";
 import Sdg from "./Sdg";
 import ProjectResources from "../../project/ProjectResources";
 import ProjectSlider from "../../project/ProjectSlider";
+import ShortPetitionForm from "../../petition/short-petition-form";
 
 const sortSdg = (goals) => {
   return goals.sort((a, b) => a.id - b.id);
@@ -26,6 +27,7 @@ export default function TemplateTwo({
   subtitle,
   documents,
   contentDownload,
+  showing_form_pledge
 }) {
   const principalImage =
     campaignPicture.data === null ? null : campaignPicture.data;
@@ -65,8 +67,8 @@ export default function TemplateTwo({
           <Box bg="" display="flex" flexWrap="wrap" mt="15px">
             {sustainable_dev_goals.data.length > 0
               ? sortSdg(sustainable_dev_goals.data).map((sdvEl) => (
-                  <Sdg key={sdvEl.id} sdg={sdvEl} isMobile={isMobile} />
-                ))
+                <Sdg key={sdvEl.id} sdg={sdvEl} isMobile={isMobile} />
+              ))
               : null}
           </Box>
         </Box>
@@ -77,8 +79,8 @@ export default function TemplateTwo({
           flexDirection="column"
           minW="156px"
           justifyContent="center"
-          //downloads block
-          // bg="red"
+        //downloads block
+        // bg="red"
         >
           <Box>
             {contentDownload.data !== null && (
@@ -103,6 +105,9 @@ export default function TemplateTwo({
                 textAlign="justify"
                 dangerouslySetInnerHTML={{ __html: campaignText }}
               />
+              {showing_form_pledge ? (
+                <ShortPetitionForm isMobile={isMobile} />
+              ) : null}
             </Box>
           )}
 

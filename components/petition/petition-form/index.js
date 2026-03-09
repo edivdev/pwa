@@ -16,7 +16,7 @@ import Button from "../../ui/Button";
 import axios from "axios";
 
 export default function PetitionForm({ isMobile }) {
-  const [sentEmail, setSentEmail] = useState("");
+  const [_, setSentEmail] = useState("");
   const [hasSubmit, setHasSubmit] = useState(false);
   const [triedToSubmit, setTriedToSubmit] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
