@@ -16,6 +16,8 @@
     "@emotion/styled": "^11.6.0",
     "@fontsource/just-another-hand": "^4.5.3",
     "@fontsource/quicksand": "^4.5.1",
+    "@stripe/react-stripe-js": "^2.8.1",
+    "@stripe/stripe-js": "^4.9.0",
     "axios": "^0.24.0",
     "framer-motion": "^5.5.5",
     "next": "^12.2.2",
@@ -27,6 +29,7 @@
     "react-slick": "^0.28.1",
     "sharp": "^0.32.1",
     "slick-carousel": "^1.8.1",
+    "stripe": "^17.3.1",
     "yet-another-react-lightbox": "^3.10.0"
   },
   "devDependencies": {
