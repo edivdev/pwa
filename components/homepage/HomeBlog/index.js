@@ -42,12 +42,10 @@ export default function HomeBlog({ featuredBlogs }) {
         {isMobile && <MobileBlogLayout featuredBlogs={featuredBlogs} />}
         <Box py="20px">
           <Link href="/blog">
-            <a>
               <Button variant="blue" size="banner">
                 See More
               </Button>
-            </a>
-          </Link>
+            </Link>
         </Box>
       </Box>
     </Box>

@@ -43,15 +43,13 @@ const Header = () => {
       <Flex w="" justifyContent="center" p="0 1em" bg="white">
         <Box position="relative" width="68px" height="68px">
           <Link href="/">
-            <a>
               <Image
                 src="/images/static/assets/logo.png"
                 layout="fill"
                 objectFit="contain"
                 alt="logo"
               />
-            </a>
-          </Link>
+            </Link>
         </Box>
       </Flex>
       <Box

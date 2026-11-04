@@ -14,17 +14,15 @@ export default function Connect() {
           <Link
             passHref
             href="https://www.linkedin.com/in/educación-diversa-making-change"
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <a rel="noopener noreferrer" target="_blank">
-              <FaLinkedin />
-            </a>
+            <FaLinkedin />
           </Link>
         </Box>
         <Box fontSize="30px">
-          <Link passHref href="https://www.instagram.com/educaciondiversa/">
-            <a rel="noopener noreferrer" target="_blank">
-              <FaInstagramSquare />
-            </a>
+          <Link passHref href="https://www.instagram.com/educaciondiversa/" rel="noopener noreferrer" target="_blank">
+            <FaInstagramSquare />
           </Link>
         </Box>
       </Flex>

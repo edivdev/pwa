@@ -55,21 +55,19 @@ export default function BlogTile({ blog }) {
 
       <Box px="5%" h="36px" border="4px solid white">
         <Link href={`/blog/${slug}`}>
-          <a>
-            <Flex>
-              <Box mr="5px">
-                <Image
-                  src="/images/static/assets/right-arrow.png"
-                  width={28}
-                  height={20}
-                  alt="Read Article"
-                />
-              </Box>
-              <Text variant="readArticle" color={theme.colors.main.blue}>
-                Read Article
-              </Text>
-            </Flex>
-          </a>
+          <Flex>
+            <Box mr="5px">
+              <Image
+                src="/images/static/assets/right-arrow.png"
+                width={28}
+                height={20}
+                alt="Read Article"
+              />
+            </Box>
+            <Text variant="readArticle" color={theme.colors.main.blue}>
+              Read Article
+            </Text>
+          </Flex>
         </Link>
       </Box>
     </Flex>

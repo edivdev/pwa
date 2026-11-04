@@ -15,7 +15,6 @@ export default function ProjectTile({ project, isMobile = false }) {
   return (
     <Box w="250px" h="400px" m="10px">
       <Link href={`/projects/${project.attributes.slug}`}>
-        <a>
           <Flex
             w={isMobile ? "250px" : "100%"}
             h="393px"
@@ -56,8 +55,8 @@ export default function ProjectTile({ project, isMobile = false }) {
                     .attributes.url || ""
                 }
                 alt="icon"
-                width="50px"
-                height="50px"
+                width={50}
+                height={50}
               />
             </Flex>
             <Box m="10px auto 0" w="70%" textAlign="center" h="72px">
@@ -66,8 +65,7 @@ export default function ProjectTile({ project, isMobile = false }) {
               </Text>
             </Box>
           </Flex>
-        </a>
-      </Link>
+        </Link>
     </Box>
   );
 }

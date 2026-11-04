@@ -53,12 +53,10 @@ export default function MenuItem({
   return (
     <Box {...props}>
       <Link href={`/${element.slug}`}>
-        <a>
           <Text variant="menuItem" color="black" fontWeight="bold" as="h5">
             {element.name}
           </Text>
-        </a>
-      </Link>
+        </Link>
     </Box>
   );
 }

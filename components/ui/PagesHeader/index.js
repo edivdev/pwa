@@ -92,15 +92,13 @@ export default function PagesHeader({ background, ...props }) {
 
       {ctaTarget && cta ? (
         <Link href={ctaTarget}>
-          <a>
             <Button
               variant="fillBlue"
               size={isMobile ? "mobileLongButton" : "longbutton"}
             >
               {cta}
             </Button>
-          </a>
-        </Link>
+          </Link>
       ) : null}
     </Box>
   );

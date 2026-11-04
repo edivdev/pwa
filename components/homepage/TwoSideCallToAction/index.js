@@ -66,11 +66,9 @@ export default function TwoSideCallToAction({
           {cta && (
             <Box textAlign={isMobile ? "center" : ""}>
               <Link href={ctaTarget}>
-                <a>
-                  <Button variant="blue" size="banner">
-                    {cta}
-                  </Button>
-                </a>
+                <Button variant="blue" size="banner">
+                  {cta}
+                </Button>
               </Link>
             </Box>
           )}

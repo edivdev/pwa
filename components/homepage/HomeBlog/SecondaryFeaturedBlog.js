@@ -38,7 +38,6 @@ export default function SecondaryFeaturedBlog({ classname, blogEntry }) {
 
         <Box px="5%">
           <Link href={`/blog/${blogEntry?.attributes.slug}`}>
-            <a>
               <Flex>
                 <Box mr="5px" fontSize="10px">
                   <Image
@@ -52,8 +51,7 @@ export default function SecondaryFeaturedBlog({ classname, blogEntry }) {
                   Read Article
                 </Text>
               </Flex>
-            </a>
-          </Link>
+            </Link>
         </Box>
       </Flex>
     </article>

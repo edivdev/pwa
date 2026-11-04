@@ -38,7 +38,6 @@ export default function FirstFeaturedBlog({ blogEntry }) {
 
         <Box px="5%">
           <Link href={`/blog/${blogEntry?.attributes.slug}`}>
-            <a>
               <Flex>
                 <Box mr="5px">
                   <Image
@@ -57,8 +56,7 @@ export default function FirstFeaturedBlog({ blogEntry }) {
                   Read Article
                 </Text>
               </Flex>
-            </a>
-          </Link>
+            </Link>
         </Box>
       </Flex>
     </article>

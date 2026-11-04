@@ -63,21 +63,19 @@ export function MobileBlogLayout({ featuredBlogs }) {
 
           <Box px="5%">
             <Link href={`/blog/${blog.attributes.slug}`}>
-              <a>
-                <Flex>
-                  <Box mr="5px">
-                    <Image
-                      src="/images/static/assets/right-arrow.png"
-                      width={28}
-                      height={20}
-                      alt="Read Article"
-                    />
-                  </Box>
-                  <Text variant="readArticle" color={theme.colors.main.blue}>
-                    Read Article
-                  </Text>
-                </Flex>
-              </a>
+              <Flex>
+                <Box mr="5px">
+                  <Image
+                    src="/images/static/assets/right-arrow.png"
+                    width={28}
+                    height={20}
+                    alt="Read Article"
+                  />
+                </Box>
+                <Text variant="readArticle" color={theme.colors.main.blue}>
+                  Read Article
+                </Text>
+              </Flex>
             </Link>
           </Box>
         </Flex>

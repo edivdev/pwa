@@ -101,11 +101,9 @@ should be movable to the new website.  */}
             <Text fontSize="22px" textAlign="center" fontWeight="600">
               You can contact us using the contact form on{" "}
               <Link href="/contact">
-                <a>
-                  <span style={{ color: "#658AC8", fontWeight: "900" }}>
-                    Contact Page
-                  </span>
-                </a>
+                <span style={{ color: "#658AC8", fontWeight: "900" }}>
+                  Contact Page
+                </span>
               </Link>{" "}
               {""}
               and select the option &quot;Want to make a donation&quot;.

@@ -14,10 +14,10 @@ export default function Contact() {
         Hybrid community of volunteers from around the world
       </Text>
       <Link href="mailto:info@educaciondiversa.com">
-        <a>
-          <Button variant="buttonFooter">info@educaciondiversa.com</Button>
-        </a>
-      </Link>
+          <Button variant="buttonFooter">
+            info@educaciondiversa.com
+          </Button>
+        </Link>
     </Flex>
   );
 }

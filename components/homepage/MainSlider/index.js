@@ -47,27 +47,20 @@ const MainSlider = () => {
           </Box>
           <Flex
             flexDirection={isMobile ? "column" : "row"}
+            justifyContent={"start"}
             wrap="wrap"
             w="100%"
           >
-            <Box minW="50%">
-              <Link href="/projects/gender-equality-education">
-                <a>
-                  <Box maxWidth="200px" mt="10px">
-                    <Button variant="red" mr={isMobile ? "" : "20px"}>
-                      Sign the Gender Equality Petition
-                    </Button>
-                  </Box>
-                </a>
+            <Box mt="10px">
+              <Link href="/projects/gender-equality-education" >
+                <Button variant="red" mr={isMobile ? "" : "20px"}>
+                  Sign the Gender Equality Petition
+                </Button>
               </Link>
             </Box>
-            <Box>
+            <Box mt="10px">
               <Link href="/donate">
-                <a>
-                  <Box maxWidth="200px" mt="10px">
-                    <Button variant="transparent">DONATE</Button>
-                  </Box>
-                </a>
+                <Button variant="transparent">DONATE</Button>
               </Link>
             </Box>
           </Flex>
